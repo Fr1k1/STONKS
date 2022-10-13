@@ -16,10 +16,11 @@ Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra
 
 ## Projektni tim
 
-Ime i prezime | E-mail adresa (FOI) | JMBAG | Github korisničko ime
-------------  | ------------------- | ----- | ---------------------
-Ime i prezime | mojaadresa@foi.hr | 000000000 | githubuser
-Ime i prezime | ... | ... | ...
+Ime i prezime | E-mail adresa (FOI) | JMBAG | Github korisničko ime | Seminarska grupa
+------------  | ------------------- | ----- | --------------------- | ----------------
+Martin Friščić | mfriscic20@student.foi.hr | 0016147114 | mfriscic20 | G02
+Ana škarica | askarica20@student.foi.hr | 0016147364 | askarica20 | G02
+Filip Milohanović | fmilohan20@student.foi.hr | 0016148270 | fmilohan20 | G02
 
 ## Opis domene
 Umjesto ovih uputa opišite domenu ili problem koji pokrivate vašim  projektom. Domena može biti proizvoljna, ali obratite pozornost da sukladno ishodima učenja, domena omogući primjenu zahtijevanih koncepata kako je to navedeno u sljedećem poglavlju. Priložite odgovarajuće skice gdje je to prikladno.
