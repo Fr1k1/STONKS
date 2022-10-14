@@ -4,10 +4,11 @@
 Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra raditi na ovom projektu. Mentor će vam slati povratne informacije kroz sekciju Discussions također dostupnu na GitHubu vašeg projekta. -->
 
 # Naziv projekta
-<h2>STONKS - Super tehnologija optimnalih novčanih kasa Stonks</h2>
+<h2>STONKS - Super tehnologija optimalno naprednih kasa Stonks</h2>
 
-
-![unknown](https://user-images.githubusercontent.com/100709665/195930932-2527b6a0-7b7a-42c3-b193-611d9e03868a.png)
+<p align="center">
+<img src="https://i.ytimg.com/vi/if-2M3K1tqk/maxresdefault.jpg" height="400px" width="600px"  > </img>
+</p>
 
 ## Projektni tim
 
