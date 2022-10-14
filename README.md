@@ -22,16 +22,16 @@ Naša aplikacija olakšava i modernizira proces prodaje cvijeća na način da im
 
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
-F01 | Login i registracija | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | 
-F02 |Prikaz računa | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | 
-F03 | Prikaz svih artikala | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | 
-F04 | Dodavanje narudžbe (računa) | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | 
-F05 | Generiranje PDF izvještaja (računa) | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | 
-F06 | Prikaz prometa X i Z | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | 
-F07 | Dodavanje novog artikla | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | 
-F08 | Unos primke | Za slanje maila...| 
-F09 | Generiranje izvještaja za dnevni promet (promet zbirno po artiklima) |  | 
-F10 | Slanje maila vlasniku  | Na kraju dana se šalje mail vlasniku unutar kojeg se nalaze dnevni promet Z i izvještaj zbirno po artiklima | 
+F01 | Login i registracija | Sustav će omogućiti registraciju novih zaposlenika u sustav i prijava postojećih. Postoje dvije uloge koje imaju različite ovlasti. Samo vvoditelj može unositi primku i nove artikle  | 
+F02 |Prikaz računa | Sustav će omogućiti prikaz svih računa za određeni datum| 
+F03 | Prikaz svih artikala | Sustav će omogućiti prikaz svih artikla i popratih inforamcija poput salda i jedinične cijene | 
+F04 | Dodavanje narudžbe (računa) | Sustav će omogučiti izradu računa, na račun se može dodati više stavki| 
+F05 | Generiranje PDF izvještaja (računa) | Sustav će omogućiti da se računi prikažu u PDF formatu | 
+F06 | Prikaz prometa X i Z | Sustav će omogućiti prikaz dnevnog prometa po datumuX i finalnog dnevnog prometaZ| 
+F07 | Dodavanje novog artikla | Sustav će omogućiti korisniku tipa voditelj dodavanje novog artikla i popratih informacija poput cijene  | 
+F08 | Unos primke | Sustav će omogućiti korisniku tipa voditelj unos primke u sustav| 
+F09 | Generiranje izvještaja za dnevni promet (promet zbirno po artiklima) | Sustav će omogućiti korisniku da generira dnevni izvještaj o prometu za svaki artikl | 
+F10 | Slanje maila vlasniku  |Sustav će omogućiti da se na kraju dana vlasniku i/ili voditelju pošalje dnevni promet Z  i promet zbirno po artiklima na mail| 
 
 
 ## Tehnologije i oprema
