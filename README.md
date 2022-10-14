@@ -44,5 +44,6 @@ ALATI:
 <li>Visual Paradigm</li>
 <li>Visual Studio (WinForms tehnologija) </li>
 <li> Microsoft SSMS</li>
+<li>.NET Framework</li>
 </ul>
 
