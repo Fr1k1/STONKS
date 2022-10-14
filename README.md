@@ -14,8 +14,8 @@ Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra
 
 Ime i prezime | E-mail adresa (FOI) | JMBAG | Github korisničko ime | 
 ------------  | ------------------- | ----- | --------------------- | 
-Martin Friščić | mfriscic20@student.foi.hr | 0016147114 | mfriscic20 
 Ana škarica | askarica20@student.foi.hr | 0016147364 | askarica20 
+Martin Friščić | mfriscic20@student.foi.hr | 0016147114 | mfriscic20 
 Filip Milohanović | fmilohano20@student.foi.hr | 0016148270 | fmilohano20 
 
 ## Opis domene
@@ -27,7 +27,7 @@ Naša aplikacija reprezentirat će softversko rješenje za sve tipične aspekte 
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
 F01 | Login i registracija | Sustav će omogućiti registraciju novih zaposlenika u sustav i prijavu postojećih. Postoje dvije uloge koje imaju različite ovlasti. Samo voditelj može unositi primku i nove artikle  | Martin Friščić
-F02 |Prikaz računa | Sustav će omogućiti prikaz svih računa, može se filtrirati za određeni datum i po zaposleniku| Ana Škarica
+F02 | Prikaz računa | Sustav će omogućiti prikaz svih računa, može se filtrirati za određeni datum i po zaposleniku| Ana Škarica
 F03 | Prikaz svih artikala | Sustav će omogućiti prikaz svih artikla i popratih inforamcija poput salda i jedinične cijene | Martin Friščić
 F04 | Izrada računa (narudžbe) | Sustav će omogučiti izradu računa, na račun se može dodati više stavki| Filip Milohanović
 F05 | Generiranje PDF izvještaja (računa) | Sustav će omogućiti da se računi prikažu u PDF formatu | Martin Friščić
