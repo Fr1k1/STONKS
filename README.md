@@ -4,7 +4,10 @@
 Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra raditi na ovom projektu. Mentor će vam slati povratne informacije kroz sekciju Discussions također dostupnu na GitHubu vašeg projekta. -->
 
 # Naziv projekta
-Awesome cash register
+<h2>STONKS - Super tehnologija optimnalih novčanih kasa Stonks</h2>
+
+
+![unknown](https://user-images.githubusercontent.com/100709665/195930932-2527b6a0-7b7a-42c3-b193-611d9e03868a.png)
 
 ## Projektni tim
 
@@ -16,7 +19,7 @@ Filip Milohanović | fmilohano20@student.foi.hr | 0016148270 | fmilohano20
 
 ## Opis domene
 <!--Umjesto ovih uputa opišite domenu ili problem koji pokrivate vašim  projektom. Domena može biti proizvoljna, ali obratite pozornost da sukladno ishodima učenja, domena omogući primjenu zahtijevanih koncepata kako je to navedeno u sljedećem poglavlju. Priložite odgovarajuće skice gdje je to prikladno.-->
-Naša aplikacija olakšava i modernizira proces prodaje cvijeća na način da ima funkcionalnost maloprodajne kase.
+Naša aplikacija reprezentirat će softversko rješenje za sve tipične aspekte maloprodajne blagajne koja je svim prodavačima potrebna. 
 ## Specifikacija projekta
 <!--Umjesto ovih uputa opišite zahtjeve za funkcionalnošću programskog proizvoda. Pobrojite osnovne funkcionalnosti i za svaku naznačite ime odgovornog člana tima. Opišite buduću arhitekturu programskog proizvoda. Obratite pozornost da bi arhitektura trebala biti višeslojna s odvojenom (dislociranom) bazom podatka koju ćemo za vas mi pripremiti i dati vam pristup naknadno. Također uzmite u obzir da bi svaki član tima treba biti odgovorana za otprilike 3 funkcionalnosti, te da bi opterećenje članova tima trebalo biti ujednačeno. Priložite odgovarajuće dijagrame i skice gdje je to prikladno. Funkcionalnosti sustava bobrojite u tablici ispod koristeći predložak koji slijedi:-->
 
