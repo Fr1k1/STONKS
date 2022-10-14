@@ -22,16 +22,16 @@ Naša aplikacija olakšava i modernizira proces prodaje cvijeća na način da im
 
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
-F01 | Login i registracija | Sustav će omogućiti registraciju novih zaposlenika u sustav i prijava postojećih. Postoje dvije uloge koje imaju različite ovlasti. Samo vvoditelj može unositi primku i nove artikle  | 
-F02 |Prikaz računa | Sustav će omogućiti prikaz svih računa za određeni datum| 
-F03 | Prikaz svih artikala | Sustav će omogućiti prikaz svih artikla i popratih inforamcija poput salda i jedinične cijene | 
-F04 | Dodavanje narudžbe (računa) | Sustav će omogučiti izradu računa, na račun se može dodati više stavki| 
-F05 | Generiranje PDF izvještaja (računa) | Sustav će omogućiti da se računi prikažu u PDF formatu | 
-F06 | Prikaz prometa X i Z | Sustav će omogućiti prikaz dnevnog prometa po datumuX i finalnog dnevnog prometaZ| 
-F07 | Dodavanje novog artikla | Sustav će omogućiti korisniku tipa voditelj dodavanje novog artikla i popratih informacija poput cijene  | 
-F08 | Unos primke | Sustav će omogućiti korisniku tipa voditelj unos primke u sustav| 
-F09 | Generiranje izvještaja za dnevni promet (promet zbirno po artiklima) | Sustav će omogućiti korisniku da generira dnevni izvještaj o prometu za svaki artikl | 
-F10 | Slanje maila vlasniku  |Sustav će omogućiti da se na kraju dana vlasniku i/ili voditelju pošalje dnevni promet Z  i promet zbirno po artiklima na mail| 
+F01 | Login i registracija | Sustav će omogućiti registraciju novih zaposlenika u sustav i prijavu postojećih. Postoje dvije uloge koje imaju različite ovlasti. Samo voditelj može unositi primku i nove artikle  | Martin Friščić
+F02 |Prikaz računa | Sustav će omogućiti prikaz svih računa, može se filtrirati za određeni datum i po zaposleniku| Ana Škarica
+F03 | Prikaz svih artikala | Sustav će omogućiti prikaz svih artikla i popratih inforamcija poput salda i jedinične cijene | Martin Friščić
+F04 | Izrada računa (narudžbe) | Sustav će omogučiti izradu računa, na račun se može dodati više stavki| Filip Milohanović
+F05 | Generiranje PDF izvještaja (računa) | Sustav će omogućiti da se računi prikažu u PDF formatu | Martin Friščić
+F06 | Prikaz prometa X i Z | Sustav će omogućiti prikaz dnevnog prometa X i finalnog dnevnog prometa Z prema paramtrima poput datuma| Filip Milohanović
+F07 | Dodavanje novog artikla | Sustav će omogućiti korisniku tipa voditelj dodavanje novog artikla i popratih informacija poput cijene  | Ana Škarica
+F08 | Unos primke | Sustav će omogućiti korisniku tipa voditelj unos primke u sustav| Filip Milohanović
+F09 | Generiranje izvještaja za dnevni promet (promet zbirno po artiklima) | Sustav će omogućiti korisniku da generira dnevni izvještaj o prometu za svaki artikl | Ana Škarica
+F10 | Slanje maila vlasniku  |Sustav će omogućiti da se na kraju dana vlasniku i/ili voditelju pošalje dnevni promet Z  i promet zbirno po artiklima na mail| Filip Milohanović
 
 
 ## Tehnologije i oprema
@@ -43,5 +43,6 @@ ALATI:
 <li>Github</li>
 <li>Visual Paradigm</li>
 <li>Visual Studio (WinForms tehnologija) </li>
+<li> Microsoft SSMS</li>
 </ul>
 
