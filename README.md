@@ -14,7 +14,7 @@ Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra
 
 Ime i prezime | E-mail adresa (FOI) | JMBAG | Github korisničko ime | 
 ------------  | ------------------- | ----- | --------------------- | 
-Ana škarica | askarica20@student.foi.hr | 0016147364 | askarica20 
+Ana Škarica | askarica20@student.foi.hr | 0016147364 | askarica20 
 Martin Friščić | mfriscic20@student.foi.hr | 0016147114 | mfriscic20 
 Filip Milohanović | fmilohano20@student.foi.hr | 0016148270 | fmilohano20 
 
