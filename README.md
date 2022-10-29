@@ -26,18 +26,16 @@ Naša aplikacija reprezentirat će softversko rješenje za sve tipične aspekte 
 
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
-F01 | Login i registracija | Sustav će omogućiti registraciju novih zaposlenika u sustav i prijavu postojećih. Postoje dvije uloge koje imaju različite ovlasti. Samo voditelj može unositi primku i nove artikle  | Martin Friščić
-F02 | Prikaz računa | Sustav će omogućiti prikaz svih računa, može se filtrirati za određeni datum i po zaposleniku| Ana Škarica
-F03 | Prikaz svih artikala | Sustav će omogućiti prikaz svih artikla i popratih inforamcija poput salda i jedinične cijene | Martin Friščić
-F04 | Izrada računa (narudžbe) | Sustav će omogučiti izradu računa, na račun se može dodati više stavki| Filip Milohanović
-F05 | Generiranje PDF izvještaja (računa) | Sustav će omogućiti da se računi prikažu u PDF formatu | Martin Friščić
-F06 | Prikaz prometa X i Z | Sustav će omogućiti prikaz dnevnog prometa X i finalnog dnevnog prometa Z prema paramtrima poput datuma| Filip Milohanović
-F07 | Dodavanje novog artikla | Sustav će omogućiti korisniku tipa voditelj dodavanje novog artikla i popratih informacija poput cijene  | Ana Škarica
-F08 | Unos primke | Sustav će omogućiti korisniku tipa voditelj unos primke u sustav| Filip Milohanović
-F09 | Generiranje izvještaja za dnevni promet (promet zbirno po artiklima) | Sustav će omogućiti korisniku da generira dnevni izvještaj o prometu za svaki artikl | Ana Škarica
+F01 | Login i registracija | Sustav će omogućiti registraciju novih zaposlenika u sustav i prijavu postojećih. Postoje dvije uloge koje imaju različite ovlasti. Samo voditelj može unositi primku i nove artikle. Postojati će neki od naprednijih koncepata prijave (face recognition, NFC ili nešto slično)  | Martin Friščić
+F02 | Prikaz računa | Sustav će omogućiti prikaz svih računa, mogućnost naprednih pretraživanja, filtriranje i grafički prikaz statistike računa.| Ana Škarica
+F03 | Prikaz svih artikala | Sustav će omogućiti prikaz svih artikala, mogućnost naprednih pretraživanja, filtriranje i grafički prikaz statistike artikala.  | Martin Friščić
+F04 | Izrada računa (narudžbe) | Sustav će omogućiti izradu računa, na račun se može dodati više stavki. Biti će omogućeno dodavanje stavki na račun pomoću bar koda ili QR koda s artikla| Ana Škarica
+F05 | Generiranje PDF izvještaja (računa) | Sustav će omogućiti da se računi prikažu u PDF formatu. Ispis će biti dizajniran te će izgledati kao račun u stvarnom životu. | Ana Škarica
+F06 | Storniranje računa | Sustav će omogućiti storniranje postojećih računa. | Filip Milohanović
+F07 | Dodavanje novog artikla | Sustav će omogućiti korisniku tipa voditelj dodavanje novog artikla te će se moći koristiti QR kod ili barkod sa artikla koji je prethodno generiran  | Martin Friščić
+F08 | Unos primke | Sustav će omogućiti korisniku tipa voditelj kreiranje primke. Dodavanje stavki biti će moguće pomoću QR koda ili barkoda. Također će se moći vidjeti jednostavan prikaz popisa primki| Filip Milohanović
+F09 | Generiranje izvještaja za dnevni promet | Sustav će omogućiti korisniku da generira dnevni izvještaj o prometu prema primjeru iz stvarnog života | Filip Milohanović
 F10 | Slanje maila vlasniku  |Sustav će omogućiti da se na kraju dana vlasniku i/ili voditelju pošalje dnevni promet Z  i promet zbirno po artiklima na mail| Filip Milohanović
-
-
 ## Tehnologije i oprema
 <!--Umjesto ovih uputa jasno popišite sve tehnologije, alate i opremu koju ćete koristiti pri implementaciji vašeg rješenja. Projekti se razvijaju koristeći .Net Framework ili .Net Core razvojne okvire, a vrsta projekta može biti WinForms, WPF i UWP. Ne zaboravite planirati korištenje tehnologija u aktivnostima kao što su projektni menadžment ili priprema dokumentacije. Tehnologije koje ćete koristiti bi trebale biti javno dostupne, a ako ih ne budemo obrađivali na vježbama u vašoj dokumentaciji ćete morati navesti način preuzimanja, instaliranja i korištenja onih tehnologija koje su neopbodne kako bi se vaš programski proizvod preveo i pokrenuo. Pazite da svi alati koje ćete koristiti moraju imati odgovarajuću licencu. Što se tiče zahtjeva nastavnika, obvezno je koristiti git i GitHub za verzioniranje programskog koda, GitHub Wiki za pisanje tehničke i projektne dokumentacije, a projektne zadatke je potrebno planirati i pratiti u alatu GitHub projects. -->
 
