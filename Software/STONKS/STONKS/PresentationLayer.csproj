@@ -56,15 +56,93 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDnevniPromet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDnevniPromet.Designer.cs">
+      <DependentUpon>FrmDnevniPromet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDodavanjeSlike.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDodavanjeSlike.Designer.cs">
+      <DependentUpon>FrmDodavanjeSlike.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmIzradaRacuna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmIzradaRacuna.Designer.cs">
+      <DependentUpon>FrmIzradaRacuna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmOdaberiArtiklZaDodatiRucno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmOdaberiArtiklZaDodatiRucno.Designer.cs">
+      <DependentUpon>FrmOdaberiArtiklZaDodatiRucno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmPopisRacuna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPopisRacuna.Designer.cs">
+      <DependentUpon>FrmPopisRacuna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmPrepoznavanjeLica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPrepoznavanjeLica.Designer.cs">
+      <DependentUpon>FrmPrepoznavanjeLica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmPrikazArtikala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPrikazArtikala.Designer.cs">
+      <DependentUpon>FrmPrikazArtikala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmRegistracija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmRegistracija.Designer.cs">
+      <DependentUpon>FrmRegistracija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmUnosArtikla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUnosArtikla.Designer.cs">
+      <DependentUpon>FrmUnosArtikla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmUnosDobavljaca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUnosDobavljaca.Designer.cs">
+      <DependentUpon>FrmUnosDobavljaca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmUnosPrimke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUnosPrimke.Designer.cs">
+      <DependentUpon>FrmUnosPrimke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmUnosRacuna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUnosRacuna.Designer.cs">
+      <DependentUpon>FrmUnosRacuna.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
