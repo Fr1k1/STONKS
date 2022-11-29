@@ -91,7 +91,7 @@
             this.btnUnosDobavljaca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.btnUnosDobavljaca.Location = new System.Drawing.Point(587, 75);
             this.btnUnosDobavljaca.Name = "btnUnosDobavljaca";
-            this.btnUnosDobavljaca.Size = new System.Drawing.Size(111, 80);
+            this.btnUnosDobavljaca.Size = new System.Drawing.Size(117, 80);
             this.btnUnosDobavljaca.TabIndex = 3;
             this.btnUnosDobavljaca.Text = "UNOS DOBAVLJACA";
             this.btnUnosDobavljaca.UseVisualStyleBackColor = false;
