@@ -49,7 +49,7 @@
             this.btnUnosArtikla.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.btnUnosArtikla.Location = new System.Drawing.Point(68, 75);
             this.btnUnosArtikla.Name = "btnUnosArtikla";
-            this.btnUnosArtikla.Size = new System.Drawing.Size(93, 80);
+            this.btnUnosArtikla.Size = new System.Drawing.Size(140, 119);
             this.btnUnosArtikla.TabIndex = 0;
             this.btnUnosArtikla.Text = "UNOS ARTIKLA";
             this.btnUnosArtikla.UseVisualStyleBackColor = false;
@@ -63,7 +63,7 @@
             this.btnUnosRacuna.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.btnUnosRacuna.Location = new System.Drawing.Point(241, 75);
             this.btnUnosRacuna.Name = "btnUnosRacuna";
-            this.btnUnosRacuna.Size = new System.Drawing.Size(93, 80);
+            this.btnUnosRacuna.Size = new System.Drawing.Size(140, 119);
             this.btnUnosRacuna.TabIndex = 1;
             this.btnUnosRacuna.Text = "UNOS RACUNA";
             this.btnUnosRacuna.UseVisualStyleBackColor = false;
@@ -77,7 +77,7 @@
             this.btnUnosPrimke.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.btnUnosPrimke.Location = new System.Drawing.Point(414, 75);
             this.btnUnosPrimke.Name = "btnUnosPrimke";
-            this.btnUnosPrimke.Size = new System.Drawing.Size(93, 80);
+            this.btnUnosPrimke.Size = new System.Drawing.Size(140, 119);
             this.btnUnosPrimke.TabIndex = 2;
             this.btnUnosPrimke.Text = "UNOS PRIMKE";
             this.btnUnosPrimke.UseVisualStyleBackColor = false;
@@ -91,7 +91,7 @@
             this.btnUnosDobavljaca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.btnUnosDobavljaca.Location = new System.Drawing.Point(587, 75);
             this.btnUnosDobavljaca.Name = "btnUnosDobavljaca";
-            this.btnUnosDobavljaca.Size = new System.Drawing.Size(117, 80);
+            this.btnUnosDobavljaca.Size = new System.Drawing.Size(140, 119);
             this.btnUnosDobavljaca.TabIndex = 3;
             this.btnUnosDobavljaca.Text = "UNOS DOBAVLJACA";
             this.btnUnosDobavljaca.UseVisualStyleBackColor = false;
@@ -105,7 +105,7 @@
             this.btnDnevniPromet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.btnDnevniPromet.Location = new System.Drawing.Point(587, 222);
             this.btnDnevniPromet.Name = "btnDnevniPromet";
-            this.btnDnevniPromet.Size = new System.Drawing.Size(93, 80);
+            this.btnDnevniPromet.Size = new System.Drawing.Size(140, 119);
             this.btnDnevniPromet.TabIndex = 7;
             this.btnDnevniPromet.Text = "DNEVNI PROMET";
             this.btnDnevniPromet.UseVisualStyleBackColor = false;
@@ -119,7 +119,7 @@
             this.btnPopisPrimki.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.btnPopisPrimki.Location = new System.Drawing.Point(414, 222);
             this.btnPopisPrimki.Name = "btnPopisPrimki";
-            this.btnPopisPrimki.Size = new System.Drawing.Size(93, 80);
+            this.btnPopisPrimki.Size = new System.Drawing.Size(140, 119);
             this.btnPopisPrimki.TabIndex = 6;
             this.btnPopisPrimki.Text = "POPIS PRIMKI";
             this.btnPopisPrimki.UseVisualStyleBackColor = false;
@@ -133,7 +133,7 @@
             this.btnPopisArtikala.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.btnPopisArtikala.Location = new System.Drawing.Point(241, 222);
             this.btnPopisArtikala.Name = "btnPopisArtikala";
-            this.btnPopisArtikala.Size = new System.Drawing.Size(93, 80);
+            this.btnPopisArtikala.Size = new System.Drawing.Size(140, 119);
             this.btnPopisArtikala.TabIndex = 5;
             this.btnPopisArtikala.Text = "POPIS ARTIKALA";
             this.btnPopisArtikala.UseVisualStyleBackColor = false;
@@ -147,7 +147,7 @@
             this.btnPopisRacuna.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
             this.btnPopisRacuna.Location = new System.Drawing.Point(68, 222);
             this.btnPopisRacuna.Name = "btnPopisRacuna";
-            this.btnPopisRacuna.Size = new System.Drawing.Size(93, 80);
+            this.btnPopisRacuna.Size = new System.Drawing.Size(140, 119);
             this.btnPopisRacuna.TabIndex = 4;
             this.btnPopisRacuna.Text = "POPIS RACUNA";
             this.btnPopisRacuna.UseVisualStyleBackColor = false;
@@ -157,10 +157,10 @@
             // 
             this.btnOdjava.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.btnOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOdjava.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOdjava.Location = new System.Drawing.Point(68, 380);
+            this.btnOdjava.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnOdjava.Location = new System.Drawing.Point(68, 378);
             this.btnOdjava.Name = "btnOdjava";
-            this.btnOdjava.Size = new System.Drawing.Size(112, 27);
+            this.btnOdjava.Size = new System.Drawing.Size(108, 36);
             this.btnOdjava.TabIndex = 8;
             this.btnOdjava.Text = "ODJAVA";
             this.btnOdjava.UseVisualStyleBackColor = false;
@@ -206,7 +206,6 @@
             this.Controls.Add(this.btnUnosRacuna);
             this.Controls.Add(this.btnUnosArtikla);
             this.Name = "FrmPocetniIzbornik";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pocetni izbornik";
             this.ResumeLayout(false);
             this.PerformLayout();
