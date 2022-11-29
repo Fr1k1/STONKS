@@ -88,10 +88,10 @@
             // 
             this.btnCameraOn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.btnCameraOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCameraOn.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnCameraOn.Location = new System.Drawing.Point(347, 171);
+            this.btnCameraOn.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCameraOn.Location = new System.Drawing.Point(360, 170);
             this.btnCameraOn.Name = "btnCameraOn";
-            this.btnCameraOn.Size = new System.Drawing.Size(129, 38);
+            this.btnCameraOn.Size = new System.Drawing.Size(167, 68);
             this.btnCameraOn.TabIndex = 25;
             this.btnCameraOn.Text = "UKLJUCI KAMERU";
             this.btnCameraOn.UseVisualStyleBackColor = false;
@@ -130,10 +130,10 @@
             // 
             this.btnAddPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.btnAddPicture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddPicture.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddPicture.Location = new System.Drawing.Point(702, 254);
+            this.btnAddPicture.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPicture.Location = new System.Drawing.Point(680, 243);
             this.btnAddPicture.Name = "btnAddPicture";
-            this.btnAddPicture.Size = new System.Drawing.Size(129, 38);
+            this.btnAddPicture.Size = new System.Drawing.Size(167, 68);
             this.btnAddPicture.TabIndex = 29;
             this.btnAddPicture.Text = "DODAJ FOTOGRAFIJU";
             this.btnAddPicture.UseVisualStyleBackColor = false;

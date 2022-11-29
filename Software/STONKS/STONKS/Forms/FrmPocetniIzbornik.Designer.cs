@@ -157,10 +157,10 @@
             // 
             this.btnOdjava.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.btnOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOdjava.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnOdjava.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOdjava.Location = new System.Drawing.Point(68, 380);
             this.btnOdjava.Name = "btnOdjava";
-            this.btnOdjava.Size = new System.Drawing.Size(93, 27);
+            this.btnOdjava.Size = new System.Drawing.Size(112, 27);
             this.btnOdjava.TabIndex = 8;
             this.btnOdjava.Text = "ODJAVA";
             this.btnOdjava.UseVisualStyleBackColor = false;
@@ -206,6 +206,7 @@
             this.Controls.Add(this.btnUnosRacuna);
             this.Controls.Add(this.btnUnosArtikla);
             this.Name = "FrmPocetniIzbornik";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pocetni izbornik";
             this.ResumeLayout(false);
             this.PerformLayout();

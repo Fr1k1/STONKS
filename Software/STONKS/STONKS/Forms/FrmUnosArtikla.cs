@@ -31,5 +31,10 @@ namespace STONKS.Forms
         {
             cbArticleType.Size = new Size(316, 120);
         }
+
+        private void btnAddArtikl_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

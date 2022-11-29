@@ -65,7 +65,7 @@
             this.txtUsername.Location = new System.Drawing.Point(242, 170);
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(309, 31);
+            this.txtUsername.Size = new System.Drawing.Size(339, 31);
             this.txtUsername.TabIndex = 2;
             this.txtUsername.Text = "Korisnicko ime";
             this.txtUsername.Click += new System.EventHandler(this.txtUsername_Click);
@@ -78,7 +78,7 @@
             this.txtPassword.Location = new System.Drawing.Point(242, 234);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(309, 31);
+            this.txtPassword.Size = new System.Drawing.Size(339, 31);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.Text = "Lozinka";
             this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
@@ -88,10 +88,10 @@
             // 
             this.btnSignIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.btnSignIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSignIn.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSignIn.Location = new System.Drawing.Point(242, 325);
+            this.btnSignIn.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignIn.Location = new System.Drawing.Point(227, 325);
             this.btnSignIn.Name = "btnSignIn";
-            this.btnSignIn.Size = new System.Drawing.Size(129, 38);
+            this.btnSignIn.Size = new System.Drawing.Size(174, 38);
             this.btnSignIn.TabIndex = 4;
             this.btnSignIn.Text = "Prijavi se";
             this.btnSignIn.UseVisualStyleBackColor = false;
@@ -101,11 +101,11 @@
             // 
             this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnRegister.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnRegister.Location = new System.Drawing.Point(422, 325);
+            this.btnRegister.Location = new System.Drawing.Point(407, 325);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(129, 38);
+            this.btnRegister.Size = new System.Drawing.Size(174, 38);
             this.btnRegister.TabIndex = 5;
             this.btnRegister.Text = "Registracija";
             this.btnRegister.UseVisualStyleBackColor = false;

@@ -67,10 +67,10 @@
             // 
             this.txtCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtCode.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCode.Location = new System.Drawing.Point(245, 86);
+            this.txtCode.Location = new System.Drawing.Point(196, 86);
             this.txtCode.Multiline = true;
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(309, 31);
+            this.txtCode.Size = new System.Drawing.Size(368, 31);
             this.txtCode.TabIndex = 13;
             this.txtCode.Text = "SIFRA";
             // 
@@ -78,10 +78,10 @@
             // 
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtName.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(245, 159);
+            this.txtName.Location = new System.Drawing.Point(196, 159);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(309, 31);
+            this.txtName.Size = new System.Drawing.Size(368, 31);
             this.txtName.TabIndex = 14;
             this.txtName.Text = "NAZIV";
             // 
@@ -89,10 +89,10 @@
             // 
             this.txtUnitPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtUnitPrice.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnitPrice.Location = new System.Drawing.Point(245, 232);
+            this.txtUnitPrice.Location = new System.Drawing.Point(196, 232);
             this.txtUnitPrice.Multiline = true;
             this.txtUnitPrice.Name = "txtUnitPrice";
-            this.txtUnitPrice.Size = new System.Drawing.Size(309, 31);
+            this.txtUnitPrice.Size = new System.Drawing.Size(368, 31);
             this.txtUnitPrice.TabIndex = 15;
             this.txtUnitPrice.Text = "JEDINICNA CIJENA";
             // 
@@ -100,10 +100,10 @@
             // 
             this.txtBarcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtBarcode.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBarcode.Location = new System.Drawing.Point(245, 305);
+            this.txtBarcode.Location = new System.Drawing.Point(196, 305);
             this.txtBarcode.Multiline = true;
             this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Size = new System.Drawing.Size(309, 31);
+            this.txtBarcode.Size = new System.Drawing.Size(368, 31);
             this.txtBarcode.TabIndex = 16;
             this.txtBarcode.Text = "BARKOD";
             // 
@@ -111,10 +111,10 @@
             // 
             this.txtPDV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtPDV.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPDV.Location = new System.Drawing.Point(245, 378);
+            this.txtPDV.Location = new System.Drawing.Point(196, 378);
             this.txtPDV.Multiline = true;
             this.txtPDV.Name = "txtPDV";
-            this.txtPDV.Size = new System.Drawing.Size(309, 31);
+            this.txtPDV.Size = new System.Drawing.Size(368, 31);
             this.txtPDV.TabIndex = 17;
             this.txtPDV.Text = "PDV";
             // 
@@ -123,9 +123,9 @@
             this.cbArticleType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.cbArticleType.Font = new System.Drawing.Font("Azonix", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbArticleType.FormattingEnabled = true;
-            this.cbArticleType.Location = new System.Drawing.Point(245, 451);
+            this.cbArticleType.Location = new System.Drawing.Point(196, 451);
             this.cbArticleType.Name = "cbArticleType";
-            this.cbArticleType.Size = new System.Drawing.Size(309, 24);
+            this.cbArticleType.Size = new System.Drawing.Size(368, 24);
             this.cbArticleType.TabIndex = 18;
             this.cbArticleType.Text = "VRSTA ARTIKLA";
             this.cbArticleType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -134,23 +134,24 @@
             // 
             this.btnAddArtikl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.btnAddArtikl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddArtikl.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddArtikl.Location = new System.Drawing.Point(245, 512);
+            this.btnAddArtikl.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddArtikl.Location = new System.Drawing.Point(196, 512);
             this.btnAddArtikl.Name = "btnAddArtikl";
-            this.btnAddArtikl.Size = new System.Drawing.Size(129, 38);
+            this.btnAddArtikl.Size = new System.Drawing.Size(178, 38);
             this.btnAddArtikl.TabIndex = 19;
             this.btnAddArtikl.Text = "DODAJ ARTIKL";
             this.btnAddArtikl.UseVisualStyleBackColor = false;
+            this.btnAddArtikl.Click += new System.EventHandler(this.btnAddArtikl_Click);
             // 
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnBack.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.btnBack.Location = new System.Drawing.Point(432, 512);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(122, 38);
+            this.btnBack.Size = new System.Drawing.Size(132, 38);
             this.btnBack.TabIndex = 20;
             this.btnBack.Text = "POVRATAK";
             this.btnBack.UseVisualStyleBackColor = false;

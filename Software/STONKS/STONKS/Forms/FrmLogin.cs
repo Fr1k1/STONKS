@@ -1,4 +1,5 @@
-﻿using System;
+﻿using STONKS.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,13 @@ namespace STONKS
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
+            if (txtUsername.Text == "test" && txtPassword.Text == "test")
+            {
 
+
+                FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+                frmPocetniIzbornik.ShowDialog();
+            }
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)

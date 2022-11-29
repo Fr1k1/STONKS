@@ -45,20 +45,20 @@
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnBack.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.btnBack.Location = new System.Drawing.Point(12, 372);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(122, 38);
+            this.btnBack.Size = new System.Drawing.Size(136, 38);
             this.btnBack.TabIndex = 30;
             this.btnBack.Text = "POVRATAK";
             this.btnBack.UseVisualStyleBackColor = false;
             // 
             // pbCamera
             // 
-            this.pbCamera.Location = new System.Drawing.Point(501, 21);
+            this.pbCamera.Location = new System.Drawing.Point(423, 21);
             this.pbCamera.Name = "pbCamera";
-            this.pbCamera.Size = new System.Drawing.Size(275, 229);
+            this.pbCamera.Size = new System.Drawing.Size(353, 229);
             this.pbCamera.TabIndex = 31;
             this.pbCamera.TabStop = false;
             // 
@@ -77,7 +77,7 @@
             // 
             this.btnAddPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.btnAddPicture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddPicture.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAddPicture.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddPicture.Location = new System.Drawing.Point(647, 372);
             this.btnAddPicture.Name = "btnAddPicture";
             this.btnAddPicture.Size = new System.Drawing.Size(129, 38);
@@ -89,10 +89,10 @@
             // 
             this.btnRecognize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.btnRecognize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecognize.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnRecognize.Location = new System.Drawing.Point(501, 372);
+            this.btnRecognize.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecognize.Location = new System.Drawing.Point(423, 372);
             this.btnRecognize.Name = "btnRecognize";
-            this.btnRecognize.Size = new System.Drawing.Size(129, 38);
+            this.btnRecognize.Size = new System.Drawing.Size(207, 38);
             this.btnRecognize.TabIndex = 34;
             this.btnRecognize.Text = "PREPOZNAJ LICE";
             this.btnRecognize.UseVisualStyleBackColor = false;
@@ -102,7 +102,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.label3.Location = new System.Drawing.Point(550, 266);
+            this.label3.Location = new System.Drawing.Point(519, 265);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(173, 13);
             this.label3.TabIndex = 35;
@@ -123,7 +123,7 @@
             // 
             this.txtRecognizedUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtRecognizedUser.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRecognizedUser.Location = new System.Drawing.Point(539, 309);
+            this.txtRecognizedUser.Location = new System.Drawing.Point(505, 306);
             this.txtRecognizedUser.Multiline = true;
             this.txtRecognizedUser.Name = "txtRecognizedUser";
             this.txtRecognizedUser.Size = new System.Drawing.Size(203, 29);
@@ -145,7 +145,7 @@
             // 
             this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirm.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnConfirm.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.Location = new System.Drawing.Point(161, 212);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(129, 38);
@@ -170,6 +170,7 @@
             this.Controls.Add(this.pbCamera);
             this.Controls.Add(this.btnBack);
             this.Name = "FrmPrepoznavanjeLica";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prepoznavanje lica";
             ((System.ComponentModel.ISupportInitialize)(this.pbCamera)).EndInit();
             this.ResumeLayout(false);
