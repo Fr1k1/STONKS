@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace STONKS.Forms
 {
-    public partial class FrmUnosDobavljaca : Form
+    public partial class FrmPopisPrimki : Form
     {
-        public FrmUnosDobavljaca()
+        public FrmPopisPrimki()
         {
             InitializeComponent();
         }
-
-
     }
 }

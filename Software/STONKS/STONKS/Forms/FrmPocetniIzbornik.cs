@@ -60,8 +60,8 @@ namespace STONKS.Forms
 
         private void btnPopisPrimki_Click(object sender, EventArgs e)
         {
-            FrmUnosPrimke frmUnosPrimke = new FrmUnosPrimke();
-            frmUnosPrimke.ShowDialog();
+            FrmPopisPrimki frmPopisPrimki = new FrmPopisPrimki();
+            frmPopisPrimki.ShowDialog();
         }
 
         private void btnDnevniPromet_Click(object sender, EventArgs e)
