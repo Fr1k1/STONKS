@@ -151,8 +151,44 @@
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDnevniPromet.resx">
+      <DependentUpon>FrmDnevniPromet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDodavanjeSlike.resx">
+      <DependentUpon>FrmDodavanjeSlike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmIzradaRacuna.resx">
+      <DependentUpon>FrmIzradaRacuna.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmOdaberiArtiklZaDodatiRucno.resx">
+      <DependentUpon>FrmOdaberiArtiklZaDodatiRucno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPocetniIzbornik.resx">
+      <DependentUpon>FrmPocetniIzbornik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPopisRacuna.resx">
+      <DependentUpon>FrmPopisRacuna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPrepoznavanjeLica.resx">
+      <DependentUpon>FrmPrepoznavanjeLica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPrikazArtikala.resx">
+      <DependentUpon>FrmPrikazArtikala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmRegistracija.resx">
+      <DependentUpon>FrmRegistracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUnosArtikla.resx">
+      <DependentUpon>FrmUnosArtikla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUnosDobavljaca.resx">
+      <DependentUpon>FrmUnosDobavljaca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUnosPrimke.resx">
+      <DependentUpon>FrmUnosPrimke.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmUnosRacuna.resx">
       <DependentUpon>FrmUnosRacuna.cs</DependentUpon>

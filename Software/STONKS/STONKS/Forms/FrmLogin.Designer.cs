@@ -61,7 +61,7 @@
             // txtUsername
             // 
             this.txtUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.txtUsername.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtUsername.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(242, 170);
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
@@ -74,7 +74,7 @@
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.txtPassword.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtPassword.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(242, 234);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
@@ -82,6 +82,7 @@
             this.txtPassword.TabIndex = 3;
             this.txtPassword.Text = "Lozinka";
             this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // btnSignIn
             // 

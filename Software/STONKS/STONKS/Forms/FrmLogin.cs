@@ -47,5 +47,10 @@ namespace STONKS
         {
             SetText(txtPassword);
         }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
