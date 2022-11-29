@@ -16,5 +16,36 @@ namespace STONKS
         {
             InitializeComponent();
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SetText(TextBox textBox)
+        {
+            if (textBox.Text != "")
+                textBox.Text = "";
+        }
+
+        private void txtUsername_Click(object sender, EventArgs e)
+        {
+            SetText(txtUsername);
+        }
+
+        private void txtPassword_Click(object sender, EventArgs e)
+        {
+            SetText(txtPassword);
+        }
     }
 }
