@@ -21,7 +21,7 @@ namespace STONKS.Forms
         {
 
             Hide();
-            FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             frmPocetniIzbornik.ShowDialog();
             Close();
         }

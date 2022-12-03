@@ -20,7 +20,7 @@ namespace STONKS.Forms
         private void btnBack_Click(object sender, EventArgs e)
         {
             Hide();
-            FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             frmPocetniIzbornik.ShowDialog();
             Close();
         }

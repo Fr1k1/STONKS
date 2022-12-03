@@ -19,9 +19,9 @@ namespace STONKS.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            FrmLogin frmLogin = new FrmLogin();
+            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             Hide();
-            frmLogin.ShowDialog();
+            frmPocetniIzbornik.ShowDialog();
             Close();
         }
     }
