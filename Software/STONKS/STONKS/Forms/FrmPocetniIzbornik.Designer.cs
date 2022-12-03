@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnUnosArtikla = new System.Windows.Forms.Button();
             this.btnUnosRacuna = new System.Windows.Forms.Button();
             this.btnDnevniPromet = new System.Windows.Forms.Button();
             this.btnPopisArtikala = new System.Windows.Forms.Button();
@@ -38,27 +37,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnUnosArtikla
-            // 
-            this.btnUnosArtikla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.btnUnosArtikla.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUnosArtikla.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUnosArtikla.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.btnUnosArtikla.Location = new System.Drawing.Point(68, 75);
-            this.btnUnosArtikla.Name = "btnUnosArtikla";
-            this.btnUnosArtikla.Size = new System.Drawing.Size(140, 119);
-            this.btnUnosArtikla.TabIndex = 0;
-            this.btnUnosArtikla.Text = "UNOS ARTIKLA";
-            this.btnUnosArtikla.UseVisualStyleBackColor = false;
-            this.btnUnosArtikla.Click += new System.EventHandler(this.btnUnosArtikla_Click);
-            // 
             // btnUnosRacuna
             // 
             this.btnUnosRacuna.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.btnUnosRacuna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUnosRacuna.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnUnosRacuna.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.btnUnosRacuna.Location = new System.Drawing.Point(241, 75);
+            this.btnUnosRacuna.Location = new System.Drawing.Point(143, 75);
             this.btnUnosRacuna.Name = "btnUnosRacuna";
             this.btnUnosRacuna.Size = new System.Drawing.Size(140, 119);
             this.btnUnosRacuna.TabIndex = 1;
@@ -100,7 +85,7 @@
             this.btnPopisRacuna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPopisRacuna.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnPopisRacuna.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.btnPopisRacuna.Location = new System.Drawing.Point(413, 75);
+            this.btnPopisRacuna.Location = new System.Drawing.Point(328, 75);
             this.btnPopisRacuna.Name = "btnPopisRacuna";
             this.btnPopisRacuna.Size = new System.Drawing.Size(140, 119);
             this.btnPopisRacuna.TabIndex = 4;
@@ -155,7 +140,6 @@
             this.Controls.Add(this.btnPopisArtikala);
             this.Controls.Add(this.btnPopisRacuna);
             this.Controls.Add(this.btnUnosRacuna);
-            this.Controls.Add(this.btnUnosArtikla);
             this.Name = "FrmPocetniIzbornik";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pocetni izbornik";
@@ -165,8 +149,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnUnosArtikla;
         private System.Windows.Forms.Button btnUnosRacuna;
         private System.Windows.Forms.Button btnDnevniPromet;
         private System.Windows.Forms.Button btnPopisArtikala;
