@@ -24,8 +24,12 @@ namespace STONKS.Forms
 
         private void btnUnosArtikla_Click(object sender, EventArgs e)
         {
+
+            Hide();
             FrmUnosArtikla frmUnosArtikla = new FrmUnosArtikla();
             frmUnosArtikla.ShowDialog();
+
+            Close();
         }
 
         private void btnUnosRacuna_Click(object sender, EventArgs e)
@@ -54,8 +58,13 @@ namespace STONKS.Forms
 
         private void btnPopisArtikala_Click(object sender, EventArgs e)
         {
-            FrmPrikazArtikala frmPrikazArtikala=new FrmPrikazArtikala();
+
+
+            Hide();
+            FrmPopisArtikala frmPrikazArtikala=new FrmPopisArtikala();
             frmPrikazArtikala.ShowDialog();
+
+            Close();
         }
 
         private void btnPopisPrimki_Click(object sender, EventArgs e)

@@ -53,6 +53,7 @@
             this.btnBack.TabIndex = 21;
             this.btnBack.Text = "POVRATAK";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pbCamera
             // 
@@ -154,6 +155,7 @@
             this.Controls.Add(this.pbCamera);
             this.Controls.Add(this.btnBack);
             this.Name = "FrmDodavanjeSlike";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodavanje fotografije";
             ((System.ComponentModel.ISupportInitialize)(this.pbCamera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAddPicture)).EndInit();

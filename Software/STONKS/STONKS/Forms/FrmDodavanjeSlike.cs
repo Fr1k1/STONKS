@@ -16,5 +16,14 @@ namespace STONKS.Forms
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+
+            Hide();
+            FrmPrepoznavanjeLica frmPrepoznavanjeLica = new FrmPrepoznavanjeLica();
+            frmPrepoznavanjeLica.ShowDialog();
+            Close();
+        }
     }
 }

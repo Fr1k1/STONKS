@@ -53,6 +53,7 @@
             this.btnBack.TabIndex = 30;
             this.btnBack.Text = "POVRATAK";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pbCamera
             // 
@@ -84,6 +85,7 @@
             this.btnAddPicture.TabIndex = 38;
             this.btnAddPicture.Text = "DODAVANJE FOTOGRAFIJE";
             this.btnAddPicture.UseVisualStyleBackColor = false;
+            this.btnAddPicture.Click += new System.EventHandler(this.btnAddPicture_Click);
             // 
             // btnRecognize
             // 
@@ -115,9 +117,10 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.label2.Location = new System.Drawing.Point(99, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(297, 19);
+            this.label2.Size = new System.Drawing.Size(254, 19);
             this.label2.TabIndex = 33;
-            this.label2.Text = "| DODAVANJE FOTOGRAFIJE";
+            this.label2.Text = "| PREPOZNAVANJE LICA";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtRecognizedUser
             // 
@@ -152,6 +155,7 @@
             this.btnConfirm.TabIndex = 41;
             this.btnConfirm.Text = "POTVRDI";
             this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // FrmPrepoznavanjeLica
             // 

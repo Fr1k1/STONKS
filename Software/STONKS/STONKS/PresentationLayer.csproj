@@ -111,11 +111,11 @@
     <Compile Include="Forms\FrmPrepoznavanjeLica.Designer.cs">
       <DependentUpon>FrmPrepoznavanjeLica.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmPrikazArtikala.cs">
+    <Compile Include="Forms\FrmPopisArtikala.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmPrikazArtikala.Designer.cs">
-      <DependentUpon>FrmPrikazArtikala.cs</DependentUpon>
+    <Compile Include="Forms\FrmPopisArtikala.Designer.cs">
+      <DependentUpon>FrmPopisArtikala.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmRegistracija.cs">
       <SubType>Form</SubType>
@@ -176,8 +176,8 @@
     <EmbeddedResource Include="Forms\FrmPrepoznavanjeLica.resx">
       <DependentUpon>FrmPrepoznavanjeLica.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmPrikazArtikala.resx">
-      <DependentUpon>FrmPrikazArtikala.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmPopisArtikala.resx">
+      <DependentUpon>FrmPopisArtikala.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmRegistracija.resx">
       <DependentUpon>FrmRegistracija.cs</DependentUpon>

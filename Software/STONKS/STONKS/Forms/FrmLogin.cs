@@ -26,8 +26,15 @@ namespace STONKS
         private void btnSignIn_Click(object sender, EventArgs e)
         {
 
-                FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
-                frmPocetniIzbornik.ShowDialog();
+            Hide();
+
+                /*FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+                frmPocetniIzbornik.ShowDialog();*/
+
+            FrmPrepoznavanjeLica frmPrepoznavanje = new FrmPrepoznavanjeLica();
+            frmPrepoznavanje.ShowDialog();
+
+            Close();
             
         }
 
@@ -55,6 +62,14 @@ namespace STONKS
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            FrmRegistracija frmRegistracija = new FrmRegistracija();
+            Hide();
+            frmRegistracija.ShowDialog();
+            Close();
         }
     }
 }

@@ -52,6 +52,7 @@
             this.btnBack.TabIndex = 30;
             this.btnBack.Text = "POVRATAK";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnRegister
             // 

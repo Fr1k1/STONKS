@@ -1,6 +1,6 @@
 ﻿namespace STONKS.Forms
 {
-    partial class FrmPrikazArtikala
+    partial class FrmPopisArtikala
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dgvRacuni = new System.Windows.Forms.DataGridView();
             this.cboNaziv = new System.Windows.Forms.ComboBox();
             this.txtPretraziArtikle = new System.Windows.Forms.TextBox();
@@ -125,24 +125,25 @@
             this.btnBack.TabIndex = 34;
             this.btnBack.Text = "Povratak";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // chartArticles
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartArticles.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartArticles.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chartArticles.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartArticles.Legends.Add(legend3);
             this.chartArticles.Location = new System.Drawing.Point(159, 371);
             this.chartArticles.Name = "chartArticles";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartArticles.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartArticles.Series.Add(series3);
             this.chartArticles.Size = new System.Drawing.Size(474, 300);
             this.chartArticles.TabIndex = 37;
             this.chartArticles.Text = "chart1";
             // 
-            // FrmPrikazArtikala
+            // FrmPopisArtikala
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -156,9 +157,9 @@
             this.Controls.Add(this.txtPretraziArtikle);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FrmPrikazArtikala";
+            this.Name = "FrmPopisArtikala";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Prikaz artikala";
+            this.Text = "Popis artikala";
             ((System.ComponentModel.ISupportInitialize)(this.dgvRacuni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartArticles)).EndInit();
             this.ResumeLayout(false);

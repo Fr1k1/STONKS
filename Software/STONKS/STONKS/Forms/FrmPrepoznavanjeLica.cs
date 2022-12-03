@@ -16,5 +16,38 @@ namespace STONKS.Forms
         {
             InitializeComponent();
         }
+
+        private void btnAddPicture_Click(object sender, EventArgs e)
+        {
+            FrmDodavanjeSlike frmDodavanjeSlike=new FrmDodavanjeSlike();
+            Hide();
+            frmDodavanjeSlike.ShowDialog();
+            Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Hide();
+
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
+
+            Close();
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            Hide();
+
+            FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+            frmPocetniIzbornik.ShowDialog();
+
+            Close();
+        }
     }
 }

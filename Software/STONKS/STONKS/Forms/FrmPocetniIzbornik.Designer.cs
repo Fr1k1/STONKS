@@ -206,6 +206,7 @@
             this.Controls.Add(this.btnUnosRacuna);
             this.Controls.Add(this.btnUnosArtikla);
             this.Name = "FrmPocetniIzbornik";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pocetni izbornik";
             this.ResumeLayout(false);
             this.PerformLayout();

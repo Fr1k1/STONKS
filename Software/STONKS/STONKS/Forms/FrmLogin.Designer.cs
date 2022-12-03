@@ -109,6 +109,7 @@
             this.btnRegister.TabIndex = 5;
             this.btnRegister.Text = "Registracija";
             this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // FrmLogin
             // 
@@ -123,6 +124,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prijava";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);

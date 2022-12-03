@@ -155,6 +155,7 @@
             this.btnBack.TabIndex = 20;
             this.btnBack.Text = "POVRATAK";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // FrmUnosArtikla
             // 
@@ -173,6 +174,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmUnosArtikla";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos artikla";
             this.Load += new System.EventHandler(this.FrmUnosArtikla_Load);
             this.ResumeLayout(false);

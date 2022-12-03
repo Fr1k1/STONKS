@@ -10,18 +10,20 @@ using System.Windows.Forms;
 
 namespace STONKS.Forms
 {
-    public partial class FrmRegistracija : Form
+    public partial class FrmPopisArtikala : Form
     {
-        public FrmRegistracija()
+        public FrmPopisArtikala()
         {
             InitializeComponent();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            FrmLogin frmLogin = new FrmLogin();
             Hide();
-            frmLogin.ShowDialog();
+
+            FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+            frmPocetniIzbornik.ShowDialog();
+
             Close();
         }
     }
