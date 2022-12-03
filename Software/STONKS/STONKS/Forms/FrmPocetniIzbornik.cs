@@ -17,10 +17,7 @@ namespace STONKS.Forms
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnUnosArtikla_Click(object sender, EventArgs e)
         {
@@ -34,26 +31,34 @@ namespace STONKS.Forms
 
         private void btnUnosRacuna_Click(object sender, EventArgs e)
         {
+            Hide();
             FrmUnosRacuna frmUnosRacuna = new FrmUnosRacuna();
             frmUnosRacuna.ShowDialog();
+            Close();
         }
 
         private void btnUnosPrimke_Click(object sender, EventArgs e)
         {
+            Hide();
             FrmUnosPrimke frmUnosPrimke = new FrmUnosPrimke();
             frmUnosPrimke.ShowDialog();
+            Close();
         }
 
         private void btnUnosDobavljaca_Click(object sender, EventArgs e)
         {
+            Hide();
             FrmUnosDobavljaca frmUnosDobavljaca = new FrmUnosDobavljaca();
             frmUnosDobavljaca.ShowDialog();
+            Close();
         }
 
         private void btnPopisRacuna_Click(object sender, EventArgs e)
         {
+            Hide();
             FrmPopisRacuna frmPopisRacuna = new FrmPopisRacuna();
             frmPopisRacuna.ShowDialog();
+            Close();
         }
 
         private void btnPopisArtikala_Click(object sender, EventArgs e)
@@ -61,7 +66,7 @@ namespace STONKS.Forms
 
 
             Hide();
-            FrmPopisArtikala frmPrikazArtikala=new FrmPopisArtikala();
+            FrmPopisArtikala frmPrikazArtikala = new FrmPopisArtikala();
             frmPrikazArtikala.ShowDialog();
 
             Close();
@@ -69,14 +74,18 @@ namespace STONKS.Forms
 
         private void btnPopisPrimki_Click(object sender, EventArgs e)
         {
+            Hide();
             FrmPopisPrimki frmPopisPrimki = new FrmPopisPrimki();
             frmPopisPrimki.ShowDialog();
+            Close();
         }
 
         private void btnDnevniPromet_Click(object sender, EventArgs e)
         {
+            Hide();
             FrmDnevniPromet frmDnevniPromet = new FrmDnevniPromet();
             frmDnevniPromet.ShowDialog();
+            Close();
         }
     }
 }

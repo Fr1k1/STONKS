@@ -136,6 +136,7 @@
             this.btnPovratak.TabIndex = 29;
             this.btnPovratak.Text = "Povratak";
             this.btnPovratak.UseVisualStyleBackColor = false;
+            this.btnPovratak.Click += new System.EventHandler(this.btnPovratak_Click);
             // 
             // btnGenerirajPdf
             // 

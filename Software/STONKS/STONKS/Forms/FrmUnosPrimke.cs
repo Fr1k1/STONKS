@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Hierarchy;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,14 @@ namespace STONKS.Forms
         public FrmUnosPrimke()
         {
             InitializeComponent();
+        }
+
+        private void btnPovratak_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+            frmPocetniIzbornik.ShowDialog();
+            Close();
         }
     }
 }

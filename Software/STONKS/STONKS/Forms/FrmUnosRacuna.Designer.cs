@@ -87,6 +87,7 @@
             this.btnOdustani.TabIndex = 16;
             this.btnOdustani.Text = "Odustani";
             this.btnOdustani.UseVisualStyleBackColor = false;
+            this.btnOdustani.Click += new System.EventHandler(this.btnOdustani_Click);
             // 
             // btnIzbrisiArtikl
             // 

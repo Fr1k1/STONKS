@@ -127,6 +127,7 @@
             this.btnPovratak.TabIndex = 24;
             this.btnPovratak.Text = "POVRATAK";
             this.btnPovratak.UseVisualStyleBackColor = false;
+            this.btnPovratak.Click += new System.EventHandler(this.btnPovratak_Click);
             // 
             // txtUkupno
             // 

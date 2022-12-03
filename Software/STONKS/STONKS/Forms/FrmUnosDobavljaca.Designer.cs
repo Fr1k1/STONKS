@@ -71,6 +71,7 @@
             this.btnBack.TabIndex = 23;
             this.btnBack.Text = "POVRATAK";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnAddDobavljac
             // 

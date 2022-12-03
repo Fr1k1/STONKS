@@ -17,6 +17,12 @@ namespace STONKS.Forms
             InitializeComponent();
         }
 
-
+        private void btnPovratak_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+            frmPocetniIzbornik.ShowDialog();
+            Close();
+        }
     }
 }
