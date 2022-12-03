@@ -222,7 +222,7 @@
             this.Controls.Add(this.btnUnosArtikla);
             this.Name = "FrmPocetniIzbornikVoditelj";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pocetni izbornik";
+            this.Text = "Pocetni izbornik voditelja";
             this.ResumeLayout(false);
             this.PerformLayout();
 
