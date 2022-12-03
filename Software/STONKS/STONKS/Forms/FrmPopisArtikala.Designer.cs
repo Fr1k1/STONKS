@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dgvRacuni = new System.Windows.Forms.DataGridView();
             this.cboNaziv = new System.Windows.Forms.ComboBox();
             this.txtPretraziArtikle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnStorniraj = new System.Windows.Forms.Button();
+            this.btnAddArticle = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.chartArticles = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRacuni)).BeginInit();
@@ -100,18 +100,18 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "STONKS ";
             // 
-            // btnStorniraj
+            // btnAddArticle
             // 
-            this.btnStorniraj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            this.btnStorniraj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStorniraj.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStorniraj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnStorniraj.Location = new System.Drawing.Point(597, 719);
-            this.btnStorniraj.Name = "btnStorniraj";
-            this.btnStorniraj.Size = new System.Drawing.Size(187, 38);
-            this.btnStorniraj.TabIndex = 36;
-            this.btnStorniraj.Text = "DODAJ ARTIKL";
-            this.btnStorniraj.UseVisualStyleBackColor = false;
+            this.btnAddArticle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.btnAddArticle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddArticle.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddArticle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnAddArticle.Location = new System.Drawing.Point(597, 719);
+            this.btnAddArticle.Name = "btnAddArticle";
+            this.btnAddArticle.Size = new System.Drawing.Size(187, 38);
+            this.btnAddArticle.TabIndex = 36;
+            this.btnAddArticle.Text = "DODAJ ARTIKL";
+            this.btnAddArticle.UseVisualStyleBackColor = false;
             // 
             // btnBack
             // 
@@ -129,16 +129,16 @@
             // 
             // chartArticles
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartArticles.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartArticles.Legends.Add(legend3);
+            chartArea2.Name = "ChartArea1";
+            this.chartArticles.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartArticles.Legends.Add(legend2);
             this.chartArticles.Location = new System.Drawing.Point(159, 371);
             this.chartArticles.Name = "chartArticles";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartArticles.Series.Add(series3);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartArticles.Series.Add(series2);
             this.chartArticles.Size = new System.Drawing.Size(474, 300);
             this.chartArticles.TabIndex = 37;
             this.chartArticles.Text = "chart1";
@@ -150,7 +150,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(800, 769);
             this.Controls.Add(this.chartArticles);
-            this.Controls.Add(this.btnStorniraj);
+            this.Controls.Add(this.btnAddArticle);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvRacuni);
             this.Controls.Add(this.cboNaziv);
@@ -174,7 +174,7 @@
         private System.Windows.Forms.TextBox txtPretraziArtikle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnStorniraj;
+        private System.Windows.Forms.Button btnAddArticle;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartArticles;
     }
