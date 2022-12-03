@@ -84,13 +84,13 @@
       ><path d="M0 0 L0 15 L248 15 L248 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath27"
-      ><path d="M-7 -7 L193 -7 L193 157 L-7 157 L-7 -7 Z"
+      ><path d="M-7 -7 L193 -7 L193 156 L-7 156 L-7 -7 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath28"
-      ><path d="M0 0 L0 131 L182 131 L182 0 Z"
+      ><path d="M0 0 L0 129 L182 129 L182 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath29"
-      ><path d="M0 0 L0 15 L182 15 L182 0 Z"
+      ><path d="M0 0 L0 16 L183 16 L183 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath30"
       ><path d="M-7 -7 L707 -7 L707 189 L-7 189 L-7 -7 Z"
@@ -474,10 +474,10 @@
       ><path d="M0 0 L0 267 L204 267 L204 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath157"
-      ><path d="M0 0 L63 0 L63 100 L0 100 L0 0 Z"
+      ><path d="M0 0 L62 0 L62 100 L0 100 L0 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath158"
-      ><path d="M0 0 L0 100 L63 100 L63 0 Z"
+      ><path d="M0 0 L0 100 L62 100 L62 0 Z"
       /></clipPath
       ><clipPath clipPathUnits="userSpaceOnUse" id="clipPath159"
       ><path d="M0 0 L298 0 L298 205 L0 205 L0 0 Z"
@@ -1239,12 +1239,12 @@
     ><text x="77" xml:space="preserve" y="12" clip-path="url(#clipPath26)" stroke="none"
       >FrmIzradaRacuna</text
     ></g
-    ><g font-size="11px" transform="translate(982,659)" fill-opacity="1" fill="rgb(122,207,245)" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="rgb(122,207,245)" font-weight="bold" stroke-opacity="1"
-    ><rect x="0" width="182" height="146" y="0" clip-path="url(#clipPath27)" stroke="none"
+    ><g font-size="11px" transform="translate(982,658)" fill-opacity="1" fill="rgb(122,207,245)" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="rgb(122,207,245)" font-weight="bold" stroke-opacity="1"
+    ><rect x="0" width="182" height="145" y="0" clip-path="url(#clipPath27)" stroke="none"
     /></g
-    ><g fill-opacity="1" text-rendering="geometricPrecision" stroke="black" stroke-linecap="butt" transform="translate(982,659)" stroke-miterlimit="0" stroke-opacity="1" fill="black" font-weight="bold" font-family="sans-serif" stroke-linejoin="round" font-size="11px" image-rendering="optimizeQuality"
-    ><rect fill="none" x="0" width="182" height="146" y="0" clip-path="url(#clipPath27)"
-      /><line y2="15" fill="none" x1="0" clip-path="url(#clipPath27)" x2="182" y1="15"
+    ><g fill-opacity="1" text-rendering="geometricPrecision" stroke="black" stroke-linecap="butt" transform="translate(982,658)" stroke-miterlimit="0" stroke-opacity="1" fill="black" font-weight="bold" font-family="sans-serif" stroke-linejoin="round" font-size="11px" image-rendering="optimizeQuality"
+    ><rect fill="none" x="0" width="182" height="145" y="0" clip-path="url(#clipPath27)"
+      /><line y2="16" fill="none" x1="0" clip-path="url(#clipPath27)" x2="182" y1="16"
     /></g
     ><g font-size="11px" transform="matrix(1,0,0,1,982,674)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="14" clip-path="url(#clipPath28)" stroke="none"
@@ -1275,7 +1275,7 @@
     ><text x="2" xml:space="preserve" y="108" clip-path="url(#clipPath28)" stroke="none"
       >+txtPretraziArtikl_KeyUp() : void</text
     ></g
-    ><g font-size="11px" transform="translate(982,659)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" font-weight="bold" stroke-opacity="1"
+    ><g font-size="11px" transform="translate(982,658)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" font-weight="bold" stroke-opacity="1"
     ><text x="5" xml:space="preserve" y="12" clip-path="url(#clipPath29)" stroke="none"
       >FrmOdaberiArtiklZaDodatiRucno</text
     ></g
@@ -2275,24 +2275,16 @@
     ></g
     ><g font-size="11px" transform="matrix(1,0,0,1,2342,94)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
     ><text x="2" xml:space="preserve" y="59" clip-path="url(#clipPath121)" stroke="none"
-      >-btnRegistracija : Button</text
-    ></g
-    ><g font-size="11px" transform="matrix(1,0,0,1,2342,94)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="2" xml:space="preserve" y="74" clip-path="url(#clipPath121)" stroke="none"
       >-korisniciServices : KorisniciServices</text
-      ><line stroke-linecap="butt" clip-path="url(#clipPath121)" fill="none" x1="0" x2="185" y1="79" y2="79" stroke-linejoin="bevel" stroke-miterlimit="0"
+      ><line stroke-linecap="butt" clip-path="url(#clipPath121)" fill="none" x1="0" x2="185" y1="64" y2="64" stroke-linejoin="bevel" stroke-miterlimit="0"
     /></g
     ><g font-size="11px" transform="matrix(1,0,0,1,2342,94)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="2" xml:space="preserve" y="93" clip-path="url(#clipPath121)" stroke="none"
+    ><text x="2" xml:space="preserve" y="78" clip-path="url(#clipPath121)" stroke="none"
       >+Load() : void</text
     ></g
     ><g font-size="11px" transform="matrix(1,0,0,1,2342,94)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="2" xml:space="preserve" y="108" clip-path="url(#clipPath121)" stroke="none"
+    ><text x="2" xml:space="preserve" y="93" clip-path="url(#clipPath121)" stroke="none"
       >+btnPrijaviSe_click() : void</text
-    ></g
-    ><g font-size="11px" transform="matrix(1,0,0,1,2342,94)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" stroke-opacity="1"
-    ><text x="2" xml:space="preserve" y="123" clip-path="url(#clipPath121)" stroke="none"
-      >+btnRegistracija_click()</text
     ></g
     ><g font-size="11px" transform="translate(2342,78)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke="black" font-weight="bold" stroke-opacity="1"
     ><text x="67" xml:space="preserve" y="12" clip-path="url(#clipPath122)" stroke="none"
@@ -2626,9 +2618,9 @@
       /><polygon points=" 100 100 94 112 100 124 106 112" clip-path="url(#clipPath156)" stroke="none"
       /><polygon fill="none" points=" 100 100 94 112 100 124 106 112" clip-path="url(#clipPath156)"
     /></g
-    ><g stroke-linecap="butt" font-size="11px" transform="translate(1024,776)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke-linejoin="round" stroke="black" stroke-opacity="1"
-    ><line y2="67" fill="none" x1="29" clip-path="url(#clipPath158)" x2="29" y1="53"
-      /><polygon fill="none" points=" 29 29 23 41 29 53 35 41" clip-path="url(#clipPath158)"
+    ><g stroke-linecap="butt" font-size="11px" transform="translate(1023,775)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke-linejoin="round" stroke="black" stroke-opacity="1"
+    ><line y2="67" fill="none" x1="29" clip-path="url(#clipPath158)" x2="29" y1="54"
+      /><polygon fill="none" points=" 29 30 23 42 29 54 35 42" clip-path="url(#clipPath158)"
     /></g
     ><g stroke-linecap="butt" font-size="11px" transform="translate(1201,471)" fill-opacity="1" fill="black" text-rendering="geometricPrecision" image-rendering="optimizeQuality" font-family="sans-serif" stroke-linejoin="round" stroke="black" stroke-opacity="1"
     ><line y2="101" fill="none" x1="124" clip-path="url(#clipPath160)" x2="194" y1="100"
