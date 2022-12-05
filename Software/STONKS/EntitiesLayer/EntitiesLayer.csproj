@@ -53,6 +53,7 @@
     <Compile Include="Entities\StavkaRacuna.cs" />
     <Compile Include="Entities\Uloga.cs" />
     <Compile Include="Entities\VrstaArtikla.cs" />
+    <Compile Include="Entities\VrstaArtikla_ext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

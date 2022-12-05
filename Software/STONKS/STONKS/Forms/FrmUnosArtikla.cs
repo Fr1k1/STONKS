@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.Services;
+using EntitiesLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +19,8 @@ namespace STONKS.Forms
             InitializeComponent();
         }
 
+        public ArtikliServices services = new ArtikliServices();
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -27,14 +31,44 @@ namespace STONKS.Forms
 
         }
 
+        private void SetText(TextBox textBox)
+        {
+            if (textBox.Text != "")
+                textBox.Text = "";
+        }
+
         private void FrmUnosArtikla_Load(object sender, EventArgs e)
         {
             cbArticleType.Size = new Size(316, 120);
+            GetVrsteArtikla();
+        }
+
+        private void GetVrsteArtikla()
+        {
+            var vrsteArtikla = services.GetVrsteArtikla();
+            cbArticleType.DataSource = vrsteArtikla;
         }
 
         private void btnAddArtikl_Click(object sender, EventArgs e)
         {
-            
+
+            var vrstaArtikla = cbArticleType.SelectedItem as VrstaArtikla;
+            var artikl = new Artikl
+            {
+
+                sifra = txtCode.Text,
+                naziv = txtName.Text,
+                jed_cijena = Convert.ToInt32(txtUnitPrice.Text),
+                barkod = Convert.ToInt32(txtBarcode.Text),
+                pdv = Convert.ToInt32(txtPDV.Text),
+                vrsta_artikla_id=vrstaArtikla.id,
+                VrsteArtikla = vrstaArtikla,
+
+
+
+            };
+
+            services.DodajArtikl(artikl);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -44,6 +78,40 @@ namespace STONKS.Forms
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             frmPocetniIzbornik.ShowDialog();
             Close();
+        }
+
+        private void txtCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCode_Click(object sender, EventArgs e)
+        {
+            SetText(txtCode);
+        }
+
+        private void txtName_Click(object sender, EventArgs e)
+        {
+            SetText(txtName);
+
+        }
+
+        private void txtUnitPrice_Click(object sender, EventArgs e)
+        {
+            SetText(txtUnitPrice);
+
+        }
+
+        private void txtBarcode_Click(object sender, EventArgs e)
+        {
+            SetText(txtBarcode);
+
+        }
+
+        private void txtPDV_Click(object sender, EventArgs e)
+        {
+            SetText(txtPDV);
+
         }
     }
 }

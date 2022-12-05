@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,14 @@ namespace STONKS.Forms
 {
     public partial class FrmPopisArtikala : Form
     {
+
         public FrmPopisArtikala()
         {
             InitializeComponent();
         }
+
+        private ArtikliServices services = new ArtikliServices();
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -24,6 +29,31 @@ namespace STONKS.Forms
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             frmPocetniIzbornik.ShowDialog();
 
+            Close();
+        }
+
+        private void dgvRacuni_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void FrmPopisArtikala_Load(object sender, EventArgs e)
+        {
+            PrikaziArtikle();
+        }
+
+        private void PrikaziArtikle()
+        {
+            var artikli = services.GetArtikli();
+            dgvArtikli.DataSource = artikli;
+
+        }
+
+        private void btnAddArticle_Click(object sender, EventArgs e)
+        {
+            FrmUnosArtikla frmUnosArtikla = new FrmUnosArtikla();
+            Hide();
+            frmUnosArtikla.ShowDialog();
             Close();
         }
     }

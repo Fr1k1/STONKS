@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.dgvRacuni = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.dgvArtikli = new System.Windows.Forms.DataGridView();
             this.cboNaziv = new System.Windows.Forms.ComboBox();
             this.txtPretraziArtikle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,18 +39,19 @@
             this.btnAddArticle = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.chartArticles = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRacuni)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArtikli)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartArticles)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvRacuni
+            // dgvArtikli
             // 
-            this.dgvRacuni.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvRacuni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRacuni.Location = new System.Drawing.Point(12, 106);
-            this.dgvRacuni.Name = "dgvRacuni";
-            this.dgvRacuni.Size = new System.Drawing.Size(772, 223);
-            this.dgvRacuni.TabIndex = 33;
+            this.dgvArtikli.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvArtikli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArtikli.Location = new System.Drawing.Point(12, 106);
+            this.dgvArtikli.Name = "dgvArtikli";
+            this.dgvArtikli.Size = new System.Drawing.Size(772, 223);
+            this.dgvArtikli.TabIndex = 33;
+            this.dgvArtikli.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRacuni_CellContentClick);
             // 
             // cboNaziv
             // 
@@ -112,6 +113,7 @@
             this.btnAddArticle.TabIndex = 36;
             this.btnAddArticle.Text = "DODAJ ARTIKL";
             this.btnAddArticle.UseVisualStyleBackColor = false;
+            this.btnAddArticle.Click += new System.EventHandler(this.btnAddArticle_Click);
             // 
             // btnBack
             // 
@@ -129,16 +131,16 @@
             // 
             // chartArticles
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartArticles.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartArticles.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chartArticles.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartArticles.Legends.Add(legend1);
             this.chartArticles.Location = new System.Drawing.Point(159, 371);
             this.chartArticles.Name = "chartArticles";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartArticles.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartArticles.Series.Add(series1);
             this.chartArticles.Size = new System.Drawing.Size(474, 300);
             this.chartArticles.TabIndex = 37;
             this.chartArticles.Text = "chart1";
@@ -152,7 +154,7 @@
             this.Controls.Add(this.chartArticles);
             this.Controls.Add(this.btnAddArticle);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.dgvRacuni);
+            this.Controls.Add(this.dgvArtikli);
             this.Controls.Add(this.cboNaziv);
             this.Controls.Add(this.txtPretraziArtikle);
             this.Controls.Add(this.label2);
@@ -160,7 +162,8 @@
             this.Name = "FrmPopisArtikala";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Popis artikala";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRacuni)).EndInit();
+            this.Load += new System.EventHandler(this.FrmPopisArtikala_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvArtikli)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartArticles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,7 +172,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvRacuni;
+        private System.Windows.Forms.DataGridView dgvArtikli;
         private System.Windows.Forms.ComboBox cboNaziv;
         private System.Windows.Forms.TextBox txtPretraziArtikle;
         private System.Windows.Forms.Label label2;

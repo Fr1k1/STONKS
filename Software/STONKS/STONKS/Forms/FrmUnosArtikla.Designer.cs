@@ -73,6 +73,8 @@
             this.txtCode.Size = new System.Drawing.Size(368, 31);
             this.txtCode.TabIndex = 13;
             this.txtCode.Text = "SIFRA";
+            this.txtCode.Click += new System.EventHandler(this.txtCode_Click);
+            this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged);
             // 
             // txtName
             // 
@@ -84,6 +86,7 @@
             this.txtName.Size = new System.Drawing.Size(368, 31);
             this.txtName.TabIndex = 14;
             this.txtName.Text = "NAZIV";
+            this.txtName.Click += new System.EventHandler(this.txtName_Click);
             // 
             // txtUnitPrice
             // 
@@ -95,6 +98,7 @@
             this.txtUnitPrice.Size = new System.Drawing.Size(368, 31);
             this.txtUnitPrice.TabIndex = 15;
             this.txtUnitPrice.Text = "JEDINICNA CIJENA";
+            this.txtUnitPrice.Click += new System.EventHandler(this.txtUnitPrice_Click);
             // 
             // txtBarcode
             // 
@@ -106,6 +110,7 @@
             this.txtBarcode.Size = new System.Drawing.Size(368, 31);
             this.txtBarcode.TabIndex = 16;
             this.txtBarcode.Text = "BARKOD";
+            this.txtBarcode.Click += new System.EventHandler(this.txtBarcode_Click);
             // 
             // txtPDV
             // 
@@ -117,6 +122,7 @@
             this.txtPDV.Size = new System.Drawing.Size(368, 31);
             this.txtPDV.TabIndex = 17;
             this.txtPDV.Text = "PDV";
+            this.txtPDV.Click += new System.EventHandler(this.txtPDV_Click);
             // 
             // cbArticleType
             // 
