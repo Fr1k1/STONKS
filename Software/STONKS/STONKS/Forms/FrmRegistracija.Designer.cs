@@ -65,6 +65,7 @@
             this.btnRegister.TabIndex = 29;
             this.btnRegister.Text = "REGISTRIRAJ SE";
             this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // cbRole
             // 
@@ -75,7 +76,7 @@
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(345, 24);
             this.cbRole.TabIndex = 28;
-            this.cbRole.Text = "VRSTA ARTIKLA";
+            this.cbRole.Text = "ULOGA";
             // 
             // txtPassword
             // 
@@ -87,6 +88,7 @@
             this.txtPassword.Size = new System.Drawing.Size(345, 31);
             this.txtPassword.TabIndex = 27;
             this.txtPassword.Text = "LOZINKA";
+            this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
             // 
             // txtUsername
             // 
@@ -98,6 +100,7 @@
             this.txtUsername.Size = new System.Drawing.Size(345, 31);
             this.txtUsername.TabIndex = 26;
             this.txtUsername.Text = "KORISNICKO IME";
+            this.txtUsername.Click += new System.EventHandler(this.txtUsername_Click);
             // 
             // txtOIB
             // 
@@ -109,6 +112,7 @@
             this.txtOIB.Size = new System.Drawing.Size(345, 31);
             this.txtOIB.TabIndex = 25;
             this.txtOIB.Text = "OIB";
+            this.txtOIB.Click += new System.EventHandler(this.txtOIB_Click);
             // 
             // txtSurname
             // 
@@ -120,6 +124,7 @@
             this.txtSurname.Size = new System.Drawing.Size(345, 31);
             this.txtSurname.TabIndex = 24;
             this.txtSurname.Text = "PREZIME";
+            this.txtSurname.Click += new System.EventHandler(this.txtSurname_Click);
             // 
             // txtName
             // 
@@ -131,6 +136,8 @@
             this.txtName.Size = new System.Drawing.Size(345, 31);
             this.txtName.TabIndex = 23;
             this.txtName.Text = "IME";
+            this.txtName.Click += new System.EventHandler(this.txtName_Click);
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label2
             // 
@@ -173,6 +180,7 @@
             this.Name = "FrmRegistracija";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registracija";
+            this.Load += new System.EventHandler(this.FrmRegistracija_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

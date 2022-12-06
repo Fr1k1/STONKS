@@ -1,4 +1,7 @@
-﻿using STONKS.Forms;
+﻿using BusinessLayer.Services;
+using DataAccessLayer;
+using EntitiesLayer.Entities;
+using STONKS.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,24 +26,50 @@ namespace STONKS
 
         }
 
+        private KorisniciServices services = new KorisniciServices();
+
         private void btnSignIn_Click(object sender, EventArgs e)
         {
 
             Hide();
 
-                /*FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
-                frmPocetniIzbornik.ShowDialog();*/
-
             FrmPrepoznavanjeLica frmPrepoznavanje = new FrmPrepoznavanjeLica();
             frmPrepoznavanje.ShowDialog();
 
+            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
+            frmPocetniIzbornik.ShowDialog();
+
+
+
             Close();
-            
+
+            //LoginUser(txtUsername.Text, txtPassword.Text);
+
+            //GetAllUsers();
+
         }
+
+        /* private void LoginUser(string korime, string lozinka)
+         {
+             using (var db = new STONKS_DB())
+             {
+                 var korisnik = db.Korisnici.FirstOrDefault(k => k.korime == korime && k.lozinka == lozinka);
+
+                 if (korisnik != null)
+                 {
+                     MessageBox.Show("Uspjesan login");
+                 }
+             }
+         }*/  //ovo dela ali pretvori u n layer
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void GetAllUsers()
+        {
+            var allusers = services.GetKorisnici();
         }
 
         private void SetText(TextBox textBox)

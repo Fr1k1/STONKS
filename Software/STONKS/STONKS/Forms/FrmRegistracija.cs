@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.Services;
+using EntitiesLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,12 +19,89 @@ namespace STONKS.Forms
             InitializeComponent();
         }
 
+
+        private UlogeServices ulogeServices = new UlogeServices();
+
+        private KorisniciServices korisniciServices = new KorisniciServices();
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             Hide();
             frmPocetniIzbornik.ShowDialog();
             Close();
+        }
+
+        private void FrmRegistracija_Load(object sender, EventArgs e)
+        {
+            GetUloge();
+        }
+
+        private void GetUloge()
+        {
+            var uloge = ulogeServices.GetUloge();
+            cbRole.DataSource = uloge;
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            Uloga uloga = cbRole.SelectedItem as Uloga;
+            var korisnik = new Korisnik
+            {
+                ime = txtName.Text,
+                prezime = txtSurname.Text,
+                OIB = txtOIB.Text,
+                korime = txtUsername.Text,
+                lozinka = txtPassword.Text,
+                uloga_id = uloga.id
+            };
+
+
+
+            korisniciServices.AddKorisnik(korisnik);
+            MessageBox.Show("Uspjesno dodan korisnik");
+        }
+
+        private void SetText(TextBox textBox)
+        {
+            if (textBox.Text != "")
+                textBox.Text = "";
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtName_Click(object sender, EventArgs e)
+        {
+            SetText(txtName);
+
+        }
+
+        private void txtSurname_Click(object sender, EventArgs e)
+        {
+            SetText(txtSurname);
+
+
+        }
+
+        private void txtOIB_Click(object sender, EventArgs e)
+        {
+            SetText(txtOIB);
+
+        }
+
+        private void txtUsername_Click(object sender, EventArgs e)
+        {
+            SetText(txtUsername);
+
+        }
+
+        private void txtPassword_Click(object sender, EventArgs e)
+        {
+            SetText(txtPassword);
+
         }
     }
 }
