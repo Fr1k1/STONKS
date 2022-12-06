@@ -45,6 +45,16 @@ namespace STONKS.Forms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            if (txtOIB.Text.Length != 11)
+            {
+                MessageBox.Show("OIB ima 11 znakova!!");
+                return;
+            }
+            RegisterUser();
+        }
+
+        private void RegisterUser()
+        {
             Uloga uloga = cbRole.SelectedItem as Uloga;
             var korisnik = new Korisnik
             {
