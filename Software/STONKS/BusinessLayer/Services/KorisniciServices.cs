@@ -19,6 +19,30 @@ namespace BusinessLayer.Services
             }
         }
 
+        public List<string> GetUloga(string username, string password)
+        {
+            using (var repo = new KorisniciRepository())
+            {
+                return repo.GetUloga(username, password).ToList();
+            }
+        }
+
+        public bool GetKorisnik(string username, string password)
+        {
+
+            using (var repo = new KorisniciRepository())
+            {
+                if (repo.Get(username, password).ToList().Count > 0)
+                    return true;
+                
+
+                else return false;
+
+            }
+
+
+        }
+
         public bool AddKorisnik(Korisnik korisnik)
         {
             bool added = false;

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    public class KorisniciRepository:Repository<Korisnik>
+    public class KorisniciRepository : Repository<Korisnik>
     {
 
         public KorisniciRepository() : base(new STONKS_DB())
@@ -18,8 +18,26 @@ namespace DataAccessLayer.Repositories
 
         public override IQueryable<Korisnik> GetAll()
         {
-            var query = from e in Entities.Include("Uloga")
+            var query = from e in Entities.Include("Uloge")
                         select e;
+
+            return query;
+        }
+
+        public IQueryable<Korisnik> Get(string username, string password)
+        {
+            var query = from e in Entities.Include("Uloge")
+                        where e.korime == username && e.lozinka == password
+                        select e;
+
+            return query;
+        }
+
+        public IQueryable<string> GetUloga(string username, string password)
+        {
+            var query = from e in Entities.Include("Uloge")
+                        where e.korime == username && e.lozinka == password
+                        select e.Uloge.naziv;
 
             return query;
         }
@@ -28,14 +46,15 @@ namespace DataAccessLayer.Repositories
         {
             var uloga = Context.Uloge.SingleOrDefault(u => u.id == entity.uloga_id);
 
-            var korisnik = new Korisnik { 
-            ime = entity.ime,
-            prezime = entity.prezime,
-            OIB=entity.OIB,
-            korime=entity.korime,
-            lozinka=entity.lozinka,
-            uloga_id=entity.uloga_id,
-            Uloge=uloga,
+            var korisnik = new Korisnik
+            {
+                ime = entity.ime,
+                prezime = entity.prezime,
+                OIB = entity.OIB,
+                korime = entity.korime,
+                lozinka = entity.lozinka,
+                uloga_id = entity.uloga_id,
+                Uloge = uloga,
             };
 
             Entities.Add(korisnik);

@@ -30,47 +30,56 @@ namespace STONKS
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-
-            Hide();
-
-            FrmPrepoznavanjeLica frmPrepoznavanje = new FrmPrepoznavanjeLica();
-            frmPrepoznavanje.ShowDialog();
-
-            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
-            frmPocetniIzbornik.ShowDialog();
-
-
-
-            Close();
-
-            //LoginUser(txtUsername.Text, txtPassword.Text);
-
-            //GetAllUsers();
+            LoginUser(txtUsername.Text, txtPassword.Text);
 
         }
 
-        /* private void LoginUser(string korime, string lozinka)
-         {
-             using (var db = new STONKS_DB())
-             {
-                 var korisnik = db.Korisnici.FirstOrDefault(k => k.korime == korime && k.lozinka == lozinka);
+        private string GetUloga(string korime, string lozinka)
+        {
+            var uloga = services.GetUloga(korime, lozinka);
+            //MessageBox.Show("Uloga je" + uloga.ToString());
+            return uloga[0];
+        }
 
-                 if (korisnik != null)
-                 {
-                     MessageBox.Show("Uspjesan login");
-                 }
-             }
-         }*/  //ovo dela ali pretvori u n layer
+        private void LoginUser(string korime, string lozinka)
+        {
+            var korisnik = services.GetKorisnik(korime, lozinka);
+            if (korisnik)
+            {
+
+                if (GetUloga(txtUsername.Text, txtPassword.Text) == "voditelj")
+                {
+                    Hide();
+
+                    FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
+                    frmPocetniIzbornik.ShowDialog();
+
+                    Close();
+
+                }
+
+                else
+                {
+                    Hide();
+                    FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+                    frmPocetniIzbornik.ShowDialog();
+                    Close();
+
+                }
+                //FrmPrepoznavanjeLica frmPrepoznavanje = new FrmPrepoznavanjeLica();
+                //frmPrepoznavanje.ShowDialog();
+
+            }
+
+            else MessageBox.Show("Krivi korisnicki podaci");
+
+        }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void GetAllUsers()
-        {
-            var allusers = services.GetKorisnici();
-        }
 
         private void SetText(TextBox textBox)
         {
