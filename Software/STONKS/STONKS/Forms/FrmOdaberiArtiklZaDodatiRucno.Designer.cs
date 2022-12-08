@@ -61,6 +61,7 @@
             // 
             // dgvPopisArtikala
             // 
+            this.dgvPopisArtikala.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPopisArtikala.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvPopisArtikala.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPopisArtikala.Location = new System.Drawing.Point(68, 108);
@@ -80,6 +81,7 @@
             this.btnDodajArtikl.TabIndex = 21;
             this.btnDodajArtikl.Text = "dodaj artikl";
             this.btnDodajArtikl.UseVisualStyleBackColor = false;
+            this.btnDodajArtikl.Click += new System.EventHandler(this.btnDodajArtikl_Click);
             // 
             // btnOdustani
             // 
@@ -93,6 +95,7 @@
             this.btnOdustani.TabIndex = 22;
             this.btnOdustani.Text = "Odustani";
             this.btnOdustani.UseVisualStyleBackColor = false;
+            this.btnOdustani.Click += new System.EventHandler(this.btnOdustani_Click);
             // 
             // txtPretrazi
             // 
@@ -104,6 +107,7 @@
             this.txtPretrazi.Size = new System.Drawing.Size(321, 28);
             this.txtPretrazi.TabIndex = 23;
             this.txtPretrazi.Text = " pretrazi...";
+            this.txtPretrazi.TextChanged += new System.EventHandler(this.txtPretrazi_TextChanged);
             // 
             // FrmOdaberiArtiklZaDodatiRucno
             // 
@@ -120,6 +124,7 @@
             this.Name = "FrmOdaberiArtiklZaDodatiRucno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Odaberi artikl za dodati rucno";
+            this.Load += new System.EventHandler(this.FrmOdaberiArtiklZaDodatiRucno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPopisArtikala)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

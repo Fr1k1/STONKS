@@ -124,6 +124,7 @@
             this.btnDodajRucno.TabIndex = 19;
             this.btnDodajRucno.Text = "Dodaj rucno";
             this.btnDodajRucno.UseVisualStyleBackColor = false;
+            this.btnDodajRucno.Click += new System.EventHandler(this.btnDodajRucno_Click);
             // 
             // btnNastavi
             // 
