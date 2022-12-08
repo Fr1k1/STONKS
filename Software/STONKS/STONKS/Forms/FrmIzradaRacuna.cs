@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,20 @@ namespace STONKS.Forms
         public FrmIzradaRacuna()
         {
             InitializeComponent();
+        }
+
+        private void btnPovratak_Click(object sender, EventArgs e)
+        {
+            FrmUnosRacuna frmUnosRacuna = new FrmUnosRacuna();
+            Hide();
+            frmUnosRacuna.ShowDialog();
+            Close();
+        }
+
+        private void FrmIzradaRacuna_Load(object sender, EventArgs e)
+        {
+            var allNaciniPlacanja = new NaciniPlacanjaServices().GetNaciniPlacanja();
+            cboOdabirNacinaPlacanja.DataSource = allNaciniPlacanja;
         }
     }
 }

@@ -37,5 +37,13 @@ namespace STONKS.Forms
             frmOdaberiArtiklZaDodatiRucno.ShowDialog();
             Close();
         }
+
+        private void btnNastavi_Click(object sender, EventArgs e)
+        {
+            FrmIzradaRacuna frmIzradaRacuna = new FrmIzradaRacuna();
+            Hide();
+            frmIzradaRacuna.ShowDialog();
+            Close();
+        }
     }
 }

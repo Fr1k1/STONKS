@@ -138,6 +138,7 @@
             this.btnNastavi.TabIndex = 20;
             this.btnNastavi.Text = "nastavi";
             this.btnNastavi.UseVisualStyleBackColor = false;
+            this.btnNastavi.Click += new System.EventHandler(this.btnNastavi_Click);
             // 
             // label4
             // 

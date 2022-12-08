@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ArtikliRepository.cs" />
     <Compile Include="Repositories\KorisniciRepository.cs" />
+    <Compile Include="Repositories\NacinPlacanjaRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\UlogeRepository.cs" />
     <Compile Include="Repositories\VrsteArtiklaRepository.cs" />
