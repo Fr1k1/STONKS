@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Services;
+using EntitiesLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,9 @@ namespace STONKS.Forms
             InitializeComponent();
         }
 
-        private RacuniServices services = new RacuniServices();
+        private RacuniServices racunServices = new RacuniServices();
+        private StavkeServices stavkaServices = new StavkeServices();
+        private NaciniPlacanjaServices naciniServices = new NaciniPlacanjaServices();
 
         private void btnPovratak_Click(object sender, EventArgs e)
         {
@@ -33,15 +36,34 @@ namespace STONKS.Forms
             PrikaziRacune();
         }
 
+        private void dgvRacuni_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PrikaziStavke();
+        }
+
         private void PrikaziRacune()
         {
             // TODO makni iz baze column nacin_placanja i onda ovde iz koda negde da ne baca error na popisu racuna
 
-            var racuni = services.GetRacuni();
+            var racuni = racunServices.GetRacuni();
             dgvRacuni.DataSource = racuni;
             dgvRacuni.Columns[11].Visible = false; // sakrivene stavke jer ce bit u drugom dgvu
+        }
 
+        private void PrikaziStavke()
+        {
+            var odabraniRed = dgvRacuni.CurrentRow.DataBoundItem as Racun;
+            dgvStavke.DataSource = stavkaServices.GetStavke(odabraniRed);
+            dgvStavke.Columns[5].Visible = false;
+            dgvStavke.Columns[0].Visible = false; // ne treba nam id racuna kad ga vec imamo
+        }
 
+        private void cboVrsta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(cboVrsta.Text);
+
+            var naciniPlacanja = naciniServices.GetNaciniPlacanja();
+            cboVrsta.DataSource = naciniPlacanja;
         }
     }
 }

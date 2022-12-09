@@ -56,6 +56,7 @@
     <Compile Include="Repositories\NacinPlacanjaRepository.cs" />
     <Compile Include="Repositories\RacuniRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\StavkeRepository.cs" />
     <Compile Include="Repositories\UlogeRepository.cs" />
     <Compile Include="Repositories\VrsteArtiklaRepository.cs" />
     <Compile Include="STONKS_DB.cs" />

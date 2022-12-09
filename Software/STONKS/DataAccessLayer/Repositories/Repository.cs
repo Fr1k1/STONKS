@@ -24,6 +24,13 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public virtual IQueryable<T> GetSelected(int id)
+        {
+            var query = from e in Entities
+                        select e;
+            return query;
+        }
+
         public virtual int Add(T entity, bool save = true)
         {   
             Entities.Attach(entity);
