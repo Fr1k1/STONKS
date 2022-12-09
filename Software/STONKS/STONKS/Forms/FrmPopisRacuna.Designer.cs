@@ -89,7 +89,7 @@
             this.cboVrsta.ForeColor = System.Drawing.SystemColors.MenuText;
             this.cboVrsta.FormattingEnabled = true;
             this.cboVrsta.ItemHeight = 25;
-            this.cboVrsta.Location = new System.Drawing.Point(671, 74);
+            this.cboVrsta.Location = new System.Drawing.Point(834, 73);
             this.cboVrsta.Name = "cboVrsta";
             this.cboVrsta.Size = new System.Drawing.Size(128, 31);
             this.cboVrsta.TabIndex = 25;
@@ -97,11 +97,12 @@
             // 
             // dgvRacuni
             // 
+            this.dgvRacuni.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvRacuni.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvRacuni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRacuni.Location = new System.Drawing.Point(27, 111);
             this.dgvRacuni.Name = "dgvRacuni";
-            this.dgvRacuni.Size = new System.Drawing.Size(772, 223);
+            this.dgvRacuni.Size = new System.Drawing.Size(935, 223);
             this.dgvRacuni.TabIndex = 26;
             // 
             // label3
@@ -121,7 +122,7 @@
             this.dgvStavke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStavke.Location = new System.Drawing.Point(27, 379);
             this.dgvStavke.Name = "dgvStavke";
-            this.dgvStavke.Size = new System.Drawing.Size(772, 223);
+            this.dgvStavke.Size = new System.Drawing.Size(935, 223);
             this.dgvStavke.TabIndex = 28;
             // 
             // btnPovratak
@@ -144,7 +145,7 @@
             this.btnGenerirajPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerirajPdf.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerirajPdf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnGenerirajPdf.Location = new System.Drawing.Point(388, 880);
+            this.btnGenerirajPdf.Location = new System.Drawing.Point(546, 880);
             this.btnGenerirajPdf.Name = "btnGenerirajPdf";
             this.btnGenerirajPdf.Size = new System.Drawing.Size(209, 38);
             this.btnGenerirajPdf.TabIndex = 30;
@@ -157,7 +158,7 @@
             this.btnStorniraj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStorniraj.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStorniraj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnStorniraj.Location = new System.Drawing.Point(612, 880);
+            this.btnStorniraj.Location = new System.Drawing.Point(770, 880);
             this.btnStorniraj.Name = "btnStorniraj";
             this.btnStorniraj.Size = new System.Drawing.Size(187, 38);
             this.btnStorniraj.TabIndex = 31;
@@ -170,7 +171,7 @@
             this.chartRacuni.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartRacuni.Legends.Add(legend1);
-            this.chartRacuni.Location = new System.Drawing.Point(170, 617);
+            this.chartRacuni.Location = new System.Drawing.Point(286, 619);
             this.chartRacuni.Name = "chartRacuni";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -185,7 +186,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(829, 948);
+            this.ClientSize = new System.Drawing.Size(983, 948);
             this.Controls.Add(this.chartRacuni);
             this.Controls.Add(this.btnStorniraj);
             this.Controls.Add(this.btnGenerirajPdf);
@@ -200,6 +201,7 @@
             this.Name = "FrmPopisRacuna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Popis racuna";
+            this.Load += new System.EventHandler(this.FrmPopisRacuna_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRacuni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRacuni)).EndInit();
