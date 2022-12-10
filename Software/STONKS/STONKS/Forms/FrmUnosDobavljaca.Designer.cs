@@ -84,6 +84,7 @@
             this.btnAddDobavljac.TabIndex = 22;
             this.btnAddDobavljac.Text = "DODAJ DOBAVLJACA";
             this.btnAddDobavljac.UseVisualStyleBackColor = false;
+            this.btnAddDobavljac.Click += new System.EventHandler(this.btnAddDobavljac_Click);
             // 
             // txtName
             // 
