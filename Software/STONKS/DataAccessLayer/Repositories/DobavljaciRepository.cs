@@ -13,6 +13,13 @@ namespace DataAccessLayer.Repositories
         {
         }
 
+        public IQueryable<Dobavljac> GetByOIB(string oib,string name)
+        {
+            var query = from e in Entities
+                        where e.OIB == oib || e.naziv == name
+                        select e;
+            return query;
+        }
         public override int Update(Dobavljac entity, bool save = true)
         {
             throw new NotImplementedException();

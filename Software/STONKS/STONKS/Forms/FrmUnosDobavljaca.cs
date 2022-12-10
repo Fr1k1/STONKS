@@ -25,13 +25,23 @@ namespace STONKS.Forms
         {
             if(ValidateInput())
             {
-                var dobavljac = new Dobavljac(txtName.Text,txtOIB.Text,txtAdress.Text);
-                dobavljaciServices.AddDobavljac(dobavljac);
-                MessageBox.Show("Uspiješan unos", "Dobavljac unesen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                InsertDobavljac();
             } 
             else
             {
-                MessageBox.Show("Unesite ispravne podatke,OIB mora imati 11 znakova", "Neispravan unos", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Unesite ispravne podatke,OIB mora imati 11 znakova!!!", "Neispravan unos", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+        }
+
+        private void InsertDobavljac()
+        {
+            if(dobavljaciServices.AlreadyExists(txtOIB.Text,txtName.Text))
+                MessageBox.Show("Dobavljac sa tim podacima već postoji!!!", "Neuspiješan unos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                var dobavljac = new Dobavljac(txtName.Text, txtOIB.Text, txtAdress.Text);
+                dobavljaciServices.AddDobavljac(dobavljac);
+                MessageBox.Show("Dobavljac unesen!!!", "Uspiješan unos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

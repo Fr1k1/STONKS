@@ -22,5 +22,16 @@ namespace BusinessLayer.Services
             }
 
         }
+
+        public bool AlreadyExists(string oib,string name)
+        {
+            using (var repo = new DobavljaciRepository())
+            {
+                if (repo.GetByOIB(oib, name).ToList().Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
     }
 }
