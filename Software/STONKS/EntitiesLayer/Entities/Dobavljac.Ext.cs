@@ -14,5 +14,10 @@ namespace EntitiesLayer.Entities
             OIB = oIB;
             this.adresa = adresa;
         }
+
+        public override string ToString()
+        {
+            return naziv;
+        }
     }
 }

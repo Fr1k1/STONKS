@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace STONKS.Forms
 {
     public partial class FrmUnosPrimke : Form
     {
+        private DobavljaciServices dobavljaciServices = new DobavljaciServices();
         public FrmUnosPrimke()
         {
             InitializeComponent();
@@ -24,6 +26,16 @@ namespace STONKS.Forms
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             frmPocetniIzbornik.ShowDialog();
             Close();
+        }
+
+        private void FrmUnosPrimke_Load(object sender, EventArgs e)
+        {
+            LoadDobavljaciCBO();
+        }
+
+        private void LoadDobavljaciCBO()
+        {
+            cboDobavljac.DataSource = dobavljaciServices.GetDobavljaci();
         }
     }
 }

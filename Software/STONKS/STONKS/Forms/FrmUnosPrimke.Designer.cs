@@ -236,6 +236,7 @@
             this.Name = "FrmUnosPrimke";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos primke";
+            this.Load += new System.EventHandler(this.FrmUnosPrimke_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavkePrimke)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();

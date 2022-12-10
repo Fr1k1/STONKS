@@ -10,24 +10,29 @@ namespace BusinessLayer.Services
 {
     public class DobavljaciServices
     {
-
+        public List<Dobavljac> GetDobavljaci()
+        {
+            using (var repo = new DobavljaciRepository())
+            {
+                return repo.GetAll().ToList();
+            }
+        }
         public bool AddDobavljac(Dobavljac dobavljac)
         {
-            using ( var repo = new DobavljaciRepository())
+            using (var repo = new DobavljaciRepository())
             {
                 if (repo.Add(dobavljac) > 0)
                     return true;
                 else
                     return false;
             }
-
         }
 
         public bool AlreadyExists(string oib,string name)
         {
             using (var repo = new DobavljaciRepository())
             {
-                if (repo.GetByOIB(oib, name).ToList().Count > 0)
+                if(repo.GetByOIB(oib, name).ToList().Count > 0)
                     return true;
                 else
                     return false;
