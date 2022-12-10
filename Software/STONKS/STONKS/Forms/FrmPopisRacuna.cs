@@ -33,7 +33,9 @@ namespace STONKS.Forms
 
         private void FrmPopisRacuna_Load(object sender, EventArgs e)
         {
-            PrikaziRacune();
+            
+            var naciniPlacanja = naciniServices.GetNaciniPlacanja();
+            cboVrsta.DataSource = naciniPlacanja;
         }
 
         private void dgvRacuni_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -60,10 +62,17 @@ namespace STONKS.Forms
 
         private void cboVrsta_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(cboVrsta.Text);
-
-            var naciniPlacanja = naciniServices.GetNaciniPlacanja();
-            cboVrsta.DataSource = naciniPlacanja;
+            if(cboVrsta.SelectedIndex == 0)
+            {
+                PrikaziRacune();
+            }
+            else
+            {
+                var odabraniNacin = cboVrsta.SelectedItem as NacinPlacanja;
+                var racuni = racunServices.GetRacuniFilter(odabraniNacin.id);
+                dgvRacuni.DataSource = racuni;
+                dgvRacuni.Columns[11].Visible = false;
+            }
         }
     }
 }

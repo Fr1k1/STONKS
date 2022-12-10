@@ -22,6 +22,15 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public override IQueryable<Racun> GetByNacinPlacanja(int id)
+        {
+            var query = from e in Entities.Include("Korisnici").Include("NaciniPlacanja").Include("StavkeRacuna")
+                        where e.nacin_placanja_id == id
+                        select e;
+
+            return query;
+        }
+
         public override int Update(Racun entity, bool save = true)
         {
             throw new NotImplementedException();

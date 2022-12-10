@@ -17,5 +17,13 @@ namespace BusinessLayer.Services
                 return repo.GetAll().ToList();
             }
         }
+
+        public List<Racun> GetRacuniFilter(int id)
+        {
+            using (var repo = new RacuniRepository())
+            {
+                return repo.GetByNacinPlacanja(id).ToList();
+            }
+        }
     }
 }

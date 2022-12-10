@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPretraziRacun = new System.Windows.Forms.TextBox();
@@ -88,9 +88,9 @@
             this.cboVrsta.ForeColor = System.Drawing.SystemColors.MenuText;
             this.cboVrsta.FormattingEnabled = true;
             this.cboVrsta.ItemHeight = 21;
-            this.cboVrsta.Location = new System.Drawing.Point(834, 73);
+            this.cboVrsta.Location = new System.Drawing.Point(802, 73);
             this.cboVrsta.Name = "cboVrsta";
-            this.cboVrsta.Size = new System.Drawing.Size(128, 29);
+            this.cboVrsta.Size = new System.Drawing.Size(160, 29);
             this.cboVrsta.TabIndex = 25;
             this.cboVrsta.Text = " filter";
             this.cboVrsta.SelectedIndexChanged += new System.EventHandler(this.cboVrsta_SelectedIndexChanged);
@@ -169,16 +169,16 @@
             // 
             // chartRacuni
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartRacuni.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chartRacuni.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chartRacuni.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartRacuni.Legends.Add(legend1);
             this.chartRacuni.Location = new System.Drawing.Point(286, 619);
             this.chartRacuni.Name = "chartRacuni";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartRacuni.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartRacuni.Series.Add(series1);
             this.chartRacuni.Size = new System.Drawing.Size(438, 244);
             this.chartRacuni.TabIndex = 38;
             this.chartRacuni.Text = "chart1";
