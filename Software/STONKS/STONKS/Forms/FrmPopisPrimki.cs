@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BusinessLayer.Services;
+using EntitiesLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace STONKS.Forms
 {
     public partial class FrmPopisPrimki : Form
     {
+        private PrimkaServices primkaServices = new PrimkaServices();
         public FrmPopisPrimki()
         {
             InitializeComponent();
@@ -23,6 +26,16 @@ namespace STONKS.Forms
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             frmPocetniIzbornik.ShowDialog();
             Close();
+        }
+
+        private void FrmPopisPrimki_Load(object sender, EventArgs e)
+        {
+            LoadPrimkeDGV();
+        }
+
+        private void LoadPrimkeDGV()
+        {
+            dgvPrimke.DataSource = primkaServices.GetPrimke();
         }
     }
 }

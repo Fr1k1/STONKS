@@ -36,15 +36,13 @@
             this.btnUnesiPrimku = new System.Windows.Forms.Button();
             this.btnPovratak = new System.Windows.Forms.Button();
             this.txtUkupno = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtPopust = new System.Windows.Forms.TextBox();
             this.txtBrojPrimke = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavkePrimke)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cboDobavljac
@@ -65,9 +63,11 @@
             this.dgvStavkePrimke.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.dgvStavkePrimke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStavkePrimke.Location = new System.Drawing.Point(12, 70);
+            this.dgvStavkePrimke.MultiSelect = false;
             this.dgvStavkePrimke.Name = "dgvStavkePrimke";
             this.dgvStavkePrimke.Size = new System.Drawing.Size(776, 306);
-            this.dgvStavkePrimke.TabIndex = 20;
+            this.dgvStavkePrimke.TabIndex = 1;
+            this.dgvStavkePrimke.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStavkePrimke_CellClick);
             this.dgvStavkePrimke.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStavkePrimke_CellEndEdit);
             this.dgvStavkePrimke.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvStavkePrimke_RowsAdded);
             // 
@@ -140,57 +140,13 @@
             this.txtUkupno.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUkupno.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUkupno.ForeColor = System.Drawing.Color.White;
-            this.txtUkupno.Location = new System.Drawing.Point(3, 28);
+            this.txtUkupno.Location = new System.Drawing.Point(130, 29);
             this.txtUkupno.Multiline = true;
             this.txtUkupno.Name = "txtUkupno";
             this.txtUkupno.ReadOnly = true;
-            this.txtUkupno.Size = new System.Drawing.Size(81, 19);
+            this.txtUkupno.Size = new System.Drawing.Size(176, 19);
             this.txtUkupno.TabIndex = 28;
             this.txtUkupno.Text = "0 EUR";
-            this.txtUkupno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.label5.Location = new System.Drawing.Point(3, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 19);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "ukupno:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.label4.Location = new System.Drawing.Point(3, 4);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 19);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "popust:";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.flowLayoutPanel1.Controls.Add(this.label4);
-            this.flowLayoutPanel1.Controls.Add(this.label5);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(580, 382);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(108, 63);
-            this.flowLayoutPanel1.TabIndex = 31;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
-            this.flowLayoutPanel2.Controls.Add(this.txtPopust);
-            this.flowLayoutPanel2.Controls.Add(this.txtUkupno);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(686, 382);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(108, 63);
-            this.flowLayoutPanel2.TabIndex = 32;
             // 
             // txtPopust
             // 
@@ -198,14 +154,13 @@
             this.txtPopust.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPopust.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPopust.ForeColor = System.Drawing.Color.White;
-            this.txtPopust.Location = new System.Drawing.Point(3, 3);
+            this.txtPopust.Location = new System.Drawing.Point(130, 4);
             this.txtPopust.Multiline = true;
             this.txtPopust.Name = "txtPopust";
             this.txtPopust.ReadOnly = true;
-            this.txtPopust.Size = new System.Drawing.Size(81, 19);
+            this.txtPopust.Size = new System.Drawing.Size(176, 19);
             this.txtPopust.TabIndex = 29;
             this.txtPopust.Text = "0 EUR";
-            this.txtPopust.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBrojPrimke
             // 
@@ -222,14 +177,48 @@
             this.txtBrojPrimke.Text = "Broj primke : 000";
             this.txtBrojPrimke.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.label5.Location = new System.Drawing.Point(17, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(101, 19);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "ukupno:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.label4.Location = new System.Drawing.Point(17, 5);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 19);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "popust:";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.txtPopust);
+            this.panel1.Controls.Add(this.txtUkupno);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Location = new System.Drawing.Point(479, 382);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(309, 61);
+            this.panel1.TabIndex = 31;
+            // 
             // FrmUnosPrimke
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(800, 507);
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtBrojPrimke);
             this.Controls.Add(this.btnUnesiPrimku);
             this.Controls.Add(this.btnPovratak);
@@ -243,10 +232,8 @@
             this.Text = "Unos primke";
             this.Load += new System.EventHandler(this.FrmUnosPrimke_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavkePrimke)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,11 +249,10 @@
         private System.Windows.Forms.Button btnUnesiPrimku;
         private System.Windows.Forms.Button btnPovratak;
         private System.Windows.Forms.TextBox txtUkupno;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.TextBox txtPopust;
         private System.Windows.Forms.TextBox txtBrojPrimke;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -52,7 +52,6 @@ namespace STONKS.Forms
                 rabat = 0,
                 kolicina = 1,
                 ukupna_cijena = 0.0
-                
             };
             UnosPrimke.AddStavka(stavka);
             Close();

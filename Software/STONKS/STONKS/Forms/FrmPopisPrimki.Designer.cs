@@ -54,6 +54,7 @@
             // 
             // dgvStavkePrimke
             // 
+            this.dgvStavkePrimke.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStavkePrimke.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvStavkePrimke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStavkePrimke.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
@@ -75,6 +76,7 @@
             // 
             // dgvPrimke
             // 
+            this.dgvPrimke.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPrimke.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvPrimke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrimke.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
@@ -120,6 +122,7 @@
             this.Name = "FrmPopisPrimki";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Popis primki";
+            this.Load += new System.EventHandler(this.FrmPopisPrimki_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavkePrimke)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimke)).EndInit();
             this.ResumeLayout(false);

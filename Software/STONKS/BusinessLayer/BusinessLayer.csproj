@@ -45,6 +45,7 @@
     <Compile Include="Services\ArtikliServices.cs" />
     <Compile Include="Services\DobavljaciServices.cs" />
     <Compile Include="Services\KorisniciServices.cs" />
+    <Compile Include="Services\PrimkaServices.cs" />
     <Compile Include="Services\UlogeServices.cs" />
   </ItemGroup>
   <ItemGroup>
