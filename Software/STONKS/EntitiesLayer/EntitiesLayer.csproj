@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Artikl.cs" />
+    <Compile Include="Entities\Artikl.Ext.cs" />
     <Compile Include="Entities\Dobavljac.cs" />
     <Compile Include="Entities\Dobavljac.Ext.cs" />
     <Compile Include="Entities\Korisnik.cs" />

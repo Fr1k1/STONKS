@@ -40,5 +40,13 @@ namespace BusinessLayer.Services
 
             return isSuccessful;
         }
+
+        public List<Artikl> SearchArtikli(string name)
+        {
+            using (var repo = new ArtikliRepository())
+            {
+                return repo.GetByName(name).ToList();
+            }
+        }
     }
 }

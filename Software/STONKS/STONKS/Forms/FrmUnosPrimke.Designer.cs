@@ -61,6 +61,7 @@
             // 
             // dgvStavkePrimke
             // 
+            this.dgvStavkePrimke.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStavkePrimke.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.dgvStavkePrimke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStavkePrimke.Location = new System.Drawing.Point(12, 70);
@@ -101,6 +102,7 @@
             this.btnAddStavkaPrimke.TabIndex = 23;
             this.btnAddStavkaPrimke.Text = "DODAJ RUCNO";
             this.btnAddStavkaPrimke.UseVisualStyleBackColor = false;
+            this.btnAddStavkaPrimke.Click += new System.EventHandler(this.btnAddStavkaPrimke_Click);
             // 
             // btnUnesiPrimku
             // 

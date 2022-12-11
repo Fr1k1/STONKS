@@ -23,10 +23,6 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
-
-
-
-
         public override int Add(Artikl entity, bool save = true)
         {
             var vrstaArtikla = Context.VrsteArtikla.SingleOrDefault(v => v.id == entity.vrsta_artikla_id);
@@ -52,6 +48,14 @@ namespace DataAccessLayer.Repositories
 
             else return 0;
 
+        }
+
+        public IQueryable<Artikl> GetByName(string name)
+        {
+            var query = from e in Entities.Include("VrsteArtikla").Include("StavkePrimke").Include("StavkeRacuna")
+                        where e.naziv.Contains(name)
+                        select e;
+            return query;
         }
 
         public override int Update(Artikl entity, bool save = true)
