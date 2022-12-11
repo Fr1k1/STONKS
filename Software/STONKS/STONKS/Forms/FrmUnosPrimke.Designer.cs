@@ -68,6 +68,8 @@
             this.dgvStavkePrimke.Name = "dgvStavkePrimke";
             this.dgvStavkePrimke.Size = new System.Drawing.Size(776, 306);
             this.dgvStavkePrimke.TabIndex = 20;
+            this.dgvStavkePrimke.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStavkePrimke_CellEndEdit);
+            this.dgvStavkePrimke.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvStavkePrimke_RowsAdded);
             // 
             // label2
             // 
@@ -116,6 +118,7 @@
             this.btnUnesiPrimku.TabIndex = 25;
             this.btnUnesiPrimku.Text = "UNESI PRIMKU";
             this.btnUnesiPrimku.UseVisualStyleBackColor = false;
+            this.btnUnesiPrimku.Click += new System.EventHandler(this.btnUnesiPrimku_Click);
             // 
             // btnPovratak
             // 

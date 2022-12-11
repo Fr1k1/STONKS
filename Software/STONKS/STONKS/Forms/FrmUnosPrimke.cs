@@ -56,15 +56,20 @@ namespace STONKS.Forms
             //---Rename columns---
             dgvStavkePrimke.Columns["Artikli"].HeaderText = "Naziv artikla";
             dgvStavkePrimke.Columns["kolicina"].HeaderText = "Količina";
-            dgvStavkePrimke.Columns["rabat"].HeaderText = "Rabat";
+            dgvStavkePrimke.Columns["rabat"].HeaderText = "Rabat(%)";
             dgvStavkePrimke.Columns["nabavna_cijena"].HeaderText = "Nabavna cijena";
             dgvStavkePrimke.Columns["ukupna_cijena"].HeaderText = "Ukupna cijena";
+            //---Format columns---
+            dgvStavkePrimke.Columns["nabavna_cijena"].DefaultCellStyle.Format = "0.00##";
+            dgvStavkePrimke.Columns["ukupna_cijena"].DefaultCellStyle.Format = "0.00##";
         }
 
         public void AddStavka(StavkaPrimke stavka)
         {
-            stavkePrimke.Add(stavka);
-            
+            if (!stavkePrimke.Contains(stavka))
+                stavkePrimke.Add(stavka);
+            else
+                MessageBox.Show("Ovaj artikl ste već dodali!!!", "Greška",MessageBoxButtons.OK,MessageBoxIcon.Warning);
         }
         private void LoadDobavljaciCBO()
         {   
@@ -75,6 +80,33 @@ namespace STONKS.Forms
             FrmOdaberiArtiklZaDodatiRucno frmDodajRucno = new FrmOdaberiArtiklZaDodatiRucno();
             frmDodajRucno.UnosPrimke = this;
             frmDodajRucno.ShowDialog();
+        }
+
+
+        private void btnUnesiPrimku_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(stavkePrimke[0].ukupna_cijena.ToString());  //Testing
+        }
+
+        private void dgvStavkePrimke_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+                int kolicina = (int)dgvStavkePrimke.Rows[e.RowIndex].Cells["kolicina"].Value;
+                int rabat = (int)dgvStavkePrimke.Rows[e.RowIndex].Cells["rabat"].Value;
+                double nabavna_cijena = (double)dgvStavkePrimke.Rows[e.RowIndex].Cells["nabavna_cijena"].Value;
+
+                Console.WriteLine("kolicina:" + kolicina);
+                Console.WriteLine("nc:" + nabavna_cijena);
+                Console.WriteLine("rb:" + rabat);
+                double uk_cijena = 0;
+                uk_cijena = kolicina * (nabavna_cijena * (1 - (rabat / 100.00)));
+                Console.WriteLine("uc:" + uk_cijena);
+                dgvStavkePrimke.Rows[e.RowIndex].Cells["ukupna_cijena"].Value = uk_cijena;
+        }
+
+        private void dgvStavkePrimke_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            if (dgvStavkePrimke.Rows.Count > 1) //beacuse of empty row from bindingList
+                dgvStavkePrimke.CurrentCell = dgvStavkePrimke.Rows[e.RowIndex].Cells["kolicina"];
         }
     }
 }

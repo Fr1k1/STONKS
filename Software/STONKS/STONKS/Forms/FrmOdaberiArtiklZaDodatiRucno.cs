@@ -47,8 +47,12 @@ namespace STONKS.Forms
             var stavka = new StavkaPrimke()
             {
                 artikl_id = int.Parse((dgvPopisArtikala.CurrentRow.DataBoundItem as Artikl).sifra),
-                Artikli = (dgvPopisArtikala.CurrentRow.DataBoundItem as Artikl)
-
+                Artikli = (dgvPopisArtikala.CurrentRow.DataBoundItem as Artikl),
+                nabavna_cijena = 0.0,
+                rabat = 0,
+                kolicina = 1,
+                ukupna_cijena = 0.0
+                
             };
             UnosPrimke.AddStavka(stavka);
             Close();
