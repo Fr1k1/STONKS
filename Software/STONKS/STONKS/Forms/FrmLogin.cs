@@ -51,8 +51,9 @@ namespace STONKS
                 {
                     Hide();
 
-                    FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
-                    frmPocetniIzbornik.ShowDialog();
+
+                    FaceRecNew frm = new FaceRecNew();
+                    frm.ShowDialog();
 
                     Close();
 
