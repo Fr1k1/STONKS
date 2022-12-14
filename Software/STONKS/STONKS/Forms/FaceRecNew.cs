@@ -14,6 +14,8 @@ using System.Drawing.Imaging;
 using ImageFormat = System.Drawing.Imaging.ImageFormat;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using System.Security.Cryptography;
+using EntitiesLayer.Entities;
 
 
 namespace STONKS.Forms
@@ -33,17 +35,22 @@ namespace STONKS.Forms
 
         private void btnPic2_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog() { Multiselect = true })
+            /*using (OpenFileDialog ofd = new OpenFileDialog() { Multiselect = true })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     Bitmap bPic2 = new Bitmap(System.Drawing.Image.FromFile(ofd.FileName));
                     pbPic2.SizeMode = PictureBoxSizeMode.StretchImage;
                     pbPic2.Image = bPic2;
-                    file2 = ofd.FileName;
+                    file2 = "slikica.jpg";
 
                 }
-            }
+            }*/
+
+            Bitmap bPic2 = new Bitmap(System.Drawing.Image.FromFile("C:\\Users\\KORISNIK\\Desktop\\slikica.jpg"));
+            pbPic2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPic2.Image = bPic2;
+            file2 = "C:\\Users\\KORISNIK\\Desktop\\slikica.jpg";
         }
 
         private void pbPic1_Click(object sender, EventArgs e)
@@ -136,6 +143,10 @@ namespace STONKS.Forms
             saveFileDialog.DefaultExt = ".jpg";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
+                /* string putanja = "C:\\Slike\\slika.jpg";
+                 if(!Directory.Exists(putanja))
+                     Directory.CreateDirectory(putanja);
+                 */
                 pbSlikaZaSpremiti.Image.Save(saveFileDialog.FileName);
             }
         }
