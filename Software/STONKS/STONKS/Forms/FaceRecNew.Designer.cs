@@ -35,8 +35,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbPic1 = new System.Windows.Forms.PictureBox();
             this.btnCompare = new System.Windows.Forms.Button();
+            this.pbCamera = new System.Windows.Forms.PictureBox();
+            this.btnUkljuciKameru = new System.Windows.Forms.Button();
+            this.cbCameraName = new System.Windows.Forms.ComboBox();
+            this.pbSlikaZaSpremiti = new System.Windows.Forms.PictureBox();
+            this.btnTakePicture = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCamera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSlikaZaSpremiti)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPic2
@@ -117,12 +125,74 @@
             this.btnCompare.UseVisualStyleBackColor = false;
             this.btnCompare.Click += new System.EventHandler(this.btnCompare_Click);
             // 
+            // pbCamera
+            // 
+            this.pbCamera.Location = new System.Drawing.Point(17, 501);
+            this.pbCamera.Name = "pbCamera";
+            this.pbCamera.Size = new System.Drawing.Size(311, 266);
+            this.pbCamera.TabIndex = 40;
+            this.pbCamera.TabStop = false;
+            this.pbCamera.Click += new System.EventHandler(this.pbCamera_Click);
+            // 
+            // btnUkljuciKameru
+            // 
+            this.btnUkljuciKameru.Location = new System.Drawing.Point(745, 501);
+            this.btnUkljuciKameru.Name = "btnUkljuciKameru";
+            this.btnUkljuciKameru.Size = new System.Drawing.Size(124, 38);
+            this.btnUkljuciKameru.TabIndex = 41;
+            this.btnUkljuciKameru.Text = "Ukljuci kameru";
+            this.btnUkljuciKameru.UseVisualStyleBackColor = true;
+            this.btnUkljuciKameru.Click += new System.EventHandler(this.btnUkljuciKameru_Click);
+            // 
+            // cbCameraName
+            // 
+            this.cbCameraName.FormattingEnabled = true;
+            this.cbCameraName.Location = new System.Drawing.Point(745, 585);
+            this.cbCameraName.Name = "cbCameraName";
+            this.cbCameraName.Size = new System.Drawing.Size(121, 21);
+            this.cbCameraName.TabIndex = 42;
+            // 
+            // pbSlikaZaSpremiti
+            // 
+            this.pbSlikaZaSpremiti.Location = new System.Drawing.Point(417, 501);
+            this.pbSlikaZaSpremiti.Name = "pbSlikaZaSpremiti";
+            this.pbSlikaZaSpremiti.Size = new System.Drawing.Size(311, 266);
+            this.pbSlikaZaSpremiti.TabIndex = 43;
+            this.pbSlikaZaSpremiti.TabStop = false;
+            this.pbSlikaZaSpremiti.Click += new System.EventHandler(this.pbSlikaZaSpremiti_Click);
+            // 
+            // btnTakePicture
+            // 
+            this.btnTakePicture.Location = new System.Drawing.Point(745, 646);
+            this.btnTakePicture.Name = "btnTakePicture";
+            this.btnTakePicture.Size = new System.Drawing.Size(124, 38);
+            this.btnTakePicture.TabIndex = 44;
+            this.btnTakePicture.Text = "Poslikaj";
+            this.btnTakePicture.UseVisualStyleBackColor = true;
+            this.btnTakePicture.Click += new System.EventHandler(this.btnTakePicture_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(921, 501);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(124, 38);
+            this.btnSave.TabIndex = 45;
+            this.btnSave.Text = "Spremi";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // FaceRecNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(1230, 640);
+            this.ClientSize = new System.Drawing.Size(1230, 818);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnTakePicture);
+            this.Controls.Add(this.pbSlikaZaSpremiti);
+            this.Controls.Add(this.cbCameraName);
+            this.Controls.Add(this.btnUkljuciKameru);
+            this.Controls.Add(this.pbCamera);
             this.Controls.Add(this.btnCompare);
             this.Controls.Add(this.btnPic2);
             this.Controls.Add(this.pbPic2);
@@ -132,8 +202,11 @@
             this.Controls.Add(this.pbPic1);
             this.Name = "FaceRecNew";
             this.Text = "FaceRecNew";
+            this.Load += new System.EventHandler(this.FaceRecNew_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPic2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCamera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSlikaZaSpremiti)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,5 +221,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbPic1;
         private System.Windows.Forms.Button btnCompare;
+        private System.Windows.Forms.PictureBox pbCamera;
+        private System.Windows.Forms.Button btnUkljuciKameru;
+        private System.Windows.Forms.ComboBox cbCameraName;
+        private System.Windows.Forms.PictureBox pbSlikaZaSpremiti;
+        private System.Windows.Forms.Button btnTakePicture;
+        private System.Windows.Forms.Button btnSave;
     }
 }

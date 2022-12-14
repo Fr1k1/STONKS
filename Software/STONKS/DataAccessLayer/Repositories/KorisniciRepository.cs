@@ -42,6 +42,17 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public IQueryable<string> GetSlika(string username, string password)
+        {
+            var query = from e in Entities.Include("Uloge")
+                        where e.korime == username && e.lozinka == password
+                        select e.slika;
+
+            return query;
+        }
+
+
+
         public override int Add(Korisnik entity, bool save = true)
         {
             var uloga = Context.Uloge.SingleOrDefault(u => u.id == entity.uloga_id);

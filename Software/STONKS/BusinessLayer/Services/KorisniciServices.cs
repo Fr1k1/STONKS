@@ -27,6 +27,14 @@ namespace BusinessLayer.Services
             }
         }
 
+        public List<string> GetSlika(string username, string password)
+        {
+            using (var repo = new KorisniciRepository())
+            {
+                return repo.GetSlika(username, password).ToList();
+            }
+        }
+
         public bool GetKorisnik(string username, string password)
         {
 
@@ -34,7 +42,7 @@ namespace BusinessLayer.Services
             {
                 if (repo.Get(username, password).ToList().Count > 0)
                     return true;
-                
+
 
                 else return false;
 

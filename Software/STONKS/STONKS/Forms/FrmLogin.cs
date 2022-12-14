@@ -41,6 +41,8 @@ namespace STONKS
             return uloga[0];
         }
 
+        public static Korisnik korisnik;
+
         private void LoginUser(string korime, string lozinka)
         {
             var korisnik = services.GetKorisnik(korime, lozinka);
