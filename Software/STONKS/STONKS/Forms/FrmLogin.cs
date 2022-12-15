@@ -14,8 +14,12 @@ using System.Windows.Forms;
 
 namespace STONKS
 {
+
     public partial class FrmLogin : Form
     {
+
+        public static Korisnik logirani;
+
         public FrmLogin()
         {
             InitializeComponent();
@@ -31,6 +35,9 @@ namespace STONKS
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             LoginUser(txtUsername.Text, txtPassword.Text);
+            //logirani=services.GetLoggedKorisnik(txtUsername.Text, txtPassword.Text);
+            // MessageBox.Show(logirani.to);
+
 
         }
 
@@ -48,6 +55,7 @@ namespace STONKS
             var korisnik = services.GetKorisnik(korime, lozinka);
             if (korisnik)
             {
+                
 
                 if (GetUloga(txtUsername.Text, txtPassword.Text) == "voditelj")
                 {

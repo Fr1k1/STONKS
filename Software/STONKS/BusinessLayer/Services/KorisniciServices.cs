@@ -27,11 +27,19 @@ namespace BusinessLayer.Services
             }
         }
 
-        public List<string> GetSlika(string username, string password)
+        /* public List<string> GetSlika(string username, string password)
+         {
+             using (var repo = new KorisniciRepository())
+             {
+                 return repo.GetSlika(username, password).ToList();
+             }
+         }*/
+
+        public string GetSlika(string value)
         {
             using (var repo = new KorisniciRepository())
             {
-                return repo.GetSlika(username, password).ToList();
+                return repo.GetPicture(value).ToString();
             }
         }
 
@@ -49,6 +57,14 @@ namespace BusinessLayer.Services
             }
 
 
+        }
+
+        public IQueryable<Korisnik> GetLoggedKorisnik(string username, string password)
+        {
+            using (var repo = new KorisniciRepository())
+            {
+                return repo.Get(username, password);
+            }
         }
 
         public bool AddKorisnik(Korisnik korisnik)

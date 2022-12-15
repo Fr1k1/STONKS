@@ -143,13 +143,22 @@ namespace STONKS.Forms
             saveFileDialog.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
             saveFileDialog.FileName = "slikica";
             saveFileDialog.DefaultExt = ".jpg";
+
+            /*if (System.IO.File.Exists(saveFileDialog.FileName))
+            {
+                System.IO.File.Delete(saveFileDialog.FileName);
+            mozda ima neki bolji nacin za save
+                
+            }*/
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 /* string putanja = "C:\\Slike\\slika.jpg";
                  if(!Directory.Exists(putanja))
                      Directory.CreateDirectory(putanja);
                  */
+                
                 pbSlikaZaSpremiti.Image.Save(saveFileDialog.FileName);
+                //pbSlikaZaSpremiti.Image.Dispose();
             }
         }
 

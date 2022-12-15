@@ -116,6 +116,12 @@
     <Compile Include="Forms\FrmDodavanjeSlike.Designer.cs">
       <DependentUpon>FrmDodavanjeSlike.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmFaceRecNewApproach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmFaceRecNewApproach.Designer.cs">
+      <DependentUpon>FrmFaceRecNewApproach.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmIzradaRacuna.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDodavanjeSlike.resx">
       <DependentUpon>FrmDodavanjeSlike.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmFaceRecNewApproach.resx">
+      <DependentUpon>FrmFaceRecNewApproach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmIzradaRacuna.resx">
       <DependentUpon>FrmIzradaRacuna.cs</DependentUpon>

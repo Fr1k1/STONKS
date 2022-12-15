@@ -33,6 +33,15 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public IQueryable<string> GetPicture(string value)
+        {
+            var query = from e in Entities.Include("Uloge")
+                        where e.slika==value
+                        select e.slika;
+
+            return query;
+        }
+
         public IQueryable<string> GetUloga(string username, string password)
         {
             var query = from e in Entities.Include("Uloge")
