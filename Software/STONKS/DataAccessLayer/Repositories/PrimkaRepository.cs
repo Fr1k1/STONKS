@@ -40,7 +40,7 @@ namespace DataAccessLayer.Repositories
                         foreach (var stavka in stavke)
                         {
                             stavka.primka_id = entry.id;   
-                            stavka.Artikli = null;
+                            //stavka.Artikli = null;
                             StavkePrimke.Attach(stavka);
                             StavkePrimke.Add(stavka);
                             Context.SaveChanges();

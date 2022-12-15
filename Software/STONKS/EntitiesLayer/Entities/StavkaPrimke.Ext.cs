@@ -18,5 +18,10 @@ namespace EntitiesLayer.Entities
         {
             return 1500605918 + artikl_id.GetHashCode();
         }
+
+        public override string ToString()
+        {
+            return Artikli.ToString();
+        }
     }
 }

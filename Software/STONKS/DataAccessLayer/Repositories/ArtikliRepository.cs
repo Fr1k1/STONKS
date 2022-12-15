@@ -1,6 +1,7 @@
 ﻿using EntitiesLayer.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,7 +61,13 @@ namespace DataAccessLayer.Repositories
 
         public override int Update(Artikl entity, bool save = true)
         {
-            throw new NotImplementedException();
+            var artikl = Context.Artikli.SingleOrDefault(a => a.id == entity.id);
+            artikl.saldo = entity.saldo;
+            if (save)
+                return SaveChanges();
+            else
+                return 0;
+
         }
     }
 }

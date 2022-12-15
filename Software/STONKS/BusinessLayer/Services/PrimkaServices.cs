@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace BusinessLayer.Services
 {
     public class PrimkaServices
-    {
+    {   
 
         public List<Primka> GetPrimke()
         { 
@@ -26,12 +26,23 @@ namespace BusinessLayer.Services
 
         public bool AddPrimka(Primka primka,List<StavkaPrimke> stavke)
         {
+            var helpList = new List<StavkaPrimke>(stavke);
             using (var repo = new PrimkaRepository())
             {
+                
                 int success = repo.AddTransactional(primka,stavke);
+                var artikliService = new ArtikliServices();
+                foreach (var stavka in helpList)
+                {
+                    artikliService.ChangeSaldo(stavka.Artikli, stavka.kolicina);
+                }
+
+
                 return success > 0;
             }
         }
+
+        
 
         public List<StavkaPrimke> GetStavkeFromPrimka(Primka primka)
         {

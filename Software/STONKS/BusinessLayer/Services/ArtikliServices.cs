@@ -48,5 +48,17 @@ namespace BusinessLayer.Services
                 return repo.GetByName(name).ToList();
             }
         }
+
+        public void ChangeSaldo(Artikl artikl,int quantity)
+        {
+            using (var repo = new ArtikliRepository())
+            {
+                Console.WriteLine("before" + artikl.saldo);
+                artikl.saldo += quantity;
+                Console.WriteLine("after" + artikl.saldo);
+                int affectedRows = repo.Update(artikl);
+                Console.WriteLine("affected" + affectedRows);
+            }
+        }
     }
 }
