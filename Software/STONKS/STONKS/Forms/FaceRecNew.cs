@@ -24,6 +24,7 @@ namespace STONKS.Forms
     {
 
         string file1, file2 = "";
+        string path=Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         public FaceRecNew()
         {
             InitializeComponent();
@@ -47,10 +48,11 @@ namespace STONKS.Forms
                 }
             }*/
 
-            Bitmap bPic2 = new Bitmap(System.Drawing.Image.FromFile("C:\\Users\\KORISNIK\\Desktop\\slikica.jpg"));
+            Bitmap bPic2 = new Bitmap(System.Drawing.Image.FromFile(path + "\\slikica.jpg"));
             pbPic2.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPic2.Image = bPic2;
-            file2 = "C:\\Users\\KORISNIK\\Desktop\\slikica.jpg";
+           // file2 = "C:\\Users\\KORISNIK\\Desktop\\faces\\slikica.jpg";
+            file2 = path+"\\slikica.jpg";
         }
 
         private void pbPic1_Click(object sender, EventArgs e)
@@ -136,7 +138,7 @@ namespace STONKS.Forms
             pbSlikaZaSpremiti.SizeMode = PictureBoxSizeMode.StretchImage;
 
             pbSlikaZaSpremiti.Image = pbCamera.Image;
-            //pbSlikaZaSpremiti.Image.Save(@"martin.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            pbSlikaZaSpremiti.Image.Save(@"martin.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
             saveFileDialog.FileName = "slikica";
@@ -156,18 +158,23 @@ namespace STONKS.Forms
 
         }
 
+        private void pbPic2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnPic1_Click(object sender, EventArgs e)
         {
 
             using(WebClient client=new WebClient())
             {
-                client.DownloadFile(new Uri("https://lh3.googleusercontent.com/pUfFGXRLeKcvdtxAgj0GoRRLjg57t_Zf7Y8Z7cf9ySdmLGoM5z8OKzaLF-yxGxDrMt3tQ5Gf9bSzbPnhIwqbNoGpXMrAcUGAxaqMAByorXKoE5-ARoEEiHyoYBLREIhRt-3daT8o_kk6x1wQ3DN3NjVYoX2mG9gPBcL_QA4WOdE0ewNtt44rHEAxzCt6JD9O6z5s_EPhhFzawENSlHFrJFAenRg8yiki6SmB_c3gynafDbe5WV81SHfTK_BZTKjHGXMHjCgAKjyM-CTQdpjvz02azLo_J3PZIBe1Q1xV5xsAfOrGHzhYzfoOi0tabMu9f2lRDtz4sdwn3WLoKcHP0tGzeK0fiIUKVK4VGEhCSVDlyCOHuGIHXzyWrtR4133PqNeMSWURS33RvUCqKCcWhd773voIi2rNiLGylk5ZeXAhziWg_n_YtP-bzdDhPSm9kZvn16EW8sFLIXT3WsC_g3O_7WcKKgpqdabIlrPL6LVpPfgfyt9Q1rs6W-rWIty6i3RuohsgPjSF17CKjKsH9tk-GF4i0sigClnCG4QaYNYIKadIv4sRqODHLrHmJbw5Hhg6PFMBXWlVBDVlwOvG3pMyxMQ1MT5q4lHg3C_B-Xsq89wWx9qpyaLFN0MweT-M-gpucmTp7Q-D0IZ66FxEe5pjTQJ8QVORbNLhsrxCmBVhWxg952wIWmOLc85Noj5n6KtRlehGTvHQZKGpkVqdb8EgOKcbuaSJn3afpUzNtmWPNY4DOi4Kwgx2W63myAvQPnvLuZkK2sFpvKOm-8wJqIY-u46LJUTwvnabct9u2oZDElgRz8wKmt6_8VYWV-DP2gfYLDB1WkIMQ6Hb4c2py0D-qBSEYRTVcSMaoWSCriU5YlKVerTSBgOKTJfGs2w68D065-AlxeksSDeARqc5gWoISPFLl41ZvWmXEo2JZ_r2T2TfZP98ge9tt1P0ZVheLrJMBh5T7m-jzJ2oYiVgAEJcBRjEW-eGfFlf-5NXp-qtSgnEkrrjzXyMODk11x_4_jEcnQC94dbIHalLbUAfdUtnfGA0eg=w386-h357-no?authuser=0"), @"C:\Users\KORISNIK\Desktop\skinuta.jpg");
+                //client.DownloadFile(new Uri("https://lh3.googleusercontent.com/pUfFGXRLeKcvdtxAgj0GoRRLjg57t_Zf7Y8Z7cf9ySdmLGoM5z8OKzaLF-yxGxDrMt3tQ5Gf9bSzbPnhIwqbNoGpXMrAcUGAxaqMAByorXKoE5-ARoEEiHyoYBLREIhRt-3daT8o_kk6x1wQ3DN3NjVYoX2mG9gPBcL_QA4WOdE0ewNtt44rHEAxzCt6JD9O6z5s_EPhhFzawENSlHFrJFAenRg8yiki6SmB_c3gynafDbe5WV81SHfTK_BZTKjHGXMHjCgAKjyM-CTQdpjvz02azLo_J3PZIBe1Q1xV5xsAfOrGHzhYzfoOi0tabMu9f2lRDtz4sdwn3WLoKcHP0tGzeK0fiIUKVK4VGEhCSVDlyCOHuGIHXzyWrtR4133PqNeMSWURS33RvUCqKCcWhd773voIi2rNiLGylk5ZeXAhziWg_n_YtP-bzdDhPSm9kZvn16EW8sFLIXT3WsC_g3O_7WcKKgpqdabIlrPL6LVpPfgfyt9Q1rs6W-rWIty6i3RuohsgPjSF17CKjKsH9tk-GF4i0sigClnCG4QaYNYIKadIv4sRqODHLrHmJbw5Hhg6PFMBXWlVBDVlwOvG3pMyxMQ1MT5q4lHg3C_B-Xsq89wWx9qpyaLFN0MweT-M-gpucmTp7Q-D0IZ66FxEe5pjTQJ8QVORbNLhsrxCmBVhWxg952wIWmOLc85Noj5n6KtRlehGTvHQZKGpkVqdb8EgOKcbuaSJn3afpUzNtmWPNY4DOi4Kwgx2W63myAvQPnvLuZkK2sFpvKOm-8wJqIY-u46LJUTwvnabct9u2oZDElgRz8wKmt6_8VYWV-DP2gfYLDB1WkIMQ6Hb4c2py0D-qBSEYRTVcSMaoWSCriU5YlKVerTSBgOKTJfGs2w68D065-AlxeksSDeARqc5gWoISPFLl41ZvWmXEo2JZ_r2T2TfZP98ge9tt1P0ZVheLrJMBh5T7m-jzJ2oYiVgAEJcBRjEW-eGfFlf-5NXp-qtSgnEkrrjzXyMODk11x_4_jEcnQC94dbIHalLbUAfdUtnfGA0eg=w386-h357-no?authuser=0"), @"C:\Users\KORISNIK\Desktop\skinuta.jpg");
             }
 
-            Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile("C:\\Users\\KORISNIK\\Desktop\\skinuta.jpg"));
+            Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(path+ "\\preloaded_faces\\slikica.jpg"));
             pbPic1.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPic1.Image = bPic1;
-            file1 = "C:\\Users\\KORISNIK\\Desktop\\skinuta.jpg";
+            file1 = path + "\\preloaded_faces\\slikica.jpg";
 
 
             /* using (OpenFileDialog ofd = new OpenFileDialog() { Multiselect = true })

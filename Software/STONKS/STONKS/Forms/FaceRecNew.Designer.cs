@@ -67,6 +67,7 @@
             this.pbPic2.Size = new System.Drawing.Size(330, 380);
             this.pbPic2.TabIndex = 37;
             this.pbPic2.TabStop = false;
+            this.pbPic2.Click += new System.EventHandler(this.pbPic2_Click);
             // 
             // btnPic1
             // 
