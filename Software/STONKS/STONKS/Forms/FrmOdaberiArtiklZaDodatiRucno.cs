@@ -42,16 +42,17 @@ namespace STONKS.Forms
         }
 
         private void btnDodajArtikl_Click(object sender, EventArgs e)
-        {   
-            
+        {
+
             var stavka = new StavkaPrimke()
             {
-                artikl_id = int.Parse((dgvPopisArtikala.CurrentRow.DataBoundItem as Artikl).sifra),
+                artikl_id = (dgvPopisArtikala.CurrentRow.DataBoundItem as Artikl).id,
                 Artikli = (dgvPopisArtikala.CurrentRow.DataBoundItem as Artikl),
                 nabavna_cijena = 0.0,
                 rabat = 0,
                 kolicina = 1,
-                ukupna_cijena = 0.0
+                ukupna_cijena = 0.0,
+                primka_id = UnosPrimke.IdPrimke
             };
             UnosPrimke.AddStavka(stavka);
             Close();

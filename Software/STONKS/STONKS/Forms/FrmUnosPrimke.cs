@@ -19,7 +19,11 @@ namespace STONKS.Forms
 
         private PrimkaServices primkaServices = new PrimkaServices();
 
-        private BindingList<StavkaPrimke> stavkePrimke = new BindingList<StavkaPrimke>();
+        private BindingList<StavkaPrimke> stavkePrimke = new BindingList<StavkaPrimke>();   // local list of stavkePrimka, will be pushed into db latter
+        
+        public int IdPrimke { get; set; }
+        private double FinalPrice = 0;
+        private double Discount = 0;
         public FrmUnosPrimke()
         {
             InitializeComponent();
@@ -42,19 +46,20 @@ namespace STONKS.Forms
 
         private string SetPrimkaId()
         {
-            var id = primkaServices.GetIdForNewPrimka();
+            IdPrimke  = primkaServices.GetIdForNewPrimka();
 
-            if (id < 10)
-                return "Broj primke: 00" + id;
-            else if(id <100)
-                return "Broj primke: 0" + id;
+            //convert id into a number with 3 digits (add leading zeros)
+            if (IdPrimke < 10)
+                return "Broj primke: 00" + IdPrimke;
+            else if(IdPrimke < 100)
+                return "Broj primke: 0" + IdPrimke;
             else
-                return "Broj primke: " + id;
+                return "Broj primke: " + IdPrimke;
         }
 
-        public void LoadStavkeDGV()
+        public void LoadStavkeDGV()     //adds data source and changes look of dgv 
         {
-            dgvStavkePrimke.DataSource = stavkePrimke;
+            dgvStavkePrimke.DataSource = stavkePrimke;  
             //---make invisible---
             dgvStavkePrimke.Columns[0].Visible = false;
             dgvStavkePrimke.Columns[1].Visible = false;
@@ -79,45 +84,66 @@ namespace STONKS.Forms
             dgvStavkePrimke.Columns["ukupna_cijena"].DefaultCellStyle.Format = "0.00##";
         }
 
-        public void AddStavka(StavkaPrimke stavka)
+        public void AddStavka(StavkaPrimke stavka)  // function that can be called from another form
         {
-            if (!stavkePrimke.Contains(stavka))
-                stavkePrimke.Add(stavka);
+            if (!stavkePrimke.Contains(stavka))     // check if artikl is alredy in dgv
+            {
+                stavkePrimke.Add(stavka);   //if it isnt add it
+                changeTabPosition();    //change selected cell to a cell in new row
+            }
             else
-                MessageBox.Show("Ovaj artikl ste već dodali!!!", "Greška",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Ovaj artikl ste već dodali!!!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         private void LoadDobavljaciCBO()
         {   
-            cboDobavljac.DataSource = dobavljaciServices.GetDobavljaci();
+            cboDobavljac.DataSource = dobavljaciServices.GetDobavljaci();   //load cbo for suppliers
         }
         private void btnAddStavkaPrimke_Click(object sender, EventArgs e)
-        {   
+        {
             FrmOdaberiArtiklZaDodatiRucno frmDodajRucno = new FrmOdaberiArtiklZaDodatiRucno();
             frmDodajRucno.UnosPrimke = this;
             frmDodajRucno.ShowDialog();
             dgvStavkePrimke.Focus();
         }
 
+        private void changeTabPosition()
+        {
+            int numOfRows = dgvStavkePrimke.RowCount - 1; // get nuber of row in dgv
+            dgvStavkePrimke.Rows[numOfRows - 1].Cells["kolicina"].Selected = true; // select cell in row-1 and collumn kolicina
+        }
 
         private void btnUnesiPrimku_Click(object sender, EventArgs e)
-        {   
-            MessageBox.Show(stavkePrimke[0].ukupna_cijena.ToString());  //Testing
-
-            bool isValid = true;
-            foreach(DataGridViewRow row in dgvStavkePrimke.Rows)
+        {
+            if(ValidatePrimka())
             {
-                if (!isValid)
-                    break;
-                if(!row.IsNewRow)
+                var primka = new Primka()
                 {
-                    if ((int)row.Cells["kolicina"].Value == 0 || (double)row.Cells["nabavna_cijena"].Value == 0 || row.Cells["Artikli"].Value == null)
-                        isValid = false;
-                }
+                    //id = IdPrimke,
+                    ukupno = FinalPrice,
+                    datum = DateTime.Now,
+                    Dobavljac_id = (cboDobavljac.SelectedItem as Dobavljac).id,
+                    //Dobavljaci = cboDobavljac.SelectedItem as Dobavljac
+                };
+                if(primkaServices.AddPrimka(primka, stavkePrimke.ToList()))
+                    MessageBox.Show("Primka je unesena!!!", "Uspiješan unos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Došlo je do greške prilikom upisa u bazu,pokusajte kasnije", "Neuspiješan unos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if(isValid)
-                MessageBox.Show("Primka je unesena!!!", "Uspiješan unos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Nisu uneseni svi potrebni podaci, primka nije unesena!!!", "Nesipravan unos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private bool ValidatePrimka()
+        {
+            foreach (DataGridViewRow row in dgvStavkePrimke.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    if ((int)row.Cells["kolicina"].Value == 0 || (double)row.Cells["nabavna_cijena"].Value == 0 || row.Cells["Artikli"].Value == null) //cehck if all inputs are filled and valid
+                        return false;
+                }
+            }               
+            return true;
         }
 
         private void dgvStavkePrimke_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -130,41 +156,31 @@ namespace STONKS.Forms
 
         private void CalculateDiscount()
         {
-            double finalDiscount = 0;
             foreach (var stavka in stavkePrimke)
             {
-                finalDiscount += stavka.kolicina * (stavka.nabavna_cijena * ((stavka.rabat / 100.00)));
+                Discount += stavka.kolicina * (stavka.nabavna_cijena * ((stavka.rabat / 100.00)));
             }
-            txtPopust.Text = finalDiscount.ToString() + " EUR";
+            txtPopust.Text = Discount.ToString() + " EUR";
         }
 
         private void CalculateFinalPrice()
         {
-            double finalPrice = 0;
+
             foreach(var stavka in stavkePrimke)
             {
-                finalPrice += stavka.ukupna_cijena;
+                FinalPrice += stavka.ukupna_cijena;
             }
-            txtUkupno.Text = finalPrice.ToString() + " EUR";
+            txtUkupno.Text = FinalPrice.ToString() + " EUR";
         }
 
         private void CalculateRowData(int rowIndex)
         {
-            int kolicina = (int)dgvStavkePrimke.Rows[rowIndex].Cells["kolicina"].Value;
-            int rabat = (int)dgvStavkePrimke.Rows[rowIndex].Cells["rabat"].Value;
-            double nabavna_cijena = (double)dgvStavkePrimke.Rows[rowIndex].Cells["nabavna_cijena"].Value;
+            int kolicina = (int)dgvStavkePrimke.Rows[rowIndex].Cells["kolicina"].Value;     //read kolicina from selected row
+            int rabat = (int)dgvStavkePrimke.Rows[rowIndex].Cells["rabat"].Value;        //read rabat from selected row
+            double nabavna_cijena = (double)dgvStavkePrimke.Rows[rowIndex].Cells["nabavna_cijena"].Value;       //read nabavna_cijena from selected row
             double uk_cijena = 0;
-            uk_cijena = kolicina * (nabavna_cijena * (1 - (rabat / 100.00)));
-            dgvStavkePrimke.Rows[rowIndex].Cells["ukupna_cijena"].Value = uk_cijena;
-        }
-
-        private void dgvStavkePrimke_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            if (!dgvStavkePrimke.Rows[e.RowIndex].IsNewRow) //beacuse of empty row from bindingList
-            {
-                dgvStavkePrimke.CurrentCell = dgvStavkePrimke.Rows[e.RowIndex].Cells["kolicina"];
-                dgvStavkePrimke.CurrentCell.Selected = true;
-            }
+            uk_cijena = kolicina * (nabavna_cijena * (1 - (rabat / 100.00)));       //calculate row final price
+            dgvStavkePrimke.Rows[rowIndex].Cells["ukupna_cijena"].Value = uk_cijena;         //set  row final price    
         }
 
     }

@@ -49,6 +49,7 @@
     <Compile Include="Entities\Korisnik.cs" />
     <Compile Include="Entities\NacinPlacanja.cs" />
     <Compile Include="Entities\Primka.cs" />
+    <Compile Include="Entities\Primka.Ext.cs" />
     <Compile Include="Entities\Promet.cs" />
     <Compile Include="Entities\Racun.cs" />
     <Compile Include="Entities\StavkaPrimke.cs" />

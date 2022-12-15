@@ -67,9 +67,7 @@
             this.dgvStavkePrimke.Name = "dgvStavkePrimke";
             this.dgvStavkePrimke.Size = new System.Drawing.Size(776, 306);
             this.dgvStavkePrimke.TabIndex = 1;
-            this.dgvStavkePrimke.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStavkePrimke_CellClick);
             this.dgvStavkePrimke.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStavkePrimke_CellEndEdit);
-            this.dgvStavkePrimke.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvStavkePrimke_RowsAdded);
             // 
             // label2
             // 

@@ -23,5 +23,15 @@ namespace BusinessLayer.Services
         {
             return GetPrimke().Count + 1;
         }
+
+        public bool AddPrimka(Primka primka,List<StavkaPrimke> stavke)
+        {
+            using (var repo = new PrimkaRepository())
+            {
+                int success = repo.AddTransactional(primka,stavke);
+                return success > 0;
+            }
+        }
+
     }
 }
