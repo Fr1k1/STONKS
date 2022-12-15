@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -101,6 +102,17 @@ namespace STONKS.Forms
             }
         }
 
+        private string PathCombine(string path1, string path2)
+        {
+            if (Path.IsPathRooted(path2))
+            {
+                path2 = path2.TrimStart(Path.DirectorySeparatorChar);
+                path2 = path2.TrimStart(Path.AltDirectorySeparatorChar);
+            }
+
+            return Path.Combine(path1+@"\", path2);
+        }
+
         private void btnSave_new_Click(object sender, EventArgs e)
         {
             pbSlikaZaSpremiti_new.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -135,19 +147,26 @@ namespace STONKS.Forms
 
             Korisnik kor = cbAllUsers.SelectedItem as Korisnik;
 
-            string path = GetPath(cbAllUsers.Text);
+            string path = "\\"+GetPath(cbAllUsers.Text);
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
+
 
 
             //Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(path + "\\preloaded_faces\\" + kor.korime + ".jpg"));
             MessageBox.Show(GetPath(cbAllUsers.Text));
-            Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(System.IO.Path.Combine(desktop,path))); //slozi ovo s putanjama nezz kaje krivo
+
+            MessageBox.Show("Putanja koja ne dela je"+ PathCombine(desktop, path));
+            Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(PathCombine(desktop+"\\",path))); //slozi ovo s putanjama nezz kaje krivo
+            //Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(desktop+path)); //slozi ovo s putanjama nezz kaje krivo
             
             pbPic1_new.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPic1_new.Image = bPic1;
             //file1 = path + "\\preloaded_faces\\"+ kor.korime + ".jpg";
            // MessageBox.Show(services.GetSlika(kor.korime));
             //file1 = services.GetSlika(kor.korime).ToString();
-            file1 = GetPath(kor.korime).ToString();
+            //file1 = GetPath(kor.korime).ToString(); ovo dela
+            file1 = PathCombine(desktop + "\\", path);
+
             MessageBox.Show("File 1 je"+file1);
 
 
