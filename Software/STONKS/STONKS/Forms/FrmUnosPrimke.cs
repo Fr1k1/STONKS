@@ -80,8 +80,9 @@ namespace STONKS.Forms
             dgvStavkePrimke.Columns["nabavna_cijena"].HeaderText = "Nabavna cijena";
             dgvStavkePrimke.Columns["ukupna_cijena"].HeaderText = "Ukupna cijena";
             //---Format columns---
-            dgvStavkePrimke.Columns["nabavna_cijena"].DefaultCellStyle.Format = "0.00##";
-            dgvStavkePrimke.Columns["ukupna_cijena"].DefaultCellStyle.Format = "0.00##";
+            dgvStavkePrimke.Columns["rabat"].DefaultCellStyle.Format = "0\\%";
+            dgvStavkePrimke.Columns["nabavna_cijena"].DefaultCellStyle.Format = "0.00## EUR";
+            dgvStavkePrimke.Columns["ukupna_cijena"].DefaultCellStyle.Format = "0.00## EUR";
         }
         private void LoadDobavljaciCBO()
         {
@@ -98,8 +99,6 @@ namespace STONKS.Forms
             else
                 MessageBox.Show("Ovaj artikl ste već dodali!!!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-       
-        
 
         private void changeTabPosition()
         {
@@ -143,10 +142,7 @@ namespace STONKS.Forms
             }               
             return true;
         }
-
-       
-
-        private void CalculateDiscount()
+   private void CalculateDiscount()
         {
             Discount = 0;
             foreach (var stavka in stavkePrimke)

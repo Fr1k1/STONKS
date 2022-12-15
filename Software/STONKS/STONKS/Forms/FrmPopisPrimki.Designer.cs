@@ -54,12 +54,16 @@
             // 
             // dgvStavkePrimke
             // 
+            this.dgvStavkePrimke.AllowUserToAddRows = false;
+            this.dgvStavkePrimke.AllowUserToDeleteRows = false;
             this.dgvStavkePrimke.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStavkePrimke.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvStavkePrimke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStavkePrimke.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.dgvStavkePrimke.Location = new System.Drawing.Point(12, 330);
+            this.dgvStavkePrimke.MultiSelect = false;
             this.dgvStavkePrimke.Name = "dgvStavkePrimke";
+            this.dgvStavkePrimke.ReadOnly = true;
             this.dgvStavkePrimke.Size = new System.Drawing.Size(772, 223);
             this.dgvStavkePrimke.TabIndex = 32;
             // 
@@ -76,14 +80,19 @@
             // 
             // dgvPrimke
             // 
+            this.dgvPrimke.AllowUserToAddRows = false;
+            this.dgvPrimke.AllowUserToDeleteRows = false;
             this.dgvPrimke.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPrimke.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvPrimke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrimke.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(76)))), ((int)(((byte)(76)))));
             this.dgvPrimke.Location = new System.Drawing.Point(12, 62);
+            this.dgvPrimke.MultiSelect = false;
             this.dgvPrimke.Name = "dgvPrimke";
+            this.dgvPrimke.ReadOnly = true;
             this.dgvPrimke.Size = new System.Drawing.Size(772, 223);
             this.dgvPrimke.TabIndex = 30;
+            this.dgvPrimke.SelectionChanged += new System.EventHandler(this.dgvPrimke_SelectionChanged);
             // 
             // label2
             // 

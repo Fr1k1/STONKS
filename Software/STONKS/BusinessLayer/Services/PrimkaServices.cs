@@ -33,5 +33,12 @@ namespace BusinessLayer.Services
             }
         }
 
+        public List<StavkaPrimke> GetStavkeFromPrimka(Primka primka)
+        {
+            using (var repo = new StavkePrimkeRepository())
+            {
+                return repo.GetByPrimkaId(primka.id).ToList();
+            }
+        }
     }
 }

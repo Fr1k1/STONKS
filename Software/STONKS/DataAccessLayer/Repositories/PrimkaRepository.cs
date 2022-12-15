@@ -14,6 +14,13 @@ namespace DataAccessLayer.Repositories
         public PrimkaRepository() : base(new STONKS_DB())
         {
         }
+
+        public override IQueryable<Primka> GetAll()
+        {
+            var query = from e in Entities.Include("Dobavljaci")
+                        select e;
+            return query;
+        }
         public int AddTransactional(Primka primka, List<StavkaPrimke> stavke)
         {
             var StavkePrimke = Context.Set<StavkaPrimke>();
