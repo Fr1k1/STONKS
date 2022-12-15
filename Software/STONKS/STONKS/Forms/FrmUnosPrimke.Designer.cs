@@ -68,6 +68,7 @@
             this.dgvStavkePrimke.Size = new System.Drawing.Size(776, 306);
             this.dgvStavkePrimke.TabIndex = 1;
             this.dgvStavkePrimke.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStavkePrimke_CellEndEdit);
+            this.dgvStavkePrimke.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvStavkePrimke_RowsRemoved);
             // 
             // label2
             // 

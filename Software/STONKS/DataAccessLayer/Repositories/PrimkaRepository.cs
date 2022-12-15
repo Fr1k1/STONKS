@@ -14,9 +14,6 @@ namespace DataAccessLayer.Repositories
         public PrimkaRepository() : base(new STONKS_DB())
         {
         }
-
-
-
         public int AddTransactional(Primka primka, List<StavkaPrimke> stavke)
         {
             var StavkePrimke = Context.Set<StavkaPrimke>();
@@ -29,25 +26,23 @@ namespace DataAccessLayer.Repositories
                 {
                     Primke.Attach(primka);
 
-                    Primke.Add(primka);
+                    var entry =  Primke.Add(primka);
                     int affectedRows = Context.SaveChanges();
                     if (affectedRows > 0)
                     {
                         foreach (var stavka in stavke)
                         {
-                            Console.WriteLine("Here");
-                            stavka.primka_id = primka.id;   
+                            stavka.primka_id = entry.id;   
                             stavka.Artikli = null;
                             StavkePrimke.Attach(stavka);
                             StavkePrimke.Add(stavka);
                             Context.SaveChanges();
-                        }
-                        
-                        transaction.Complete();
+                        }                        
+                        transaction.Complete(); // If all operations were successful, commit the transaction
                         return 1;
                     }
                     return 0;
-                    // If all operations were successful, commit the transaction
+                    
 
                 }
                 catch (Exception ex)

@@ -22,8 +22,8 @@ namespace STONKS.Forms
         private BindingList<StavkaPrimke> stavkePrimke = new BindingList<StavkaPrimke>();   // local list of stavkePrimka, will be pushed into db latter
         
         public int IdPrimke { get; set; }
-        private double FinalPrice = 0;
-        private double Discount = 0;
+        private double FinalPrice  { get; set; }
+        private double Discount  { get; set; }
         public FrmUnosPrimke()
         {
             InitializeComponent();
@@ -156,6 +156,7 @@ namespace STONKS.Forms
 
         private void CalculateDiscount()
         {
+            Discount = 0;
             foreach (var stavka in stavkePrimke)
             {
                 Discount += stavka.kolicina * (stavka.nabavna_cijena * ((stavka.rabat / 100.00)));
@@ -165,8 +166,8 @@ namespace STONKS.Forms
 
         private void CalculateFinalPrice()
         {
-
-            foreach(var stavka in stavkePrimke)
+            FinalPrice = 0;
+            foreach (var stavka in stavkePrimke)
             {
                 FinalPrice += stavka.ukupna_cijena;
             }
@@ -183,5 +184,10 @@ namespace STONKS.Forms
             dgvStavkePrimke.Rows[rowIndex].Cells["ukupna_cijena"].Value = uk_cijena;         //set  row final price    
         }
 
+        private void dgvStavkePrimke_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            CalculateFinalPrice();
+            CalculateDiscount();
+        }
     }
 }
