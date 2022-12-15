@@ -23,6 +23,7 @@ namespace STONKS.Forms
 
         string file1, file2 = "";
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
 
 
         FilterInfoCollection filterInfoCollection;
@@ -139,14 +140,15 @@ namespace STONKS.Forms
 
             //Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(path + "\\preloaded_faces\\" + kor.korime + ".jpg"));
             MessageBox.Show(GetPath(cbAllUsers.Text));
-            Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(path)); //slozi ovo s putanjama nezz kaje krivo
+            Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(System.IO.Path.Combine(desktop,path))); //slozi ovo s putanjama nezz kaje krivo
             
             pbPic1_new.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPic1_new.Image = bPic1;
             //file1 = path + "\\preloaded_faces\\"+ kor.korime + ".jpg";
-            MessageBox.Show(services.GetSlika(kor.korime));
+           // MessageBox.Show(services.GetSlika(kor.korime));
             //file1 = services.GetSlika(kor.korime).ToString();
             file1 = GetPath(kor.korime).ToString();
+            MessageBox.Show("File 1 je"+file1);
 
 
            

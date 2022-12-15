@@ -35,13 +35,13 @@ namespace BusinessLayer.Services
              }
          }*/
 
-        public string GetSlika(string value)
+       /* public string GetSlika(string value)
         {
             using (var repo = new KorisniciRepository())
             {
                 return repo.GetPicture(value).ToString();
             }
-        }
+        }*/
 
         public bool GetKorisnik(string username, string password)
         {
