@@ -83,6 +83,10 @@ namespace STONKS.Forms
             dgvStavkePrimke.Columns["nabavna_cijena"].DefaultCellStyle.Format = "0.00##";
             dgvStavkePrimke.Columns["ukupna_cijena"].DefaultCellStyle.Format = "0.00##";
         }
+        private void LoadDobavljaciCBO()
+        {
+            cboDobavljac.DataSource = dobavljaciServices.GetDobavljaci();   //load cbo for suppliers
+        }
 
         public void AddStavka(StavkaPrimke stavka)  // function that can be called from another form
         {
@@ -94,17 +98,8 @@ namespace STONKS.Forms
             else
                 MessageBox.Show("Ovaj artikl ste već dodali!!!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-        private void LoadDobavljaciCBO()
-        {   
-            cboDobavljac.DataSource = dobavljaciServices.GetDobavljaci();   //load cbo for suppliers
-        }
-        private void btnAddStavkaPrimke_Click(object sender, EventArgs e)
-        {
-            FrmOdaberiArtiklZaDodatiRucno frmDodajRucno = new FrmOdaberiArtiklZaDodatiRucno();
-            frmDodajRucno.UnosPrimke = this;
-            frmDodajRucno.ShowDialog();
-            dgvStavkePrimke.Focus();
-        }
+       
+        
 
         private void changeTabPosition()
         {
@@ -112,9 +107,9 @@ namespace STONKS.Forms
             dgvStavkePrimke.Rows[numOfRows - 1].Cells["kolicina"].Selected = true; // select cell in row-1 and collumn kolicina
         }
 
-        private void btnUnesiPrimku_Click(object sender, EventArgs e)
+        private void InsertPrimka()
         {
-            if(ValidatePrimka())
+            if (ValidatePrimka())
             {
                 var primka = new Primka()
                 {
@@ -124,8 +119,11 @@ namespace STONKS.Forms
                     Dobavljac_id = (cboDobavljac.SelectedItem as Dobavljac).id,
                     //Dobavljaci = cboDobavljac.SelectedItem as Dobavljac
                 };
-                if(primkaServices.AddPrimka(primka, stavkePrimke.ToList()))
+                if (primkaServices.AddPrimka(primka, stavkePrimke.ToList()))
+                {
                     MessageBox.Show("Primka je unesena!!!", "Uspiješan unos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
                 else
                     MessageBox.Show("Došlo je do greške prilikom upisa u bazu,pokusajte kasnije", "Neuspiješan unos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -146,13 +144,7 @@ namespace STONKS.Forms
             return true;
         }
 
-        private void dgvStavkePrimke_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            CalculateRowData(e.RowIndex);
-            CalculateFinalPrice();
-            CalculateDiscount();
-                
-        }
+       
 
         private void CalculateDiscount()
         {
@@ -184,10 +176,31 @@ namespace STONKS.Forms
             dgvStavkePrimke.Rows[rowIndex].Cells["ukupna_cijena"].Value = uk_cijena;         //set  row final price    
         }
 
+
+        //---EVENTS---
+        private void btnAddStavkaPrimke_Click(object sender, EventArgs e)
+        {
+            FrmOdaberiArtiklZaDodatiRucno frmDodajRucno = new FrmOdaberiArtiklZaDodatiRucno();
+            frmDodajRucno.UnosPrimke = this;
+            frmDodajRucno.ShowDialog();
+            dgvStavkePrimke.Focus();
+        }
+        private void btnUnesiPrimku_Click(object sender, EventArgs e)
+        {
+            InsertPrimka();
+        }
+        private void dgvStavkePrimke_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            CalculateRowData(e.RowIndex);
+            CalculateFinalPrice();
+            CalculateDiscount();
+
+        }
         private void dgvStavkePrimke_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             CalculateFinalPrice();
             CalculateDiscount();
         }
+
     }
 }

@@ -65,9 +65,12 @@
             this.dgvPopisArtikala.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvPopisArtikala.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPopisArtikala.Location = new System.Drawing.Point(68, 108);
+            this.dgvPopisArtikala.MultiSelect = false;
             this.dgvPopisArtikala.Name = "dgvPopisArtikala";
+            this.dgvPopisArtikala.ReadOnly = true;
             this.dgvPopisArtikala.Size = new System.Drawing.Size(772, 254);
             this.dgvPopisArtikala.TabIndex = 17;
+            this.dgvPopisArtikala.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPopisArtikala_CellDoubleClick);
             // 
             // btnDodajArtikl
             // 

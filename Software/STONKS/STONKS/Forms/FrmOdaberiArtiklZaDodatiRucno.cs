@@ -36,14 +36,10 @@ namespace STONKS.Forms
             dgvPopisArtikala.Columns[10].Visible = false;
         }
 
-        private void btnOdustani_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        
 
-        private void btnDodajArtikl_Click(object sender, EventArgs e)
+        private void InsertStavka()
         {
-
             var stavka = new StavkaPrimke()
             {
                 artikl_id = (dgvPopisArtikala.CurrentRow.DataBoundItem as Artikl).id,
@@ -55,12 +51,26 @@ namespace STONKS.Forms
                 primka_id = UnosPrimke.IdPrimke
             };
             UnosPrimke.AddStavka(stavka);
+        }
+        private void btnOdustani_Click(object sender, EventArgs e)
+        {
             Close();
         }
 
+        private void btnDodajArtikl_Click(object sender, EventArgs e)
+        {
+            InsertStavka();
+            Close();
+        }
         private void txtPretrazi_TextChanged(object sender, EventArgs e)
         {
             dgvPopisArtikala.DataSource = artikliServices.SearchArtikli(txtPretrazi.Text);
+        }
+
+        private void dgvPopisArtikala_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            InsertStavka();
+            Close();
         }
     }
 }
