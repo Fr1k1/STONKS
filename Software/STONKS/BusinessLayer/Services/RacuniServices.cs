@@ -25,5 +25,15 @@ namespace BusinessLayer.Services
                 return repo.GetByNacinPlacanja(id).ToList();
             }
         }
+
+        public int AddRacun(Racun racun)
+        {
+            int id;
+            using (var repo = new RacuniRepository())
+            {
+                id = repo.AddNew(racun);
+            } 
+            return id;
+        }
     }
 }

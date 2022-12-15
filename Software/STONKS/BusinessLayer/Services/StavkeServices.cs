@@ -17,5 +17,26 @@ namespace BusinessLayer.Services
                 return repo.GetSelected(racun.id).ToList();
             }
         }
+
+        public bool AddStavke(int artiklId, int racunId, int kolicina)
+        {
+            bool isSuccessful = false;
+            StavkaRacuna stavka = new StavkaRacuna
+            {
+                artikl_id = artiklId,
+                racun_id = racunId,
+                kolcina = kolicina
+            };
+
+            using (var repo = new StavkeRepository())
+            {
+                int affectedRows = repo.Add(stavka);
+                isSuccessful = affectedRows > 0;
+            }
+
+            return isSuccessful;
+        }
+
+        
     }
 }

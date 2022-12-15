@@ -48,6 +48,13 @@ namespace DataAccessLayer.Repositories
                 return 0;
         }
 
+        public virtual int AddNew(T entity, bool save = true)
+        {
+            Entities.Add(entity);
+            Context.SaveChanges();
+            return 0;
+        }
+
         public virtual int Remove(T entity, bool save = true)
         {
             Entities.Attach(entity);

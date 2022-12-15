@@ -33,7 +33,6 @@ namespace STONKS.Forms
 
         private void FrmPopisRacuna_Load(object sender, EventArgs e)
         {
-            
             var naciniPlacanja = naciniServices.GetNaciniPlacanja();
             cboVrsta.DataSource = naciniPlacanja;
         }
@@ -45,19 +44,49 @@ namespace STONKS.Forms
 
         private void PrikaziRacune()
         {
-            // TODO makni iz baze column nacin_placanja i onda ovde iz koda negde da ne baca error na popisu racuna
-
             var racuni = racunServices.GetRacuni();
             dgvRacuni.DataSource = racuni;
-            dgvRacuni.Columns[11].Visible = false; // sakrivene stavke jer ce bit u drugom dgvu
+            UrediTablicuRacuni();
         }
 
         private void PrikaziStavke()
         {
             var odabraniRed = dgvRacuni.CurrentRow.DataBoundItem as Racun;
             dgvStavke.DataSource = stavkaServices.GetStavke(odabraniRed);
+            UrediTablicuStavke();
+        }
+
+        private void UrediTablicuRacuni()
+        {
+            dgvRacuni.Columns[2].Visible = false;
+            dgvRacuni.Columns[7].Visible = false;
+            dgvRacuni.Columns[8].Visible = false;
+            dgvRacuni.Columns[11].Visible = false; // sakrivene stavke jer ce bit u drugom dgvu
+
+            dgvRacuni.Columns["vrijeme_izdavanja"].DisplayIndex = 3;
+            dgvRacuni.Columns["Korisnici"].DisplayIndex = 10;
+            dgvRacuni.ReadOnly = true;
+
+            dgvRacuni.Columns[0].HeaderText = "ID racuna";
+            dgvRacuni.Columns[1].HeaderText = "Vrijeme izdavanja";
+            dgvRacuni.Columns[3].HeaderText = "Cijena bez PDV-a";
+            dgvRacuni.Columns[4].HeaderText = "PDV";
+            dgvRacuni.Columns[5].HeaderText = "Popust[%]";
+            dgvRacuni.Columns[6].HeaderText = "Ukupno";
+            dgvRacuni.Columns[9].HeaderText = "Izdao racun";
+            dgvRacuni.Columns[10].HeaderText = "Nacin placanja";
+        }
+
+        private void UrediTablicuStavke()
+        {
             dgvStavke.Columns[5].Visible = false;
             dgvStavke.Columns[0].Visible = false; // ne treba nam id racuna kad ga vec imamo
+            dgvStavke.ReadOnly = true;
+
+            dgvStavke.Columns[1].HeaderText = "ID artikla";
+            dgvStavke.Columns[2].HeaderText = "Kolicina";
+            dgvStavke.Columns[3].HeaderText = "Popust";
+            dgvStavke.Columns[4].HeaderText = "Naziv artikla";
         }
 
         private void cboVrsta_SelectedIndexChanged(object sender, EventArgs e)

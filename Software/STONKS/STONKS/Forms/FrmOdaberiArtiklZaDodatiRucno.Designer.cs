@@ -108,6 +108,7 @@
             this.txtPretrazi.TabIndex = 23;
             this.txtPretrazi.Text = " pretrazi...";
             this.txtPretrazi.TextChanged += new System.EventHandler(this.txtPretrazi_TextChanged);
+            this.txtPretrazi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPretrazi_KeyUp);
             // 
             // FrmOdaberiArtiklZaDodatiRucno
             // 

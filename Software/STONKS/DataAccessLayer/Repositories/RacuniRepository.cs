@@ -31,6 +31,26 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public override int AddNew(Racun entity, bool save = true)
+        {
+            //var nacinPlacanja = Context.NaciniPlacanja.SingleOrDefault(v => v.id == entity.nacin_placanja_id);
+            //var  = Context.NaciniPlacanja.SingleOrDefault(v => v.id == entity.nacin_placanja_id);
+
+            var racun = new Racun
+            {
+                nacin_placanja_id = entity.nacin_placanja_id,
+                korisnik_id = entity.korisnik_id, 
+                vrijeme_izdavanja = entity.vrijeme_izdavanja,
+                ukupno = entity.ukupno,
+                popust = entity.popust,
+                pdv = entity.pdv,
+                cjena_bez_pdv = entity.cjena_bez_pdv,
+            };
+            Entities.Add(racun);
+            Context.SaveChanges();           
+            return racun.id;
+        }
+
         public override int Update(Racun entity, bool save = true)
         {
             throw new NotImplementedException();

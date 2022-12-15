@@ -70,6 +70,7 @@
             this.btnIzradiRacun.TabIndex = 21;
             this.btnIzradiRacun.Text = "izradi racun";
             this.btnIzradiRacun.UseVisualStyleBackColor = false;
+            this.btnIzradiRacun.Click += new System.EventHandler(this.btnIzradiRacun_Click);
             // 
             // btnIzradiIGenerirajPdf
             // 
@@ -83,6 +84,7 @@
             this.btnIzradiIGenerirajPdf.TabIndex = 22;
             this.btnIzradiIGenerirajPdf.Text = "izradi i generiraj pdf";
             this.btnIzradiIGenerirajPdf.UseVisualStyleBackColor = false;
+            this.btnIzradiIGenerirajPdf.Click += new System.EventHandler(this.btnIzradiIGenerirajPdf_Click);
             // 
             // btnPovratak
             // 
@@ -100,7 +102,7 @@
             // 
             // cboOdabirNacinaPlacanja
             // 
-            this.cboOdabirNacinaPlacanja.BackColor = System.Drawing.Color.White;
+            this.cboOdabirNacinaPlacanja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.cboOdabirNacinaPlacanja.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboOdabirNacinaPlacanja.ForeColor = System.Drawing.Color.Black;
             this.cboOdabirNacinaPlacanja.FormattingEnabled = true;

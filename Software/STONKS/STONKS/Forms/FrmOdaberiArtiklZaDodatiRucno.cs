@@ -40,7 +40,7 @@ namespace STONKS.Forms
         private void txtPretrazi_TextChanged(object sender, EventArgs e)
         {
             string searchText = txtPretrazi.Text;
-            // Martin TODO
+            // Martin TODO ili dole na keyup prema grafovima
         }
 
         private void btnDodajArtikl_Click(object sender, EventArgs e)
@@ -51,6 +51,17 @@ namespace STONKS.Forms
             {
                 var selectedArtikl = selectedRow.DataBoundItem as Artikl;
                 MessageBox.Show("odabran je " + selectedArtikl.naziv);
+                StavkaRacuna novaStavka = new StavkaRacuna
+                {
+                    Artikli= selectedArtikl,
+                    kolcina = 1,
+                    popust = 0,
+                    artikl_id = selectedArtikl.id,
+                    //racun_id = 
+                
+                    
+                };
+                FrmUnosRacuna.listaStavki.Add(novaStavka);
                 // dodaj taj artikl u listu stavaka u racunu  
 
                 // zatvori formu
@@ -71,5 +82,10 @@ namespace STONKS.Forms
             Close();
         }
 
+        private void txtPretrazi_KeyUp(object sender, KeyEventArgs e)
+        {
+            string searchText = txtPretrazi.Text;
+            // Martin TODO
+        }
     }
 }

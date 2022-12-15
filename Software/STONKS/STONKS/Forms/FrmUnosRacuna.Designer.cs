@@ -74,6 +74,7 @@
             this.dgvArtikli.Name = "dgvArtikli";
             this.dgvArtikli.Size = new System.Drawing.Size(772, 254);
             this.dgvArtikli.TabIndex = 15;
+            this.dgvArtikli.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArtikli_CellValueChanged);
             // 
             // btnOdustani
             // 
@@ -185,6 +186,7 @@
             this.txtUkupno.Location = new System.Drawing.Point(658, 388);
             this.txtUkupno.Multiline = true;
             this.txtUkupno.Name = "txtUkupno";
+            this.txtUkupno.ReadOnly = true;
             this.txtUkupno.Size = new System.Drawing.Size(103, 31);
             this.txtUkupno.TabIndex = 24;
             this.txtUkupno.Text = "0";
@@ -223,6 +225,7 @@
             this.Name = "FrmUnosRacuna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos racuna";
+            this.Load += new System.EventHandler(this.FrmUnosRacuna_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArtikli)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
