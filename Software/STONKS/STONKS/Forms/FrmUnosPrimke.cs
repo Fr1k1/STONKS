@@ -136,7 +136,7 @@ namespace STONKS.Forms
             {
                 if (!row.IsNewRow)
                 {
-                    if ((int)row.Cells["kolicina"].Value == 0 || (double)row.Cells["nabavna_cijena"].Value == 0 || row.Cells["Artikli"].Value == null) //cehck if all inputs are filled and valid
+                    if ((int)row.Cells["kolicina"].Value == 0 || (double)row.Cells["nabavna_cijena"].Value == 0 || row.Cells["Artikli"].Value == null || (int)row.Cells["rabat"].Value < 0 || (int)row.Cells["rabat"].Value > 100) //cehck if all inputs are filled and valid
                         return false;
                 }
             }               

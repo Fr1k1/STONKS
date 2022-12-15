@@ -56,7 +56,6 @@ namespace STONKS.Forms
 
         private void dgvPrimke_SelectionChanged(object sender, EventArgs e)
         {
-            Console.WriteLine((dgvPrimke.CurrentRow.DataBoundItem as Primka).ukupno.ToString());
             dgvStavkePrimke.DataSource = primkaServices.GetStavkeFromPrimka(dgvPrimke.CurrentRow.DataBoundItem as Primka);
             //---make invisible---
             dgvStavkePrimke.Columns[0].Visible = false;
