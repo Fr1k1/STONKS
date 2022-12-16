@@ -34,6 +34,15 @@ namespace DataAccessLayer.Repositories
                 return 0;
         }
 
+       /* public virtual int AddWithoutAttaching(T entity, bool save = true)
+        {
+            Entities.Add(entity);
+            if (save)
+                return SaveChanges();
+            else
+                return 0;
+        }*/
+
         public virtual int Remove(T entity, bool save = true)
         {
             Entities.Attach(entity);
@@ -46,7 +55,7 @@ namespace DataAccessLayer.Repositories
 
         public abstract int Update(T entity, bool save = true);
 
-        protected int SaveChanges()
+        public int SaveChanges()
         {
             return Context.SaveChanges();
         }

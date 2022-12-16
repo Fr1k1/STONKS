@@ -25,7 +25,7 @@ namespace DataAccessLayer.Repositories
         }
 
         public override int Add(Artikl entity, bool save = true)
-        {
+        {   
             var vrstaArtikla = Context.VrsteArtikla.SingleOrDefault(v => v.id == entity.vrsta_artikla_id);
 
             var artikl = new Artikl
@@ -62,7 +62,18 @@ namespace DataAccessLayer.Repositories
         public override int Update(Artikl entity, bool save = true)
         {
             var artikl = Context.Artikli.SingleOrDefault(a => a.id == entity.id);
+            artikl.id = entity.id;
+            artikl.sifra = entity.sifra;
+            artikl.naziv = entity.naziv;
             artikl.saldo = entity.saldo;
+            artikl.jed_cijena = entity.jed_cijena;
+            artikl.pdv = entity.pdv;
+            artikl.vrsta_artikla_id = entity.vrsta_artikla_id;
+            artikl.barkod = entity.barkod;
+           /* artikl.StavkePrimke = entity.StavkePrimke;
+            artikl.VrsteArtikla = entity.VrsteArtikla;
+            artikl.StavkeRacuna = entity.StavkeRacuna;*/
+
             if (save)
                 return SaveChanges();
             else

@@ -21,6 +21,7 @@ namespace DataAccessLayer.Repositories
                         select e;
             return query;
         }
+
         public int AddTransactional(Primka primka, List<StavkaPrimke> stavke)
         {
             var StavkePrimke = Context.Set<StavkaPrimke>();
@@ -61,6 +62,20 @@ namespace DataAccessLayer.Repositories
                 }
             }
 
+        }
+        public override int Add(Primka entity, bool save = true)
+        {
+            Entities.Attach(entity);
+            var record = Entities.Add(entity);
+            if (save)
+            {
+                if (SaveChanges() > 0)      // if record added succesfully then return its auto generated id, else return 0 which means that there were no affeted rows
+                    return record.id;   
+                else
+                    return 0;
+            }
+            else
+                return 0;
         }
         public override int Update(Primka entity, bool save = true)
         {
