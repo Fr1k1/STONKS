@@ -45,6 +45,7 @@
     <Compile Include="Entities\Artikl.cs" />
     <Compile Include="Entities\Artikl.Ext.cs" />
     <Compile Include="Entities\Dobavljac.cs" />
+	  <Compile Include="Entities\Korisnici_ext.cs" />
     <Compile Include="Entities\Dobavljac.Ext.cs" />
     <Compile Include="Entities\Korisnik.cs" />
     <Compile Include="Entities\NacinPlacanja.cs" />

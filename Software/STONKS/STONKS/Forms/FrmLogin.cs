@@ -14,8 +14,12 @@ using System.Windows.Forms;
 
 namespace STONKS
 {
+
     public partial class FrmLogin : Form
     {
+
+        public static Korisnik logirani;
+
         public FrmLogin()
         {
             InitializeComponent();
@@ -30,47 +34,62 @@ namespace STONKS
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
+            LoginUser(txtUsername.Text, txtPassword.Text);
+            //logirani=services.GetLoggedKorisnik(txtUsername.Text, txtPassword.Text);
+            // MessageBox.Show(logirani.to);
 
-            Hide();
-
-            FrmPrepoznavanjeLica frmPrepoznavanje = new FrmPrepoznavanjeLica();
-            frmPrepoznavanje.ShowDialog();
-
-            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
-            frmPocetniIzbornik.ShowDialog();
-
-
-
-            Close();
-
-            //LoginUser(txtUsername.Text, txtPassword.Text);
-
-            //GetAllUsers();
 
         }
 
-        /* private void LoginUser(string korime, string lozinka)
-         {
-             using (var db = new STONKS_DB())
-             {
-                 var korisnik = db.Korisnici.FirstOrDefault(k => k.korime == korime && k.lozinka == lozinka);
+        private string GetUloga(string korime, string lozinka)
+        {
+            var uloga = services.GetUloga(korime, lozinka);
+            //MessageBox.Show("Uloga je" + uloga.ToString());
+            return uloga[0];
+        }
 
-                 if (korisnik != null)
-                 {
-                     MessageBox.Show("Uspjesan login");
-                 }
-             }
-         }*/  //ovo dela ali pretvori u n layer
+        public static Korisnik korisnik;
+
+        private void LoginUser(string korime, string lozinka)
+        {
+            var korisnik = services.GetKorisnik(korime, lozinka);
+            if (korisnik)
+            {
+                
+
+                if (GetUloga(txtUsername.Text, txtPassword.Text) == "voditelj")
+                {
+                    Hide();
+
+
+                    FrmPocetniIzbornikVoditelj frm = new FrmPocetniIzbornikVoditelj();
+                    frm.ShowDialog();
+
+                    Close();
+
+                }
+
+                else
+                {
+                    Hide();
+                    FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+                    frmPocetniIzbornik.ShowDialog();
+                    Close();
+
+                }
+                
+
+            }
+
+            else MessageBox.Show("Krivi korisnicki podaci");
+
+        }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void GetAllUsers()
-        {
-            var allusers = services.GetKorisnici();
-        }
 
         private void SetText(TextBox textBox)
         {
