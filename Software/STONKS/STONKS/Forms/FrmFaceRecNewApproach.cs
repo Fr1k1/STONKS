@@ -52,12 +52,13 @@ namespace STONKS.Forms
         {
             try
             {
+                MessageBox.Show("Ovdje sam");
                 string currentDirectory = Environment.CurrentDirectory + "\\models";
+                MessageBox.Show(currentDirectory);
 
                 FaceRecognition fr;
-                fr = FaceRecognition.Create(currentDirectory);
+                fr = FaceRecognition.Create(currentDirectory); //ova linija mi crasha
                 //kreiranje mape s modelima koji trebaju da bi opce radil facial recognition
-
 
                 var pic1 = FaceRecognition.LoadImageFile(file1);
 
@@ -105,9 +106,9 @@ namespace STONKS.Forms
                 }
             }
 
-            catch
+            catch (Exception exc)
             {
-
+                MessageBox.Show(exc.ToString());
 
             }
         }
@@ -282,3 +283,5 @@ namespace STONKS.Forms
         }
     }
 }
+
+
