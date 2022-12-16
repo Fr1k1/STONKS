@@ -28,11 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSave_new = new System.Windows.Forms.Button();
-            this.btnTakePicture_new = new System.Windows.Forms.Button();
             this.pbSlikaZaSpremiti_new = new System.Windows.Forms.PictureBox();
             this.cbCameraName_new = new System.Windows.Forms.ComboBox();
-            this.btnUkljuciKameru_new = new System.Windows.Forms.Button();
             this.pbCamera_new = new System.Windows.Forms.PictureBox();
             this.btnCompare_new = new System.Windows.Forms.Button();
             this.btnPic2_new = new System.Windows.Forms.Button();
@@ -42,31 +39,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbPic1_new = new System.Windows.Forms.PictureBox();
             this.cbAllUsers = new System.Windows.Forms.ComboBox();
+            this.btnUkljuciKameru_new = new System.Windows.Forms.Button();
+            this.btnSave_new = new System.Windows.Forms.Button();
+            this.btnTakePicture_new = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbSlikaZaSpremiti_new)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCamera_new)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic2_new)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic1_new)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSave_new
-            // 
-            this.btnSave_new.Location = new System.Drawing.Point(1065, 455);
-            this.btnSave_new.Name = "btnSave_new";
-            this.btnSave_new.Size = new System.Drawing.Size(124, 38);
-            this.btnSave_new.TabIndex = 58;
-            this.btnSave_new.Text = "Spremi";
-            this.btnSave_new.UseVisualStyleBackColor = true;
-            this.btnSave_new.Click += new System.EventHandler(this.btnSave_new_Click);
-            // 
-            // btnTakePicture_new
-            // 
-            this.btnTakePicture_new.Location = new System.Drawing.Point(889, 600);
-            this.btnTakePicture_new.Name = "btnTakePicture_new";
-            this.btnTakePicture_new.Size = new System.Drawing.Size(124, 38);
-            this.btnTakePicture_new.TabIndex = 57;
-            this.btnTakePicture_new.Text = "Poslikaj";
-            this.btnTakePicture_new.UseVisualStyleBackColor = true;
-            this.btnTakePicture_new.Click += new System.EventHandler(this.btnTakePicture_new_Click);
             // 
             // pbSlikaZaSpremiti_new
             // 
@@ -79,20 +59,10 @@
             // cbCameraName_new
             // 
             this.cbCameraName_new.FormattingEnabled = true;
-            this.cbCameraName_new.Location = new System.Drawing.Point(889, 539);
+            this.cbCameraName_new.Location = new System.Drawing.Point(869, 539);
             this.cbCameraName_new.Name = "cbCameraName_new";
             this.cbCameraName_new.Size = new System.Drawing.Size(121, 21);
             this.cbCameraName_new.TabIndex = 55;
-            // 
-            // btnUkljuciKameru_new
-            // 
-            this.btnUkljuciKameru_new.Location = new System.Drawing.Point(889, 455);
-            this.btnUkljuciKameru_new.Name = "btnUkljuciKameru_new";
-            this.btnUkljuciKameru_new.Size = new System.Drawing.Size(124, 38);
-            this.btnUkljuciKameru_new.TabIndex = 54;
-            this.btnUkljuciKameru_new.Text = "Ukljuci kameru";
-            this.btnUkljuciKameru_new.UseVisualStyleBackColor = true;
-            this.btnUkljuciKameru_new.Click += new System.EventHandler(this.btnUkljuciKameru_new_Click);
             // 
             // pbCamera_new
             // 
@@ -111,7 +81,7 @@
             this.btnCompare_new.Name = "btnCompare_new";
             this.btnCompare_new.Size = new System.Drawing.Size(167, 68);
             this.btnCompare_new.TabIndex = 52;
-            this.btnCompare_new.Text = "Compare";
+            this.btnCompare_new.Text = "USPOREDI";
             this.btnCompare_new.UseVisualStyleBackColor = false;
             this.btnCompare_new.Click += new System.EventHandler(this.btnCompare_new_Click);
             // 
@@ -186,19 +156,58 @@
             this.cbAllUsers.Name = "cbAllUsers";
             this.cbAllUsers.Size = new System.Drawing.Size(121, 21);
             this.cbAllUsers.TabIndex = 59;
-            
+            // 
+            // btnUkljuciKameru_new
+            // 
+            this.btnUkljuciKameru_new.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.btnUkljuciKameru_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUkljuciKameru_new.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUkljuciKameru_new.Location = new System.Drawing.Point(846, 438);
+            this.btnUkljuciKameru_new.Name = "btnUkljuciKameru_new";
+            this.btnUkljuciKameru_new.Size = new System.Drawing.Size(167, 68);
+            this.btnUkljuciKameru_new.TabIndex = 60;
+            this.btnUkljuciKameru_new.Text = "UKLJUCI KAMERU";
+            this.btnUkljuciKameru_new.UseVisualStyleBackColor = false;
+            this.btnUkljuciKameru_new.Click += new System.EventHandler(this.btnUkljuciKameru_new_Click_1);
+            // 
+            // btnSave_new
+            // 
+            this.btnSave_new.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.btnSave_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave_new.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave_new.Location = new System.Drawing.Point(1026, 438);
+            this.btnSave_new.Name = "btnSave_new";
+            this.btnSave_new.Size = new System.Drawing.Size(167, 68);
+            this.btnSave_new.TabIndex = 61;
+            this.btnSave_new.Text = "SPREMI";
+            this.btnSave_new.UseVisualStyleBackColor = false;
+            this.btnSave_new.Click += new System.EventHandler(this.btnSave_new_Click_1);
+            // 
+            // btnTakePicture_new
+            // 
+            this.btnTakePicture_new.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.btnTakePicture_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTakePicture_new.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTakePicture_new.Location = new System.Drawing.Point(846, 602);
+            this.btnTakePicture_new.Name = "btnTakePicture_new";
+            this.btnTakePicture_new.Size = new System.Drawing.Size(167, 68);
+            this.btnTakePicture_new.TabIndex = 62;
+            this.btnTakePicture_new.Text = "POSLIKAJ";
+            this.btnTakePicture_new.UseVisualStyleBackColor = false;
+            this.btnTakePicture_new.Click += new System.EventHandler(this.btnTakePicture_new_Click_1);
             // 
             // FrmFaceRecNewApproach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(1233, 775);
-            this.Controls.Add(this.cbAllUsers);
-            this.Controls.Add(this.btnSave_new);
             this.Controls.Add(this.btnTakePicture_new);
+            this.Controls.Add(this.btnSave_new);
+            this.Controls.Add(this.btnUkljuciKameru_new);
+            this.Controls.Add(this.cbAllUsers);
             this.Controls.Add(this.pbSlikaZaSpremiti_new);
             this.Controls.Add(this.cbCameraName_new);
-            this.Controls.Add(this.btnUkljuciKameru_new);
             this.Controls.Add(this.pbCamera_new);
             this.Controls.Add(this.btnCompare_new);
             this.Controls.Add(this.btnPic2_new);
@@ -208,7 +217,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbPic1_new);
             this.Name = "FrmFaceRecNewApproach";
-            this.Text = "FrmFaceRecNewApproach";
+            this.Text = "Prijava pomocu lica";
             this.Load += new System.EventHandler(this.FrmFaceRecNewApproach_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSlikaZaSpremiti_new)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCamera_new)).EndInit();
@@ -220,12 +229,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnSave_new;
-        private System.Windows.Forms.Button btnTakePicture_new;
         private System.Windows.Forms.PictureBox pbSlikaZaSpremiti_new;
         private System.Windows.Forms.ComboBox cbCameraName_new;
-        private System.Windows.Forms.Button btnUkljuciKameru_new;
         private System.Windows.Forms.PictureBox pbCamera_new;
         private System.Windows.Forms.Button btnCompare_new;
         private System.Windows.Forms.Button btnPic2_new;
@@ -235,5 +240,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbPic1_new;
         private System.Windows.Forms.ComboBox cbAllUsers;
+        private System.Windows.Forms.Button btnUkljuciKameru_new;
+        private System.Windows.Forms.Button btnSave_new;
+        private System.Windows.Forms.Button btnTakePicture_new;
     }
 }

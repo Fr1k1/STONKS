@@ -62,7 +62,7 @@ namespace STONKS
                     Hide();
 
 
-                    FaceRecNew frm = new FaceRecNew();
+                    FrmPocetniIzbornikVoditelj frm = new FrmPocetniIzbornikVoditelj();
                     frm.ShowDialog();
 
                     Close();
@@ -77,8 +77,7 @@ namespace STONKS
                     Close();
 
                 }
-                //FrmPrepoznavanjeLica frmPrepoznavanje = new FrmPrepoznavanjeLica();
-                //frmPrepoznavanje.ShowDialog();
+                
 
             }
 

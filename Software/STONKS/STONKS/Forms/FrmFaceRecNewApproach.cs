@@ -36,11 +36,16 @@ namespace STONKS.Forms
 
         private void btnPic2_new_Click(object sender, EventArgs e)
         {
-            Bitmap bPic2 = new Bitmap(System.Drawing.Image.FromFile(path + "\\slikica.jpg"));
+            Bitmap bPic2 = new Bitmap(System.Drawing.Image.FromFile(path + "\\captured_pic.jpg"));
             pbPic2_new.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPic2_new.Image = bPic2;
-            // file2 = "C:\\Users\\KORISNIK\\Desktop\\faces\\slikica.jpg";
-            file2 = path + "\\slikica.jpg";
+
+            file2 = path + "\\captured_pic.jpg";
+            if (pbPic1_new.Image != null && pbPic2_new.Image != null)
+            {
+                btnCompare_new.Enabled = true;
+
+            }
         }
 
         private void btnCompare_new_Click(object sender, EventArgs e)
@@ -51,24 +56,59 @@ namespace STONKS.Forms
 
                 FaceRecognition fr;
                 fr = FaceRecognition.Create(currentDirectory);
+                //kreiranje mape s modelima koji trebaju da bi opce radil facial recognition
 
 
-                var dlibtoComBuf = FaceRecognition.LoadImageFile(file1);
+                var pic1 = FaceRecognition.LoadImageFile(file1);
 
-                var enToCompare = fr.FaceEncodings(dlibtoComBuf).First();
+                var compare1 = fr.FaceEncodings(pic1).First();
 
-                var dlibtoCombuf2 = FaceRecognition.LoadImageFile(file2);
-                var enToCompare2 = fr.FaceEncodings(dlibtoCombuf2).First();
+                var pic2 = FaceRecognition.LoadImageFile(file2);
+                var compare2 = fr.FaceEncodings(pic2).First();
 
 
 
-                MessageBox.Show(FaceRecognition.CompareFace(enToCompare, enToCompare2).ToString());
+                MessageBox.Show(FaceRecognition.CompareFace(compare1, compare2).ToString());
+
+                if (FaceRecognition.CompareFace(compare1, compare2))
+                {
+                    //ak je uloga 1 od usera koji se prosljedi v metodu onda pokazi jedan izbornik inace drugi
+                    //ko parametar se salje korime koje je odabrano
+                    Korisnik korisnik = cbAllUsers.SelectedItem as Korisnik;
+                    if (korisnik.uloga_id == 1)
+                    {
+                        MessageBox.Show("Voditelj se prijavi");
+                        Hide();
+                        FrmPocetniIzbornikVoditelj frmPocetniIzbornikVoditelj = new FrmPocetniIzbornikVoditelj();
+                        frmPocetniIzbornikVoditelj.ShowDialog();
+                        Close();
+                    }
+
+                    else
+                    {
+                        Hide();
+                        FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+                        frmPocetniIzbornik.ShowDialog();
+                        Close();
+                    }
+
+                }
+
+                else
+                {
+                    MessageBox.Show("false");
+                    Hide();
+                    FrmLogin frmLogin = new FrmLogin();
+                    frmLogin.ShowDialog();
+                    Close();
+                    //dialog ako se oce otprti forma za pomocu lozinke, ako je onda ju otpri inace nist
+                }
             }
 
             catch
             {
 
-                MessageBox.Show("false");
+
             }
         }
 
@@ -110,7 +150,7 @@ namespace STONKS.Forms
                 path2 = path2.TrimStart(Path.AltDirectorySeparatorChar);
             }
 
-            return Path.Combine(path1+@"\", path2);
+            return Path.Combine(path1 + @"\", path2);
         }
 
         private void btnSave_new_Click(object sender, EventArgs e)
@@ -121,21 +161,13 @@ namespace STONKS.Forms
             pbSlikaZaSpremiti_new.Image.Save(@"martin.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
-            saveFileDialog.FileName = "slikica";
+            saveFileDialog.FileName = "captured_pic";
             saveFileDialog.DefaultExt = ".jpg";
 
-            /*if (System.IO.File.Exists(saveFileDialog.FileName))
-            {
-                System.IO.File.Delete(saveFileDialog.FileName);
-            mozda ima neki bolji nacin za save
-                
-            }*/
+
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                /* string putanja = "C:\\Slike\\slika.jpg";
-                 if(!Directory.Exists(putanja))
-                     Directory.CreateDirectory(putanja);
-                 */
+
 
                 pbSlikaZaSpremiti_new.Image.Save(saveFileDialog.FileName);
                 //pbSlikaZaSpremiti.Image.Dispose();
@@ -147,30 +179,27 @@ namespace STONKS.Forms
 
             Korisnik kor = cbAllUsers.SelectedItem as Korisnik;
 
-            string path = "\\"+GetPath(cbAllUsers.Text);
+            string path = "\\" + GetPath(cbAllUsers.Text);
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
 
 
 
-            //Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(path + "\\preloaded_faces\\" + kor.korime + ".jpg"));
-            MessageBox.Show(GetPath(cbAllUsers.Text));
 
-            MessageBox.Show("Putanja koja ne dela je"+ PathCombine(desktop, path));
-            Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(PathCombine(desktop+"\\",path))); //slozi ovo s putanjama nezz kaje krivo
-            //Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(desktop+path)); //slozi ovo s putanjama nezz kaje krivo
-            
+            // MessageBox.Show(GetPath(cbAllUsers.Text));
+
+            //MessageBox.Show("Putanja koja ne dela je" + PathCombine(desktop, path));
+            Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(PathCombine(desktop + "\\", path)));
+
+
             pbPic1_new.SizeMode = PictureBoxSizeMode.StretchImage;
             pbPic1_new.Image = bPic1;
-            //file1 = path + "\\preloaded_faces\\"+ kor.korime + ".jpg";
-           // MessageBox.Show(services.GetSlika(kor.korime));
-            //file1 = services.GetSlika(kor.korime).ToString();
-            //file1 = GetPath(kor.korime).ToString(); ovo dela
+
             file1 = PathCombine(desktop + "\\", path);
 
-            MessageBox.Show("File 1 je"+file1);
+            //MessageBox.Show("File 1 je" + file1);
 
 
-           
+
         }
 
         private string GetPath(string value)
@@ -185,19 +214,71 @@ namespace STONKS.Forms
             }
         }
 
+        private void btnUkljuciKameru_new_Click_1(object sender, EventArgs e)
+        {
+            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cbCameraName_new.SelectedIndex].MonikerString);
+            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+            videoCaptureDevice.Start();
+            btnTakePicture_new.Enabled = true;
+        }
 
+        private void btnSave_new_Click_1(object sender, EventArgs e)
+        {
+            pbSlikaZaSpremiti_new.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            pbSlikaZaSpremiti_new.Image = pbCamera_new.Image;
+            pbSlikaZaSpremiti_new.Image.Save(@"martin.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
+            saveFileDialog.FileName = "captured_pic";
+            saveFileDialog.DefaultExt = ".jpg";
+
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+
+
+                pbSlikaZaSpremiti_new.Image.Save(saveFileDialog.FileName);
+                btnPic2_new.Enabled = true;
+                //pbSlikaZaSpremiti.Image.Dispose();
+            }
+        }
+
+        private void btnTakePicture_new_Click_1(object sender, EventArgs e)
+        {
+            if (!(videoCaptureDevice == null))
+            {
+                if (videoCaptureDevice.IsRunning)
+                {
+                    videoCaptureDevice.SignalToStop();
+
+
+                    videoCaptureDevice = null;
+
+
+
+                }
+
+                btnSave_new.Enabled = true;
+            }
+        }
 
         private void FrmFaceRecNewApproach_Load(object sender, EventArgs e)
         {
+
+            btnPic2_new.Enabled = false;
+            btnSave_new.Enabled = false;
+            btnCompare_new.Enabled = false;
+            btnTakePicture_new.Enabled = false;
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo filterinfo in filterInfoCollection)
                 cbCameraName_new.Items.Add(filterinfo.Name);
             cbCameraName_new.SelectedIndex = 0;
             videoCaptureDevice = new VideoCaptureDevice();
 
-            cbAllUsers.DataSource=services.GetKorisnici();
+            cbAllUsers.DataSource = services.GetKorisnici();
 
-            
+
         }
     }
 }
