@@ -90,9 +90,9 @@ namespace STONKS.Forms
         }
 
         public void AddStavka(StavkaPrimke stavka)  // function that can be called from another form
-        {
+        {   
             if (!stavkePrimke.Contains(stavka))     // check if artikl is alredy in dgv
-            {
+            {   
                 stavkePrimke.Add(stavka);   //if it isnt add it
                 changeTabPosition();    //change selected cell to a cell in new row
             }
@@ -103,7 +103,7 @@ namespace STONKS.Forms
         private void changeTabPosition()
         {
             int numOfRows = dgvStavkePrimke.RowCount - 1; // get nuber of row in dgv
-            dgvStavkePrimke.Rows[numOfRows - 1].Cells["kolicina"].Selected = true; // select cell in row-1 and collumn kolicina
+            dgvStavkePrimke.Rows[numOfRows].Cells["kolicina"].Selected = true; // select cell in row-1 and collumn kolicina
         }
 
         private void InsertPrimka()
@@ -164,6 +164,7 @@ namespace STONKS.Forms
 
         private void CalculateRowData(int rowIndex)
         {
+            Console.Write("HERE");
             int kolicina = (int)dgvStavkePrimke.Rows[rowIndex].Cells["kolicina"].Value;     //read kolicina from selected row
             int rabat = (int)dgvStavkePrimke.Rows[rowIndex].Cells["rabat"].Value;        //read rabat from selected row
             double nabavna_cijena = (double)dgvStavkePrimke.Rows[rowIndex].Cells["nabavna_cijena"].Value;       //read nabavna_cijena from selected row
@@ -198,5 +199,7 @@ namespace STONKS.Forms
             CalculateDiscount();
         }
 
+
+    
     }
 }
