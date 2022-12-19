@@ -1,4 +1,6 @@
-﻿using BusinessLayer.Services;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using BusinessLayer.Services;
 using EntitiesLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,8 +10,10 @@ using System.Data.Entity.Hierarchy;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
 
 namespace STONKS.Forms
 {
@@ -24,6 +28,11 @@ namespace STONKS.Forms
         public int IdPrimke { get; set; }
         private double FinalPrice  { get; set; }
         private double Discount  { get; set; }
+
+        private FilterInfoCollection filterInfoCollection;
+        private VideoCaptureDevice videoCaptureDevice = null;
+
+
         public FrmUnosPrimke()
         {
             InitializeComponent();
@@ -38,10 +47,16 @@ namespace STONKS.Forms
         }
 
         private void FrmUnosPrimke_Load(object sender, EventArgs e)
-        {
+        {   
+            
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[0].MonikerString);
+            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
             txtBrojPrimke.Text = SetPrimkaId();
             LoadDobavljaciCBO();
             LoadStavkeDGV();
+
+
         }
 
         private string SetPrimkaId()
@@ -164,7 +179,6 @@ namespace STONKS.Forms
 
         private void CalculateRowData(int rowIndex)
         {
-            Console.Write("HERE");
             int kolicina = (int)dgvStavkePrimke.Rows[rowIndex].Cells["kolicina"].Value;     //read kolicina from selected row
             int rabat = (int)dgvStavkePrimke.Rows[rowIndex].Cells["rabat"].Value;        //read rabat from selected row
             double nabavna_cijena = (double)dgvStavkePrimke.Rows[rowIndex].Cells["nabavna_cijena"].Value;       //read nabavna_cijena from selected row
@@ -200,6 +214,56 @@ namespace STONKS.Forms
         }
 
 
-    
+        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            var image = (Bitmap)eventArgs.Frame.Clone();
+            // display the frame in the picture box
+            pboBarcode.SizeMode = PictureBoxSizeMode.StretchImage;
+            pboBarcode.Image = image;
+            Console.WriteLine("Here");
+
+            if (videoCaptureDevice.IsRunning)
+            {
+                videoCaptureDevice.SignalToStop();
+
+            }
+            BarcodeScanner scanner = new BarcodeScanner();
+            scanner.Scanned += new EventHandler<string>(ChangeText);
+            Task.Run(() => scanner.Scan((Bitmap)image.Clone()));
+
+        }
+
+        private void btnScan_Click(object sender, EventArgs e)
+        {
+            
+            videoCaptureDevice.Start();
+            if(!videoCaptureDevice.IsRunning)
+            {
+                videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+                Console.WriteLine("HereEvent");
+            }       
+            Console.WriteLine("HereClick");
+        }
+
+        private void ChangeText(object sender, string e)
+        {   
+            if(txtBarcode.InvokeRequired)
+            {
+                txtBarcode.Invoke((MethodInvoker)delegate { txtBarcode.Text = e; });
+
+            }
+            
+        }
+
+
+
+        private void FrmUnosPrimke_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (videoCaptureDevice != null && videoCaptureDevice.IsRunning)
+            {
+                videoCaptureDevice.SignalToStop();
+                videoCaptureDevice = null;
+            }
+        }
     }
 }
