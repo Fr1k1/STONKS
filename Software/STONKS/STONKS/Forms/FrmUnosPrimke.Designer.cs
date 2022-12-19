@@ -250,7 +250,6 @@
             this.Name = "FrmUnosPrimke";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos primke";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmUnosPrimke_FormClosing);
             this.Load += new System.EventHandler(this.FrmUnosPrimke_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavkePrimke)).EndInit();
             this.panel1.ResumeLayout(false);

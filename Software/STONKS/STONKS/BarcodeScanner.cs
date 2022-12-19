@@ -36,11 +36,7 @@ namespace STONKS
                 // display the number in the text box
                 Scanned?.Invoke(this, result.Text);
             }
-            else
-            {
-                // display an error message if the barcode could not be read
-                Console.Write("Unable to read barcode");
-            }
+
 
         }
     }
