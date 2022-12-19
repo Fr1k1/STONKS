@@ -23,6 +23,8 @@ namespace STONKS.Forms
 
         private PrimkaServices primkaServices = new PrimkaServices();
 
+        private ArtikliServices artikliServices = new ArtikliServices();
+
         private BindingList<StavkaPrimke> stavkePrimke = new BindingList<StavkaPrimke>();   // local list of stavkePrimka, will be pushed into db latter
         
         public int IdPrimke { get; set; }
@@ -48,10 +50,15 @@ namespace STONKS.Forms
 
         private void FrmUnosPrimke_Load(object sender, EventArgs e)
         {   
-            
+            //get all cameras
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            //select camera
             videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[0].MonikerString);
             videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+            //videoCaptureDevice.DesiredFrameRate = 1;
+            //start camera 
+            videoCaptureDevice.Start();
+
             txtBrojPrimke.Text = SetPrimkaId();
             LoadDobavljaciCBO();
             LoadStavkeDGV();
@@ -105,14 +112,17 @@ namespace STONKS.Forms
         }
 
         public void AddStavka(StavkaPrimke stavka)  // function that can be called from another form
-        {   
+        {
             if (!stavkePrimke.Contains(stavka))     // check if artikl is alredy in dgv
-            {   
+            {
                 stavkePrimke.Add(stavka);   //if it isnt add it
                 changeTabPosition();    //change selected cell to a cell in new row
             }
             else
                 MessageBox.Show("Ovaj artikl ste već dodali!!!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            
+            
+               
         }
 
         private void changeTabPosition()
@@ -124,7 +134,7 @@ namespace STONKS.Forms
         private void InsertPrimka()
         {
             if (ValidatePrimka())
-            {
+            {   
                 var primka = new Primka()
                 {
                     //id = IdPrimke,
@@ -214,43 +224,47 @@ namespace STONKS.Forms
         }
 
 
-        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            var image = (Bitmap)eventArgs.Frame.Clone();
-            // display the frame in the picture box
-            pboBarcode.SizeMode = PictureBoxSizeMode.StretchImage;
-            pboBarcode.Image = image;
-            Console.WriteLine("Here");
-
-            if (videoCaptureDevice.IsRunning)
-            {
-                videoCaptureDevice.SignalToStop();
-
-            }
-            BarcodeScanner scanner = new BarcodeScanner();
-            scanner.Scanned += new EventHandler<string>(ChangeText);
-            Task.Run(() => scanner.Scan((Bitmap)image.Clone()));
-
-        }
-
-        private void btnScan_Click(object sender, EventArgs e)
-        {
-            
-            videoCaptureDevice.Start();
-            if(!videoCaptureDevice.IsRunning)
-            {
-                videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
-                Console.WriteLine("HereEvent");
-            }       
-            Console.WriteLine("HereClick");
-        }
-
-        private void ChangeText(object sender, string e)
+        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)    //event that gets new frame from camera
         {   
-            if(txtBarcode.InvokeRequired)
+            //get image from camera
+            var image = (Bitmap)eventArgs.Frame.Clone();
+            //sleep 250ms
+            Thread.Sleep(250);
+            //scan barcode on new thread without blocking main
+            Task.Run(() =>
             {
-                txtBarcode.Invoke((MethodInvoker)delegate { txtBarcode.Text = e; });
+                BarcodeScanner scanner = new BarcodeScanner();
+                scanner.Scanned += new EventHandler<string>(CreateStavkaFromBarcode);
+                Task.Run(() => scanner.Scan((Bitmap)image.Clone()));
+            });
+        }
 
+
+        private void CreateStavkaFromBarcode(object sender, string sifra)
+        {
+            if (txtBarcode.InvokeRequired)
+            {   
+                if(stavkePrimke.SingleOrDefault(s=>s.Artikli.sifra == sifra) == null)
+                {
+                    txtBarcode.Invoke((MethodInvoker)delegate { txtBarcode.Text = sifra; });
+                    var artikl = artikliServices.GetArtikl(sifra);
+                    if (artikl != null)
+                    {
+                        var stavka = new StavkaPrimke()
+                        {
+                            artikl_id = artikl.id,
+                            Artikli = artikl,
+                            nabavna_cijena = 0.0,
+                            rabat = 0,
+                            kolicina = 1,
+                            ukupna_cijena = 0.0,
+                            primka_id = IdPrimke
+                        };
+
+                        Invoke((MethodInvoker)delegate { AddStavka(stavka); });
+                    }
+                }
+                
             }
             
         }
@@ -258,7 +272,8 @@ namespace STONKS.Forms
 
 
         private void FrmUnosPrimke_FormClosing(object sender, FormClosingEventArgs e)
-        {
+        {   
+            //clear camera usage
             if (videoCaptureDevice != null && videoCaptureDevice.IsRunning)
             {
                 videoCaptureDevice.SignalToStop();

@@ -39,7 +39,7 @@ namespace STONKS
             else
             {
                 // display an error message if the barcode could not be read
-                MessageBox.Show("Unable to read barcode.");
+                Console.Write("Unable to read barcode");
             }
 
         }
