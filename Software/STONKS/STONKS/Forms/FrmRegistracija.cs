@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Services;
+﻿using AForge.Video.DirectShow;
+using BusinessLayer.Services;
 using EntitiesLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,9 @@ namespace STONKS.Forms
 {
     public partial class FrmRegistracija : Form
     {
+
+        FilterInfoCollection filterInfoCollection;
+        VideoCaptureDevice captureDevice = null;
         public FrmRegistracija()
         {
             InitializeComponent();
@@ -35,6 +39,11 @@ namespace STONKS.Forms
         private void FrmRegistracija_Load(object sender, EventArgs e)
         {
             GetUloge();
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo filterinfo in filterInfoCollection)
+                cbCameraName_new.Items.Add(filterinfo.Name);
+            cbCameraName_new.SelectedIndex = 0;
+            captureDevice = new VideoCaptureDevice();
         }
 
         private void GetUloge()
@@ -112,6 +121,20 @@ namespace STONKS.Forms
         {
             SetText(txtPassword);
 
+        }
+
+        private void btnUkljuciKameru_new_Click(object sender, EventArgs e)
+        {
+            captureDevice = new VideoCaptureDevice(filterInfoCollection[cbCameraName_new.SelectedIndex].MonikerString);
+            captureDevice.NewFrame += CaptureDevice_NewFrame; 
+            captureDevice.Start();
+            btnTakePicture_new.Enabled = true;
+        }
+
+        private void CaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
+        {
+            pbCamera_new.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbCamera_new.Image = (Bitmap)eventArgs.Frame.Clone();
         }
     }
 }
