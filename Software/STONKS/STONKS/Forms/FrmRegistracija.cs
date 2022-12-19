@@ -73,7 +73,9 @@ namespace STONKS.Forms
                 OIB = txtOIB.Text,
                 korime = txtUsername.Text,
                 lozinka = txtPassword.Text,
-                uloga_id = uloga.id
+                uloga_id = uloga.id,
+                slika = @"\preloaded_faces\" + txtUsername.Text + ".jpg",
+
             };
 
 
@@ -127,7 +129,7 @@ namespace STONKS.Forms
         private void btnUkljuciKameru_new_Click(object sender, EventArgs e)
         {
             captureDevice = new VideoCaptureDevice(filterInfoCollection[cbCameraName_new.SelectedIndex].MonikerString);
-            captureDevice.NewFrame += CaptureDevice_NewFrame; 
+            captureDevice.NewFrame += CaptureDevice_NewFrame;
             captureDevice.Start();
             btnTakePicture_new.Enabled = true;
         }
@@ -153,7 +155,7 @@ namespace STONKS.Forms
 
                 }
 
-                
+
             }
         }
 
@@ -162,21 +164,10 @@ namespace STONKS.Forms
             pbSlikaZaSpremiti_new.SizeMode = PictureBoxSizeMode.StretchImage;
 
             pbSlikaZaSpremiti_new.Image = pbCamera_new.Image;
-            pbSlikaZaSpremiti_new.Image.Save(txtUsername.Text+".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-           /* SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
-            saveFileDialog.FileName = txtUsername.Text;
-            saveFileDialog.DefaultExt = ".jpg";*/
+            pbSlikaZaSpremiti_new.Image.Save(txtUsername.Text + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
+            pbSlikaZaSpremiti_new.Image.Save(path + @"\preloaded_faces\" + txtUsername.Text + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
-            //if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            //{
-
-
-                pbSlikaZaSpremiti_new.Image.Save(path+@"\preloaded_faces\"+txtUsername.Text+".jpg",System.Drawing.Imaging.ImageFormat.Jpeg);
-                
-                
-            //}
         }
     }
 }

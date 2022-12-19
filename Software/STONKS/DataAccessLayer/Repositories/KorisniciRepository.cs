@@ -75,6 +75,7 @@ namespace DataAccessLayer.Repositories
                 lozinka = entity.lozinka,
                 uloga_id = entity.uloga_id,
                 Uloge = uloga,
+                slika=entity.slika,
             };
 
             Entities.Add(korisnik);
