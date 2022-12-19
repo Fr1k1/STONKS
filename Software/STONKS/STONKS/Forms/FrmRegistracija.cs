@@ -18,6 +18,7 @@ namespace STONKS.Forms
 
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice captureDevice = null;
+        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         public FrmRegistracija()
         {
             InitializeComponent();
@@ -135,6 +136,47 @@ namespace STONKS.Forms
         {
             pbCamera_new.SizeMode = PictureBoxSizeMode.StretchImage;
             pbCamera_new.Image = (Bitmap)eventArgs.Frame.Clone();
+        }
+
+        private void btnTakePicture_new_Click(object sender, EventArgs e)
+        {
+            if (!(captureDevice == null))
+            {
+                if (captureDevice.IsRunning)
+                {
+                    captureDevice.SignalToStop();
+
+
+                    captureDevice = null;
+
+
+
+                }
+
+                
+            }
+        }
+
+        private void btnSave_new_Click(object sender, EventArgs e)
+        {
+            pbSlikaZaSpremiti_new.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            pbSlikaZaSpremiti_new.Image = pbCamera_new.Image;
+            pbSlikaZaSpremiti_new.Image.Save(txtUsername.Text+".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+           /* SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
+            saveFileDialog.FileName = txtUsername.Text;
+            saveFileDialog.DefaultExt = ".jpg";*/
+
+
+            //if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            //{
+
+
+                pbSlikaZaSpremiti_new.Image.Save(path+@"\preloaded_faces\"+txtUsername.Text+".jpg",System.Drawing.Imaging.ImageFormat.Jpeg);
+                
+                
+            //}
         }
     }
 }

@@ -181,6 +181,7 @@
             this.btnTakePicture_new.TabIndex = 69;
             this.btnTakePicture_new.Text = "POSLIKAJ";
             this.btnTakePicture_new.UseVisualStyleBackColor = false;
+            this.btnTakePicture_new.Click += new System.EventHandler(this.btnTakePicture_new_Click);
             // 
             // btnSave_new
             // 
@@ -193,6 +194,7 @@
             this.btnSave_new.TabIndex = 68;
             this.btnSave_new.Text = "SPREMI";
             this.btnSave_new.UseVisualStyleBackColor = false;
+            this.btnSave_new.Click += new System.EventHandler(this.btnSave_new_Click);
             // 
             // btnUkljuciKameru_new
             // 
