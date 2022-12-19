@@ -51,6 +51,24 @@ namespace DataAccessLayer.Repositories
             return racun.id;
         }
 
+        public override int Add(Racun entity, bool save = true)
+        {
+            Entities.Attach(entity);
+            var record = Entities.Add(entity);
+            if (save)
+            {
+                if (SaveChanges() > 0)
+                {
+                    return record.id;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else return 0;
+        }
+
         public override int Update(Racun entity, bool save = true)
         {
             throw new NotImplementedException();

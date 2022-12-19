@@ -19,9 +19,7 @@ namespace DataAccessLayer.Repositories
         {
             var query = from e in Entities.Include("Artikli")
                         where e.racun_id == racunId
-                        
                         select e;
-
             return query;
         }
 

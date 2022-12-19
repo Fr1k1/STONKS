@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace BusinessLayer.Services
 {
@@ -25,7 +26,7 @@ namespace BusinessLayer.Services
                 return repo.GetByNacinPlacanja(id).ToList();
             }
         }
-
+        /*
         public int AddRacun(Racun racun)
         {
             int id;
@@ -34,6 +35,46 @@ namespace BusinessLayer.Services
                 id = repo.AddNew(racun);
             } 
             return id;
+        }*/
+
+        public bool AddRacun(Racun racun, List<StavkaRacuna> stavke)
+        {
+            using (var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.RepeatableRead }))
+            {
+                List<Artikl> artikli = new List<Artikl>();
+                stavke.ForEach(s => artikli.Add(s.Artikli));
+                try
+                {
+                    int racunId = 0; // pocetni id racuna
+                    using (var repo = new RacuniRepository())
+                    {
+                        racunId = repo.Add(racun);
+                    }
+                    if(racunId > 0)
+                    {
+                        // dodaj racun u bazu - prvo u stavke
+                        using (var repo = new StavkeRepository())
+                        {
+                            foreach (var stavka in stavke)
+                            {
+                                stavka.Artikli = null;
+                                stavka.racun_id = racunId;
+                                repo.Add(stavka, false);
+                            }
+                            repo.SaveChanges();
+                        }
+                        transaction.Complete();
+                        return true;
+                    }
+                    return false;
+                }
+                catch(Exception ex)
+                {
+                    transaction.Dispose();
+                    return false;
+                       
+                }
+            }
         }
     }
 }

@@ -19,7 +19,7 @@ namespace EntitiesLayer.Entities
         public int id { get; set; }
 
         [Required]
-        [StringLength(12)]
+        [StringLength(13)]
         public string sifra { get; set; }
 
         [Required]

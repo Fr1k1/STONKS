@@ -23,6 +23,7 @@ namespace STONKS.Forms
 
         public RacuniServices servicesRacuni = new RacuniServices();
         public StavkeServices servicesStavke = new StavkeServices();
+        private BindingList<StavkaRacuna> stavkeRacuna = new BindingList<StavkaRacuna>();
 
 
         private void FrmIzradaRacuna_Load(object sender, EventArgs e)
@@ -38,27 +39,25 @@ namespace STONKS.Forms
         {
             var selectedNacinPlacanja = cboOdabirNacinaPlacanja.SelectedItem as NacinPlacanja;
             MessageBox.Show("id nacina placanja= "+selectedNacinPlacanja.id.ToString());
-            var racun = new Racun
-            {
-                nacin_placanja_id = selectedNacinPlacanja.id,
-                korisnik_id = 1, // TODO logged user
-                vrijeme_izdavanja = DateTime.Now,
-                ukupno = FrmUnosRacuna.ukupnoUnos,
-                popust = 0, // TODO nez kaj s ovim
-                pdv = 25, // TODO nez kaj s ovim
-                cjena_bez_pdv = FrmUnosRacuna.ukupnoUnos-(FrmUnosRacuna.ukupnoUnos*0.25), // TODO nez jel ovo dobro
-            };
-            /*MessageBox.Show("kao dodan\nnacin_placanja" + racun.nacin_placanja_id.ToString() + "korisnik_id " + racun.korisnik_id.ToString() + "vrijeme_izdavanja " + racun.vrijeme_izdavanja.ToString() + "ukupno " + racun.ukupno.ToString()+" "  + FrmUnosRacuna.ukupnoUnos + " \n"+ "popust " + racun.popust.ToString() + "pdv " + racun.pdv.ToString() + "cjena_bez_pdv " + racun.cjena_bez_pdv.ToString()); // ovo je ok
-            */
+            /* var racun = new Racun
+             {
+                 nacin_placanja_id = selectedNacinPlacanja.id,
+                 korisnik_id = 1, // TODO logged user
+                 vrijeme_izdavanja = DateTime.Now,
+                 ukupno = FrmUnosRacuna.ukupnoUnos,
+                 popust = 0, // TODO nez kaj s ovim
+                 pdv = 25, // TODO nez kaj s ovim
+                 cjena_bez_pdv = FrmUnosRacuna.ukupnoUnos-(FrmUnosRacuna.ukupnoUnos*0.25), // TODO nez jel ovo dobro
+             };
+             MessageBox.Show("kao dodan\nnacin_placanja" + racun.nacin_placanja_id.ToString() + "korisnik_id " + racun.korisnik_id.ToString() + "vrijeme_izdavanja " + racun.vrijeme_izdavanja.ToString() + "ukupno " + racun.ukupno.ToString()+" "  + FrmUnosRacuna.ukupnoUnos + " \n"+ "popust " + racun.popust.ToString() + "pdv " + racun.pdv.ToString() + "cjena_bez_pdv " + racun.cjena_bez_pdv.ToString()); // ovo je ok
+             */
             // tu ko da opce ne kuzi da postoji racun neg baci error da nema instance objekta
-            if(racun!= null)
-            {
-                MessageBox.Show("nije null");
-            }
+
             //int idRacuna = servicesRacuni.AddRacun(racun);
             //MessageBox.Show("ID RACUNA = " + idRacuna.ToString());
 
-            using(var db = new DataAccessLayer.STONKS_DB())
+            /*
+            using (var db = new DataAccessLayer.STONKS_DB())
             {
                 var racunNovi = new Racun
                 {
@@ -71,35 +70,37 @@ namespace STONKS.Forms
                     cjena_bez_pdv = FrmUnosRacuna.ukupnoUnos - (FrmUnosRacuna.ukupnoUnos * 0.25), // TODO nez jel ovo dobro
                 };
                 db.Racuni.Add(racunNovi);
-                //db.SaveChanges();
+                db.SaveChanges();
+            }*/
 
-                try
+            // pokusaj tri
+                var racunNovi = new Racun
                 {
-                    // Your code...
-                    // Could also be before try if you know the exception occurs in SaveChanges
-
-                    db.SaveChanges();
-                }
-                catch (DbEntityValidationException eX)
-                {
-                    foreach (var eve in eX.EntityValidationErrors)
-                    {
-
-                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                        foreach (var ve in eve.ValidationErrors)
-                        {
-                            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                                ve.PropertyName, ve.ErrorMessage);
-                        }
-                    }
-                    throw;
-                }
+                    nacin_placanja_id = selectedNacinPlacanja.id,
+                    korisnik_id = 1, // TODO logged user
+                    vrijeme_izdavanja = DateTime.Now,
+                    ukupno = FrmUnosRacuna.ukupnoUnos,
+                    popust = 0, // TODO nez kaj s ovim
+                    pdv = 25, // TODO nez kaj s ovim
+                    cjena_bez_pdv = FrmUnosRacuna.ukupnoUnos - (FrmUnosRacuna.ukupnoUnos * 0.25), // TODO nez jel ovo dobro
+                };
+            if(servicesRacuni.AddRacun(racunNovi, stavkeRacuna.ToList()))
+            {
+                MessageBox.Show("Unesen racun!");
+                Close();
             }
+            else
+            {
+                MessageBox.Show("Nekaj ni dobro!");
+            }
+
+
+
+
 
             // TODO da prolazi kroz svaki artikl
             //servicesStavke.AddStavke(int.Parse(FrmUnosRacuna.listaStavki[0].ToString()), idRacuna, 5); // HARDKODIRANA KOLICINA I STAVKA
-            
+
 
 
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
@@ -111,6 +112,18 @@ namespace STONKS.Forms
         private void btnIzradiIGenerirajPdf_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void AddStavka(StavkaRacuna stavka)
+        {
+            if (!stavkeRacuna.Contains(stavka))
+            {
+                stavkeRacuna.Add(stavka);
+            }
+            else
+            {
+                MessageBox.Show("Ovaj ste vec dodali!");
+            }
         }
 
         private void btnPovratak_Click(object sender, EventArgs e)
