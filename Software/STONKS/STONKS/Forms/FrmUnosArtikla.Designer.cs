@@ -37,6 +37,11 @@
             this.cbArticleType = new System.Windows.Forms.ComboBox();
             this.btnAddArtikl = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.pbBarcode = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnGenerateBarcode = new System.Windows.Forms.Button();
+            this.btnPrintBarcode = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -150,12 +155,57 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // pbBarcode
+            // 
+            this.pbBarcode.Location = new System.Drawing.Point(926, 80);
+            this.pbBarcode.Name = "pbBarcode";
+            this.pbBarcode.Size = new System.Drawing.Size(264, 194);
+            this.pbBarcode.TabIndex = 21;
+            this.pbBarcode.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(926, 312);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 22;
+            // 
+            // btnGenerateBarcode
+            // 
+            this.btnGenerateBarcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.btnGenerateBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateBarcode.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateBarcode.Location = new System.Drawing.Point(599, 80);
+            this.btnGenerateBarcode.Name = "btnGenerateBarcode";
+            this.btnGenerateBarcode.Size = new System.Drawing.Size(267, 38);
+            this.btnGenerateBarcode.TabIndex = 23;
+            this.btnGenerateBarcode.Text = "Generiraj barkod";
+            this.btnGenerateBarcode.UseVisualStyleBackColor = false;
+            this.btnGenerateBarcode.Click += new System.EventHandler(this.btnGenerateBarcode_Click);
+            // 
+            // btnPrintBarcode
+            // 
+            this.btnPrintBarcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.btnPrintBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintBarcode.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintBarcode.Location = new System.Drawing.Point(599, 152);
+            this.btnPrintBarcode.Name = "btnPrintBarcode";
+            this.btnPrintBarcode.Size = new System.Drawing.Size(267, 38);
+            this.btnPrintBarcode.TabIndex = 24;
+            this.btnPrintBarcode.Text = "Ispisi barkod";
+            this.btnPrintBarcode.UseVisualStyleBackColor = false;
+            this.btnPrintBarcode.Click += new System.EventHandler(this.btnPrintBarcode_Click);
+            // 
             // FrmUnosArtikla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(722, 600);
+            this.ClientSize = new System.Drawing.Size(1260, 772);
+            this.Controls.Add(this.btnPrintBarcode);
+            this.Controls.Add(this.btnGenerateBarcode);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.pbBarcode);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAddArtikl);
             this.Controls.Add(this.cbArticleType);
@@ -169,6 +219,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos artikla";
             this.Load += new System.EventHandler(this.FrmUnosArtikla_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +236,9 @@
         private System.Windows.Forms.ComboBox cbArticleType;
         private System.Windows.Forms.Button btnAddArtikl;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.PictureBox pbBarcode;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnGenerateBarcode;
+        private System.Windows.Forms.Button btnPrintBarcode;
     }
 }

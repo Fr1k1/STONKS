@@ -20,7 +20,7 @@ namespace STONKS
         {
 
             BarcodeReader reader = new BarcodeReader();
-            reader.Options.PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.EAN_13 };
+            reader.Options.PossibleFormats = new List<BarcodeFormat> { BarcodeFormat.CODE_128 };
             reader.Options.TryHarder = true;
 
             // read the barcode from the camera

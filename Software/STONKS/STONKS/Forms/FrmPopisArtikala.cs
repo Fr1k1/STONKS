@@ -46,6 +46,9 @@ namespace STONKS.Forms
         {
             var artikli = services.GetArtikli();
             dgvArtikli.DataSource = artikli;
+            dgvArtikli.Columns[8].Visible = false;
+            dgvArtikli.Columns[7].Visible = false;
+            dgvArtikli.Columns[10].Visible = false;
 
         }
 

@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
 
 namespace STONKS.Forms
 {
@@ -113,6 +115,24 @@ namespace STONKS.Forms
         {
             SetText(txtPDV);
 
+        }
+
+        private void btnGenerateBarcode_Click(object sender, EventArgs e)
+        {
+            BarcodeWriter writer = new BarcodeWriter() { Format=BarcodeFormat.CODE_128};
+            pbBarcode.Image = writer.Write(txtCode.Text);
+        }
+
+        private void btnPrintBarcode_Click(object sender, EventArgs e)
+        {
+            PrintDocument printDocument1 = new PrintDocument();
+            printDocument1.PrintPage += PrintDocument1_PrintPage;
+            printDocument1.Print();
+        }
+
+        private void PrintDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(pbBarcode.Image, 0, 0);
         }
     }
 }
