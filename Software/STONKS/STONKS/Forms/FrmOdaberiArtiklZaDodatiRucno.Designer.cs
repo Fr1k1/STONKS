@@ -66,7 +66,7 @@
             this.dgvPopisArtikala.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPopisArtikala.Location = new System.Drawing.Point(68, 108);
             this.dgvPopisArtikala.Name = "dgvPopisArtikala";
-            this.dgvPopisArtikala.Size = new System.Drawing.Size(772, 254);
+            this.dgvPopisArtikala.Size = new System.Drawing.Size(772, 391);
             this.dgvPopisArtikala.TabIndex = 17;
             // 
             // btnDodajArtikl
@@ -75,7 +75,7 @@
             this.btnDodajArtikl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDodajArtikl.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajArtikl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnDodajArtikl.Location = new System.Drawing.Point(631, 379);
+            this.btnDodajArtikl.Location = new System.Drawing.Point(631, 519);
             this.btnDodajArtikl.Name = "btnDodajArtikl";
             this.btnDodajArtikl.Size = new System.Drawing.Size(209, 38);
             this.btnDodajArtikl.TabIndex = 21;
@@ -89,7 +89,7 @@
             this.btnOdustani.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOdustani.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOdustani.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnOdustani.Location = new System.Drawing.Point(68, 379);
+            this.btnOdustani.Location = new System.Drawing.Point(68, 519);
             this.btnOdustani.Name = "btnOdustani";
             this.btnOdustani.Size = new System.Drawing.Size(129, 38);
             this.btnOdustani.TabIndex = 22;
@@ -115,7 +115,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(894, 450);
+            this.ClientSize = new System.Drawing.Size(894, 577);
             this.Controls.Add(this.txtPretrazi);
             this.Controls.Add(this.btnOdustani);
             this.Controls.Add(this.btnDodajArtikl);

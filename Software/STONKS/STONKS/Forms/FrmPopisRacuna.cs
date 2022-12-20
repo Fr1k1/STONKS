@@ -61,7 +61,7 @@ namespace STONKS.Forms
             dgvRacuni.Columns[2].Visible = false;
             dgvRacuni.Columns[7].Visible = false;
             dgvRacuni.Columns[8].Visible = false;
-            dgvRacuni.Columns[11].Visible = false; // sakrivene stavke jer ce bit u drugom dgvu
+            dgvRacuni.Columns[10].Visible = false; // sakrivene stavke jer ce bit u drugom dgvu
 
             dgvRacuni.Columns["vrijeme_izdavanja"].DisplayIndex = 3;
             dgvRacuni.Columns["Korisnici"].DisplayIndex = 10;
@@ -74,7 +74,7 @@ namespace STONKS.Forms
             dgvRacuni.Columns[5].HeaderText = "Popust[%]";
             dgvRacuni.Columns[6].HeaderText = "Ukupno";
             dgvRacuni.Columns[9].HeaderText = "Izdao racun";
-            dgvRacuni.Columns[10].HeaderText = "Nacin placanja";
+            //dgvRacuni.Columns[10].HeaderText = "Nacin placanja";
         }
 
         private void UrediTablicuStavke()

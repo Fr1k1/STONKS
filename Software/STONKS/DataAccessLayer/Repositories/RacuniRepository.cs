@@ -33,9 +33,6 @@ namespace DataAccessLayer.Repositories
 
         public override int AddNew(Racun entity, bool save = true)
         {
-            //var nacinPlacanja = Context.NaciniPlacanja.SingleOrDefault(v => v.id == entity.nacin_placanja_id);
-            //var  = Context.NaciniPlacanja.SingleOrDefault(v => v.id == entity.nacin_placanja_id);
-
             var racun = new Racun
             {
                 nacin_placanja_id = entity.nacin_placanja_id,
@@ -45,7 +42,6 @@ namespace DataAccessLayer.Repositories
                 popust = entity.popust,
                 pdv = entity.pdv,
                 cjena_bez_pdv = entity.cjena_bez_pdv,
-                nacin_placanja = entity.nacin_placanja, // MUTAVO SMECE JEDNO
             };
             Entities.Add(racun);
             Context.SaveChanges();           
@@ -56,7 +52,7 @@ namespace DataAccessLayer.Repositories
         {
             Entities.Attach(entity);
             var record = Entities.Add(entity);
-            Console.WriteLine(entity.id + " RECORD ID = " + record.id);
+            //Console.WriteLine(entity.id + " RECORD ID = " + record.id);
             if (save)
             {
                 if (SaveChanges() > 0)
