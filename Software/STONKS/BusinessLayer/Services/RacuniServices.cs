@@ -49,6 +49,7 @@ namespace BusinessLayer.Services
                     using (var repo = new RacuniRepository())
                     {
                         racunId = repo.Add(racun);
+                        Console.WriteLine("ID NOVOG RACUNA = " + racunId); // ovo ionak ne radi kak treba
                     }
                     if(racunId > 0)
                     {
@@ -63,6 +64,9 @@ namespace BusinessLayer.Services
                             }
                             repo.SaveChanges();
                         }
+
+                        // TODO updateaj stanje skladista
+
                         transaction.Complete();
                         return true;
                     }

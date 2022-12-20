@@ -23,7 +23,7 @@ namespace STONKS.Forms
 
         public RacuniServices servicesRacuni = new RacuniServices();
         public StavkeServices servicesStavke = new StavkeServices();
-        private BindingList<StavkaRacuna> stavkeRacuna = new BindingList<StavkaRacuna>();
+        //private BindingList<StavkaRacuna> stavkeRacuna = new BindingList<StavkaRacuna>();
 
 
         private void FrmIzradaRacuna_Load(object sender, EventArgs e)
@@ -82,9 +82,12 @@ namespace STONKS.Forms
                     ukupno = FrmUnosRacuna.ukupnoUnos,
                     popust = 0, // TODO nez kaj s ovim
                     pdv = 25, // TODO nez kaj s ovim
-                    cjena_bez_pdv = FrmUnosRacuna.ukupnoUnos - (FrmUnosRacuna.ukupnoUnos * 0.25), // TODO nez jel ovo dobro
+                    //cjena_bez_pdv = FrmUnosRacuna.ukupnoUnos - (double.Parse(FrmUnosRacuna.ukupnoUnos) * 0.25), // TODO nez jel ovo dobro
+                    cjena_bez_pdv = 25, // TODO nez jel ovo dobro
+                    nacin_placanja = "GLUPANE"
                 };
-            if(servicesRacuni.AddRacun(racunNovi, stavkeRacuna.ToList()))
+            //if(servicesRacuni.AddRacun(racunNovi, stavkeRacuna.ToList()))
+            if(servicesRacuni.AddRacun(racunNovi, FrmUnosRacuna.listaStavki.ToList()))
             {
                 MessageBox.Show("Unesen racun!");
                 Close();
@@ -113,7 +116,7 @@ namespace STONKS.Forms
         {
 
         }
-
+        /*
         public void AddStavka(StavkaRacuna stavka)
         {
             if (!stavkeRacuna.Contains(stavka))
@@ -125,7 +128,7 @@ namespace STONKS.Forms
                 MessageBox.Show("Ovaj ste vec dodali!");
             }
         }
-
+        */
         private void btnPovratak_Click(object sender, EventArgs e)
         {
             FrmUnosRacuna frmUnosRacuna = new FrmUnosRacuna();

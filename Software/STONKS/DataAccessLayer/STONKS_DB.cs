@@ -121,11 +121,11 @@ namespace DataAccessLayer
             modelBuilder.Entity<Promet>()
                 .Property(e => e.ukupna_gotovina)
                 .IsUnicode(false);
-
+            
             modelBuilder.Entity<Racun>()
                 .Property(e => e.nacin_placanja)
                 .IsUnicode(false);
-
+            
             modelBuilder.Entity<Racun>()
                 .HasMany(e => e.StavkeRacuna)
                 .WithRequired(e => e.Racuni)

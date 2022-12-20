@@ -20,7 +20,7 @@ namespace EntitiesLayer.Entities
 
         [Required]
         [StringLength(45)]
-        public string nacin_placanja { get; set; }
+        public string nacin_placanja { get; set; } // ovo se treba maknut ja mislim jer tog nema u bazi
 
         public double cjena_bez_pdv { get; set; }
 

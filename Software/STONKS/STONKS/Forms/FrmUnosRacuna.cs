@@ -21,7 +21,7 @@ namespace STONKS.Forms
         }
 
         static public List<StavkaRacuna> listaStavki = new List<StavkaRacuna>();
-        static public int ukupnoUnos;
+        static public double ukupnoUnos;
 
         private void btnOdustani_Click(object sender, EventArgs e)
         {
@@ -42,7 +42,8 @@ namespace STONKS.Forms
 
         private void btnNastavi_Click(object sender, EventArgs e)
         {
-            ukupnoUnos = int.Parse(txtUkupno.Text);
+            //ukupnoUnos = (double)(int.Parse(txtUkupno.Text)); // TODO
+            ukupnoUnos = 25;
             //MessageBox.Show(ukupnoUnos.ToString());
 
             FrmIzradaRacuna frmIzradaRacuna = new FrmIzradaRacuna();
