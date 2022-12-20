@@ -21,8 +21,8 @@ namespace STONKS.Forms
         {
 
             Hide();
-            FrmPrepoznavanjeLica frmPrepoznavanjeLica = new FrmPrepoznavanjeLica();
-            frmPrepoznavanjeLica.ShowDialog();
+            /*FrmPrepoznavanjeLica frmPrepoznavanjeLica = new FrmPrepoznavanjeLica();
+            frmPrepoznavanjeLica.ShowDialog();*/
             Close();
         }
     }

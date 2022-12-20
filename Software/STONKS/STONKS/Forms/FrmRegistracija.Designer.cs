@@ -41,7 +41,6 @@
             this.btnTakePicture_new = new System.Windows.Forms.Button();
             this.btnSave_new = new System.Windows.Forms.Button();
             this.btnUkljuciKameru_new = new System.Windows.Forms.Button();
-            this.cbAllUsers = new System.Windows.Forms.ComboBox();
             this.pbSlikaZaSpremiti_new = new System.Windows.Forms.PictureBox();
             this.cbCameraName_new = new System.Windows.Forms.ComboBox();
             this.pbCamera_new = new System.Windows.Forms.PictureBox();
@@ -209,14 +208,6 @@
             this.btnUkljuciKameru_new.UseVisualStyleBackColor = false;
             this.btnUkljuciKameru_new.Click += new System.EventHandler(this.btnUkljuciKameru_new_Click);
             // 
-            // cbAllUsers
-            // 
-            this.cbAllUsers.FormattingEnabled = true;
-            this.cbAllUsers.Location = new System.Drawing.Point(720, 398);
-            this.cbAllUsers.Name = "cbAllUsers";
-            this.cbAllUsers.Size = new System.Drawing.Size(121, 21);
-            this.cbAllUsers.TabIndex = 66;
-            // 
             // pbSlikaZaSpremiti_new
             // 
             this.pbSlikaZaSpremiti_new.Location = new System.Drawing.Point(888, 35);
@@ -246,11 +237,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(1145, 713);
+            this.ClientSize = new System.Drawing.Size(1145, 569);
             this.Controls.Add(this.btnTakePicture_new);
             this.Controls.Add(this.btnSave_new);
             this.Controls.Add(this.btnUkljuciKameru_new);
-            this.Controls.Add(this.cbAllUsers);
             this.Controls.Add(this.pbSlikaZaSpremiti_new);
             this.Controls.Add(this.cbCameraName_new);
             this.Controls.Add(this.pbCamera_new);
@@ -290,7 +280,6 @@
         private System.Windows.Forms.Button btnTakePicture_new;
         private System.Windows.Forms.Button btnSave_new;
         private System.Windows.Forms.Button btnUkljuciKameru_new;
-        private System.Windows.Forms.ComboBox cbAllUsers;
         private System.Windows.Forms.PictureBox pbSlikaZaSpremiti_new;
         private System.Windows.Forms.ComboBox cbCameraName_new;
         private System.Windows.Forms.PictureBox pbCamera_new;

@@ -31,14 +31,19 @@ namespace STONKS.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
+
+            FrmLogin frmLogin = new FrmLogin();
             Hide();
-            frmPocetniIzbornik.ShowDialog();
+
+            frmLogin.ShowDialog();
             Close();
         }
 
         private void FrmRegistracija_Load(object sender, EventArgs e)
         {
+
+            btnTakePicture_new.Enabled = false;
+            btnSave_new.Enabled = false;
             GetUloge();
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo filterinfo in filterInfoCollection)
@@ -157,6 +162,8 @@ namespace STONKS.Forms
 
 
             }
+
+            btnSave_new.Enabled = true;
         }
 
         private void btnSave_new_Click(object sender, EventArgs e)
@@ -167,6 +174,8 @@ namespace STONKS.Forms
             pbSlikaZaSpremiti_new.Image.Save(txtUsername.Text + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
             pbSlikaZaSpremiti_new.Image.Save(path + @"\preloaded_faces\" + txtUsername.Text + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            MessageBox.Show("Slika je spremljena na " + path + @"\preloaded_faces\" + txtUsername.Text + ".jpg");
 
         }
     }
