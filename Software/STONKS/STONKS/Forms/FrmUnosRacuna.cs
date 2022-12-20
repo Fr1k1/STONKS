@@ -54,7 +54,8 @@ namespace STONKS.Forms
         private void FrmUnosRacuna_Load(object sender, EventArgs e)
         {
             dgvArtikli.DataSource = listaStavki;
-            IzracunajUkupno();
+            IzracunajUkupno(); 
+            UrediTablicuStavke();
         }
 
         private void dgvArtikli_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -69,7 +70,16 @@ namespace STONKS.Forms
                 txtUkupno.Text = (int.Parse(txtUkupno.Text) + item.kolcina * item.Artikli.jed_cijena).ToString();
             }
         }
+        private void UrediTablicuStavke()
+        {
+            dgvArtikli.Columns[0].Visible = false; // ne treba nam id racuna kad ga vec imamo
+            dgvArtikli.Columns[5].Visible = false;
 
-       
+            dgvArtikli.Columns[1].HeaderText = "ID artikla";
+            dgvArtikli.Columns[2].HeaderText = "Kolicina";
+            dgvArtikli.Columns[3].HeaderText = "Popust";
+            dgvArtikli.Columns[4].HeaderText = "Naziv artikla";
+        }
+
     }
 }

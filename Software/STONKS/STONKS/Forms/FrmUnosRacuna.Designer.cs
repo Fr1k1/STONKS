@@ -68,6 +68,7 @@
             // 
             // dgvArtikli
             // 
+            this.dgvArtikli.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArtikli.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvArtikli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArtikli.Location = new System.Drawing.Point(35, 109);
