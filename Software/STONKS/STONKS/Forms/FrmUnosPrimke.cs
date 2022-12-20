@@ -1,4 +1,6 @@
-﻿using BusinessLayer.Services;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using BusinessLayer.Services;
 using EntitiesLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,8 +10,10 @@ using System.Data.Entity.Hierarchy;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZXing;
 
 namespace STONKS.Forms
 {
@@ -19,11 +23,20 @@ namespace STONKS.Forms
 
         private PrimkaServices primkaServices = new PrimkaServices();
 
+        private ArtikliServices artikliServices = new ArtikliServices();
+
         private BindingList<StavkaPrimke> stavkePrimke = new BindingList<StavkaPrimke>();   // local list of stavkePrimka, will be pushed into db latter
         
         public int IdPrimke { get; set; }
         private double FinalPrice  { get; set; }
         private double Discount  { get; set; }
+
+        private FilterInfoCollection filterInfoCollection;
+        private VideoCaptureDevice videoCaptureDevice = null;
+
+
+
+
         public FrmUnosPrimke()
         {
             InitializeComponent();
@@ -31,6 +44,7 @@ namespace STONKS.Forms
 
         private void btnPovratak_Click(object sender, EventArgs e)
         {
+            UnloadCamera();
             Hide();
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             frmPocetniIzbornik.ShowDialog();
@@ -38,11 +52,24 @@ namespace STONKS.Forms
         }
 
         private void FrmUnosPrimke_Load(object sender, EventArgs e)
-        {
+        {   
+            //get all cameras
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            //select camera
+            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[0].MonikerString);
+            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+            videoCaptureDevice.DesiredFrameRate = 1;
+            //start camera 
+            
+
+            // Start the video capture
+            videoCaptureDevice.Start();
             txtBrojPrimke.Text = SetPrimkaId();
             LoadDobavljaciCBO();
             LoadStavkeDGV();
-        }
+
+
+        }   
 
         private string SetPrimkaId()
         {
@@ -89,15 +116,16 @@ namespace STONKS.Forms
             cboDobavljac.DataSource = dobavljaciServices.GetDobavljaci();   //load cbo for suppliers
         }
 
-        public void AddStavka(StavkaPrimke stavka)  // function that can be called from another form
-        {   
+        public void AddStavka(StavkaPrimke stavka,bool manual = true)  // function that can be called from another form
+        {
             if (!stavkePrimke.Contains(stavka))     // check if artikl is alredy in dgv
             {   
                 stavkePrimke.Add(stavka);   //if it isnt add it
                 changeTabPosition();    //change selected cell to a cell in new row
             }
-            else
+            else if(manual)
                 MessageBox.Show("Ovaj artikl ste već dodali!!!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+    
         }
 
         private void changeTabPosition()
@@ -109,7 +137,7 @@ namespace STONKS.Forms
         private void InsertPrimka()
         {
             if (ValidatePrimka())
-            {
+            {   
                 var primka = new Primka()
                 {
                     //id = IdPrimke,
@@ -121,6 +149,10 @@ namespace STONKS.Forms
                 if (primkaServices.AddPrimka(primka, stavkePrimke.ToList()))
                 {
                     MessageBox.Show("Primka je unesena!!!", "Uspiješan unos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UnloadCamera();
+                    Hide();
+                    FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
+                    frmPocetniIzbornik.ShowDialog();
                     Close();
                 }
                 else
@@ -142,7 +174,7 @@ namespace STONKS.Forms
             }               
             return true;
         }
-   private void CalculateDiscount()
+        private void CalculateDiscount()
         {
             Discount = 0;
             foreach (var stavka in stavkePrimke)
@@ -164,7 +196,6 @@ namespace STONKS.Forms
 
         private void CalculateRowData(int rowIndex)
         {
-            Console.Write("HERE");
             int kolicina = (int)dgvStavkePrimke.Rows[rowIndex].Cells["kolicina"].Value;     //read kolicina from selected row
             int rabat = (int)dgvStavkePrimke.Rows[rowIndex].Cells["rabat"].Value;        //read rabat from selected row
             double nabavna_cijena = (double)dgvStavkePrimke.Rows[rowIndex].Cells["nabavna_cijena"].Value;       //read nabavna_cijena from selected row
@@ -200,6 +231,55 @@ namespace STONKS.Forms
         }
 
 
-    
+        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)    //event that gets new frame from camera
+        {   
+            //get image from camera
+            var image = (Bitmap)eventArgs.Frame.Clone();
+
+            //scan barcode on new thread without blocking main
+            Task.Run(() =>
+            {
+                BarcodeScanner scanner = new BarcodeScanner();
+                scanner.Scanned += new EventHandler<string>(CreateStavkaFromBarcode);
+                Task.Run(() => scanner.Scan((Bitmap)image.Clone()));
+            });
+        }
+
+
+        private void CreateStavkaFromBarcode(object sender, string sifra)
+        {
+  
+
+                    var artikl = artikliServices.GetArtikl(sifra);
+                    if (artikl != null)
+                    {
+                        var stavka = new StavkaPrimke()
+                        {
+                            artikl_id = artikl.id,
+                            Artikli = artikl,
+                            nabavna_cijena = 0.0,
+                            rabat = 0,
+                            kolicina = 1,
+                            ukupna_cijena = 0.0,
+                            primka_id = IdPrimke
+                        };
+                    
+
+                        Invoke((MethodInvoker)delegate { txtBarcode.Text = sifra; AddStavka(stavka,false); });
+                    }
+
+        }
+
+
+
+       private void UnloadCamera()
+       {
+            Console.WriteLine("close");
+            if (videoCaptureDevice != null && videoCaptureDevice.IsRunning)
+            {
+                videoCaptureDevice.SignalToStop();
+                videoCaptureDevice = null;
+            }
+       }
     }
 }

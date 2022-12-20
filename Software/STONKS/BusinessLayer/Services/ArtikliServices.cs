@@ -19,6 +19,18 @@ namespace BusinessLayer.Services
             }
         }
 
+        public Artikl GetArtikl(string sifra)
+        {
+            using (var repo = new ArtikliRepository())
+            {
+                var artikli = repo.GetBySifra(sifra).ToList();
+                if (artikli.Count > 0)
+                    return artikli[0];
+                else
+                    return null;
+            }
+        }
+
         public List<VrstaArtikla> GetVrsteArtikla()
         {
             using (var repo = new VrsteArtiklaRepository())
