@@ -70,7 +70,13 @@ namespace STONKS.Forms
 
             };
 
-            services.DodajArtikl(artikl);
+           bool success =  services.DodajArtikl(artikl);
+            if (success)
+                MessageBox.Show("Uspjesno dodan artikl");
+            else
+                MessageBox.Show("Greska u dodavanju");
+
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -122,7 +128,7 @@ namespace STONKS.Forms
             BarcodeWriter writer = new BarcodeWriter()
             {
                 Format = BarcodeFormat.CODE_128,
-                Options = new ZXing.Common.EncodingOptions { Height = 100 }
+                Options = new ZXing.Common.EncodingOptions { Height = 100 ,Width = 300 }
             };
             pbBarcode.Image = writer.Write(txtCode.Text);
         }
