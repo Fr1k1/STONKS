@@ -38,7 +38,6 @@
             this.btnAddArtikl = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.pbBarcode = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnGenerateBarcode = new System.Windows.Forms.Button();
             this.btnPrintBarcode = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbBarcode)).BeginInit();
@@ -71,7 +70,7 @@
             // 
             this.txtCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtCode.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCode.Location = new System.Drawing.Point(196, 86);
+            this.txtCode.Location = new System.Drawing.Point(15, 62);
             this.txtCode.Multiline = true;
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(368, 31);
@@ -84,7 +83,7 @@
             // 
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtName.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(196, 159);
+            this.txtName.Location = new System.Drawing.Point(15, 135);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(368, 31);
@@ -96,7 +95,7 @@
             // 
             this.txtUnitPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtUnitPrice.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnitPrice.Location = new System.Drawing.Point(196, 232);
+            this.txtUnitPrice.Location = new System.Drawing.Point(15, 208);
             this.txtUnitPrice.Multiline = true;
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(368, 31);
@@ -108,7 +107,7 @@
             // 
             this.txtPDV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.txtPDV.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPDV.Location = new System.Drawing.Point(196, 312);
+            this.txtPDV.Location = new System.Drawing.Point(15, 288);
             this.txtPDV.Multiline = true;
             this.txtPDV.Name = "txtPDV";
             this.txtPDV.Size = new System.Drawing.Size(368, 31);
@@ -121,7 +120,7 @@
             this.cbArticleType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.cbArticleType.Font = new System.Drawing.Font("Azonix", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbArticleType.FormattingEnabled = true;
-            this.cbArticleType.Location = new System.Drawing.Point(196, 389);
+            this.cbArticleType.Location = new System.Drawing.Point(15, 365);
             this.cbArticleType.Name = "cbArticleType";
             this.cbArticleType.Size = new System.Drawing.Size(368, 24);
             this.cbArticleType.TabIndex = 18;
@@ -133,7 +132,7 @@
             this.btnAddArtikl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.btnAddArtikl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddArtikl.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddArtikl.Location = new System.Drawing.Point(386, 455);
+            this.btnAddArtikl.Location = new System.Drawing.Point(205, 431);
             this.btnAddArtikl.Name = "btnAddArtikl";
             this.btnAddArtikl.Size = new System.Drawing.Size(178, 38);
             this.btnAddArtikl.TabIndex = 19;
@@ -147,7 +146,7 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnBack.Location = new System.Drawing.Point(196, 455);
+            this.btnBack.Location = new System.Drawing.Point(15, 431);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(132, 38);
             this.btnBack.TabIndex = 20;
@@ -157,25 +156,18 @@
             // 
             // pbBarcode
             // 
-            this.pbBarcode.Location = new System.Drawing.Point(926, 80);
+            this.pbBarcode.Location = new System.Drawing.Point(418, 208);
             this.pbBarcode.Name = "pbBarcode";
             this.pbBarcode.Size = new System.Drawing.Size(264, 194);
             this.pbBarcode.TabIndex = 21;
             this.pbBarcode.TabStop = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(926, 312);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 22;
             // 
             // btnGenerateBarcode
             // 
             this.btnGenerateBarcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.btnGenerateBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerateBarcode.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerateBarcode.Location = new System.Drawing.Point(599, 80);
+            this.btnGenerateBarcode.Location = new System.Drawing.Point(418, 62);
             this.btnGenerateBarcode.Name = "btnGenerateBarcode";
             this.btnGenerateBarcode.Size = new System.Drawing.Size(267, 38);
             this.btnGenerateBarcode.TabIndex = 23;
@@ -188,7 +180,7 @@
             this.btnPrintBarcode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
             this.btnPrintBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrintBarcode.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintBarcode.Location = new System.Drawing.Point(599, 152);
+            this.btnPrintBarcode.Location = new System.Drawing.Point(418, 128);
             this.btnPrintBarcode.Name = "btnPrintBarcode";
             this.btnPrintBarcode.Size = new System.Drawing.Size(267, 38);
             this.btnPrintBarcode.TabIndex = 24;
@@ -201,10 +193,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(1260, 772);
+            this.ClientSize = new System.Drawing.Size(724, 498);
             this.Controls.Add(this.btnPrintBarcode);
             this.Controls.Add(this.btnGenerateBarcode);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pbBarcode);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAddArtikl);
@@ -237,7 +228,6 @@
         private System.Windows.Forms.Button btnAddArtikl;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.PictureBox pbBarcode;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnGenerateBarcode;
         private System.Windows.Forms.Button btnPrintBarcode;
     }
