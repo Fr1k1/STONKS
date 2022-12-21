@@ -206,9 +206,13 @@ namespace STONKS.Forms
             //MessageBox.Show(path + "\\" + "captured_pic" + ".jpg");
             //pbSlikaZaSpremiti_new.Image.Save(path + "\\" + "captured_pic" + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
             //pbSlikaZaSpremiti_new.Image.Save(path + "\\" + "captured_pic" + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            //kada se pri prvom pokretanju aplikacije saving location postavi na desktop, onda su dovoljne ove dvije linije,
+            //ali za prvo pokretanje potreban je dialog
 
             //MessageBox.Show("Spremljena slika");
             SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.InitialDirectory = path;
+
             saveFileDialog.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
             saveFileDialog.FileName = "captured_pic";
             saveFileDialog.DefaultExt = ".jpg";
