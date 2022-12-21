@@ -60,10 +60,10 @@ namespace STONKS.Forms
 
                 sifra = txtCode.Text,
                 naziv = txtName.Text,
-                jed_cijena = Convert.ToInt32(txtUnitPrice.Text),
-                
+                jed_cijena = Convert.ToDouble(txtUnitPrice.Text),
+
                 pdv = Convert.ToInt32(txtPDV.Text),
-                vrsta_artikla_id=vrstaArtikla.id,
+                vrsta_artikla_id = vrstaArtikla.id,
                 VrsteArtikla = vrstaArtikla,
 
 
@@ -119,8 +119,10 @@ namespace STONKS.Forms
 
         private void btnGenerateBarcode_Click(object sender, EventArgs e)
         {
-            BarcodeWriter writer = new BarcodeWriter() { Format=BarcodeFormat.CODE_128,
-            Options=new ZXing.Common.EncodingOptions { Height=100}
+            BarcodeWriter writer = new BarcodeWriter()
+            {
+                Format = BarcodeFormat.CODE_128,
+                Options = new ZXing.Common.EncodingOptions { Height = 100 }
             };
             pbBarcode.Image = writer.Write(txtCode.Text);
         }
