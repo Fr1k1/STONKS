@@ -20,7 +20,7 @@ namespace STONKS.Forms
             InitializeComponent();
         }
 
-        static public List<StavkaRacuna> listaStavki = new List<StavkaRacuna>();
+        static public List<StavkaRacuna> listaStavkiURacunu = new List<StavkaRacuna>();
         static public double ukupnoUnos;
 
         private void btnOdustani_Click(object sender, EventArgs e)
@@ -42,9 +42,7 @@ namespace STONKS.Forms
 
         private void btnNastavi_Click(object sender, EventArgs e)
         {
-            //ukupnoUnos = (double)(int.Parse(txtUkupno.Text)); // TODO
-            ukupnoUnos = 25;
-            //MessageBox.Show(ukupnoUnos.ToString());
+            MessageBox.Show("UKUPNO UNOS " + ukupnoUnos.ToString());
 
             FrmIzradaRacuna frmIzradaRacuna = new FrmIzradaRacuna();
             Hide();
@@ -54,22 +52,17 @@ namespace STONKS.Forms
 
         private void FrmUnosRacuna_Load(object sender, EventArgs e)
         {
-            dgvArtikli.DataSource = listaStavki;
+            dgvArtikli.DataSource = listaStavkiURacunu;
             IzracunajUkupno(); 
             UrediTablicuStavke();
         }
 
-        private void dgvArtikli_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            IzracunajUkupno();
-        }
-
         private void IzracunajUkupno()
         {
-            foreach (var item in listaStavki)
+            foreach (var item in listaStavkiURacunu)
             {
-                // txtUkupno.Text = (int.Parse(txtUkupno.Text) + item.kolcina * item.Artikli.jed_cijena).ToString();
-                ukupnoUnos += ukupnoUnos + item.kolcina * item.Artikli.jed_cijena;
+                MessageBox.Show(listaStavkiURacunu.Count().ToString() + " " + ukupnoUnos.ToString() + " " + item.kolcina.ToString() + " " + item.Artikli.jed_cijena.ToString());
+                ukupnoUnos = item.kolcina * item.Artikli.jed_cijena;
             }
             txtUkupno.Text = ukupnoUnos.ToString();
         }
@@ -86,6 +79,12 @@ namespace STONKS.Forms
             dgvArtikli.Columns["Artikli"].DisplayIndex = 0;
             dgvArtikli.Columns["kolcina"].DisplayIndex = 1;
             dgvArtikli.Columns["Popust"].DisplayIndex = 2;
+        }
+
+        private void dgvArtikli_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            IzracunajUkupno();
+            MessageBox.Show("dfgg");
         }
     }
 }

@@ -75,7 +75,7 @@ namespace STONKS.Forms
                 pdv = 25, // TODO nez kaj s ovim
                 cjena_bez_pdv = 25, // TODO nez jel ovo dobro
             };
-            if (servicesRacuni.AddRacun(racunNovi, FrmUnosRacuna.listaStavki.ToList()))
+            if (servicesRacuni.AddRacun(racunNovi, FrmUnosRacuna.listaStavkiURacunu.ToList()))
             {
                 MessageBox.Show("Unesen racun!");
                 Close();

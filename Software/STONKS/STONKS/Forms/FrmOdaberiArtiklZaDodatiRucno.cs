@@ -59,7 +59,7 @@ namespace STONKS.Forms
                     popust = 0,
                     artikl_id = selectedArtikl.id,
                 };
-                FrmUnosRacuna.listaStavki.Add(novaStavka);
+                FrmUnosRacuna.listaStavkiURacunu.Add(novaStavka);
 
                 Zatvori();
             }

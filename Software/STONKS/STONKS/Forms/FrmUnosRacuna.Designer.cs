@@ -75,7 +75,7 @@
             this.dgvArtikli.Name = "dgvArtikli";
             this.dgvArtikli.Size = new System.Drawing.Size(772, 254);
             this.dgvArtikli.TabIndex = 15;
-            this.dgvArtikli.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArtikli_CellValueChanged);
+            this.dgvArtikli.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArtikli_CellEndEdit);
             // 
             // btnOdustani
             // 
