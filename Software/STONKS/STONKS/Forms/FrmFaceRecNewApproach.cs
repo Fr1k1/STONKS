@@ -154,26 +154,6 @@ namespace STONKS.Forms
             return Path.Combine(path1 + @"\", path2);
         }
 
-        /* private void btnSave_new_Click(object sender, EventArgs e)
-         {
-             pbSlikaZaSpremiti_new.SizeMode = PictureBoxSizeMode.StretchImage;
-
-             pbSlikaZaSpremiti_new.Image = pbCamera_new.Image;
-             pbSlikaZaSpremiti_new.Image.Save(@"martin.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-             SaveFileDialog saveFileDialog = new SaveFileDialog();
-             saveFileDialog.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
-             saveFileDialog.FileName = "captured_pic";
-             saveFileDialog.DefaultExt = ".jpg";
-
-
-             if (saveFileDialog.ShowDialog() == DialogResult.OK)
-             {
-
-
-                 pbSlikaZaSpremiti_new.Image.Save(saveFileDialog.FileName);
-                 //pbSlikaZaSpremiti.Image.Dispose();
-             }
-         }*/
 
         private void btnPic1_new_Click(object sender, EventArgs e)
         {
@@ -182,11 +162,6 @@ namespace STONKS.Forms
 
             string path = "\\" + GetPath(cbAllUsers.Text);
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
-
-
-
-
-            // MessageBox.Show(GetPath(cbAllUsers.Text));
 
             //MessageBox.Show("Putanja koja ne dela je" + PathCombine(desktop, path));
             Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(PathCombine(desktop + "\\", path)));
@@ -228,24 +203,25 @@ namespace STONKS.Forms
             pbSlikaZaSpremiti_new.SizeMode = PictureBoxSizeMode.StretchImage;
 
             pbSlikaZaSpremiti_new.Image = pbCamera_new.Image;
-            MessageBox.Show(path + "\\" + "captured_pic" + ".jpg");
-            pbSlikaZaSpremiti_new.Image.Save(path + "\\" + "captured_pic" + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-            pbSlikaZaSpremiti_new.Image.Save(path + "\\" + "captured_pic" + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            //MessageBox.Show(path + "\\" + "captured_pic" + ".jpg");
+            //pbSlikaZaSpremiti_new.Image.Save(path + "\\" + "captured_pic" + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            //pbSlikaZaSpremiti_new.Image.Save(path + "\\" + "captured_pic" + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
             //MessageBox.Show("Spremljena slika");
-            /*SaveFileDialog saveFileDialog = new SaveFileDialog();
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
             saveFileDialog.FileName = "captured_pic";
-            saveFileDialog.DefaultExt = ".jpg";*/
+            saveFileDialog.DefaultExt = ".jpg";
 
 
-            // if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            //{
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
 
 
-            //pbSlikaZaSpremiti_new.Image.Save(saveFileDialog.FileName);
-            btnPic2_new.Enabled = true;
-            //pbSlikaZaSpremiti.Image.Dispose();
-            //}
+                pbSlikaZaSpremiti_new.Image.Save(saveFileDialog.FileName);
+                btnPic2_new.Enabled = true;
+                //pbSlikaZaSpremiti.Image.Dispose();
+            }
         }
 
         private void btnTakePicture_new_Click_1(object sender, EventArgs e)
