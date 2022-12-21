@@ -86,7 +86,7 @@ namespace STONKS.Forms
 
         private void UrediTablicuStavke()
         {
-            dgvPopisArtikala.Columns[0].Visible = false; // ne treba nam id racuna kad ga vec imamo
+            dgvPopisArtikala.Columns[0].Visible = false;
             dgvPopisArtikala.Columns[1].Visible = false;
             dgvPopisArtikala.Columns[6].Visible = false;
             dgvPopisArtikala.Columns[8].Visible = false;
@@ -98,10 +98,6 @@ namespace STONKS.Forms
             dgvPopisArtikala.Columns[5].HeaderText = "PDV";
             dgvPopisArtikala.Columns[7].HeaderText = "Barkod";
             dgvPopisArtikala.Columns[9].HeaderText = "Vrsta artikla";
-            /*
-            dgvPopisArtikala.Columns["naziv"].DisplayIndex = 0;
-            dgvPopisArtikala.Columns["sifra"].DisplayIndex = 1;
-            dgvPopisArtikala.Columns["Popust"].DisplayIndex = 2;*/
         }
     }
 }

@@ -27,10 +27,10 @@ namespace STONKS.Forms
         private void FrmIzradaRacuna_Load(object sender, EventArgs e)
         {
             var allNaciniPlacanja = new NaciniPlacanjaServices().GetNaciniPlacanja();
-            cboOdabirNacinaPlacanja.DataSource = allNaciniPlacanja;
-            cboOdabirNacinaPlacanja.SelectedIndex = 1;
-            
-            // TODO makni prvog "Sve" il ga sakrij nekak idk
+
+            List<NacinPlacanja> novaListaNacinaPlacanja = allNaciniPlacanja;
+            novaListaNacinaPlacanja.RemoveAt(0); // removed "All" from default NaciniPlacanja list
+            cboOdabirNacinaPlacanja.DataSource = novaListaNacinaPlacanja;
         }
 
         private void btnIzradiRacun_Click(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace STONKS.Forms
                 ukupno = FrmUnosRacuna.ukupnoUnos,
                 popust = 0, // TODO nez kaj s ovim
                 pdv = 25, // TODO nez kaj s ovim
-                cjena_bez_pdv = 25, // TODO nez jel ovo dobro
+                cjena_bez_pdv = 25, // TODO 
             };
             if (servicesRacuni.AddRacun(racunNovi, FrmUnosRacuna.listaStavkiURacunu.ToList()))
             {
@@ -89,6 +89,7 @@ namespace STONKS.Forms
         private void generirajPdf()
         {
             // TODO
+            throw new NotImplementedException();
         }
     }
 }

@@ -22,18 +22,18 @@ namespace STONKS.Forms
 
         static public List<StavkaRacuna> listaStavkiURacunu = new List<StavkaRacuna>();
         static public double ukupnoUnos;
+        static public double ukupanPopust;
 
         private void btnOdustani_Click(object sender, EventArgs e)
         {
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             Hide();
             frmPocetniIzbornik.ShowDialog();
-            Close();
+            Close(); 
         }
 
         private void btnDodajRucno_Click(object sender, EventArgs e)
         {
-           
             FrmOdaberiArtiklZaDodatiRucno frmOdaberiArtiklZaDodatiRucno = new FrmOdaberiArtiklZaDodatiRucno();
             Hide();
             frmOdaberiArtiklZaDodatiRucno.ShowDialog();
@@ -53,22 +53,39 @@ namespace STONKS.Forms
         private void FrmUnosRacuna_Load(object sender, EventArgs e)
         {
             dgvArtikli.DataSource = listaStavkiURacunu;
-            IzracunajUkupno(); 
+            IzracunajUkupno();
             UrediTablicuStavke();
+        }
+
+        private void dgvArtikli_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            IzracunajPopust();
+            IzracunajUkupno();
         }
 
         private void IzracunajUkupno()
         {
             foreach (var item in listaStavkiURacunu)
             {
-                MessageBox.Show(listaStavkiURacunu.Count().ToString() + " " + ukupnoUnos.ToString() + " " + item.kolcina.ToString() + " " + item.Artikli.jed_cijena.ToString());
-                ukupnoUnos = item.kolcina * item.Artikli.jed_cijena;
+                ukupnoUnos = (item.kolcina * item.Artikli.jed_cijena) 
+                    //- (((double)(item.popust) / 100) * item.Artikli.jed_cijena)  // OVO NE DELA DOBRO
+                    ;
             }
             txtUkupno.Text = ukupnoUnos.ToString();
         }
+
+        private void IzracunajPopust() // unosi se u postotku, NE DELA
+        {
+            foreach (var item in listaStavkiURacunu)
+            {
+                MessageBox.Show(item.popust.ToString() + " "+ ((double)(item.popust ) / 100).ToString());
+                ukupanPopust = ((double)(item.popust) / 100) * item.Artikli.jed_cijena;
+            } 
+            txtPopust.Text = ukupanPopust.ToString();
+        }
         private void UrediTablicuStavke()
         {
-            dgvArtikli.Columns[0].Visible = false; // ne treba nam id racuna kad ga vec imamo
+            dgvArtikli.Columns[0].Visible = false;
             dgvArtikli.Columns[1].Visible = false;
             dgvArtikli.Columns[5].Visible = false;
 
@@ -76,15 +93,11 @@ namespace STONKS.Forms
             dgvArtikli.Columns[3].HeaderText = "Popust";
             dgvArtikli.Columns[4].HeaderText = "Naziv artikla";
 
+            dgvArtikli.Columns[4].ReadOnly = true;
+
             dgvArtikli.Columns["Artikli"].DisplayIndex = 0;
             dgvArtikli.Columns["kolcina"].DisplayIndex = 1;
             dgvArtikli.Columns["Popust"].DisplayIndex = 2;
-        }
-
-        private void dgvArtikli_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            IzracunajUkupno();
-            MessageBox.Show("dfgg");
         }
     }
 }
