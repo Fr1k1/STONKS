@@ -51,7 +51,6 @@ namespace STONKS.Forms
             if (selectedRow != null)
             {
                 var selectedArtikl = selectedRow.DataBoundItem as Artikl;
-                MessageBox.Show("odabran je " + selectedArtikl.naziv);
                 StavkaRacuna novaStavka = new StavkaRacuna
                 {
                     Artikli= selectedArtikl,
@@ -60,14 +59,12 @@ namespace STONKS.Forms
                     artikl_id = selectedArtikl.id,
                 };
                 FrmUnosRacuna.listaStavkiURacunu.Add(novaStavka);
-
                 Zatvori();
             }
             else
             { 
                 MessageBox.Show("Nije odabran artikl!","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void Zatvori()
@@ -81,7 +78,7 @@ namespace STONKS.Forms
         private void txtPretrazi_KeyUp(object sender, KeyEventArgs e)
         {
             string searchText = txtPretrazi.Text;
-            // Martin TODO
+            // TODO
         }
 
         private void UrediTablicuStavke()

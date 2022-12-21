@@ -73,7 +73,8 @@ namespace STONKS.Forms
                 double popustDecimalni = ((double)(item.popust) / 100);
                 ukupnoUnos = ukupnoUnos + (item.kolcina * item.Artikli.jed_cijena);
             }
-            txtUkupno.Text = (ukupnoUnos - Double.Parse(txtPopust.Text)).ToString() ;
+            ukupnoUnos = ukupnoUnos - Double.Parse(txtPopust.Text);
+            txtUkupno.Text = ukupnoUnos.ToString();
         }
 
         private void IzracunajPopust() // unosi se u postotku
@@ -81,7 +82,6 @@ namespace STONKS.Forms
             ukupanPopust = 0;
             foreach (var item in listaStavkiURacunu)
             {
-           
                 double popustDecimalni = ((double)(item.popust) / 100);
                 ukupanPopust += ((item.Artikli.jed_cijena * item.kolcina) * popustDecimalni);
             } 
@@ -93,7 +93,7 @@ namespace STONKS.Forms
             dgvArtikli.Columns[1].Visible = false;
             dgvArtikli.Columns[5].Visible = false;
 
-            dgvArtikli.Columns[2].HeaderText = "Kolicina";
+            dgvArtikli.Columns[2].HeaderText = "Kolicina [kom]";
             dgvArtikli.Columns[3].HeaderText = "Popust [%]";
             dgvArtikli.Columns[4].HeaderText = "Naziv artikla";
 

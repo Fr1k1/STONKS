@@ -71,9 +71,9 @@ namespace STONKS.Forms
                 korisnik_id = 1, // TODO logged user
                 vrijeme_izdavanja = DateTime.Now,
                 ukupno = FrmUnosRacuna.ukupnoUnos,
-                popust = 0, // TODO nez kaj s ovim
-                pdv = 25, // TODO nez kaj s ovim
-                cjena_bez_pdv = 25, // TODO 
+                popust = FrmUnosRacuna.ukupanPopust, 
+                pdv = FrmUnosRacuna.ukupnoUnos - (FrmUnosRacuna.ukupnoUnos * 0.75), // TODO nez kaj s ovim
+                cjena_bez_pdv = FrmUnosRacuna.ukupnoUnos - (FrmUnosRacuna.ukupnoUnos * 0.25), // TODO nez kaj s ovim
             };
             if (servicesRacuni.AddRacun(racunNovi, FrmUnosRacuna.listaStavkiURacunu.ToList()))
             {
@@ -82,7 +82,7 @@ namespace STONKS.Forms
             }
             else
             {
-                MessageBox.Show("Nekaj ni dobro!");
+                MessageBox.Show("Neuspjesno unosenje racuna!");
             }
         }
 

@@ -58,35 +58,44 @@ namespace STONKS.Forms
 
         private void UrediTablicuRacuni()
         {
-            dgvRacuni.Columns[2].Visible = false;
+            dgvRacuni.ReadOnly = true;
             dgvRacuni.Columns[7].Visible = false;
             dgvRacuni.Columns[8].Visible = false;
-            dgvRacuni.Columns[10].Visible = false; // sakrivene stavke jer ce bit u drugom dgvu
+            dgvRacuni.Columns[10].Visible = false;
+            
+            dgvRacuni.Columns["id"].DisplayIndex = 0;
+            dgvRacuni.Columns["vrijeme_izdavanja"].DisplayIndex = 1;
+            dgvRacuni.Columns["popust"].DisplayIndex = 2;
+            dgvRacuni.Columns["ukupno"].DisplayIndex = 3;
+            dgvRacuni.Columns["pdv"].DisplayIndex = 4;
+            dgvRacuni.Columns["cjena_bez_pdv"].DisplayIndex = 5;
+            dgvRacuni.Columns["NaciniPlacanja"].DisplayIndex = 6;
+            dgvRacuni.Columns["korisnik_id"].DisplayIndex = 7;
 
-            dgvRacuni.Columns["vrijeme_izdavanja"].DisplayIndex = 3;
-            dgvRacuni.Columns["Korisnici"].DisplayIndex = 10;
-            dgvRacuni.ReadOnly = true;
-
-            dgvRacuni.Columns[0].HeaderText = "ID racuna";
-            dgvRacuni.Columns[1].HeaderText = "Vrijeme izdavanja";
-            dgvRacuni.Columns[3].HeaderText = "Cijena bez PDV-a";
-            dgvRacuni.Columns[4].HeaderText = "PDV";
-            dgvRacuni.Columns[5].HeaderText = "Popust[%]";
-            dgvRacuni.Columns[6].HeaderText = "Ukupno";
-            dgvRacuni.Columns[9].HeaderText = "Izdao racun";
-            //dgvRacuni.Columns[10].HeaderText = "Nacin placanja";
+            dgvRacuni.Columns["id"].HeaderText = "ID racuna";
+            dgvRacuni.Columns["vrijeme_izdavanja"].HeaderText = "Vrijeme izdavanja";
+            dgvRacuni.Columns["popust"].HeaderText = "Popust [EUR]";
+            dgvRacuni.Columns["ukupno"].HeaderText = "Ukupan iznos racuna [EUR]";
+            dgvRacuni.Columns["cjena_bez_pdv"].HeaderText = "Iznos bez PDV-a";
+            dgvRacuni.Columns["pdv"].HeaderText = "Iznos PDV-a [EUR]";
+            dgvRacuni.Columns["korisnik_id"].HeaderText = "ID zaposlenika";
+            dgvRacuni.Columns["NaciniPlacanja"].HeaderText = "Nacin placanja";
         }
 
         private void UrediTablicuStavke()
         {
             dgvStavke.Columns[5].Visible = false;
-            dgvStavke.Columns[0].Visible = false; // ne treba nam id racuna kad ga vec imamo
+            dgvStavke.Columns[0].Visible = false;
+            dgvStavke.Columns[1].Visible = false;
             dgvStavke.ReadOnly = true;
 
-            dgvStavke.Columns[1].HeaderText = "ID artikla";
-            dgvStavke.Columns[2].HeaderText = "Kolicina";
-            dgvStavke.Columns[3].HeaderText = "Popust";
-            dgvStavke.Columns[4].HeaderText = "Naziv artikla";
+            dgvStavke.Columns["Artikli"].DisplayIndex = 0;
+            dgvStavke.Columns["kolcina"].DisplayIndex = 1;
+            dgvStavke.Columns["popust"].DisplayIndex = 2;
+
+            dgvStavke.Columns["Artikli"].HeaderText = "Naziv artikla";
+            dgvStavke.Columns["kolcina"].HeaderText = "Kolicina";
+            dgvStavke.Columns["popust"].HeaderText = "Popust po artiklu [%]";
         }
 
         private void cboVrsta_SelectedIndexChanged(object sender, EventArgs e)
