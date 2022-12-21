@@ -55,6 +55,20 @@ namespace STONKS.Forms
             dgvStavke.DataSource = stavkaServices.GetStavke(odabraniRed);
             UrediTablicuStavke();
         }
+        private void cboVrsta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboVrsta.SelectedIndex == 0)
+            {
+                PrikaziRacune();
+            }
+            else
+            {
+                var odabraniNacin = cboVrsta.SelectedItem as NacinPlacanja;
+                var racuni = racunServices.GetRacuniFilter(odabraniNacin.id);
+                dgvRacuni.DataSource = racuni;
+                dgvRacuni.Columns[11].Visible = false;
+            }
+        }
 
         private void UrediTablicuRacuni()
         {
@@ -76,10 +90,15 @@ namespace STONKS.Forms
             dgvRacuni.Columns["vrijeme_izdavanja"].HeaderText = "Vrijeme izdavanja";
             dgvRacuni.Columns["popust"].HeaderText = "Popust [EUR]";
             dgvRacuni.Columns["ukupno"].HeaderText = "Ukupan iznos racuna [EUR]";
-            dgvRacuni.Columns["cjena_bez_pdv"].HeaderText = "Iznos bez PDV-a";
+            dgvRacuni.Columns["cjena_bez_pdv"].HeaderText = "Iznos bez PDV-a [EUR]";
             dgvRacuni.Columns["pdv"].HeaderText = "Iznos PDV-a [EUR]";
             dgvRacuni.Columns["korisnik_id"].HeaderText = "ID zaposlenika";
             dgvRacuni.Columns["NaciniPlacanja"].HeaderText = "Nacin placanja";
+            
+            dgvRacuni.Columns["popust"].DefaultCellStyle.Format = "N2"; // N2 is for 2 decimals
+            dgvRacuni.Columns["ukupno"].DefaultCellStyle.Format = "N2";
+            dgvRacuni.Columns["cjena_bez_pdv"].DefaultCellStyle.Format = "N2";  
+            dgvRacuni.Columns["pdv"].DefaultCellStyle.Format = "N2";
         }
 
         private void UrediTablicuStavke()
@@ -96,21 +115,6 @@ namespace STONKS.Forms
             dgvStavke.Columns["Artikli"].HeaderText = "Naziv artikla";
             dgvStavke.Columns["kolcina"].HeaderText = "Kolicina";
             dgvStavke.Columns["popust"].HeaderText = "Popust po artiklu [%]";
-        }
-
-        private void cboVrsta_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cboVrsta.SelectedIndex == 0)
-            {
-                PrikaziRacune();
-            }
-            else
-            {
-                var odabraniNacin = cboVrsta.SelectedItem as NacinPlacanja;
-                var racuni = racunServices.GetRacuniFilter(odabraniNacin.id);
-                dgvRacuni.DataSource = racuni;
-                dgvRacuni.Columns[11].Visible = false;
-            }
         }
     }
 }

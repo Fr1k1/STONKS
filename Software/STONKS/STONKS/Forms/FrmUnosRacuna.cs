@@ -26,7 +26,7 @@ namespace STONKS.Forms
 
         private void btnOdustani_Click(object sender, EventArgs e)
         {
-            listaStavkiURacunu.Clear(); // da se ne vrate iste stvari kad odustanes pa opet udes
+            listaStavkiURacunu.Clear(); 
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             Hide();
             frmPocetniIzbornik.ShowDialog();
@@ -43,8 +43,6 @@ namespace STONKS.Forms
 
         private void btnNastavi_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("UKUPNO UNOS " + ukupnoUnos.ToString());
-
             FrmIzradaRacuna frmIzradaRacuna = new FrmIzradaRacuna();
             Hide();
             frmIzradaRacuna.ShowDialog();

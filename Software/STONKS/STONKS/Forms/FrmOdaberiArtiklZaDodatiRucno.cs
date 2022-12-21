@@ -41,11 +41,13 @@ namespace STONKS.Forms
         private void txtPretrazi_TextChanged(object sender, EventArgs e)
         {
             string searchText = txtPretrazi.Text;
-            // Martin TODO ili dole na keyup prema grafovima
+            // TODO ili dole na keyup prema grafovima
         }
 
         private void btnDodajArtikl_Click(object sender, EventArgs e)
         {
+            // TODO da smanji kolicinu na skladistu ili baca error ak nema dovoljno tih artikala 
+
             var selectedRow = dgvPopisArtikala.CurrentRow;
             
             if (selectedRow != null)
