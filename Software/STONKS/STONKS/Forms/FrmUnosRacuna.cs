@@ -26,6 +26,7 @@ namespace STONKS.Forms
 
         private void btnOdustani_Click(object sender, EventArgs e)
         {
+            listaStavkiURacunu.Clear(); // da se ne vrate iste stvari kad odustanes pa opet udes
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             Hide();
             frmPocetniIzbornik.ShowDialog();
@@ -53,8 +54,9 @@ namespace STONKS.Forms
         private void FrmUnosRacuna_Load(object sender, EventArgs e)
         {
             dgvArtikli.DataSource = listaStavkiURacunu;
-            IzracunajUkupno();
             UrediTablicuStavke();
+            IzracunajPopust();
+            IzracunajUkupno();
         }
 
         private void dgvArtikli_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -65,21 +67,23 @@ namespace STONKS.Forms
 
         private void IzracunajUkupno()
         {
+            ukupnoUnos = 0;
             foreach (var item in listaStavkiURacunu)
             {
-                ukupnoUnos = (item.kolcina * item.Artikli.jed_cijena) 
-                    //- (((double)(item.popust) / 100) * item.Artikli.jed_cijena)  // OVO NE DELA DOBRO
-                    ;
+                double popustDecimalni = ((double)(item.popust) / 100);
+                ukupnoUnos = ukupnoUnos + (item.kolcina * item.Artikli.jed_cijena);
             }
-            txtUkupno.Text = ukupnoUnos.ToString();
+            txtUkupno.Text = (ukupnoUnos - Double.Parse(txtPopust.Text)).ToString() ;
         }
 
-        private void IzracunajPopust() // unosi se u postotku, NE DELA
+        private void IzracunajPopust() // unosi se u postotku
         {
+            ukupanPopust = 0;
             foreach (var item in listaStavkiURacunu)
             {
-                MessageBox.Show(item.popust.ToString() + " "+ ((double)(item.popust ) / 100).ToString());
-                ukupanPopust = ((double)(item.popust) / 100) * item.Artikli.jed_cijena;
+           
+                double popustDecimalni = ((double)(item.popust) / 100);
+                ukupanPopust += ((item.Artikli.jed_cijena * item.kolcina) * popustDecimalni);
             } 
             txtPopust.Text = ukupanPopust.ToString();
         }
@@ -90,7 +94,7 @@ namespace STONKS.Forms
             dgvArtikli.Columns[5].Visible = false;
 
             dgvArtikli.Columns[2].HeaderText = "Kolicina";
-            dgvArtikli.Columns[3].HeaderText = "Popust";
+            dgvArtikli.Columns[3].HeaderText = "Popust [%]";
             dgvArtikli.Columns[4].HeaderText = "Naziv artikla";
 
             dgvArtikli.Columns[4].ReadOnly = true;
