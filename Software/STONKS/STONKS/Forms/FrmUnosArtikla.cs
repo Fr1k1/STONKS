@@ -119,7 +119,9 @@ namespace STONKS.Forms
 
         private void btnGenerateBarcode_Click(object sender, EventArgs e)
         {
-            BarcodeWriter writer = new BarcodeWriter() { Format=BarcodeFormat.CODE_128};
+            BarcodeWriter writer = new BarcodeWriter() { Format=BarcodeFormat.CODE_128,
+            Options=new ZXing.Common.EncodingOptions { Height=100}
+            };
             pbBarcode.Image = writer.Write(txtCode.Text);
         }
 
