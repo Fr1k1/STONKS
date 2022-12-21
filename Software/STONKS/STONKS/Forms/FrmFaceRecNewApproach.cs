@@ -52,9 +52,9 @@ namespace STONKS.Forms
         {
             try
             {
-                MessageBox.Show("Ovdje sam");
+                //MessageBox.Show("Ovdje sam");
                 string currentDirectory = Environment.CurrentDirectory + "\\models";
-                MessageBox.Show(currentDirectory);
+                //MessageBox.Show(currentDirectory);
 
                 FaceRecognition fr;
                 fr = FaceRecognition.Create(currentDirectory); //ova linija mi crasha
@@ -69,7 +69,7 @@ namespace STONKS.Forms
 
 
 
-                MessageBox.Show(FaceRecognition.CompareFace(compare1, compare2).ToString());
+                //MessageBox.Show(FaceRecognition.CompareFace(compare1, compare2).ToString());
 
                 if (FaceRecognition.CompareFace(compare1, compare2))
                 {
@@ -78,7 +78,7 @@ namespace STONKS.Forms
                     Korisnik korisnik = cbAllUsers.SelectedItem as Korisnik;
                     if (korisnik.uloga_id == 1)
                     {
-                        MessageBox.Show("Voditelj se prijavi");
+                        //MessageBox.Show("Voditelj se prijavio");
                         Hide();
                         FrmPocetniIzbornikVoditelj frmPocetniIzbornikVoditelj = new FrmPocetniIzbornikVoditelj();
                         frmPocetniIzbornikVoditelj.ShowDialog();
@@ -97,7 +97,7 @@ namespace STONKS.Forms
 
                 else
                 {
-                    MessageBox.Show("false");
+                    MessageBox.Show("Neuspješna prijava licem");
                     Hide();
                     FrmLogin frmLogin = new FrmLogin();
                     frmLogin.ShowDialog();
