@@ -70,6 +70,7 @@
             this.btnIzradiRacun.TabIndex = 21;
             this.btnIzradiRacun.Text = "izradi racun";
             this.btnIzradiRacun.UseVisualStyleBackColor = false;
+            this.btnIzradiRacun.Click += new System.EventHandler(this.btnIzradiRacun_Click);
             // 
             // btnIzradiIGenerirajPdf
             // 
@@ -83,6 +84,7 @@
             this.btnIzradiIGenerirajPdf.TabIndex = 22;
             this.btnIzradiIGenerirajPdf.Text = "izradi i generiraj pdf";
             this.btnIzradiIGenerirajPdf.UseVisualStyleBackColor = false;
+            this.btnIzradiIGenerirajPdf.Click += new System.EventHandler(this.btnIzradiIGenerirajPdf_Click);
             // 
             // btnPovratak
             // 
@@ -96,19 +98,18 @@
             this.btnPovratak.TabIndex = 23;
             this.btnPovratak.Text = "Povratak";
             this.btnPovratak.UseVisualStyleBackColor = false;
+            this.btnPovratak.Click += new System.EventHandler(this.btnPovratak_Click);
             // 
             // cboOdabirNacinaPlacanja
             // 
             this.cboOdabirNacinaPlacanja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
-            this.cboOdabirNacinaPlacanja.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cboOdabirNacinaPlacanja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboOdabirNacinaPlacanja.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboOdabirNacinaPlacanja.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.cboOdabirNacinaPlacanja.ForeColor = System.Drawing.Color.Black;
             this.cboOdabirNacinaPlacanja.FormattingEnabled = true;
-            this.cboOdabirNacinaPlacanja.ItemHeight = 50;
-            this.cboOdabirNacinaPlacanja.Location = new System.Drawing.Point(25, 72);
+            this.cboOdabirNacinaPlacanja.ItemHeight = 21;
+            this.cboOdabirNacinaPlacanja.Location = new System.Drawing.Point(25, 96);
             this.cboOdabirNacinaPlacanja.Name = "cboOdabirNacinaPlacanja";
-            this.cboOdabirNacinaPlacanja.Size = new System.Drawing.Size(390, 56);
+            this.cboOdabirNacinaPlacanja.Size = new System.Drawing.Size(390, 29);
             this.cboOdabirNacinaPlacanja.TabIndex = 24;
             this.cboOdabirNacinaPlacanja.Text = "odabir nacina placanja:";
             // 
@@ -127,6 +128,7 @@
             this.Name = "FrmIzradaRacuna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Izrada racuna";
+            this.Load += new System.EventHandler(this.FrmIzradaRacuna_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

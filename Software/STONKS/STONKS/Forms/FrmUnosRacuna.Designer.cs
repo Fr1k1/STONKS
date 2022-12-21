@@ -68,12 +68,14 @@
             // 
             // dgvArtikli
             // 
+            this.dgvArtikli.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArtikli.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvArtikli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArtikli.Location = new System.Drawing.Point(35, 109);
             this.dgvArtikli.Name = "dgvArtikli";
             this.dgvArtikli.Size = new System.Drawing.Size(772, 254);
             this.dgvArtikli.TabIndex = 15;
+            this.dgvArtikli.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArtikli_CellEndEdit);
             // 
             // btnOdustani
             // 
@@ -124,6 +126,7 @@
             this.btnDodajRucno.TabIndex = 19;
             this.btnDodajRucno.Text = "Dodaj rucno";
             this.btnDodajRucno.UseVisualStyleBackColor = false;
+            this.btnDodajRucno.Click += new System.EventHandler(this.btnDodajRucno_Click);
             // 
             // btnNastavi
             // 
@@ -137,6 +140,7 @@
             this.btnNastavi.TabIndex = 20;
             this.btnNastavi.Text = "nastavi";
             this.btnNastavi.UseVisualStyleBackColor = false;
+            this.btnNastavi.Click += new System.EventHandler(this.btnNastavi_Click);
             // 
             // label4
             // 
@@ -183,6 +187,7 @@
             this.txtUkupno.Location = new System.Drawing.Point(658, 388);
             this.txtUkupno.Multiline = true;
             this.txtUkupno.Name = "txtUkupno";
+            this.txtUkupno.ReadOnly = true;
             this.txtUkupno.Size = new System.Drawing.Size(103, 31);
             this.txtUkupno.TabIndex = 24;
             this.txtUkupno.Text = "0";
@@ -221,6 +226,7 @@
             this.Name = "FrmUnosRacuna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos racuna";
+            this.Load += new System.EventHandler(this.FrmUnosRacuna_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArtikli)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

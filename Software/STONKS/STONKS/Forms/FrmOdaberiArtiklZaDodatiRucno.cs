@@ -21,56 +21,84 @@ namespace STONKS.Forms
             InitializeComponent();
         }
 
+        private ArtikliServices servicesArtikl = new ArtikliServices();
+      
         private void FrmOdaberiArtiklZaDodatiRucno_Load(object sender, EventArgs e)
         {
-            LoadArtikliDGV();
+            PrikaziArtikle();
+            UrediTablicuStavke();
         }
 
-        private void LoadArtikliDGV()
+        private void PrikaziArtikle()
         {
-            dgvPopisArtikala.DataSource = artikliServices.GetArtikli();
-            dgvPopisArtikala.Columns[0].Visible = false;
-            dgvPopisArtikala.Columns[6].Visible = false;
-            dgvPopisArtikala.Columns[7].Visible = false;
-            dgvPopisArtikala.Columns[8].Visible = false;
-            dgvPopisArtikala.Columns[10].Visible = false;
+            var artikli = servicesArtikl.GetArtikli();
+            dgvPopisArtikala.DataSource = artikli;
         }
 
-        
-
-        private void InsertStavka()
-        {
-            var stavka = new StavkaPrimke()
-            {
-                artikl_id = (dgvPopisArtikala.CurrentRow.DataBoundItem as Artikl).id,
-                Artikli = (dgvPopisArtikala.CurrentRow.DataBoundItem as Artikl),
-                nabavna_cijena = 0.0,
-                rabat = 0,
-                kolicina = 1,
-                ukupna_cijena = 0.0,
-                primka_id = UnosPrimke.IdPrimke
-            };
-            UnosPrimke.AddStavka(stavka);
-        }
         private void btnOdustani_Click(object sender, EventArgs e)
         {
-            Close();
+            Zatvori();
+        }
+
+        private void txtPretrazi_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtPretrazi.Text;
+            // TODO ili dole na keyup prema grafovima
         }
 
         private void btnDodajArtikl_Click(object sender, EventArgs e)
         {
-            InsertStavka();
-            Close();
-        }
-        private void txtPretrazi_TextChanged(object sender, EventArgs e)
-        {
-            dgvPopisArtikala.DataSource = artikliServices.SearchArtikli(txtPretrazi.Text);
+            // TODO da smanji kolicinu na skladistu ili baca error ak nema dovoljno tih artikala 
+
+            var selectedRow = dgvPopisArtikala.CurrentRow;
+            
+            if (selectedRow != null)
+            {
+                var selectedArtikl = selectedRow.DataBoundItem as Artikl;
+                StavkaRacuna novaStavka = new StavkaRacuna
+                {
+                    Artikli= selectedArtikl,
+                    kolcina = 1,
+                    popust = 0,
+                    artikl_id = selectedArtikl.id,
+                };
+                FrmUnosRacuna.listaStavkiURacunu.Add(novaStavka);
+                Zatvori();
+            }
+            else
+            { 
+                MessageBox.Show("Nije odabran artikl!","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void dgvPopisArtikala_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void Zatvori()
         {
-            InsertStavka();
+            FrmUnosRacuna frmUnosRacuna = new FrmUnosRacuna();
+            Hide();
+            frmUnosRacuna.ShowDialog();
             Close();
+        }
+
+        private void txtPretrazi_KeyUp(object sender, KeyEventArgs e)
+        {
+            string searchText = txtPretrazi.Text;
+            // TODO
+        }
+
+        private void UrediTablicuStavke()
+        {
+            dgvPopisArtikala.Columns[0].Visible = false;
+            dgvPopisArtikala.Columns[1].Visible = false;
+            dgvPopisArtikala.Columns[6].Visible = false;
+            dgvPopisArtikala.Columns[8].Visible = false;
+            dgvPopisArtikala.Columns[10].Visible = false;
+
+            dgvPopisArtikala.Columns[2].HeaderText = "Naziv artikla";
+            dgvPopisArtikala.Columns[3].HeaderText = "Saldo";
+            dgvPopisArtikala.Columns[4].HeaderText = "Jedinicna cijena";
+            dgvPopisArtikala.Columns[5].HeaderText = "PDV";
+            dgvPopisArtikala.Columns[7].HeaderText = "Barkod";
+            dgvPopisArtikala.Columns[9].HeaderText = "Vrsta artikla";
         }
     }
 }

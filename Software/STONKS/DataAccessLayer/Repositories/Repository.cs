@@ -25,6 +25,20 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public virtual IQueryable<T> GetSelected(int id)
+        {
+            var query = from e in Entities
+                        select e;
+            return query;
+        }
+
+        public virtual IQueryable<T> GetByNacinPlacanja(int id)
+        {
+            var query = from e in Entities
+                        select e;
+            return query;
+        }
+
         public virtual int Add(T entity, bool save = true)
         {   
             Entities.Attach(entity);
@@ -34,16 +48,12 @@ namespace DataAccessLayer.Repositories
             else
                 return 0;
         }
-
-       /* public virtual int AddWithoutAttaching(T entity, bool save = true)
+        public virtual int AddNew(T entity, bool save = true)
         {
             Entities.Add(entity);
-            if (save)
-                return SaveChanges();
-            else
-                return 0;
-        }*/
-
+            Context.SaveChanges();
+            return 0;
+        }
         public virtual int Remove(T entity, bool save = true)
         {
             Entities.Attach(entity);

@@ -55,9 +55,12 @@
     <Compile Include="Repositories\ArtikliRepository.cs" />
     <Compile Include="Repositories\DobavljaciRepository.cs" />
     <Compile Include="Repositories\KorisniciRepository.cs" />
-    <Compile Include="Repositories\PrimkaRepository.cs" />
+	  <Compile Include="Repositories\NacinPlacanjaRepository.cs" />
+	  <Compile Include="Repositories\RacuniRepository.cs" />
+	  <Compile Include="Repositories\StavkeRepository.cs" />
+	  <Compile Include="Repositories\StavkePrimkeRepository.cs" />
+	  <Compile Include="Repositories\PrimkaRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Repositories\StavkePrimkeRepository.cs" />
     <Compile Include="Repositories\UlogeRepository.cs" />
     <Compile Include="Repositories\VrsteArtiklaRepository.cs" />
     <Compile Include="STONKS_DB.cs" />

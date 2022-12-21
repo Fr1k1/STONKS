@@ -1,6 +1,6 @@
 ﻿namespace STONKS.Forms
 {
-    partial class FrmOdaberiArtiklZaDodatiRucno
+    partial class FrmOdaberiArtiklZaDodatiRucnoPrimka
     {
         /// <summary>
         /// Required designer variable.
@@ -70,7 +70,7 @@
             this.dgvPopisArtikala.ReadOnly = true;
             this.dgvPopisArtikala.Size = new System.Drawing.Size(772, 254);
             this.dgvPopisArtikala.TabIndex = 17;
-            //this.dgvPopisArtikala.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPopisArtikala_CellDoubleClick);
+            this.dgvPopisArtikala.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPopisArtikala_CellDoubleClick);
             // 
             // btnDodajArtikl
             // 
@@ -78,7 +78,7 @@
             this.btnDodajArtikl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDodajArtikl.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajArtikl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnDodajArtikl.Location = new System.Drawing.Point(631, 519);
+            this.btnDodajArtikl.Location = new System.Drawing.Point(631, 379);
             this.btnDodajArtikl.Name = "btnDodajArtikl";
             this.btnDodajArtikl.Size = new System.Drawing.Size(209, 38);
             this.btnDodajArtikl.TabIndex = 21;
@@ -92,7 +92,7 @@
             this.btnOdustani.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOdustani.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOdustani.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnOdustani.Location = new System.Drawing.Point(68, 519);
+            this.btnOdustani.Location = new System.Drawing.Point(68, 379);
             this.btnOdustani.Name = "btnOdustani";
             this.btnOdustani.Size = new System.Drawing.Size(129, 38);
             this.btnOdustani.TabIndex = 22;
@@ -111,24 +111,23 @@
             this.txtPretrazi.TabIndex = 23;
             this.txtPretrazi.Text = " pretrazi...";
             this.txtPretrazi.TextChanged += new System.EventHandler(this.txtPretrazi_TextChanged);
-            this.txtPretrazi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPretrazi_KeyUp);
             // 
             // FrmOdaberiArtiklZaDodatiRucno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(894, 577);
+            this.ClientSize = new System.Drawing.Size(894, 450);
             this.Controls.Add(this.txtPretrazi);
             this.Controls.Add(this.btnOdustani);
             this.Controls.Add(this.btnDodajArtikl);
             this.Controls.Add(this.dgvPopisArtikala);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FrmOdaberiArtiklZaDodatiRucno";
+            this.Name = "FrmOdaberiArtiklZaDodatiRucnoPrimka";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Odaberi artikl za dodati rucno";
-            this.Load += new System.EventHandler(this.FrmOdaberiArtiklZaDodatiRucno_Load);
+            this.Load += new System.EventHandler(this.FrmOdaberiArtiklZaDodatiRucnoPrimka_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPopisArtikala)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

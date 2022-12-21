@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntitiesLayer.Entities
 {
-    public partial class Artikl
+    public partial class NacinPlacanja
     {
         public override string ToString()
         {

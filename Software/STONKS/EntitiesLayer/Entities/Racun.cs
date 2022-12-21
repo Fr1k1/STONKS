@@ -18,9 +18,9 @@ namespace EntitiesLayer.Entities
 
         public DateTime vrijeme_izdavanja { get; set; }
 
-        [Required]
-        [StringLength(45)]
-        public string nacin_placanja { get; set; }
+       // [Required]
+       // [StringLength(45)]
+        //public string nacin_placanja { get; set; } // ovo se treba maknut ja mislim jer tog nema u bazi
 
         public double cjena_bez_pdv { get; set; }
 

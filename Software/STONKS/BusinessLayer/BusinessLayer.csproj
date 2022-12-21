@@ -46,12 +46,15 @@
     <Compile Include="Services\ArtikliServices.cs" />
     <Compile Include="Services\DobavljaciServices.cs" />
     <Compile Include="Services\KorisniciServices.cs" />
+    <Compile Include="Services\NaciniPlacanjaServices.cs" />
+    <Compile Include="Services\RacuniServices.cs" />
+    <Compile Include="Services\StavkeServices.cs" />
     <Compile Include="Services\PrimkaServices.cs" />
     <Compile Include="Services\UlogeServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{2805933A-C708-4560-B07D-92D4D18323AC}</Project>
+      <Project>{2805933a-c708-4560-b07d-92d4d18323ac}</Project>
       <Name>DataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">

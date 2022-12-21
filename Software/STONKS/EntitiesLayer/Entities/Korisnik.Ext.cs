@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace EntitiesLayer.Entities
 {
-    public partial class Artikl
+    public partial class Korisnik
     {
-        public override string ToString()
+      /*  public override string ToString()
         {
-            return naziv;
-        }
+            return ime + " " + prezime;
+        }*/
     }
 }

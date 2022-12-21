@@ -208,7 +208,7 @@ namespace STONKS.Forms
         //---EVENTS---
         private void btnAddStavkaPrimke_Click(object sender, EventArgs e)
         {
-            FrmOdaberiArtiklZaDodatiRucno frmDodajRucno = new FrmOdaberiArtiklZaDodatiRucno();
+            FrmOdaberiArtiklZaDodatiRucnoPrimka frmDodajRucno = new FrmOdaberiArtiklZaDodatiRucnoPrimka();
             frmDodajRucno.UnosPrimke = this;
             frmDodajRucno.ShowDialog();
             dgvStavkePrimke.Focus();
@@ -265,7 +265,7 @@ namespace STONKS.Forms
                         };
                     
 
-                        Invoke((MethodInvoker)delegate { txtBarcode.Text = sifra; AddStavka(stavka,false); });
+                        Invoke((MethodInvoker)delegate { AddStavka(stavka,false); });
                     }
 
         }

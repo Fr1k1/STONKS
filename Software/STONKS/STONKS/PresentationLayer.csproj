@@ -135,6 +135,12 @@
     <Compile Include="Forms\FrmOdaberiArtiklZaDodatiRucno.Designer.cs">
       <DependentUpon>FrmOdaberiArtiklZaDodatiRucno.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmOdaberiArtiklZaDodatiRucnoPrimka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmOdaberiArtiklZaDodatiRucnoPrimka.Designer.cs">
+      <DependentUpon>FrmOdaberiArtiklZaDodatiRucnoPrimka.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmPocetniIzbornik.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     <EmbeddedResource Include="Forms\FrmOdaberiArtiklZaDodatiRucno.resx">
       <DependentUpon>FrmOdaberiArtiklZaDodatiRucno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmOdaberiArtiklZaDodatiRucnoPrimka.resx">
+      <DependentUpon>FrmOdaberiArtiklZaDodatiRucnoPrimka.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPocetniIzbornik.resx">
       <DependentUpon>FrmPocetniIzbornik.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,11 +276,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
-      <Project>{269ACC5A-DCF9-4D43-AE26-8FF8D75890C6}</Project>
+      <Project>{269acc5a-dcf9-4d43-ae26-8ff8d75890c6}</Project>
       <Name>BusinessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{2805933A-C708-4560-B07D-92D4D18323AC}</Project>
+      <Project>{2805933a-c708-4560-b07d-92d4d18323ac}</Project>
       <Name>DataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">
