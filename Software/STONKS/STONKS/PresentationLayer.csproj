@@ -105,23 +105,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BarcodeScanner.cs" />
-    <Compile Include="Forms\FaceRecNew.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FaceRecNew.Designer.cs">
-      <DependentUpon>FaceRecNew.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FrmDnevniPromet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmDnevniPromet.Designer.cs">
       <DependentUpon>FrmDnevniPromet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FrmDodavanjeSlike.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmDodavanjeSlike.Designer.cs">
-      <DependentUpon>FrmDodavanjeSlike.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmFaceRecNewApproach.cs">
       <SubType>Form</SubType>
@@ -209,14 +197,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\FaceRecNew.resx">
-      <DependentUpon>FaceRecNew.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmDnevniPromet.resx">
       <DependentUpon>FrmDnevniPromet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmDodavanjeSlike.resx">
-      <DependentUpon>FrmDodavanjeSlike.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmFaceRecNewApproach.resx">
       <DependentUpon>FrmFaceRecNewApproach.cs</DependentUpon>

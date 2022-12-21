@@ -164,15 +164,24 @@ namespace STONKS.Forms
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
 
             //MessageBox.Show("Putanja koja ne dela je" + PathCombine(desktop, path));
-            Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(PathCombine(desktop + "\\", path)));
+            try
+            {
+                Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(PathCombine(desktop + "\\", path)));
 
 
-            pbPic1_new.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbPic1_new.Image = bPic1;
+                pbPic1_new.SizeMode = PictureBoxSizeMode.StretchImage;
+                pbPic1_new.Image = bPic1;
 
-            file1 = PathCombine(desktop + "\\", path);
+                file1 = PathCombine(desktop + "\\", path);
+            }
 
-            //MessageBox.Show("File 1 je" + file1);
+            catch
+            {
+                MessageBox.Show("Slika ovog korisnika ne nalazi se na ovom računalu!");
+                return;
+            };
+
+            
 
 
 
