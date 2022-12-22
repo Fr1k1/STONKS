@@ -66,7 +66,6 @@ namespace STONKS.Forms
                 var odabraniNacin = cboVrsta.SelectedItem as NacinPlacanja;
                 var racuni = racunServices.GetRacuniFilter(odabraniNacin.id);
                 dgvRacuni.DataSource = racuni;
-                dgvRacuni.Columns[11].Visible = false; // todo
             }
         }
 
