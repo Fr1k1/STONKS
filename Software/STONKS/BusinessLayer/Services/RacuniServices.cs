@@ -80,5 +80,28 @@ namespace BusinessLayer.Services
                 }
             }
         }
+
+        public bool AddInverse(Racun racun, List<StavkaRacuna> stavke)
+        {
+
+            foreach (var stavka in stavke)
+            {
+                stavka.kolcina *= -1;
+                stavka.ukupno *= -1;
+
+            }
+            var stornoRacun = new Racun()
+            {
+                vrijeme_izdavanja = DateTime.Now,
+                korisnik_id = racun.korisnik_id,   //TODO change to logged user
+                cjena_bez_pdv = racun.cjena_bez_pdv * -1,
+                pdv = racun.pdv * -1,
+                popust = racun.popust * 1,
+                nacin_placanja_id = racun.nacin_placanja_id,
+                ukupno = racun.ukupno * -1,
+
+            };
+            return AddRacun(stornoRacun, stavke);
+        }
     }
 }

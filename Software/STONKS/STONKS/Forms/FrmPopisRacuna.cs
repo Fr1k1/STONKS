@@ -116,5 +116,28 @@ namespace STONKS.Forms
             dgvStavke.Columns["kolcina"].HeaderText = "Kolicina";
             dgvStavke.Columns["popust"].HeaderText = "Popust po artiklu [%]";
         }
+
+        private void btnStorniraj_Click(object sender, EventArgs e)
+        {
+            var selectedRacun = dgvRacuni.CurrentRow.DataBoundItem as Racun;
+            if(selectedRacun != null)
+                CreateStorno(selectedRacun);
+        }
+
+        private void CreateStorno(Racun racun)
+        {   
+            //dohvatiti stavke
+            var stavke = stavkaServices.GetStavke(racun);
+            if (racunServices.AddInverse(racun, stavke))
+            {
+                MessageBox.Show("Racun je uspiješno storniran","Uspijeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                PrikaziRacune();
+            }
+            else
+            {
+                MessageBox.Show("Došlo je do greške prilikom stroniranja","Greška",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+
+        }
     }
 }
