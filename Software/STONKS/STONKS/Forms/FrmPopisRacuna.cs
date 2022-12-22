@@ -103,7 +103,7 @@ namespace STONKS.Forms
 
         private void UrediTablicuStavke()
         {
-            dgvStavke.Columns[5].Visible = false;
+            dgvStavke.Columns[7].Visible = false;
             dgvStavke.Columns[0].Visible = false;
             dgvStavke.Columns[1].Visible = false;
             dgvStavke.ReadOnly = true;

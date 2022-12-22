@@ -89,13 +89,13 @@ namespace STONKS.Forms
         {
             dgvArtikli.Columns[0].Visible = false;
             dgvArtikli.Columns[1].Visible = false;
-            dgvArtikli.Columns[5].Visible = false;
+            dgvArtikli.Columns[7].Visible = false;
 
             dgvArtikli.Columns[2].HeaderText = "Kolicina [kom]";
             dgvArtikli.Columns[3].HeaderText = "Popust [%]";
-            dgvArtikli.Columns[4].HeaderText = "Naziv artikla";
+            dgvArtikli.Columns[6].HeaderText = "Naziv artikla";
 
-            dgvArtikli.Columns[4].ReadOnly = true;
+            dgvArtikli.Columns[6].ReadOnly = true;
 
             dgvArtikli.Columns["Artikli"].DisplayIndex = 0;
             dgvArtikli.Columns["kolcina"].DisplayIndex = 1;

@@ -75,7 +75,7 @@ namespace STONKS.Forms
             dgvStavkePrimke.Columns["nabavna_cijena"].HeaderText = "Nabavna cijena";
             dgvStavkePrimke.Columns["ukupna_cijena"].HeaderText = "Ukupna cijena";
             //---Format columns---
-            dgvStavkePrimke.Columns["rabat"].DefaultCellStyle.Format = "0\\%";
+            dgvStavkePrimke.Columns["rabat"].DefaultCellStyle.Format = "0.0\\%";
             dgvStavkePrimke.Columns["nabavna_cijena"].DefaultCellStyle.Format = "0.00## EUR";
             dgvStavkePrimke.Columns["ukupna_cijena"].DefaultCellStyle.Format = "0.00## EUR";
         }

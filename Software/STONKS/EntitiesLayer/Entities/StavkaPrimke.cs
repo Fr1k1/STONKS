@@ -17,7 +17,7 @@ namespace EntitiesLayer.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int primka_id { get; set; }
 
-        public int rabat { get; set; }
+        public double rabat { get; set; }
 
         public int kolicina { get; set; }
 

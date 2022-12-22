@@ -107,7 +107,7 @@ namespace STONKS.Forms
             dgvStavkePrimke.Columns["nabavna_cijena"].HeaderText = "Nabavna cijena";
             dgvStavkePrimke.Columns["ukupna_cijena"].HeaderText = "Ukupna cijena";
             //---Format columns---
-            dgvStavkePrimke.Columns["rabat"].DefaultCellStyle.Format = "0\\%";
+            dgvStavkePrimke.Columns["rabat"].DefaultCellStyle.Format = "0.0\\%";
             dgvStavkePrimke.Columns["nabavna_cijena"].DefaultCellStyle.Format = "0.00## EUR";
             dgvStavkePrimke.Columns["ukupna_cijena"].DefaultCellStyle.Format = "0.00## EUR";
         }
@@ -168,7 +168,7 @@ namespace STONKS.Forms
             {
                 if (!row.IsNewRow)
                 {
-                    if ((int)row.Cells["kolicina"].Value == 0 || (double)row.Cells["nabavna_cijena"].Value == 0 || row.Cells["Artikli"].Value == null || (int)row.Cells["rabat"].Value < 0 || (int)row.Cells["rabat"].Value > 100) //cehck if all inputs are filled and valid
+                    if ((int)row.Cells["kolicina"].Value == 0 || (double)row.Cells["nabavna_cijena"].Value == 0 || row.Cells["Artikli"].Value == null || (double)row.Cells["rabat"].Value < 0 || (double)row.Cells["rabat"].Value > 100) //cehck if all inputs are filled and valid
                         return false;
                 }
             }               
@@ -197,7 +197,7 @@ namespace STONKS.Forms
         private void CalculateRowData(int rowIndex)
         {
             int kolicina = (int)dgvStavkePrimke.Rows[rowIndex].Cells["kolicina"].Value;     //read kolicina from selected row
-            int rabat = (int)dgvStavkePrimke.Rows[rowIndex].Cells["rabat"].Value;        //read rabat from selected row
+            double rabat = (double)dgvStavkePrimke.Rows[rowIndex].Cells["rabat"].Value;        //read rabat from selected row
             double nabavna_cijena = (double)dgvStavkePrimke.Rows[rowIndex].Cells["nabavna_cijena"].Value;       //read nabavna_cijena from selected row
             double uk_cijena = 0;
             uk_cijena = kolicina * (nabavna_cijena * (1 - (rabat / 100.00)));       //calculate row final price

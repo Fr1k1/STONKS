@@ -20,7 +20,11 @@ namespace EntitiesLayer.Entities
 
         public int kolcina { get; set; }
 
-        public int popust { get; set; }
+        public double popust { get; set; }
+
+        public double jed_cijena { get; set; }
+
+        public double ukupno { get; set; }
 
         public virtual Artikl Artikli { get; set; }
 
