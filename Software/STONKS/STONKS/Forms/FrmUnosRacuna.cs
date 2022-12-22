@@ -89,17 +89,23 @@ namespace STONKS.Forms
         {
             dgvArtikli.Columns[0].Visible = false;
             dgvArtikli.Columns[1].Visible = false;
+            //dgvArtikli.Columns[4].Visible = false;
+            dgvArtikli.Columns[5].Visible = false;
             dgvArtikli.Columns[7].Visible = false;
-
-            dgvArtikli.Columns[2].HeaderText = "Kolicina [kom]";
-            dgvArtikli.Columns[3].HeaderText = "Popust [%]";
-            dgvArtikli.Columns[6].HeaderText = "Naziv artikla";
-
-            dgvArtikli.Columns[6].ReadOnly = true;
+            
+            dgvArtikli.Columns["kolcina"].HeaderText = "Kolicina [kom]";
+            dgvArtikli.Columns["Popust"].HeaderText = "Popust [%]";
+            dgvArtikli.Columns["jed_cijena"].HeaderText = "Cijena/kom [EUR]";
+            //dgvArtikli.Columns["ukupno"].HeaderText = "Ukupno [EUR]";
+            dgvArtikli.Columns["Artikli"].HeaderText = "Naziv artikla";
+            
+            dgvArtikli.Columns["Artikli"].ReadOnly = true;
+            dgvArtikli.Columns["jed_cijena"].ReadOnly = true;
 
             dgvArtikli.Columns["Artikli"].DisplayIndex = 0;
             dgvArtikli.Columns["kolcina"].DisplayIndex = 1;
-            dgvArtikli.Columns["Popust"].DisplayIndex = 2;
+            dgvArtikli.Columns["jed_cijena"].DisplayIndex = 2;
+            dgvArtikli.Columns["Popust"].DisplayIndex = 3;
         }
     }
 }

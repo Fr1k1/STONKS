@@ -115,6 +115,8 @@ namespace STONKS.Forms
             dgvStavke.Columns["Artikli"].HeaderText = "Naziv artikla";
             dgvStavke.Columns["kolcina"].HeaderText = "Kolicina";
             dgvStavke.Columns["popust"].HeaderText = "Popust po artiklu [%]";
+            dgvStavke.Columns["jed_cijena"].HeaderText = "Cijena/kom [EUR]";
+            dgvStavke.Columns["ukupno"].HeaderText = "Ukupno [EUR]";
         }
 
         private void btnStorniraj_Click(object sender, EventArgs e)
@@ -130,12 +132,12 @@ namespace STONKS.Forms
             var stavke = stavkaServices.GetStavke(racun);
             if (racunServices.AddInverse(racun, stavke))
             {
-                MessageBox.Show("Racun je uspiješno storniran","Uspijeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Racun je uspješno storniran","Uspijeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 PrikaziRacune();
             }
             else
             {
-                MessageBox.Show("Došlo je do greške prilikom stroniranja","Greška",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Došlo je do greške prilikom storniranja","Greška",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
         }
