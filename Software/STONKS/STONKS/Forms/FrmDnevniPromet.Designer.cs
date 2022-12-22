@@ -30,7 +30,7 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lbPopust = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -74,14 +74,15 @@
             this.label1.TabIndex = 36;
             this.label1.Text = "STONKS ";
             // 
-            // dateTimePicker1
+            // dtpDate
             // 
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Arial", 9F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(16, 58);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(204, 21);
-            this.dateTimePicker1.TabIndex = 38;
+            this.dtpDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.dtpDate.Font = new System.Drawing.Font("Arial", 9F);
+            this.dtpDate.Location = new System.Drawing.Point(16, 58);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(204, 21);
+            this.dtpDate.TabIndex = 38;
+            this.dtpDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // lbPopust
             // 
@@ -337,7 +338,7 @@
             this.Controls.Add(this.btnIspisPrometX);
             this.Controls.Add(this.btnPovratak);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmDnevniPromet";
@@ -354,7 +355,7 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label lbPopust;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;

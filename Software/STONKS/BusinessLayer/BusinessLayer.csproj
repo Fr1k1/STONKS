@@ -47,6 +47,7 @@
     <Compile Include="Services\DobavljaciServices.cs" />
     <Compile Include="Services\KorisniciServices.cs" />
     <Compile Include="Services\NaciniPlacanjaServices.cs" />
+    <Compile Include="Services\PrometServices.cs" />
     <Compile Include="Services\RacuniServices.cs" />
     <Compile Include="Services\StavkeServices.cs" />
     <Compile Include="Services\PrimkaServices.cs" />

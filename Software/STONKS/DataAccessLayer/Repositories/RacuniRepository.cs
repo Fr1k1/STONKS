@@ -1,6 +1,7 @@
 ﻿using EntitiesLayer.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,16 @@ namespace DataAccessLayer.Repositories
         {
             var query = from e in Entities.Include("Korisnici").Include("NaciniPlacanja").Include("StavkeRacuna")
                         where e.nacin_placanja_id == id
+                        select e;
+
+            return query;
+        }
+
+        public IQueryable<Racun> GetByDate(DateTime date)
+        {
+            Console.WriteLine(date.Date.ToString());
+            var query = from e in Entities.Include("Korisnici").Include("NaciniPlacanja").Include("StavkeRacuna")
+                        where EntityFunctions.TruncateTime(e.vrijeme_izdavanja) == EntityFunctions.TruncateTime(date)
                         select e;
 
             return query;
