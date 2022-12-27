@@ -59,5 +59,12 @@ namespace STONKS.Forms
             frmUnosArtikla.ShowDialog();
             Close();
         }
+
+        private void txtPretraziArtikle_TextChanged(object sender, EventArgs e)
+        {
+            string izraz = txtPretraziArtikle.Text;
+            var artikli = services.SearchArtikli(izraz);
+            dgvArtikli.DataSource = artikli;
+        }
     }
 }

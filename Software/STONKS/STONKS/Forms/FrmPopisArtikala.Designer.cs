@@ -78,6 +78,7 @@
             this.txtPretraziArtikle.Size = new System.Drawing.Size(321, 31);
             this.txtPretraziArtikle.TabIndex = 31;
             this.txtPretraziArtikle.Text = " pretrazi...";
+            this.txtPretraziArtikle.TextChanged += new System.EventHandler(this.txtPretraziArtikle_TextChanged);
             // 
             // label2
             // 
