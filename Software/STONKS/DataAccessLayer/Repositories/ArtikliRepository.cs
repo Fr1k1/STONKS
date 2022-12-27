@@ -59,6 +59,14 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public IQueryable<Artikl> GetByType(string name)
+        {
+            var query = from e in Entities.Include("VrsteArtikla").Include("StavkePrimke").Include("StavkeRacuna")
+                        where e.VrsteArtikla.naziv.Contains(name)
+                        select e;
+            return query;
+        }
+
         public IQueryable<Artikl> GetBySifra(string sifra)
         {
             var query = from e in Entities.Include("VrsteArtikla").Include("StavkePrimke").Include("StavkeRacuna")

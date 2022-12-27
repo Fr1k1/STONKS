@@ -39,7 +39,15 @@ namespace STONKS.Forms
 
         private void FrmPopisArtikala_Load(object sender, EventArgs e)
         {
+            DohvatiVrste();
             PrikaziArtikle();
+
+        }
+
+        private void DohvatiVrste()
+        {
+            var vrste=services.GetVrsteArtikla();
+            cbVrsta.DataSource = vrste.ToList();
         }
 
         private void PrikaziArtikle()
@@ -64,6 +72,25 @@ namespace STONKS.Forms
         {
             string izraz = txtPretraziArtikle.Text;
             var artikli = services.SearchArtikli(izraz);
+            dgvArtikli.DataSource = artikli;
+        }
+
+       /* private void cbVrsta_TextChanged(object sender, EventArgs e)
+        {
+            string izraz = cbVrsta.Text;
+            var artikli = services.SearchArtikli(izraz);
+            dgvArtikli.DataSource = artikli;
+        }*/
+
+        private void cbVrsta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFilterByType_Click(object sender, EventArgs e)
+        {
+            string izraz = cbVrsta.Text;
+            var artikli = services.FilterByType(izraz);
             dgvArtikli.DataSource = artikli;
         }
     }

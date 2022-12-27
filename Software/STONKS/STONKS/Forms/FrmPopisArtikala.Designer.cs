@@ -32,13 +32,14 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dgvArtikli = new System.Windows.Forms.DataGridView();
-            this.cboNaziv = new System.Windows.Forms.ComboBox();
             this.txtPretraziArtikle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddArticle = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.chartArticles = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.cbVrsta = new System.Windows.Forms.ComboBox();
+            this.btnFilterByType = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArtikli)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartArticles)).BeginInit();
             this.SuspendLayout();
@@ -52,21 +53,6 @@
             this.dgvArtikli.Size = new System.Drawing.Size(772, 223);
             this.dgvArtikli.TabIndex = 33;
             this.dgvArtikli.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRacuni_CellContentClick);
-            // 
-            // cboNaziv
-            // 
-            this.cboNaziv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
-            this.cboNaziv.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cboNaziv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboNaziv.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboNaziv.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.cboNaziv.FormattingEnabled = true;
-            this.cboNaziv.ItemHeight = 25;
-            this.cboNaziv.Location = new System.Drawing.Point(656, 69);
-            this.cboNaziv.Name = "cboNaziv";
-            this.cboNaziv.Size = new System.Drawing.Size(128, 31);
-            this.cboNaziv.TabIndex = 32;
-            this.cboNaziv.Text = " filter";
             // 
             // txtPretraziArtikle
             // 
@@ -146,17 +132,47 @@
             this.chartArticles.TabIndex = 37;
             this.chartArticles.Text = "chart1";
             // 
+            // cbVrsta
+            // 
+            this.cbVrsta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.cbVrsta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbVrsta.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbVrsta.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.cbVrsta.FormattingEnabled = true;
+            this.cbVrsta.ItemHeight = 21;
+            this.cbVrsta.Location = new System.Drawing.Point(586, 69);
+            this.cbVrsta.Name = "cbVrsta";
+            this.cbVrsta.Size = new System.Drawing.Size(198, 29);
+            this.cbVrsta.TabIndex = 32;
+            this.cbVrsta.Text = "filter vrste";
+            this.cbVrsta.SelectedIndexChanged += new System.EventHandler(this.cbVrsta_SelectedIndexChanged);
+            // 
+            // btnFilterByType
+            // 
+            this.btnFilterByType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.btnFilterByType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilterByType.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilterByType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnFilterByType.Location = new System.Drawing.Point(424, 67);
+            this.btnFilterByType.Name = "btnFilterByType";
+            this.btnFilterByType.Size = new System.Drawing.Size(144, 31);
+            this.btnFilterByType.TabIndex = 38;
+            this.btnFilterByType.Text = "Filtriraj";
+            this.btnFilterByType.UseVisualStyleBackColor = false;
+            this.btnFilterByType.Click += new System.EventHandler(this.btnFilterByType_Click);
+            // 
             // FrmPopisArtikala
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(800, 769);
+            this.Controls.Add(this.btnFilterByType);
             this.Controls.Add(this.chartArticles);
             this.Controls.Add(this.btnAddArticle);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvArtikli);
-            this.Controls.Add(this.cboNaziv);
+            this.Controls.Add(this.cbVrsta);
             this.Controls.Add(this.txtPretraziArtikle);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -174,12 +190,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvArtikli;
-        private System.Windows.Forms.ComboBox cboNaziv;
         private System.Windows.Forms.TextBox txtPretraziArtikle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddArticle;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartArticles;
+        private System.Windows.Forms.ComboBox cbVrsta;
+        private System.Windows.Forms.Button btnFilterByType;
     }
 }

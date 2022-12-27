@@ -61,6 +61,14 @@ namespace BusinessLayer.Services
             }
         }
 
+        public List<Artikl> FilterByType(string name)
+        {
+            using (var repo = new ArtikliRepository())
+            {
+                return repo.GetByType(name).ToList();
+            }
+        }
+
         public void ChangeSaldo(Artikl artikl,int quantity)
         {
             using (var repo = new ArtikliRepository())
