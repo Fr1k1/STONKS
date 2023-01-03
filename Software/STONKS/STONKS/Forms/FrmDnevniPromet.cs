@@ -35,7 +35,7 @@ namespace STONKS.Forms
         public FrmDnevniPromet()
         {
             InitializeComponent();
-            dtpDate.Value = DateTime.Now;
+            
         }
 
         private void btnPovratak_Click(object sender, EventArgs e)
@@ -54,6 +54,8 @@ namespace STONKS.Forms
 
         private void GetPromet()
         {
+            CheckIfTraficReportHasBeenSubmited();
+
             //get trafic data from prometServices
             UkupnoGotovina = prometServices.CalculateCash(dtpDate.Value);
             UkupnoKartice = prometServices.CalculateCard(dtpDate.Value);
@@ -73,6 +75,20 @@ namespace STONKS.Forms
             lblUkupniPromet.Text = UkupanPromet + " EUR";
             lblGotovina.Text = Gotovina + " EUR";
             lblKartice.Text = Kartice + " EUR";
+        }
+
+        private void CheckIfTraficReportHasBeenSubmited()
+        {
+            if (prometServices.isZDone(dtpDate.Value))
+            {
+                btnIzradaZ.Enabled = false;
+                btnIspisZ.Enabled = true;
+            }
+            else
+            {
+                btnIzradaZ.Enabled = true;
+                btnIspisZ.Enabled = false;
+            }
         }
 
         private void btnIspisPrometX_Click(object sender, EventArgs ev)
@@ -152,6 +168,23 @@ namespace STONKS.Forms
         }
 
         private void btnIzradaIspisZ_Click(object sender, EventArgs e)
+        {
+            if (prometServices.CreateZ())
+            {
+                MessageBox.Show("Promez Z izrađen", "Uspijeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CheckIfTraficReportHasBeenSubmited();
+            }
+            else
+                MessageBox.Show("Došlo je do greške", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void FrmDnevniPromet_Load(object sender, EventArgs e)
+        {
+            dtpDate.Value = DateTime.Now;
+            
+        }
+
+        private void btnIspisZ_Click(object sender, EventArgs e)
         {
             genreateTraficReport(true);
         }

@@ -34,6 +34,13 @@
             this.lbPopust = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblGotovina = new System.Windows.Forms.Label();
+            this.lblKartice = new System.Windows.Forms.Label();
+            this.lblPopustkartice = new System.Windows.Forms.Label();
+            this.lblgotovinaPopust = new System.Windows.Forms.Label();
+            this.lblUkupnoGotovina = new System.Windows.Forms.Label();
+            this.lblUkupnoKartice = new System.Windows.Forms.Label();
+            this.lblUkupniPromet = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -41,14 +48,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnIspisPrometX = new System.Windows.Forms.Button();
             this.btnPovratak = new System.Windows.Forms.Button();
-            this.btnIzradaIspisZ = new System.Windows.Forms.Button();
-            this.lblUkupniPromet = new System.Windows.Forms.Label();
-            this.lblUkupnoKartice = new System.Windows.Forms.Label();
-            this.lblUkupnoGotovina = new System.Windows.Forms.Label();
-            this.lblgotovinaPopust = new System.Windows.Forms.Label();
-            this.lblPopustkartice = new System.Windows.Forms.Label();
-            this.lblKartice = new System.Windows.Forms.Label();
-            this.lblGotovina = new System.Windows.Forms.Label();
+            this.btnIzradaZ = new System.Windows.Forms.Button();
+            this.btnIspisZ = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,6 +129,83 @@
             this.panel1.Size = new System.Drawing.Size(1070, 257);
             this.panel1.TabIndex = 40;
             // 
+            // lblGotovina
+            // 
+            this.lblGotovina.AutoSize = true;
+            this.lblGotovina.Font = new System.Drawing.Font("Azonix", 15.75F);
+            this.lblGotovina.ForeColor = System.Drawing.Color.White;
+            this.lblGotovina.Location = new System.Drawing.Point(137, 15);
+            this.lblGotovina.Name = "lblGotovina";
+            this.lblGotovina.Size = new System.Drawing.Size(85, 21);
+            this.lblGotovina.TabIndex = 43;
+            this.lblGotovina.Text = "0 EUR";
+            // 
+            // lblKartice
+            // 
+            this.lblKartice.AutoSize = true;
+            this.lblKartice.Font = new System.Drawing.Font("Azonix", 15.75F);
+            this.lblKartice.ForeColor = System.Drawing.Color.White;
+            this.lblKartice.Location = new System.Drawing.Point(653, 16);
+            this.lblKartice.Name = "lblKartice";
+            this.lblKartice.Size = new System.Drawing.Size(85, 21);
+            this.lblKartice.TabIndex = 42;
+            this.lblKartice.Text = "0 EUR";
+            // 
+            // lblPopustkartice
+            // 
+            this.lblPopustkartice.AutoSize = true;
+            this.lblPopustkartice.Font = new System.Drawing.Font("Azonix", 15.75F);
+            this.lblPopustkartice.ForeColor = System.Drawing.Color.White;
+            this.lblPopustkartice.Location = new System.Drawing.Point(646, 57);
+            this.lblPopustkartice.Name = "lblPopustkartice";
+            this.lblPopustkartice.Size = new System.Drawing.Size(85, 21);
+            this.lblPopustkartice.TabIndex = 41;
+            this.lblPopustkartice.Text = "0 EUR";
+            // 
+            // lblgotovinaPopust
+            // 
+            this.lblgotovinaPopust.AutoSize = true;
+            this.lblgotovinaPopust.Font = new System.Drawing.Font("Azonix", 15.75F);
+            this.lblgotovinaPopust.ForeColor = System.Drawing.Color.White;
+            this.lblgotovinaPopust.Location = new System.Drawing.Point(121, 57);
+            this.lblgotovinaPopust.Name = "lblgotovinaPopust";
+            this.lblgotovinaPopust.Size = new System.Drawing.Size(85, 21);
+            this.lblgotovinaPopust.TabIndex = 40;
+            this.lblgotovinaPopust.Text = "0 EUR";
+            // 
+            // lblUkupnoGotovina
+            // 
+            this.lblUkupnoGotovina.AutoSize = true;
+            this.lblUkupnoGotovina.Font = new System.Drawing.Font("Azonix", 18F);
+            this.lblUkupnoGotovina.ForeColor = System.Drawing.Color.White;
+            this.lblUkupnoGotovina.Location = new System.Drawing.Point(293, 92);
+            this.lblUkupnoGotovina.Name = "lblUkupnoGotovina";
+            this.lblUkupnoGotovina.Size = new System.Drawing.Size(96, 24);
+            this.lblUkupnoGotovina.TabIndex = 39;
+            this.lblUkupnoGotovina.Text = "0 EUR";
+            // 
+            // lblUkupnoKartice
+            // 
+            this.lblUkupnoKartice.AutoSize = true;
+            this.lblUkupnoKartice.Font = new System.Drawing.Font("Azonix", 18F);
+            this.lblUkupnoKartice.ForeColor = System.Drawing.Color.White;
+            this.lblUkupnoKartice.Location = new System.Drawing.Point(803, 92);
+            this.lblUkupnoKartice.Name = "lblUkupnoKartice";
+            this.lblUkupnoKartice.Size = new System.Drawing.Size(96, 24);
+            this.lblUkupnoKartice.TabIndex = 38;
+            this.lblUkupnoKartice.Text = "0 EUR";
+            // 
+            // lblUkupniPromet
+            // 
+            this.lblUkupniPromet.AutoSize = true;
+            this.lblUkupniPromet.Font = new System.Drawing.Font("Azonix", 28F);
+            this.lblUkupniPromet.ForeColor = System.Drawing.Color.White;
+            this.lblUkupniPromet.Location = new System.Drawing.Point(398, 167);
+            this.lblUkupniPromet.Name = "lblUkupniPromet";
+            this.lblUkupniPromet.Size = new System.Drawing.Size(153, 38);
+            this.lblUkupniPromet.TabIndex = 37;
+            this.lblUkupniPromet.Text = "0 EUR";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -189,7 +267,7 @@
             this.btnIspisPrometX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIspisPrometX.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIspisPrometX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnIspisPrometX.Location = new System.Drawing.Point(563, 358);
+            this.btnIspisPrometX.Location = new System.Drawing.Point(448, 358);
             this.btnIspisPrometX.Name = "btnIspisPrometX";
             this.btnIspisPrometX.Size = new System.Drawing.Size(208, 38);
             this.btnIspisPrometX.TabIndex = 42;
@@ -211,96 +289,33 @@
             this.btnPovratak.UseVisualStyleBackColor = false;
             this.btnPovratak.Click += new System.EventHandler(this.btnPovratak_Click);
             // 
-            // btnIzradaIspisZ
+            // btnIzradaZ
             // 
-            this.btnIzradaIspisZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            this.btnIzradaIspisZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIzradaIspisZ.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIzradaIspisZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnIzradaIspisZ.Location = new System.Drawing.Point(792, 358);
-            this.btnIzradaIspisZ.Name = "btnIzradaIspisZ";
-            this.btnIzradaIspisZ.Size = new System.Drawing.Size(294, 38);
-            this.btnIzradaIspisZ.TabIndex = 43;
-            this.btnIzradaIspisZ.Text = "izrada i ispis Promet z";
-            this.btnIzradaIspisZ.UseVisualStyleBackColor = false;
-            this.btnIzradaIspisZ.Click += new System.EventHandler(this.btnIzradaIspisZ_Click);
+            this.btnIzradaZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.btnIzradaZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIzradaZ.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIzradaZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnIzradaZ.Location = new System.Drawing.Point(666, 358);
+            this.btnIzradaZ.Name = "btnIzradaZ";
+            this.btnIzradaZ.Size = new System.Drawing.Size(214, 38);
+            this.btnIzradaZ.TabIndex = 43;
+            this.btnIzradaZ.Text = "izradi Promet z";
+            this.btnIzradaZ.UseVisualStyleBackColor = false;
+            this.btnIzradaZ.Click += new System.EventHandler(this.btnIzradaIspisZ_Click);
             // 
-            // lblUkupniPromet
+            // btnIspisZ
             // 
-            this.lblUkupniPromet.AutoSize = true;
-            this.lblUkupniPromet.Font = new System.Drawing.Font("Azonix", 28F);
-            this.lblUkupniPromet.ForeColor = System.Drawing.Color.White;
-            this.lblUkupniPromet.Location = new System.Drawing.Point(398, 167);
-            this.lblUkupniPromet.Name = "lblUkupniPromet";
-            this.lblUkupniPromet.Size = new System.Drawing.Size(153, 38);
-            this.lblUkupniPromet.TabIndex = 37;
-            this.lblUkupniPromet.Text = "0 EUR";
-            // 
-            // lblUkupnoKartice
-            // 
-            this.lblUkupnoKartice.AutoSize = true;
-            this.lblUkupnoKartice.Font = new System.Drawing.Font("Azonix", 18F);
-            this.lblUkupnoKartice.ForeColor = System.Drawing.Color.White;
-            this.lblUkupnoKartice.Location = new System.Drawing.Point(803, 92);
-            this.lblUkupnoKartice.Name = "lblUkupnoKartice";
-            this.lblUkupnoKartice.Size = new System.Drawing.Size(96, 24);
-            this.lblUkupnoKartice.TabIndex = 38;
-            this.lblUkupnoKartice.Text = "0 EUR";
-            // 
-            // lblUkupnoGotovina
-            // 
-            this.lblUkupnoGotovina.AutoSize = true;
-            this.lblUkupnoGotovina.Font = new System.Drawing.Font("Azonix", 18F);
-            this.lblUkupnoGotovina.ForeColor = System.Drawing.Color.White;
-            this.lblUkupnoGotovina.Location = new System.Drawing.Point(293, 92);
-            this.lblUkupnoGotovina.Name = "lblUkupnoGotovina";
-            this.lblUkupnoGotovina.Size = new System.Drawing.Size(96, 24);
-            this.lblUkupnoGotovina.TabIndex = 39;
-            this.lblUkupnoGotovina.Text = "0 EUR";
-            // 
-            // lblgotovinaPopust
-            // 
-            this.lblgotovinaPopust.AutoSize = true;
-            this.lblgotovinaPopust.Font = new System.Drawing.Font("Azonix", 15.75F);
-            this.lblgotovinaPopust.ForeColor = System.Drawing.Color.White;
-            this.lblgotovinaPopust.Location = new System.Drawing.Point(121, 57);
-            this.lblgotovinaPopust.Name = "lblgotovinaPopust";
-            this.lblgotovinaPopust.Size = new System.Drawing.Size(85, 21);
-            this.lblgotovinaPopust.TabIndex = 40;
-            this.lblgotovinaPopust.Text = "0 EUR";
-            // 
-            // lblPopustkartice
-            // 
-            this.lblPopustkartice.AutoSize = true;
-            this.lblPopustkartice.Font = new System.Drawing.Font("Azonix", 15.75F);
-            this.lblPopustkartice.ForeColor = System.Drawing.Color.White;
-            this.lblPopustkartice.Location = new System.Drawing.Point(646, 57);
-            this.lblPopustkartice.Name = "lblPopustkartice";
-            this.lblPopustkartice.Size = new System.Drawing.Size(85, 21);
-            this.lblPopustkartice.TabIndex = 41;
-            this.lblPopustkartice.Text = "0 EUR";
-            // 
-            // lblKartice
-            // 
-            this.lblKartice.AutoSize = true;
-            this.lblKartice.Font = new System.Drawing.Font("Azonix", 15.75F);
-            this.lblKartice.ForeColor = System.Drawing.Color.White;
-            this.lblKartice.Location = new System.Drawing.Point(653, 16);
-            this.lblKartice.Name = "lblKartice";
-            this.lblKartice.Size = new System.Drawing.Size(85, 21);
-            this.lblKartice.TabIndex = 42;
-            this.lblKartice.Text = "0 EUR";
-            // 
-            // lblGotovina
-            // 
-            this.lblGotovina.AutoSize = true;
-            this.lblGotovina.Font = new System.Drawing.Font("Azonix", 15.75F);
-            this.lblGotovina.ForeColor = System.Drawing.Color.White;
-            this.lblGotovina.Location = new System.Drawing.Point(137, 15);
-            this.lblGotovina.Name = "lblGotovina";
-            this.lblGotovina.Size = new System.Drawing.Size(85, 21);
-            this.lblGotovina.TabIndex = 43;
-            this.lblGotovina.Text = "0 EUR";
+            this.btnIspisZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.btnIspisZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIspisZ.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIspisZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnIspisZ.Location = new System.Drawing.Point(897, 358);
+            this.btnIspisZ.Name = "btnIspisZ";
+            this.btnIspisZ.Size = new System.Drawing.Size(189, 38);
+            this.btnIspisZ.TabIndex = 44;
+            this.btnIspisZ.Text = "Ispis promet z";
+            this.btnIspisZ.UseVisualStyleBackColor = false;
+            this.btnIspisZ.Click += new System.EventHandler(this.btnIspisZ_Click);
             // 
             // FrmDnevniPromet
             // 
@@ -308,7 +323,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(1098, 419);
-            this.Controls.Add(this.btnIzradaIspisZ);
+            this.Controls.Add(this.btnIspisZ);
+            this.Controls.Add(this.btnIzradaZ);
             this.Controls.Add(this.btnIspisPrometX);
             this.Controls.Add(this.btnPovratak);
             this.Controls.Add(this.panel1);
@@ -318,6 +334,7 @@
             this.Name = "FrmDnevniPromet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dnevni promet";
+            this.Load += new System.EventHandler(this.FrmDnevniPromet_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -340,7 +357,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnIspisPrometX;
         private System.Windows.Forms.Button btnPovratak;
-        private System.Windows.Forms.Button btnIzradaIspisZ;
+        private System.Windows.Forms.Button btnIzradaZ;
         private System.Windows.Forms.Label lblUkupniPromet;
         private System.Windows.Forms.Label lblGotovina;
         private System.Windows.Forms.Label lblKartice;
@@ -348,5 +365,6 @@
         private System.Windows.Forms.Label lblgotovinaPopust;
         private System.Windows.Forms.Label lblUkupnoGotovina;
         private System.Windows.Forms.Label lblUkupnoKartice;
+        private System.Windows.Forms.Button btnIspisZ;
     }
 }

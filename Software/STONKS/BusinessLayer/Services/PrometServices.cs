@@ -1,4 +1,5 @@
-﻿using EntitiesLayer.Entities;
+﻿using DataAccessLayer.Repositories;
+using EntitiesLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -110,6 +111,23 @@ namespace BusinessLayer.Services
                 }
             }
             return totalPerEmployee;
+        }
+
+        public bool isZDone(DateTime date)
+        {
+            using (var repo = new PrometRepository())
+            {
+                return repo.GetByDate(date).ToList().Count > 0;
+            }
+        }
+
+        public bool CreateZ(Korisnik korisnik = null)//remove null later
+        {
+            using (var repo = new PrometRepository())
+            {
+                Promet p = new Promet() { datum_vrijeme = DateTime.Now, korisnik_id = 1 }; //TODO change to actual user;
+                return repo.Add(p) > 0;
+            }
         }
     }
 }
