@@ -118,10 +118,11 @@ namespace DataAccessLayer
                 .HasForeignKey(e => e.primka_id)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Promet>()
+            /*
+                modelBuilder.Entity<Promet>()
                 .Property(e => e.ukupna_gotovina)
                 .IsUnicode(false);
-            
+            */
             /*
             modelBuilder.Entity<Racun>()
                 .Property(e => e.nacin_placanja)

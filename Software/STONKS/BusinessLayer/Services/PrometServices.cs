@@ -10,8 +10,20 @@ namespace BusinessLayer.Services
     public class PrometServices
     {
 
+        public double CalculateTax(DateTime date)
+        {
+            RacuniServices racuniServices = new RacuniServices();
+            var racuni = racuniServices.GetRacuniByDate(date);
 
-        public double CalculateCash(DateTime date, bool withDiscount = false)
+            double tax = 0;
+            foreach (var r in racuni)
+            {
+                tax += r.pdv;
+            }
+            return tax;
+        }
+
+            public double CalculateCash(DateTime date)
         {
             RacuniServices racuniServices = new RacuniServices();
             var racuni = racuniServices.GetRacuniByDate(date);
@@ -28,7 +40,7 @@ namespace BusinessLayer.Services
             return total;
         }
 
-        public double CalculateCard(DateTime date, bool withDiscount = false)
+        public double CalculateCard(DateTime date)
         {
             RacuniServices racuniServices = new RacuniServices();
             var racuni = racuniServices.GetRacuniByDate(date);

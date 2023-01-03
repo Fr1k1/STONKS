@@ -10,7 +10,7 @@ namespace EntitiesLayer.Entities
     {
         public int id { get; set; }
 
-        public double gotovina { get; set; }
+       /* public double gotovina { get; set; }
 
         public double? popust_gotovina { get; set; }
 
@@ -28,7 +28,7 @@ namespace EntitiesLayer.Entities
 
         public double ukupno_promet { get; set; }
 
-        public double? ukupni_popust { get; set; }
+        public double? ukupni_popust { get; set; }*/
 
         public DateTime datum_vrijeme { get; set; }
 

@@ -29,11 +29,13 @@ namespace STONKS.Forms
         private double PopustGotovina;
         private double Kartice;
         private double Gotovina;
+        private double Porez;
         private Dictionary<Korisnik, double> trafficPerEmploye;
 
         public FrmDnevniPromet()
         {
             InitializeComponent();
+            dtpDate.Value = DateTime.Now;
         }
 
         private void btnPovratak_Click(object sender, EventArgs e)
@@ -45,13 +47,20 @@ namespace STONKS.Forms
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {   
+        {
+            GetPromet();
+
+        }
+
+        private void GetPromet()
+        {
             //get trafic data from prometServices
             UkupnoGotovina = prometServices.CalculateCash(dtpDate.Value);
             UkupnoKartice = prometServices.CalculateCard(dtpDate.Value);
             PopustKartice = prometServices.CalculateCardDiscount(dtpDate.Value);
             PopustGotovina = prometServices.CalculateCashDiscount(dtpDate.Value);
             trafficPerEmploye = prometServices.GetTraficByEmployees(dtpDate.Value);
+            Porez = prometServices.CalculateTax(dtpDate.Value);
             // calculate missing data from avelible ones
             Kartice = UkupnoKartice + PopustKartice;
             Gotovina = UkupnoGotovina + PopustGotovina;
@@ -64,7 +73,6 @@ namespace STONKS.Forms
             lblUkupniPromet.Text = UkupanPromet + " EUR";
             lblGotovina.Text = Gotovina + " EUR";
             lblKartice.Text = Kartice + " EUR";
-
         }
 
         private void btnIspisPrometX_Click(object sender, EventArgs ev)
@@ -123,7 +131,9 @@ namespace STONKS.Forms
             document.Add(cardTable);
             document.Add(new Paragraph("PROMET: " + UkupanPromet + " EUR", totalFont));
             //ispis prometa po zaposelnicima
-            if(isFinalReport && trafficPerEmploye != null)
+            document.Add(new Paragraph("PDV: " + Porez + " EUR", highlightFont));
+            
+            if (isFinalReport && trafficPerEmploye != null)
             {
                 document.Add(new Paragraph("Promet po zaposlenicima"));
                 foreach (var entry in trafficPerEmploye)
