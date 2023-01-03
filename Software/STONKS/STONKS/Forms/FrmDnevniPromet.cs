@@ -78,10 +78,20 @@ namespace STONKS.Forms
         }
 
         private void CheckIfTraficReportHasBeenSubmited()
-        {
-            if (prometServices.isZDone(dtpDate.Value))
+        {   
+            
+            var promet = prometServices.isZDone(dtpDate.Value);
+            Console.WriteLine(promet);
+            if(DateTime.Now != dtpDate.Value.Date)
             {
                 btnIzradaZ.Enabled = false;
+                if(promet)
+                    btnIspisZ.Enabled = true;
+                else
+                    btnIspisZ.Enabled = false;
+            }
+            else if (promet)
+            {
                 btnIspisZ.Enabled = true;
             }
             else
