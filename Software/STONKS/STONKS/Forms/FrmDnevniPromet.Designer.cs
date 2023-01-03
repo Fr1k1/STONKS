@@ -34,13 +34,6 @@
             this.lbPopust = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtUkupniPromet = new System.Windows.Forms.TextBox();
-            this.txtUkupnoKartice = new System.Windows.Forms.TextBox();
-            this.txtUkupnoGotovina = new System.Windows.Forms.TextBox();
-            this.txtPopustkartice = new System.Windows.Forms.TextBox();
-            this.txtKartice = new System.Windows.Forms.TextBox();
-            this.txtgotovinaPopust = new System.Windows.Forms.TextBox();
-            this.txtGotovina = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,28 +42,35 @@
             this.btnIspisPrometX = new System.Windows.Forms.Button();
             this.btnPovratak = new System.Windows.Forms.Button();
             this.btnIzradaIspisZ = new System.Windows.Forms.Button();
+            this.lblUkupniPromet = new System.Windows.Forms.Label();
+            this.lblUkupnoKartice = new System.Windows.Forms.Label();
+            this.lblUkupnoGotovina = new System.Windows.Forms.Label();
+            this.lblgotovinaPopust = new System.Windows.Forms.Label();
+            this.lblPopustkartice = new System.Windows.Forms.Label();
+            this.lblKartice = new System.Windows.Forms.Label();
+            this.lblGotovina = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.label2.Location = new System.Drawing.Point(106, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 24);
+            this.label2.Size = new System.Drawing.Size(195, 19);
             this.label2.TabIndex = 37;
             this.label2.Text = "| dnevni promet";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 24);
+            this.label1.Size = new System.Drawing.Size(102, 19);
             this.label1.TabIndex = 36;
             this.label1.Text = "STONKS ";
             // 
@@ -87,35 +87,35 @@
             // lbPopust
             // 
             this.lbPopust.AutoSize = true;
-            this.lbPopust.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPopust.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPopust.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.lbPopust.Location = new System.Drawing.Point(15, 16);
             this.lbPopust.Name = "lbPopust";
-            this.lbPopust.Size = new System.Drawing.Size(89, 24);
+            this.lbPopust.Size = new System.Drawing.Size(116, 19);
             this.lbPopust.TabIndex = 22;
             this.lbPopust.Text = "Gotovina:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.label3.Location = new System.Drawing.Point(15, 45);
+            this.label3.Location = new System.Drawing.Point(18, 57);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 24);
+            this.label3.Size = new System.Drawing.Size(97, 19);
             this.label3.TabIndex = 23;
             this.label3.Text = "popust:";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panel1.Controls.Add(this.txtUkupniPromet);
-            this.panel1.Controls.Add(this.txtUkupnoKartice);
-            this.panel1.Controls.Add(this.txtUkupnoGotovina);
-            this.panel1.Controls.Add(this.txtPopustkartice);
-            this.panel1.Controls.Add(this.txtKartice);
-            this.panel1.Controls.Add(this.txtgotovinaPopust);
-            this.panel1.Controls.Add(this.txtGotovina);
+            this.panel1.Controls.Add(this.lblGotovina);
+            this.panel1.Controls.Add(this.lblKartice);
+            this.panel1.Controls.Add(this.lblPopustkartice);
+            this.panel1.Controls.Add(this.lblgotovinaPopust);
+            this.panel1.Controls.Add(this.lblUkupnoGotovina);
+            this.panel1.Controls.Add(this.lblUkupnoKartice);
+            this.panel1.Controls.Add(this.lblUkupniPromet);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
@@ -128,163 +128,58 @@
             this.panel1.Size = new System.Drawing.Size(1070, 257);
             this.panel1.TabIndex = 40;
             // 
-            // txtUkupniPromet
-            // 
-            this.txtUkupniPromet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtUkupniPromet.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUkupniPromet.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
-            this.txtUkupniPromet.ForeColor = System.Drawing.Color.White;
-            this.txtUkupniPromet.Location = new System.Drawing.Point(386, 167);
-            this.txtUkupniPromet.Multiline = true;
-            this.txtUkupniPromet.Name = "txtUkupniPromet";
-            this.txtUkupniPromet.ReadOnly = true;
-            this.txtUkupniPromet.Size = new System.Drawing.Size(155, 39);
-            this.txtUkupniPromet.TabIndex = 35;
-            this.txtUkupniPromet.Text = "0 EUR";
-            this.txtUkupniPromet.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtUkupnoKartice
-            // 
-            this.txtUkupnoKartice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtUkupnoKartice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUkupnoKartice.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.txtUkupnoKartice.ForeColor = System.Drawing.Color.White;
-            this.txtUkupnoKartice.Location = new System.Drawing.Point(803, 92);
-            this.txtUkupnoKartice.Multiline = true;
-            this.txtUkupnoKartice.Name = "txtUkupnoKartice";
-            this.txtUkupnoKartice.ReadOnly = true;
-            this.txtUkupnoKartice.Size = new System.Drawing.Size(99, 29);
-            this.txtUkupnoKartice.TabIndex = 34;
-            this.txtUkupnoKartice.Text = "0 EUR";
-            this.txtUkupnoKartice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtUkupnoGotovina
-            // 
-            this.txtUkupnoGotovina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtUkupnoGotovina.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUkupnoGotovina.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.txtUkupnoGotovina.ForeColor = System.Drawing.Color.White;
-            this.txtUkupnoGotovina.Location = new System.Drawing.Point(290, 92);
-            this.txtUkupnoGotovina.Multiline = true;
-            this.txtUkupnoGotovina.Name = "txtUkupnoGotovina";
-            this.txtUkupnoGotovina.ReadOnly = true;
-            this.txtUkupnoGotovina.Size = new System.Drawing.Size(99, 29);
-            this.txtUkupnoGotovina.TabIndex = 33;
-            this.txtUkupnoGotovina.Text = "0 EUR";
-            this.txtUkupnoGotovina.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtPopustkartice
-            // 
-            this.txtPopustkartice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtPopustkartice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPopustkartice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPopustkartice.ForeColor = System.Drawing.Color.White;
-            this.txtPopustkartice.Location = new System.Drawing.Point(646, 57);
-            this.txtPopustkartice.Multiline = true;
-            this.txtPopustkartice.Name = "txtPopustkartice";
-            this.txtPopustkartice.ReadOnly = true;
-            this.txtPopustkartice.Size = new System.Drawing.Size(81, 19);
-            this.txtPopustkartice.TabIndex = 32;
-            this.txtPopustkartice.Text = "0 EUR";
-            this.txtPopustkartice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtKartice
-            // 
-            this.txtKartice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtKartice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtKartice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKartice.ForeColor = System.Drawing.Color.White;
-            this.txtKartice.Location = new System.Drawing.Point(653, 15);
-            this.txtKartice.Multiline = true;
-            this.txtKartice.Name = "txtKartice";
-            this.txtKartice.ReadOnly = true;
-            this.txtKartice.Size = new System.Drawing.Size(81, 19);
-            this.txtKartice.TabIndex = 31;
-            this.txtKartice.Text = "0 EUR";
-            this.txtKartice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtgotovinaPopust
-            // 
-            this.txtgotovinaPopust.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtgotovinaPopust.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtgotovinaPopust.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtgotovinaPopust.ForeColor = System.Drawing.Color.White;
-            this.txtgotovinaPopust.Location = new System.Drawing.Point(123, 45);
-            this.txtgotovinaPopust.Multiline = true;
-            this.txtgotovinaPopust.Name = "txtgotovinaPopust";
-            this.txtgotovinaPopust.ReadOnly = true;
-            this.txtgotovinaPopust.Size = new System.Drawing.Size(81, 19);
-            this.txtgotovinaPopust.TabIndex = 30;
-            this.txtgotovinaPopust.Text = "0 EUR";
-            this.txtgotovinaPopust.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtGotovina
-            // 
-            this.txtGotovina.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtGotovina.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGotovina.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGotovina.ForeColor = System.Drawing.Color.White;
-            this.txtGotovina.Location = new System.Drawing.Point(137, 16);
-            this.txtGotovina.Multiline = true;
-            this.txtGotovina.Name = "txtGotovina";
-            this.txtGotovina.ReadOnly = true;
-            this.txtGotovina.Size = new System.Drawing.Size(81, 19);
-            this.txtGotovina.TabIndex = 29;
-            this.txtGotovina.Text = "0 EUR";
-            this.txtGotovina.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
+            this.label8.Font = new System.Drawing.Font("Azonix", 28F);
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.label8.Location = new System.Drawing.Point(15, 167);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(278, 44);
+            this.label8.Size = new System.Drawing.Size(377, 38);
             this.label8.TabIndex = 28;
             this.label8.Text = "Ukupni promet:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label7.Font = new System.Drawing.Font("Azonix", 18F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.label7.Location = new System.Drawing.Point(543, 92);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(183, 29);
+            this.label7.Size = new System.Drawing.Size(254, 24);
             this.label7.TabIndex = 27;
             this.label7.Text = "Ukupno Kartice:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label6.Font = new System.Drawing.Font("Azonix", 18F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.label6.Location = new System.Drawing.Point(15, 92);
+            this.label6.Location = new System.Drawing.Point(18, 92);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(203, 29);
+            this.label6.Size = new System.Drawing.Size(269, 24);
             this.label6.TabIndex = 26;
             this.label6.Text = "Ukupno Gotovina:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.label4.Location = new System.Drawing.Point(543, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 24);
+            this.label4.Size = new System.Drawing.Size(104, 19);
             this.label4.TabIndex = 24;
             this.label4.Text = "kartice:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.label5.Location = new System.Drawing.Point(543, 57);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 24);
+            this.label5.Size = new System.Drawing.Size(97, 19);
             this.label5.TabIndex = 25;
             this.label5.Text = "popust:";
             // 
@@ -292,7 +187,7 @@
             // 
             this.btnIspisPrometX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
             this.btnIspisPrometX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIspisPrometX.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIspisPrometX.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIspisPrometX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.btnIspisPrometX.Location = new System.Drawing.Point(563, 358);
             this.btnIspisPrometX.Name = "btnIspisPrometX";
@@ -306,7 +201,7 @@
             // 
             this.btnPovratak.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.btnPovratak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPovratak.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPovratak.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPovratak.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.btnPovratak.Location = new System.Drawing.Point(16, 358);
             this.btnPovratak.Name = "btnPovratak";
@@ -320,7 +215,7 @@
             // 
             this.btnIzradaIspisZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
             this.btnIzradaIspisZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIzradaIspisZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIzradaIspisZ.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIzradaIspisZ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.btnIzradaIspisZ.Location = new System.Drawing.Point(792, 358);
             this.btnIzradaIspisZ.Name = "btnIzradaIspisZ";
@@ -329,6 +224,83 @@
             this.btnIzradaIspisZ.Text = "izrada i ispis Promet z";
             this.btnIzradaIspisZ.UseVisualStyleBackColor = false;
             this.btnIzradaIspisZ.Click += new System.EventHandler(this.btnIzradaIspisZ_Click);
+            // 
+            // lblUkupniPromet
+            // 
+            this.lblUkupniPromet.AutoSize = true;
+            this.lblUkupniPromet.Font = new System.Drawing.Font("Azonix", 28F);
+            this.lblUkupniPromet.ForeColor = System.Drawing.Color.White;
+            this.lblUkupniPromet.Location = new System.Drawing.Point(398, 167);
+            this.lblUkupniPromet.Name = "lblUkupniPromet";
+            this.lblUkupniPromet.Size = new System.Drawing.Size(153, 38);
+            this.lblUkupniPromet.TabIndex = 37;
+            this.lblUkupniPromet.Text = "0 EUR";
+            // 
+            // lblUkupnoKartice
+            // 
+            this.lblUkupnoKartice.AutoSize = true;
+            this.lblUkupnoKartice.Font = new System.Drawing.Font("Azonix", 18F);
+            this.lblUkupnoKartice.ForeColor = System.Drawing.Color.White;
+            this.lblUkupnoKartice.Location = new System.Drawing.Point(803, 92);
+            this.lblUkupnoKartice.Name = "lblUkupnoKartice";
+            this.lblUkupnoKartice.Size = new System.Drawing.Size(96, 24);
+            this.lblUkupnoKartice.TabIndex = 38;
+            this.lblUkupnoKartice.Text = "0 EUR";
+            // 
+            // lblUkupnoGotovina
+            // 
+            this.lblUkupnoGotovina.AutoSize = true;
+            this.lblUkupnoGotovina.Font = new System.Drawing.Font("Azonix", 18F);
+            this.lblUkupnoGotovina.ForeColor = System.Drawing.Color.White;
+            this.lblUkupnoGotovina.Location = new System.Drawing.Point(293, 92);
+            this.lblUkupnoGotovina.Name = "lblUkupnoGotovina";
+            this.lblUkupnoGotovina.Size = new System.Drawing.Size(96, 24);
+            this.lblUkupnoGotovina.TabIndex = 39;
+            this.lblUkupnoGotovina.Text = "0 EUR";
+            // 
+            // lblgotovinaPopust
+            // 
+            this.lblgotovinaPopust.AutoSize = true;
+            this.lblgotovinaPopust.Font = new System.Drawing.Font("Azonix", 15.75F);
+            this.lblgotovinaPopust.ForeColor = System.Drawing.Color.White;
+            this.lblgotovinaPopust.Location = new System.Drawing.Point(121, 57);
+            this.lblgotovinaPopust.Name = "lblgotovinaPopust";
+            this.lblgotovinaPopust.Size = new System.Drawing.Size(85, 21);
+            this.lblgotovinaPopust.TabIndex = 40;
+            this.lblgotovinaPopust.Text = "0 EUR";
+            // 
+            // lblPopustkartice
+            // 
+            this.lblPopustkartice.AutoSize = true;
+            this.lblPopustkartice.Font = new System.Drawing.Font("Azonix", 15.75F);
+            this.lblPopustkartice.ForeColor = System.Drawing.Color.White;
+            this.lblPopustkartice.Location = new System.Drawing.Point(646, 57);
+            this.lblPopustkartice.Name = "lblPopustkartice";
+            this.lblPopustkartice.Size = new System.Drawing.Size(85, 21);
+            this.lblPopustkartice.TabIndex = 41;
+            this.lblPopustkartice.Text = "0 EUR";
+            // 
+            // lblKartice
+            // 
+            this.lblKartice.AutoSize = true;
+            this.lblKartice.Font = new System.Drawing.Font("Azonix", 15.75F);
+            this.lblKartice.ForeColor = System.Drawing.Color.White;
+            this.lblKartice.Location = new System.Drawing.Point(653, 16);
+            this.lblKartice.Name = "lblKartice";
+            this.lblKartice.Size = new System.Drawing.Size(85, 21);
+            this.lblKartice.TabIndex = 42;
+            this.lblKartice.Text = "0 EUR";
+            // 
+            // lblGotovina
+            // 
+            this.lblGotovina.AutoSize = true;
+            this.lblGotovina.Font = new System.Drawing.Font("Azonix", 15.75F);
+            this.lblGotovina.ForeColor = System.Drawing.Color.White;
+            this.lblGotovina.Location = new System.Drawing.Point(137, 15);
+            this.lblGotovina.Name = "lblGotovina";
+            this.lblGotovina.Size = new System.Drawing.Size(85, 21);
+            this.lblGotovina.TabIndex = 43;
+            this.lblGotovina.Text = "0 EUR";
             // 
             // FrmDnevniPromet
             // 
@@ -366,15 +338,15 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtUkupniPromet;
-        private System.Windows.Forms.TextBox txtUkupnoKartice;
-        private System.Windows.Forms.TextBox txtUkupnoGotovina;
-        private System.Windows.Forms.TextBox txtPopustkartice;
-        private System.Windows.Forms.TextBox txtKartice;
-        private System.Windows.Forms.TextBox txtgotovinaPopust;
-        private System.Windows.Forms.TextBox txtGotovina;
         private System.Windows.Forms.Button btnIspisPrometX;
         private System.Windows.Forms.Button btnPovratak;
         private System.Windows.Forms.Button btnIzradaIspisZ;
+        private System.Windows.Forms.Label lblUkupniPromet;
+        private System.Windows.Forms.Label lblGotovina;
+        private System.Windows.Forms.Label lblKartice;
+        private System.Windows.Forms.Label lblPopustkartice;
+        private System.Windows.Forms.Label lblgotovinaPopust;
+        private System.Windows.Forms.Label lblUkupnoGotovina;
+        private System.Windows.Forms.Label lblUkupnoKartice;
     }
 }

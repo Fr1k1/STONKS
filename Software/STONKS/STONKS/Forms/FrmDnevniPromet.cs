@@ -57,13 +57,13 @@ namespace STONKS.Forms
             Gotovina = UkupnoGotovina + PopustGotovina;
             UkupanPromet = UkupnoKartice + UkupnoGotovina;
             // set value of ui elements
-            txtUkupnoKartice.Text = UkupnoKartice + " EUR";
-            txtUkupnoGotovina.Text = UkupnoGotovina + " EUR";
-            txtgotovinaPopust.Text = PopustGotovina + " EUR";
-            txtPopustkartice.Text = PopustKartice + " EUR";
-            txtUkupniPromet.Text = UkupanPromet + " EUR";
-            txtGotovina.Text = Gotovina + " EUR";
-            txtKartice.Text = Kartice + " EUR";
+            lblUkupnoKartice.Text = UkupnoKartice + " EUR";
+            lblUkupnoGotovina.Text = UkupnoGotovina + " EUR";
+            lblgotovinaPopust.Text = PopustGotovina + " EUR";
+            lblPopustkartice.Text = PopustKartice + " EUR";
+            lblUkupniPromet.Text = UkupanPromet + " EUR";
+            lblGotovina.Text = Gotovina + " EUR";
+            lblKartice.Text = Kartice + " EUR";
 
         }
 
@@ -89,7 +89,11 @@ namespace STONKS.Forms
             titleFont.SetStyle("bold");
             totalFont.SetStyle("bold");
             highlightFont.SetStyle("bold");
-            Paragraph title = new Paragraph("Promet X", titleFont);
+            Paragraph title;
+            if (isFinalReport)
+                 title = new Paragraph("Promet Z", titleFont);
+            else
+                title = new Paragraph("Promet X", titleFont);
             document.Add(title);
             document.Add(new Paragraph("Datum izdavanja: " + datumIzdavanja.ToString("dd.MM.yyyy HH:mm:ss")));
 
@@ -118,13 +122,13 @@ namespace STONKS.Forms
             // Dodajemo tabelu u dokument
             document.Add(cardTable);
             document.Add(new Paragraph("PROMET: " + UkupanPromet + " EUR", totalFont));
-
+            //ispis prometa po zaposelnicima
             if(isFinalReport && trafficPerEmploye != null)
             {
                 document.Add(new Paragraph("Promet po zaposlenicima"));
                 foreach (var entry in trafficPerEmploye)
                 {
-                    document.Add(new Paragraph(entry.Key + ": " + entry.Value + " EUR"));
+                    document.Add(new Paragraph(entry.Key.ime + " " + entry.Key.prezime + ": " + entry.Value + " EUR"));
                 }
             }
 
