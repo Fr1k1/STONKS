@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntitiesLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,6 +76,28 @@ namespace BusinessLayer.Services
                 }
             }
             return total;
+        }
+
+        public Dictionary<Korisnik, double> GetTraficByEmployees(DateTime date)
+        {
+            Dictionary<Korisnik, double> totalPerEmployee = new Dictionary<Korisnik, double>();
+            RacuniServices racuniServices = new RacuniServices();
+            var racuni = racuniServices.GetRacuniByDate(date);
+
+
+            foreach (var r in racuni)
+            {
+
+                if (totalPerEmployee.ContainsKey(r.Korisnici))
+                {
+                    totalPerEmployee[r.Korisnici] += r.ukupno;
+                }
+                else
+                {
+                    totalPerEmployee.Add(r.Korisnici, r.ukupno);
+                }
+            }
+            return totalPerEmployee;
         }
     }
 }

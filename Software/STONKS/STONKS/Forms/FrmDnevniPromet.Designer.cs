@@ -300,6 +300,7 @@
             this.btnIspisPrometX.TabIndex = 42;
             this.btnIspisPrometX.Text = "ispis Promet X";
             this.btnIspisPrometX.UseVisualStyleBackColor = false;
+            this.btnIspisPrometX.Click += new System.EventHandler(this.btnIspisPrometX_Click);
             // 
             // btnPovratak
             // 
@@ -327,6 +328,7 @@
             this.btnIzradaIspisZ.TabIndex = 43;
             this.btnIzradaIspisZ.Text = "izrada i ispis Promet z";
             this.btnIzradaIspisZ.UseVisualStyleBackColor = false;
+            this.btnIzradaIspisZ.Click += new System.EventHandler(this.btnIzradaIspisZ_Click);
             // 
             // FrmDnevniPromet
             // 
