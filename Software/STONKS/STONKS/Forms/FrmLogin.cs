@@ -55,8 +55,6 @@ namespace STONKS
             var korisnik = services.GetKorisnik(korime, lozinka);
             if (korisnik)
             {
-                
-
                 if (GetUloga(txtUsername.Text, txtPassword.Text) == "voditelj")
                 {
                     Hide();

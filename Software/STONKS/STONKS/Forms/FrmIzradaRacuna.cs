@@ -1,16 +1,22 @@
 ﻿using BusinessLayer.Services;
 using EntitiesLayer.Entities;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Font = iTextSharp.text.Font;
 
 namespace STONKS.Forms
 {
@@ -41,9 +47,9 @@ namespace STONKS.Forms
 
         private void btnIzradiIGenerirajPdf_Click(object sender, EventArgs e)
         {
-            insertajRacun();
+           // insertajRacun();
             generirajPdf();
-            povratakNaMeni();
+           // povratakNaMeni();
         }
 
         private void btnPovratak_Click(object sender, EventArgs e)
@@ -88,8 +94,52 @@ namespace STONKS.Forms
 
         private void generirajPdf()
         {
-            // TODO
-            throw new NotImplementedException();
+           
+            DateTime datumIzdavanja = DateTime.Now;
+            string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Racun_" + datumIzdavanja.ToString("dd.MM.yyyy_HH_mm_ss") + ".pdf";
+            Document document = new Document(PageSize.A4);
+
+            PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
+            document.Open();
+
+            Font titleFont = FontFactory.GetFont("Arial", 20);
+            Font totalFont = FontFactory.GetFont("Arial", 16);
+            Font highlightFont = FontFactory.GetFont("Arial", 12);
+            titleFont.SetStyle("bold");
+            totalFont.SetStyle("bold");
+            highlightFont.SetStyle("bold");
+
+            Paragraph title = new Paragraph("Racun", titleFont);
+            document.Add(title);
+            document.Add(new Paragraph("Datum izdavanja: " + datumIzdavanja.ToString("dd.MM.yyyy HH:mm:ss")));
+
+            // tablica stavki u racunu
+            PdfPTable stavkeTablica = new PdfPTable(4) { SpacingBefore = 10, WidthPercentage = 100f };
+            MessageBox.Show("duljina "+FrmUnosRacuna.listaStavkiURacunu.Count().ToString());
+            foreach (var stavka in FrmUnosRacuna.listaStavkiURacunu.ToList())
+            {/*
+                MessageBox.Show("1 " + stavka.Artikli.ToString());
+                MessageBox.Show("2 " + stavka.jed_cijena.ToString());
+                MessageBox.Show("3 " + stavka.kolcina.ToString());
+                MessageBox.Show("4 " + (stavka.kolcina * stavka.jed_cijena).ToString());*/
+
+                // naziv artikla
+                stavkeTablica.AddCell(stavka.Artikli.ToString());
+
+                // cijena po kom
+                stavkeTablica.AddCell(stavka.jed_cijena.ToString());
+
+                // kom
+                stavkeTablica.AddCell(stavka.kolcina.ToString());
+
+                //iznos
+                stavkeTablica.AddCell((stavka.kolcina*stavka.jed_cijena).ToString());
+            }
+            document.Add(stavkeTablica);
+
+            document.Add(new Paragraph("Marko Markic")); // TODO
+            document.Close();
+            Process.Start(filePath);
         }
     }
 }
