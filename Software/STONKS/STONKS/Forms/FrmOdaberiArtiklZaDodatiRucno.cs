@@ -61,6 +61,8 @@ namespace STONKS.Forms
                     kolcina = 1,
                     popust = 0,
                     artikl_id = selectedArtikl.id,
+                    jed_cijena = selectedArtikl.jed_cijena,
+                    ukupno = selectedArtikl.jed_cijena * 1
                 };
                 FrmUnosRacuna.listaStavkiURacunu.Add(novaStavka);
                 Zatvori();

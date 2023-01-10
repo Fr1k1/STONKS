@@ -59,8 +59,22 @@ namespace STONKS.Forms
 
         private void dgvArtikli_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+
+            IzracunajUkupnoPoStavci(e.RowIndex);
             IzracunajPopust();
             IzracunajUkupno();
+        }
+
+        private void IzracunajUkupnoPoStavci(int rowIndex)
+        {
+            // racuna se novi stupac ukupno kad god se promijeni kolicina
+            int kol = (int)dgvArtikli.Rows[rowIndex].Cells["kolcina"].Value;
+            double jed_cijena = (double)dgvArtikli.Rows[rowIndex].Cells["jed_cijena"].Value;
+
+            double uk_cijena = 0;
+            uk_cijena = kol * jed_cijena;
+
+            dgvArtikli.Rows[rowIndex].Cells["ukupno"].Value = uk_cijena;
         }
 
         private void IzracunajUkupno()
@@ -91,10 +105,14 @@ namespace STONKS.Forms
             dgvArtikli.Columns[1].Visible = false;
             dgvArtikli.Columns[7].Visible = false;
 
-            dgvArtikli.Columns[2].HeaderText = "Kolicina [kom]";
-            dgvArtikli.Columns[3].HeaderText = "Popust [%]";
-            dgvArtikli.Columns[6].HeaderText = "Naziv artikla";
+            dgvArtikli.Columns["kolcina"].HeaderText = "Kolicina [kom]";
+            dgvArtikli.Columns["Popust"].HeaderText = "Popust [%]";
+            dgvArtikli.Columns["Artikli"].HeaderText = "Naziv artikla";
+            dgvArtikli.Columns["jed_cijena"].HeaderText = "Cijena/kom";
+            dgvArtikli.Columns["Ukupno"].HeaderText = "Ukupno"; // TODO
 
+            dgvArtikli.Columns["jed_cijena"].ReadOnly = true;
+            dgvArtikli.Columns["Ukupno"].ReadOnly = true;
             dgvArtikli.Columns[6].ReadOnly = true;
 
             dgvArtikli.Columns["Artikli"].DisplayIndex = 0;

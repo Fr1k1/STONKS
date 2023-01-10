@@ -117,12 +117,7 @@ namespace STONKS.Forms
             PdfPTable stavkeTablica = new PdfPTable(4) { SpacingBefore = 10, WidthPercentage = 100f };
             MessageBox.Show("duljina "+FrmUnosRacuna.listaStavkiURacunu.Count().ToString());
             foreach (var stavka in FrmUnosRacuna.listaStavkiURacunu.ToList())
-            {/*
-                MessageBox.Show("1 " + stavka.Artikli.ToString());
-                MessageBox.Show("2 " + stavka.jed_cijena.ToString());
-                MessageBox.Show("3 " + stavka.kolcina.ToString());
-                MessageBox.Show("4 " + (stavka.kolcina * stavka.jed_cijena).ToString());*/
-
+            {
                 // naziv artikla
                 stavkeTablica.AddCell(stavka.Artikli.ToString());
 
