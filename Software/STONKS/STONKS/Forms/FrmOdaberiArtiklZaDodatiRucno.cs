@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Services;
 using EntitiesLayer.Entities;
+using iTextSharp.text;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -97,7 +98,17 @@ namespace STONKS.Forms
                     artikl_id = selectedArtikl.id,
                     jed_cijena = selectedArtikl.jed_cijena,
                 };
-                FrmUnosRacuna.listaStavkiURacunu.Add(novaStavka);
+                if (FrmUnosRacuna.listaStavkiURacunu.Any(item => item.artikl_id == novaStavka.artikl_id))
+                {
+                    // vec je dodan ko stavka
+                    var stavka = FrmUnosRacuna.listaStavkiURacunu.Find(item => item.artikl_id == novaStavka.artikl_id);
+                    stavka.kolcina++;
+                }
+                else
+                {
+                    FrmUnosRacuna.listaStavkiURacunu.Add(novaStavka);
+                }
+                
                 Zatvori();
             }
             else
