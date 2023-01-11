@@ -151,7 +151,7 @@ namespace STONKS.Forms
             stavkeTablica.AddCell("Cijena/kom");
             stavkeTablica.AddCell("Kolicina [kom]");
             stavkeTablica.AddCell("Popust [%]");
-            stavkeTablica.AddCell("Ukupna cijena [EUR]");
+            stavkeTablica.AddCell("Ukupna cijena stavke [EUR]");
 
             var i = 1; 
             foreach (var stavka in FrmUnosRacuna.listaStavkiURacunu.ToList())
@@ -181,7 +181,7 @@ namespace STONKS.Forms
                 stavkeTablica.AddCell(uk_cijena.ToString());
             }
             
-            PdfPCell cellUkupno = new PdfPCell(new Phrase("UKUPNA CIJENA: "));
+            PdfPCell cellUkupno = new PdfPCell(new Phrase("UKUPNA CIJENA RACUNA: "));
             cellUkupno.Colspan = 5;
             cellUkupno.HorizontalAlignment = 2; // 0=Left, 1=Centre, 2=Right
             stavkeTablica.AddCell(cellUkupno);

@@ -68,7 +68,7 @@
             this.dgvPopisArtikala.MultiSelect = false;
             this.dgvPopisArtikala.Name = "dgvPopisArtikala";
             this.dgvPopisArtikala.ReadOnly = true;
-            this.dgvPopisArtikala.Size = new System.Drawing.Size(772, 405);
+            this.dgvPopisArtikala.Size = new System.Drawing.Size(772, 387);
             this.dgvPopisArtikala.TabIndex = 17;
             this.dgvPopisArtikala.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPopisArtikala_CellDoubleClick);
             // 
