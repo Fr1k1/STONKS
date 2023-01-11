@@ -202,7 +202,6 @@ namespace STONKS.Forms
             slikaQR.SpacingAfter = 40;
 
             document.Add(new Paragraph("Racun je pravovaljan bez ziga jer je izdan na racunalu.", highlightFont));
-            document.Add(new Paragraph("Racun je pravovaljan bez ziga jer je izdan na racunalu.", highlightFont));
 
             document.Add(new Paragraph("Zaposlenik: " + "Marko Markic")); // TODO
             var selectedNacinPlacanja = cboOdabirNacinaPlacanja.SelectedItem as NacinPlacanja;

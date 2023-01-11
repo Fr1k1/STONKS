@@ -68,9 +68,9 @@
             this.dgvPopisArtikala.MultiSelect = false;
             this.dgvPopisArtikala.Name = "dgvPopisArtikala";
             this.dgvPopisArtikala.ReadOnly = true;
-            this.dgvPopisArtikala.Size = new System.Drawing.Size(772, 254);
+            this.dgvPopisArtikala.Size = new System.Drawing.Size(772, 405);
             this.dgvPopisArtikala.TabIndex = 17;
-            //this.dgvPopisArtikala.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPopisArtikala_CellDoubleClick);
+            this.dgvPopisArtikala.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPopisArtikala_CellDoubleClick);
             // 
             // btnDodajArtikl
             // 
@@ -110,6 +110,7 @@
             this.txtPretrazi.Size = new System.Drawing.Size(321, 28);
             this.txtPretrazi.TabIndex = 23;
             this.txtPretrazi.Text = " pretrazi...";
+            this.txtPretrazi.Click += new System.EventHandler(this.txtPretrazi_Click);
             this.txtPretrazi.TextChanged += new System.EventHandler(this.txtPretrazi_TextChanged);
             this.txtPretrazi.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPretrazi_KeyUp);
             // 
