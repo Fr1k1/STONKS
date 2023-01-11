@@ -70,9 +70,15 @@ namespace STONKS.Forms
             // racuna se novi stupac ukupno kad god se promijeni kolicina
             int kol = (int)dgvArtikli.Rows[rowIndex].Cells["kolcina"].Value;
             double jed_cijena = (double)dgvArtikli.Rows[rowIndex].Cells["jed_cijena"].Value;
+            double popust = (double)dgvArtikli.Rows[rowIndex].Cells["popust"].Value;
 
             double uk_cijena = 0;
-            uk_cijena = kol * jed_cijena;
+            uk_cijena = (kol * jed_cijena);
+
+            if(popust> 0)
+            {
+               uk_cijena = uk_cijena - uk_cijena * (popust / 100);
+            }
 
             dgvArtikli.Rows[rowIndex].Cells["ukupno"].Value = uk_cijena;
         }
@@ -109,7 +115,7 @@ namespace STONKS.Forms
             dgvArtikli.Columns["Popust"].HeaderText = "Popust [%]";
             dgvArtikli.Columns["Artikli"].HeaderText = "Naziv artikla";
             dgvArtikli.Columns["jed_cijena"].HeaderText = "Cijena/kom";
-            dgvArtikli.Columns["Ukupno"].HeaderText = "Ukupno"; // TODO
+            dgvArtikli.Columns["Ukupno"].HeaderText = "Ukupno";
 
             dgvArtikli.Columns["jed_cijena"].ReadOnly = true;
             dgvArtikli.Columns["Ukupno"].ReadOnly = true;
