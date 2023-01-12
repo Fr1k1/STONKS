@@ -109,7 +109,7 @@ namespace STONKS.Forms
                 double artiklPDV = servicesArtikli.GetPDV(item.artikl_id); // u postotku
                 if (item.popust > 0)
                 {
-                    double popustDecimalni = ((double)(item.popust) / 100);
+                    double popustDecimalni = 1 - ((double)(item.popust) / 100);
                     ukupniPDV = ukupniPDV + ((item.Artikli.jed_cijena * item.kolcina) * popustDecimalni) * artiklPDV / 100;
                     pdvzataj = ((item.Artikli.jed_cijena * item.kolcina) * popustDecimalni) * artiklPDV / 100;
                 }
