@@ -97,6 +97,7 @@ namespace STONKS.Forms
                     popust = 0,
                     artikl_id = selectedArtikl.id,
                     jed_cijena = selectedArtikl.jed_cijena,
+                    ukupno = selectedArtikl.jed_cijena * 1
                 };
                 if (FrmUnosRacuna.listaStavkiURacunu.Any(item => item.artikl_id == novaStavka.artikl_id))
                 {

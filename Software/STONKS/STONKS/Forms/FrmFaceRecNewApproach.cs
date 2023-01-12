@@ -26,6 +26,7 @@ namespace STONKS.Forms
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
 
+        public static Korisnik logiraniKorisnik = null;
 
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice = null;
@@ -76,6 +77,9 @@ namespace STONKS.Forms
                     //ak je uloga 1 od usera koji se prosljedi v metodu onda pokazi jedan izbornik inace drugi
                     //ko parametar se salje korime koje je odabrano
                     Korisnik korisnik = cbAllUsers.SelectedItem as Korisnik;
+                    MessageBox.Show(korisnik.korime);
+                    logiraniKorisnik = korisnik;
+
                     if (korisnik.uloga_id == 1)
                     {
                         //MessageBox.Show("Voditelj se prijavio");

@@ -51,9 +51,9 @@ namespace STONKS.Forms
 
         private void btnIzradiIGenerirajPdf_Click(object sender, EventArgs e)
         {
-           // insertajRacun();
             generirajPdf();
-           // povratakNaMeni();
+            insertajRacun();
+            povratakNaMeni();
         }
 
         private void btnPovratak_Click(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace STONKS.Forms
             var racunNovi = new Racun
             {
                 nacin_placanja_id = selectedNacinPlacanja.id,
-                korisnik_id = 1, // TODO logged user
+                korisnik_id = FrmFaceRecNewApproach.logiraniKorisnik.id, // TODO logged user
                 vrijeme_izdavanja = DateTime.Now,
                 ukupno = FrmUnosRacuna.ukupnoUnos,
                 popust = FrmUnosRacuna.ukupanPopust, 
@@ -203,7 +203,7 @@ namespace STONKS.Forms
 
             document.Add(new Paragraph("Racun je pravovaljan bez ziga jer je izdan na racunalu.", highlightFont));
 
-            document.Add(new Paragraph("Zaposlenik: " + "Marko Markic")); // TODO
+            document.Add(new Paragraph("Zaposlenik: " + FrmFaceRecNewApproach.logiraniKorisnik.korime)); // TODO
             var selectedNacinPlacanja = cboOdabirNacinaPlacanja.SelectedItem as NacinPlacanja;
             document.Add(new Paragraph("Nacin placanja: " + selectedNacinPlacanja.naziv));
             document.Add(new Paragraph("Datum i mjesto izdavanja: " + datumIzdavanja.ToString("dd.MM.yyyy HH:mm:ss") + ", Karlovac"));

@@ -103,6 +103,7 @@
             this.btnIzbrisiArtikl.TabIndex = 17;
             this.btnIzbrisiArtikl.Text = "Izbrisi stavku";
             this.btnIzbrisiArtikl.UseVisualStyleBackColor = false;
+            this.btnIzbrisiArtikl.Click += new System.EventHandler(this.btnIzbrisiArtikl_Click);
             // 
             // label3
             // 

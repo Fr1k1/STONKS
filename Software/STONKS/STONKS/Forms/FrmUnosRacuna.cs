@@ -51,9 +51,7 @@ namespace STONKS.Forms
 
         private void FrmUnosRacuna_Load(object sender, EventArgs e)
         {
-            dgvArtikli.DataSource = listaStavkiURacunu;
-            UrediTablicuStavke();
-            IzracunajPopust();
+            refreshaj();
             IzracunajUkupno();
         }
 
@@ -124,6 +122,21 @@ namespace STONKS.Forms
             dgvArtikli.Columns["Artikli"].DisplayIndex = 0;
             dgvArtikli.Columns["kolcina"].DisplayIndex = 1;
             dgvArtikli.Columns["Popust"].DisplayIndex = 2;
+        }
+
+        private void btnIzbrisiArtikl_Click(object sender, EventArgs e)
+        {
+            var selectedStavka = dgvArtikli.CurrentRow.DataBoundItem as StavkaRacuna;
+            listaStavkiURacunu.Remove(selectedStavka);
+            refreshaj();
+        }
+
+        private void refreshaj()
+        {
+            dgvArtikli.DataSource = listaStavkiURacunu;
+            UrediTablicuStavke();
+            IzracunajPopust();
+            IzracunajUkupno();
         }
     }
 }
