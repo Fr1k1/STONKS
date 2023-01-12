@@ -178,11 +178,11 @@
             this.chartRacuni.Name = "chartRacuni";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Broj placanja";
             this.chartRacuni.Series.Add(series1);
             this.chartRacuni.Size = new System.Drawing.Size(438, 244);
             this.chartRacuni.TabIndex = 38;
-            this.chartRacuni.Text = "chart1";
+            this.chartRacuni.Text = "chartRacuni";
             // 
             // FrmPopisRacuna
             // 

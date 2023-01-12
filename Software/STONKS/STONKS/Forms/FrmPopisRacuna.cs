@@ -35,6 +35,7 @@ namespace STONKS.Forms
         {
             var naciniPlacanja = naciniServices.GetNaciniPlacanja();
             cboVrsta.DataSource = naciniPlacanja;
+            loadanjeCharta();
         }
 
         private void dgvRacuni_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -66,7 +67,6 @@ namespace STONKS.Forms
                 var odabraniNacin = cboVrsta.SelectedItem as NacinPlacanja;
                 var racuni = racunServices.GetRacuniFilter(odabraniNacin.id);
                 dgvRacuni.DataSource = racuni;
-                dgvRacuni.Columns[11].Visible = false; // todo
             }
         }
 
@@ -138,6 +138,12 @@ namespace STONKS.Forms
                 MessageBox.Show("Došlo je do greške prilikom stroniranja","Greška",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
 
+        }
+
+        private void loadanjeCharta()
+        {
+            chartRacuni.Series["Broj placanja"].Points.AddXY("Karticno", racunServices.GetRacuniByNacinPlacanja(3));
+            chartRacuni.Series["Broj placanja"].Points.AddXY("Gotovina", racunServices.GetRacuniByNacinPlacanja(2));
         }
     }
 }
