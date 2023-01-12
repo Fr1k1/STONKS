@@ -1,4 +1,6 @@
-﻿using BusinessLayer.Services;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using BusinessLayer.Services;
 using EntitiesLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -15,20 +17,27 @@ namespace STONKS.Forms
 {
     public partial class FrmUnosRacuna : Form
     {
+        static public BindingList<StavkaRacuna> listaStavkiURacunu = new BindingList<StavkaRacuna>();
+        static public double ukupnoUnos { get; set; }
+        static public double ukupanPopust { get; set; }
+        public ArtikliServices servicesArtikli = new ArtikliServices();
+        public RacuniServices racuniServices = new RacuniServices();
+        public static double ukupniPDV { get; set; }
+      
+
+        // za kameru i barkod
+        private FilterInfoCollection filterInfoCollection;
+        private VideoCaptureDevice videoCaptureDevice = null;
+
         public FrmUnosRacuna()
         {
             InitializeComponent();
         }
 
-        static public List<StavkaRacuna> listaStavkiURacunu = new List<StavkaRacuna>();
-        static public double ukupnoUnos;
-        static public double ukupanPopust;
-        public ArtikliServices servicesArtikli = new ArtikliServices();
-        public static double ukupniPDV = 0;
-
-        private void btnOdustani_Click(object sender, EventArgs e)
+        
+    private void btnOdustani_Click(object sender, EventArgs e)
         {
-            listaStavkiURacunu.Clear(); 
+            UnloadCamera();
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             Hide();
             frmPocetniIzbornik.ShowDialog();
@@ -37,6 +46,7 @@ namespace STONKS.Forms
 
         private void btnDodajRucno_Click(object sender, EventArgs e)
         {
+            UnloadCamera();
             FrmOdaberiArtiklZaDodatiRucno frmOdaberiArtiklZaDodatiRucno = new FrmOdaberiArtiklZaDodatiRucno();
             Hide();
             frmOdaberiArtiklZaDodatiRucno.ShowDialog();
@@ -45,6 +55,7 @@ namespace STONKS.Forms
 
         private void btnNastavi_Click(object sender, EventArgs e)
         {
+            UnloadCamera();
             IzracunajPDV();
             FrmIzradaRacuna frmIzradaRacuna = new FrmIzradaRacuna();
             Hide();
@@ -54,12 +65,19 @@ namespace STONKS.Forms
 
         private void FrmUnosRacuna_Load(object sender, EventArgs e)
         {
-            refreshaj();
-            //MessageBox.Show("lsita " +listaStavkiURacunu.Count().ToString());
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[0].MonikerString);
+            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+            videoCaptureDevice.DesiredFrameRate = 1;
+
+            videoCaptureDevice.Start();
+
+            UrediTablicuStavke(); 
+            
             if (listaStavkiURacunu != null)
             {
                 IzracunajPopust();
-                IzracunajUkupno();
+                IzracunajUkupno();     
             }
         }
 
@@ -68,6 +86,7 @@ namespace STONKS.Forms
             IzracunajUkupnoPoStavci(e.RowIndex);
             IzracunajPopust();
             IzracunajUkupno();
+            
         }
 
         private void IzracunajUkupnoPoStavci(int rowIndex)
@@ -80,7 +99,7 @@ namespace STONKS.Forms
             double uk_cijena = 0;
             uk_cijena = (kol * jed_cijena);
 
-            if(popust> 0)
+            if(popust > 0)
             {
                uk_cijena = uk_cijena - uk_cijena * (popust / 100);
             }
@@ -118,15 +137,7 @@ namespace STONKS.Forms
                     ukupniPDV = ukupniPDV + ((item.kolcina * (item.jed_cijena * artiklPDV/100)));
                     pdvzataj = ((item.kolcina * (item.jed_cijena * artiklPDV / 100)));
                 }
-                MessageBox.Show("pdv za taj --> "+item.Artikli + " "+ pdvzataj.ToString());
-                //MessageBox.Show(item.Artikli.ToString() + " " + item.artikl_id.ToString());
-
-                //MessageBox.Show(item.kolcina + " " + item.jed_cijena + " " + artiklPDV);
-                //ukupniPDV = ukupniPDV + ((item.kolcina * (item.jed_cijena * artiklPDV/100))-((double)(item.popust) / 100 * (item.jed_cijena*item.kolcina)));
-
-
             }
-            MessageBox.Show(ukupniPDV.ToString());
         }
 
         private void IzracunajPopust() // unosi se u postotku
@@ -141,6 +152,8 @@ namespace STONKS.Forms
         }
         private void UrediTablicuStavke()
         {
+            dgvArtikli.DataSource = listaStavkiURacunu;
+
             dgvArtikli.Columns[0].Visible = false;
             dgvArtikli.Columns[1].Visible = false;
             dgvArtikli.Columns[7].Visible = false;
@@ -164,15 +177,58 @@ namespace STONKS.Forms
         {
             var selectedStavka = dgvArtikli.CurrentRow.DataBoundItem as StavkaRacuna;
             listaStavkiURacunu.Remove(selectedStavka);
-            refreshaj();
         }
 
-        private void refreshaj()
+        // ZA KAMERU I BARKOD
+        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            dgvArtikli.DataSource = listaStavkiURacunu;
-            UrediTablicuStavke();
-            IzracunajPopust();
-            IzracunajUkupno();
+            var image = (Bitmap)eventArgs.Frame.Clone();
+
+            Task.Run(() =>
+            {
+                BarcodeScanner scanner = new BarcodeScanner();
+                scanner.Scanned += new EventHandler<string>(CreateStavkaFromBarcode);
+                Task.Run(() => scanner.Scan((Bitmap)image.Clone()));
+            });
+        }
+
+        private void CreateStavkaFromBarcode(object sender, string sifra)
+        {
+            var artikl = servicesArtikli.GetArtikl(sifra);
+            if (artikl != null)
+            {
+                StavkaRacuna novaStavka = new StavkaRacuna()
+                {
+                    Artikli = artikl,
+                    kolcina = 1,
+                    popust = 0,
+                    artikl_id = artikl.id,
+                    ukupno = artikl.jed_cijena,
+                    jed_cijena=artikl.jed_cijena,
+                };
+                
+                Invoke((MethodInvoker)delegate { AddStavka(novaStavka); });
+                
+            }
+        }
+
+        public void AddStavka(StavkaRacuna stavka)
+        {
+            if (!listaStavkiURacunu.Any(s=> stavka.artikl_id == s.artikl_id )) 
+            {
+                listaStavkiURacunu.Add(stavka);
+            }
+        }
+
+        // ugasi kameru
+        private void UnloadCamera()
+        {
+            Console.WriteLine("close");
+            if (videoCaptureDevice != null && videoCaptureDevice.IsRunning)
+            {
+                videoCaptureDevice.SignalToStop();
+                videoCaptureDevice = null;
+            }
         }
     }
 }

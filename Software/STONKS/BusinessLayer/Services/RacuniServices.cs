@@ -19,6 +19,12 @@ namespace BusinessLayer.Services
             }
         }
 
+        
+        public int GetIdForNewRacun()
+        {
+            return GetRacuni().Count + 1;
+        }
+
         internal List<Racun> GetRacuniByDate(DateTime date)
         {
             using (var repo = new RacuniRepository())

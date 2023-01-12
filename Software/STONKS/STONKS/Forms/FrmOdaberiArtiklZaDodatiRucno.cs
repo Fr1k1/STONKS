@@ -16,7 +16,7 @@ namespace STONKS.Forms
     public partial class FrmOdaberiArtiklZaDodatiRucno : Form
     {
         private ArtikliServices artikliServices = new ArtikliServices();
-        public FrmUnosPrimke UnosPrimke { get; set; }
+        public FrmUnosRacuna UnosRacuna { get; set; }
         public FrmOdaberiArtiklZaDodatiRucno()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace STONKS.Forms
             Zatvori();
         }
 
-        private void txtPretrazi_TextChanged(object sender, EventArgs e)
+        private void txtPretrazi_TextChanged(object sender, EventArgs e) // IZBRISI OVO
         {
             string searchText = txtPretrazi.Text;
             // TODO ili dole na keyup prema grafovima
@@ -65,6 +65,7 @@ namespace STONKS.Forms
                     artikl_id = selectedArtikl.id,
                 };
                 FrmUnosRacuna.listaStavkiURacunu.Add(novaStavka);
+                // UnosRacuna.AddStavka(novaStavka);
                 Zatvori();
             }
             else
@@ -102,7 +103,8 @@ namespace STONKS.Forms
                 if (FrmUnosRacuna.listaStavkiURacunu.Any(item => item.artikl_id == novaStavka.artikl_id))
                 {
                     // vec je dodan ko stavka
-                    var stavka = FrmUnosRacuna.listaStavkiURacunu.Find(item => item.artikl_id == novaStavka.artikl_id);
+                    //var stavka = FrmUnosRacuna.listaStavkiURacunu.Find(item => item.artikl_id == novaStavka.artikl_id); // find ne postoji s binding listom...
+                    var stavka = FrmUnosRacuna.listaStavkiURacunu.SingleOrDefault(item => item.artikl_id == novaStavka.artikl_id);
                     stavka.kolcina++;
                 }
                 else

@@ -67,7 +67,7 @@ namespace STONKS.Forms
 
         private void povratakNaMeni() 
         {
-            FrmUnosRacuna.listaStavkiURacunu.Clear();
+            FrmUnosRacuna.listaStavkiURacunu.Clear(); // OVO JE BILO
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             Hide();
             frmPocetniIzbornik.ShowDialog();
@@ -114,12 +114,12 @@ namespace STONKS.Forms
             titleFont.SetStyle("bold");
             totalFont.SetStyle("bold");
             highlightFont.SetStyle("bold");
-/*
+
             PdfPTable infoTablica = new PdfPTable(2) { SpacingBefore = 10, WidthPercentage = 100f};
 
             infoTablica.AddCell(new PdfPCell(new Paragraph("Ducan d.o.o. - Poslovnica Karlovac\nDomobranska 22, 47000 Karlovac\n\tel. 047/ 123 223\nOIB: 12345645612\nwww.ducan.hr\ninfo@ducan.com\nIBAN: HR55123456789123456789")));
             document.Add(infoTablica);
-*/
+
 
             iTextSharp.text.Image slikaLogo = iTextSharp.text.Image.GetInstance("logo.png");
             slikaLogo.ScaleAbsolute(130, 130);
