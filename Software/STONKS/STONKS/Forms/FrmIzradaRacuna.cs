@@ -34,6 +34,7 @@ namespace STONKS.Forms
         public RacuniServices servicesRacuni = new RacuniServices();
         public StavkeServices servicesStavke = new StavkeServices();
 
+
         private void FrmIzradaRacuna_Load(object sender, EventArgs e)
         {
             var allNaciniPlacanja = new NaciniPlacanjaServices().GetNaciniPlacanja();
@@ -66,6 +67,7 @@ namespace STONKS.Forms
 
         private void povratakNaMeni() 
         {
+            FrmUnosRacuna.listaStavkiURacunu.Clear();
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             Hide();
             frmPocetniIzbornik.ShowDialog();
@@ -78,12 +80,13 @@ namespace STONKS.Forms
             var racunNovi = new Racun
             {
                 nacin_placanja_id = selectedNacinPlacanja.id,
-                korisnik_id = FrmFaceRecNewApproach.logiraniKorisnik.id, // TODO logged user
+                // korisnik_id = FrmFaceRecNewApproach.logiraniKorisnik.id,  // OVO JE DOBRO
+                korisnik_id = 1,
                 vrijeme_izdavanja = DateTime.Now,
                 ukupno = FrmUnosRacuna.ukupnoUnos,
                 popust = FrmUnosRacuna.ukupanPopust, 
-                pdv = FrmUnosRacuna.ukupnoUnos - (FrmUnosRacuna.ukupnoUnos * 0.75), // TODO nez kaj s ovim
-                cjena_bez_pdv = FrmUnosRacuna.ukupnoUnos - (FrmUnosRacuna.ukupnoUnos * 0.25), // TODO nez kaj s ovim
+                pdv = FrmUnosRacuna.ukupniPDV,
+                cjena_bez_pdv = FrmUnosRacuna.ukupnoUnos - FrmUnosRacuna.ukupniPDV,
             };
             if (servicesRacuni.AddRacun(racunNovi, FrmUnosRacuna.listaStavkiURacunu.ToList()))
             {
@@ -170,7 +173,7 @@ namespace STONKS.Forms
                 stavkeTablica.AddCell(stavka.kolcina.ToString());
 
                 // popust
-                stavkeTablica.AddCell(stavka.popust.ToString()); // TODO ovo se ne prikazuje, valjda se ni ne sprema idk
+                stavkeTablica.AddCell(stavka.popust.ToString());
 
                 // iznos
                 var uk_cijena = stavka.kolcina * stavka.jed_cijena;
@@ -203,7 +206,8 @@ namespace STONKS.Forms
 
             document.Add(new Paragraph("Racun je pravovaljan bez ziga jer je izdan na racunalu.", highlightFont));
 
-            document.Add(new Paragraph("Zaposlenik: " + FrmFaceRecNewApproach.logiraniKorisnik.korime)); // TODO
+            // document.Add(new Paragraph("Zaposlenik: " + FrmFaceRecNewApproach.logiraniKorisnik.korime)); // OVO JE DOBRO
+            document.Add(new Paragraph("Zaposlenik: " + "PROMIJENI U KOMENTAR IZNAD"));
             var selectedNacinPlacanja = cboOdabirNacinaPlacanja.SelectedItem as NacinPlacanja;
             document.Add(new Paragraph("Nacin placanja: " + selectedNacinPlacanja.naziv));
             document.Add(new Paragraph("Datum i mjesto izdavanja: " + datumIzdavanja.ToString("dd.MM.yyyy HH:mm:ss") + ", Karlovac"));

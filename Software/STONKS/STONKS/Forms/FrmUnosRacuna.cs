@@ -23,6 +23,8 @@ namespace STONKS.Forms
         static public List<StavkaRacuna> listaStavkiURacunu = new List<StavkaRacuna>();
         static public double ukupnoUnos;
         static public double ukupanPopust;
+        public ArtikliServices servicesArtikli = new ArtikliServices();
+        public static double ukupniPDV = 0;
 
         private void btnOdustani_Click(object sender, EventArgs e)
         {
@@ -43,6 +45,7 @@ namespace STONKS.Forms
 
         private void btnNastavi_Click(object sender, EventArgs e)
         {
+            IzracunajPDV();
             FrmIzradaRacuna frmIzradaRacuna = new FrmIzradaRacuna();
             Hide();
             frmIzradaRacuna.ShowDialog();
@@ -52,12 +55,16 @@ namespace STONKS.Forms
         private void FrmUnosRacuna_Load(object sender, EventArgs e)
         {
             refreshaj();
-            IzracunajUkupno();
+            //MessageBox.Show("lsita " +listaStavkiURacunu.Count().ToString());
+            if (listaStavkiURacunu != null)
+            {
+                IzracunajPopust();
+                IzracunajUkupno();
+            }
         }
 
         private void dgvArtikli_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
             IzracunajUkupnoPoStavci(e.RowIndex);
             IzracunajPopust();
             IzracunajUkupno();
@@ -91,6 +98,19 @@ namespace STONKS.Forms
             }
             ukupnoUnos = ukupnoUnos - Double.Parse(txtPopust.Text);
             txtUkupno.Text = ukupnoUnos.ToString();
+        }
+        
+        private void IzracunajPDV()
+        {
+            ukupniPDV = 0;
+            foreach (var item in listaStavkiURacunu)
+            {
+                //MessageBox.Show(item.Artikli.ToString() + " " + item.artikl_id.ToString());
+                double artiklPDV = servicesArtikli.GetPDV(item.artikl_id); // u postotku
+                //MessageBox.Show(item.kolcina + " " + item.jed_cijena + " " + artiklPDV);
+                ukupniPDV = ukupniPDV + (item.kolcina * (item.jed_cijena * artiklPDV/100));
+            }
+            MessageBox.Show(ukupniPDV.ToString());
         }
 
         private void IzracunajPopust() // unosi se u postotku

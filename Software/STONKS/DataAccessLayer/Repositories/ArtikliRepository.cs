@@ -67,6 +67,16 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public IQueryable<Artikl> GetArtiklById(int id)
+        {
+            var query = from e in Entities.Include("VrsteArtikla").Include("StavkePrimke").Include("StavkeRacuna")
+                        where e.id == id
+                        select e;
+            return query;
+        }
+
+
+
         public override int Update(Artikl entity, bool save = true)
         {
             var artikl = Context.Artikli.SingleOrDefault(a => a.id == entity.id);
