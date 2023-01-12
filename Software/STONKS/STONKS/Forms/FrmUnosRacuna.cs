@@ -103,12 +103,28 @@ namespace STONKS.Forms
         private void IzracunajPDV()
         {
             ukupniPDV = 0;
+            double pdvzataj = 0;
             foreach (var item in listaStavkiURacunu)
             {
-                //MessageBox.Show(item.Artikli.ToString() + " " + item.artikl_id.ToString());
                 double artiklPDV = servicesArtikli.GetPDV(item.artikl_id); // u postotku
+                if (item.popust > 0)
+                {
+                    double popustDecimalni = ((double)(item.popust) / 100);
+                    ukupniPDV = ukupniPDV + ((item.Artikli.jed_cijena * item.kolcina) * popustDecimalni) * artiklPDV / 100;
+                    pdvzataj = ((item.Artikli.jed_cijena * item.kolcina) * popustDecimalni) * artiklPDV / 100;
+                }
+                else
+                {
+                    ukupniPDV = ukupniPDV + ((item.kolcina * (item.jed_cijena * artiklPDV/100)));
+                    pdvzataj = ((item.kolcina * (item.jed_cijena * artiklPDV / 100)));
+                }
+                MessageBox.Show("pdv za taj --> "+item.Artikli + " "+ pdvzataj.ToString());
+                //MessageBox.Show(item.Artikli.ToString() + " " + item.artikl_id.ToString());
+
                 //MessageBox.Show(item.kolcina + " " + item.jed_cijena + " " + artiklPDV);
-                ukupniPDV = ukupniPDV + (item.kolcina * (item.jed_cijena * artiklPDV/100));
+                //ukupniPDV = ukupniPDV + ((item.kolcina * (item.jed_cijena * artiklPDV/100))-((double)(item.popust) / 100 * (item.jed_cijena*item.kolcina)));
+
+
             }
             MessageBox.Show(ukupniPDV.ToString());
         }
