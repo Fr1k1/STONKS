@@ -42,7 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dgvStavke = new System.Windows.Forms.DataGridView();
             this.btnPovratak = new System.Windows.Forms.Button();
-            this.btnGenerirajPdf = new System.Windows.Forms.Button();
             this.btnStorniraj = new System.Windows.Forms.Button();
             this.chartRacuni = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartStavke = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -146,20 +145,6 @@
             this.btnPovratak.UseVisualStyleBackColor = false;
             this.btnPovratak.Click += new System.EventHandler(this.btnPovratak_Click);
             // 
-            // btnGenerirajPdf
-            // 
-            this.btnGenerirajPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            this.btnGenerirajPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerirajPdf.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerirajPdf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnGenerirajPdf.Location = new System.Drawing.Point(546, 880);
-            this.btnGenerirajPdf.Name = "btnGenerirajPdf";
-            this.btnGenerirajPdf.Size = new System.Drawing.Size(209, 38);
-            this.btnGenerirajPdf.TabIndex = 30;
-            this.btnGenerirajPdf.Text = "generiraj pdf";
-            this.btnGenerirajPdf.UseVisualStyleBackColor = false;
-            this.btnGenerirajPdf.Click += new System.EventHandler(this.btnGenerirajPdf_Click);
-            // 
             // btnStorniraj
             // 
             this.btnStorniraj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
@@ -217,7 +202,6 @@
             this.Controls.Add(this.chartStavke);
             this.Controls.Add(this.chartRacuni);
             this.Controls.Add(this.btnStorniraj);
-            this.Controls.Add(this.btnGenerirajPdf);
             this.Controls.Add(this.btnPovratak);
             this.Controls.Add(this.dgvStavke);
             this.Controls.Add(this.label3);
@@ -249,7 +233,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvStavke;
         private System.Windows.Forms.Button btnPovratak;
-        private System.Windows.Forms.Button btnGenerirajPdf;
         private System.Windows.Forms.Button btnStorniraj;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRacuni;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartStavke;

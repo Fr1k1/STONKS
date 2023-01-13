@@ -98,7 +98,7 @@ namespace STONKS.Forms
                 MessageBox.Show("Neuspjesno unosenje racuna!");
             }
         }
-
+        
         private void generirajPdf()
         {
             DateTime datumIzdavanja = DateTime.Now;
@@ -151,7 +151,7 @@ namespace STONKS.Forms
 
             stavkeTablica.AddCell("Redni broj artikla");
             stavkeTablica.AddCell("Naziv artikla");
-            stavkeTablica.AddCell("Cijena/kom");
+            stavkeTablica.AddCell("Cijena/kom [EUR]");
             stavkeTablica.AddCell("Kolicina [kom]");
             stavkeTablica.AddCell("Popust [%]");
             stavkeTablica.AddCell("Ukupna cijena stavke [EUR]");
