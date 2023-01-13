@@ -31,6 +31,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPretraziRacun = new System.Windows.Forms.TextBox();
@@ -42,9 +45,11 @@
             this.btnGenerirajPdf = new System.Windows.Forms.Button();
             this.btnStorniraj = new System.Windows.Forms.Button();
             this.chartRacuni = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartStavke = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRacuni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRacuni)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartStavke)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -174,9 +179,10 @@
             this.chartRacuni.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartRacuni.Legends.Add(legend1);
-            this.chartRacuni.Location = new System.Drawing.Point(286, 619);
+            this.chartRacuni.Location = new System.Drawing.Point(51, 617);
             this.chartRacuni.Name = "chartRacuni";
             series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
             series1.Name = "Broj placanja";
             this.chartRacuni.Series.Add(series1);
@@ -184,12 +190,30 @@
             this.chartRacuni.TabIndex = 38;
             this.chartRacuni.Text = "chartRacuni";
             // 
+            // chartStavke
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chartStavke.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartStavke.Legends.Add(legend2);
+            this.chartStavke.Location = new System.Drawing.Point(509, 617);
+            this.chartStavke.Name = "chartStavke";
+            this.chartStavke.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Broj artikala";
+            this.chartStavke.Series.Add(series2);
+            this.chartStavke.Size = new System.Drawing.Size(424, 244);
+            this.chartStavke.TabIndex = 39;
+            this.chartStavke.Text = "chart1";
+            // 
             // FrmPopisRacuna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(983, 948);
+            this.Controls.Add(this.chartStavke);
             this.Controls.Add(this.chartRacuni);
             this.Controls.Add(this.btnStorniraj);
             this.Controls.Add(this.btnGenerirajPdf);
@@ -208,6 +232,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvRacuni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRacuni)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartStavke)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +251,6 @@
         private System.Windows.Forms.Button btnGenerirajPdf;
         private System.Windows.Forms.Button btnStorniraj;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRacuni;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartStavke;
     }
 }
