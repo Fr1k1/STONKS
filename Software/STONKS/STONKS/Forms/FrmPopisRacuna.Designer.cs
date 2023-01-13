@@ -158,6 +158,7 @@
             this.btnGenerirajPdf.TabIndex = 30;
             this.btnGenerirajPdf.Text = "generiraj pdf";
             this.btnGenerirajPdf.UseVisualStyleBackColor = false;
+            this.btnGenerirajPdf.Click += new System.EventHandler(this.btnGenerirajPdf_Click);
             // 
             // btnStorniraj
             // 
