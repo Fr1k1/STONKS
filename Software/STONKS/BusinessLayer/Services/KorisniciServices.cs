@@ -11,6 +11,8 @@ namespace BusinessLayer.Services
     public class KorisniciServices
     {
 
+        
+
         public List<Korisnik> GetKorisnici()
         {
             using (var repo = new KorisniciRepository())
@@ -27,21 +29,6 @@ namespace BusinessLayer.Services
             }
         }
 
-        /* public List<string> GetSlika(string username, string password)
-         {
-             using (var repo = new KorisniciRepository())
-             {
-                 return repo.GetSlika(username, password).ToList();
-             }
-         }*/
-
-       /* public string GetSlika(string value)
-        {
-            using (var repo = new KorisniciRepository())
-            {
-                return repo.GetPicture(value).ToString();
-            }
-        }*/
 
         public bool GetKorisnik(string username, string password)
         {
@@ -59,11 +46,11 @@ namespace BusinessLayer.Services
 
         }
 
-        public IQueryable<Korisnik> GetLoggedKorisnik(string username, string password)
+        public Korisnik GetLoggedKorisnik(string username, string password)
         {
             using (var repo = new KorisniciRepository())
             {
-                return repo.Get(username, password);
+                return repo.Get(username, password).FirstOrDefault();
             }
         }
 

@@ -34,7 +34,15 @@ namespace STONKS
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
+            var korisnik = services.GetLoggedKorisnik(txtUsername.Text, txtPassword.Text);
+            FrmFaceRecNewApproach.logiraniKorisnik = korisnik;
+            MessageBox.Show(korisnik.uloga_id.ToString());
+
             LoginUser(txtUsername.Text, txtPassword.Text);
+
+
+
+            //FrmFaceRecNewApproach.CheckLogirani(korisnik.uloga_id);
             //logirani=services.GetLoggedKorisnik(txtUsername.Text, txtPassword.Text);
             // MessageBox.Show(logirani.to);
 
@@ -55,6 +63,7 @@ namespace STONKS
             var korisnik = services.GetKorisnik(korime, lozinka);
             if (korisnik)
             {
+                //logirani = korisnik;
                 
 
                 if (GetUloga(txtUsername.Text, txtPassword.Text) == "voditelj")

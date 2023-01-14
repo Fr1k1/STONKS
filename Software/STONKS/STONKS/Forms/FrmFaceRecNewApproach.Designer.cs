@@ -94,7 +94,7 @@
             this.btnPic2_new.Name = "btnPic2_new";
             this.btnPic2_new.Size = new System.Drawing.Size(167, 68);
             this.btnPic2_new.TabIndex = 51;
-            this.btnPic2_new.Text = "Pic 2";
+            this.btnPic2_new.Text = "UCITAJ SVOJU SLIKU";
             this.btnPic2_new.UseVisualStyleBackColor = false;
             this.btnPic2_new.Click += new System.EventHandler(this.btnPic2_new_Click);
             // 
@@ -115,7 +115,7 @@
             this.btnPic1_new.Name = "btnPic1_new";
             this.btnPic1_new.Size = new System.Drawing.Size(167, 68);
             this.btnPic1_new.TabIndex = 49;
-            this.btnPic1_new.Text = "Pic1";
+            this.btnPic1_new.Text = "UCITAJ SLIKU IZ BAZE";
             this.btnPic1_new.UseVisualStyleBackColor = false;
             this.btnPic1_new.Click += new System.EventHandler(this.btnPic1_new_Click);
             // 
@@ -152,7 +152,7 @@
             // cbAllUsers
             // 
             this.cbAllUsers.FormattingEnabled = true;
-            this.cbAllUsers.Location = new System.Drawing.Point(1065, 539);
+            this.cbAllUsers.Location = new System.Drawing.Point(1026, 41);
             this.cbAllUsers.Name = "cbAllUsers";
             this.cbAllUsers.Size = new System.Drawing.Size(121, 21);
             this.cbAllUsers.TabIndex = 59;

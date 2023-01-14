@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntitiesLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,8 +21,22 @@ namespace STONKS.Forms
         private void btnPovratak_Click(object sender, EventArgs e)
         {
             Hide();
-            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
-            frmPocetniIzbornik.ShowDialog();
+
+            //if (FrmFaceRecNewApproach.logiraniKorisnik.uloga_id == 1)
+            //{
+            //    FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
+            //    frmPocetniIzbornik.ShowDialog();
+            //}
+
+            //else
+            //{
+            //    FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+            //    frmPocetniIzbornik.ShowDialog();
+            //}
+
+            FrmFaceRecNewApproach.CheckLogirani(FrmFaceRecNewApproach.logiraniKorisnik.uloga_id);
+
+
             Close();
         }
     }

@@ -18,8 +18,32 @@ using System.Windows.Forms;
 
 namespace STONKS.Forms
 {
+
     public partial class FrmFaceRecNewApproach : Form
     {
+        public static Korisnik logiraniKorisnik = null;
+
+        public static void CheckLogirani(int id)
+        {
+            if (logiraniKorisnik.uloga_id == 1)
+            {
+
+                FrmPocetniIzbornikVoditelj frmPocetniIzbornikVoditelj = new FrmPocetniIzbornikVoditelj();
+                frmPocetniIzbornikVoditelj.ShowDialog();
+
+            }
+
+            else
+            {
+
+                FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
+                frmPocetniIzbornik.ShowDialog();
+
+            }
+        }
+
+
+
         private KorisniciServices services = new KorisniciServices();
 
         string file1, file2 = "";
@@ -76,6 +100,7 @@ namespace STONKS.Forms
                     //ak je uloga 1 od usera koji se prosljedi v metodu onda pokazi jedan izbornik inace drugi
                     //ko parametar se salje korime koje je odabrano
                     Korisnik korisnik = cbAllUsers.SelectedItem as Korisnik;
+                    logiraniKorisnik = korisnik;
                     if (korisnik.uloga_id == 1)
                     {
                         //MessageBox.Show("Voditelj se prijavio");
@@ -87,6 +112,7 @@ namespace STONKS.Forms
 
                     else
                     {
+                        //logiraniKorisnik.uloga_id = 2;
                         Hide();
                         FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
                         frmPocetniIzbornik.ShowDialog();
@@ -181,7 +207,7 @@ namespace STONKS.Forms
                 return;
             };
 
-            
+
 
 
 

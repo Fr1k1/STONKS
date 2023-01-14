@@ -27,9 +27,11 @@ namespace STONKS.Forms
         private void btnOdustani_Click(object sender, EventArgs e)
         {
             listaStavkiURacunu.Clear(); 
-            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
+            //FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             Hide();
-            frmPocetniIzbornik.ShowDialog();
+            FrmFaceRecNewApproach.CheckLogirani(FrmFaceRecNewApproach.logiraniKorisnik.uloga_id);
+
+            //frmPocetniIzbornik.ShowDialog();
             Close(); 
         }
 

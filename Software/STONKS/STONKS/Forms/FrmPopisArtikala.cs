@@ -28,8 +28,9 @@ namespace STONKS.Forms
         {
             Hide();
 
-            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
-            frmPocetniIzbornik.ShowDialog();
+            /*FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
+            frmPocetniIzbornik.ShowDialog();*/
+            FrmFaceRecNewApproach.CheckLogirani(FrmFaceRecNewApproach.logiraniKorisnik.uloga_id);
 
             Close();
         }
@@ -49,14 +50,15 @@ namespace STONKS.Forms
         {
             DohvatiVrste();
             PrikaziArtikle();
-            //MessageBox.Show("Tu");
+            chartArticles.Series["Artikli po vrsti"].Points.AddXY("higijena", services.GetArtikliPoVrsti("Higijena"));
+            chartArticles.Series["Artikli po vrsti"].Points.AddXY("Kozmetika", services.GetArtikliPoVrsti("Kozmetika"));
+            chartArticles.Series["Artikli po vrsti"].Points.AddXY("Alkohol", services.GetArtikliPoVrsti("Alkohol"));
+            chartArticles.Series["Artikli po vrsti"].Points.AddXY("Elektronika", services.GetArtikliPoVrsti("Elektronika"));
+            chartArticles.Series["Artikli po vrsti"].Points.AddXY("Igracke", services.GetArtikliPoVrsti("Igracke"));
+            chartArticles.Series["Artikli po vrsti"].Points.AddXY("pice", services.GetArtikliPoVrsti("Pice"));
+            chartArticles.Series["Artikli po vrsti"].Points.AddXY("uredski pribor", services.GetArtikliPoVrsti("Uredski pribor"));
+            chartArticles.Series["Artikli po vrsti"].Points.AddXY("hrana", services.GetArtikliPoVrsti("Hrana"));
 
-            chartArticles.Series["Artikli po vrsti"].Points.AddXY("higijena", services.GetArtikliPoVrsti("higijena"));
-            chartArticles.Series["Artikli po vrsti"].Points.AddXY("kozmetika", services.GetArtikliPoVrsti("kozmetika"));
-           // chartArticles.Series["Artikli po vrsti"].Points.AddXY("kozmetika", services.GetArtikliPoVrsti("kozmetika"));
-
-
- 
         }
 
         private void DohvatiVrste()
