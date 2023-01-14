@@ -51,10 +51,12 @@ namespace STONKS.Forms
             PrikaziArtikle();
             //MessageBox.Show("Tu");
 
-           // chartArticles.Series["Artikli po vrsti"].Points.AddXY("higijena", services.GetArtikliPoVrsti("higijena"));
-            //ova metoda mi treba uzimati parametar i nutra treba biti
-            //za svaki artikl provjeri prosljedenu vrstu (parametar fje)
+            chartArticles.Series["Artikli po vrsti"].Points.AddXY("higijena", services.GetArtikliPoVrsti("higijena"));
+            chartArticles.Series["Artikli po vrsti"].Points.AddXY("kozmetika", services.GetArtikliPoVrsti("kozmetika"));
+           // chartArticles.Series["Artikli po vrsti"].Points.AddXY("kozmetika", services.GetArtikliPoVrsti("kozmetika"));
 
+
+ 
         }
 
         private void DohvatiVrste()
@@ -108,9 +110,9 @@ namespace STONKS.Forms
 
         private void btnFilterByType_Click(object sender, EventArgs e)
         {
-            string izraz = cbVrsta.Text;
+           /* string izraz = cbVrsta.Text;
             var artikli = services.FilterByType(izraz);
-            dgvArtikli.DataSource = artikli;
+            dgvArtikli.DataSource = artikli;*/
         }
 
         private void btnResetFilter_Click(object sender, EventArgs e)
@@ -138,6 +140,13 @@ namespace STONKS.Forms
             if (cbSort.Text =="CIJENA")
                 SortirajPoCijeni();
 
+        }
+
+        private void cbVrsta_TextChanged(object sender, EventArgs e)
+        {
+            string izraz = cbVrsta.Text;
+            var artikli = services.FilterByType(izraz);
+            dgvArtikli.DataSource = artikli;
         }
     }
 }

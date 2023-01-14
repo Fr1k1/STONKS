@@ -56,15 +56,15 @@ namespace BusinessLayer.Services
             }
         }
 
-        public List<Artikl> GetArtikliPoVrsti(string name)
+        public int GetArtikliPoVrsti(string name)
         {
             using (var repo = new ArtikliRepository())
             {
                 var artikli = repo.GetByType(name).ToList();
                 if (artikli.Count > 0)
-                    return artikli;
+                    return artikli.Count;
                 else
-                    return null;
+                    return 0;
             }
         }
 
