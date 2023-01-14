@@ -19,6 +19,22 @@ namespace BusinessLayer.Services
             }
         }
 
+        public List<Artikl> GetArtikliAbecedno()
+        {
+            using (var repo = new ArtikliRepository())
+            {
+                return repo.GetAbecedno().ToList();
+            }
+        }
+
+        public List<Artikl> GetArtikliPoCijeni()
+        {
+            using (var repo = new ArtikliRepository())
+            {
+                return repo.GetPoCijeni().ToList();
+            }
+        }
+
         public Artikl GetArtikl(string sifra)
         {
             using (var repo = new ArtikliRepository())
@@ -37,6 +53,18 @@ namespace BusinessLayer.Services
             {
                 List<VrstaArtikla> vrsteArtikla = repo.GetAll().ToList();
                 return vrsteArtikla;
+            }
+        }
+
+        public List<Artikl> GetArtikliPoVrsti(string name)
+        {
+            using (var repo = new ArtikliRepository())
+            {
+                var artikli = repo.GetByType(name).ToList();
+                if (artikli.Count > 0)
+                    return artikli;
+                else
+                    return null;
             }
         }
 
@@ -69,7 +97,7 @@ namespace BusinessLayer.Services
             }
         }
 
-        public void ChangeSaldo(Artikl artikl,int quantity)
+        public void ChangeSaldo(Artikl artikl, int quantity)
         {
             using (var repo = new ArtikliRepository())
             {

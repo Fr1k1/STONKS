@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dgvArtikli = new System.Windows.Forms.DataGridView();
             this.txtPretraziArtikle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -121,16 +121,17 @@
             // 
             // chartArticles
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartArticles.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartArticles.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chartArticles.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartArticles.Legends.Add(legend3);
             this.chartArticles.Location = new System.Drawing.Point(305, 354);
             this.chartArticles.Name = "chartArticles";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartArticles.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend1";
+            series3.Name = "Artikli po vrsti";
+            this.chartArticles.Series.Add(series3);
             this.chartArticles.Size = new System.Drawing.Size(474, 300);
             this.chartArticles.TabIndex = 37;
             this.chartArticles.Text = "chart1";
@@ -194,6 +195,8 @@
             this.cbSort.Size = new System.Drawing.Size(198, 29);
             this.cbSort.TabIndex = 40;
             this.cbSort.Text = "Sortiranje";
+            this.cbSort.SelectedIndexChanged += new System.EventHandler(this.cbSort_SelectedIndexChanged);
+            this.cbSort.TextChanged += new System.EventHandler(this.cbSort_TextChanged);
             // 
             // FrmPopisArtikala
             // 

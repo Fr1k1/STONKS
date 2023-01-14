@@ -14,6 +14,8 @@ namespace STONKS.Forms
     public partial class FrmPopisArtikala : Form
     {
 
+       
+
         public FrmPopisArtikala()
         {
             InitializeComponent();
@@ -47,7 +49,11 @@ namespace STONKS.Forms
         {
             DohvatiVrste();
             PrikaziArtikle();
-            MessageBox.Show("Tu");
+            //MessageBox.Show("Tu");
+
+           // chartArticles.Series["Artikli po vrsti"].Points.AddXY("higijena", services.GetArtikliPoVrsti("higijena"));
+            //ova metoda mi treba uzimati parametar i nutra treba biti
+            //za svaki artikl provjeri prosljedenu vrstu (parametar fje)
 
         }
 
@@ -55,6 +61,18 @@ namespace STONKS.Forms
         {
             var vrste = services.GetVrsteArtikla();
             cbVrsta.DataSource = vrste.ToList();
+        }
+
+        private void SortirajAbecedno()
+        {
+            var vrste = services.GetArtikliAbecedno();
+            dgvArtikli.DataSource = vrste.ToList();
+        }
+
+        private void SortirajPoCijeni()
+        {
+            var vrste = services.GetArtikliPoCijeni();
+            dgvArtikli.DataSource = vrste.ToList();
         }
 
         private void PrikaziArtikle()
@@ -103,6 +121,23 @@ namespace STONKS.Forms
         private void txtPretraziArtikle_Click(object sender, EventArgs e)
         {
             SetText(txtPretraziArtikle);
+        }
+
+        private void cbSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbSort_TextChanged(object sender, EventArgs e)
+        {
+            // MessageBox.Show("Promjenil se tekst"); ovo dela
+
+            if(cbSort.Text=="ABECEDNO")
+            SortirajAbecedno();
+
+            if (cbSort.Text =="CIJENA")
+                SortirajPoCijeni();
+
         }
     }
 }

@@ -24,6 +24,24 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public  IQueryable<Artikl> GetAbecedno()
+        {
+            var query = from e in Entities.Include("VrsteArtikla").Include("StavkePrimke").Include("StavkeRacuna")
+                        orderby e.naziv
+                        select e;
+
+            return query;
+        }
+
+        public IQueryable<Artikl> GetPoCijeni()
+        {
+            var query = from e in Entities.Include("VrsteArtikla").Include("StavkePrimke").Include("StavkeRacuna")
+                        orderby e.jed_cijena
+                        select e;
+
+            return query;
+        }
+
         public override int Add(Artikl entity, bool save = true)
         {   
             var vrstaArtikla = Context.VrsteArtikla.SingleOrDefault(v => v.id == entity.vrsta_artikla_id);
