@@ -22,16 +22,29 @@
 mono_crash.*
 
 # Build results
-[Dd]ebug/
+STONKS/BusinessLayer/bin/Debug
+STONKS/DataAccessLayer/bin/Debug
+STONKS/EntitiesLayer/bin/Debug
+STONKS/STONKS/bin/Debug
+STONKS/STONKS/bin/x64/Debug/*
+!STONKS/STONKS/bin/x64/Debug/models
+!STONKS/STONKS/bin/x64/Debug/DlibDotNet.dll
+!STONKS/STONKS/bin/x64/Debug/DlibDotNetNative.dll
+!STONKS/STONKS/bin/x64/Debug/DlibDotNetNativeDnn.dll
+!STONKS/STONKS/bin/x64/Debug/DlibDotNetNativeDnnAgeClassification.dll
+!STONKS/STONKS/bin/x64/Debug/DlibDotNetNativeDnnGenderClassification.dll
+!STONKS/STONKS/bin/x64/Debug/qr.png
+!STONKS/STONKS/bin/x64/Debug/logo.png
+#/[Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
-x64/
+#x64/
 x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
+#[Bb]in/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
