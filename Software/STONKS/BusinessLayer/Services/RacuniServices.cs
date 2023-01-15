@@ -25,7 +25,7 @@ namespace BusinessLayer.Services
             return GetRacuni().Count + 1;
         }*/
 
-        internal List<Racun> GetRacuniByDate(DateTime date)
+        public List<Racun> GetRacuniByDate(DateTime date)
         {
             using (var repo = new RacuniRepository())
             {

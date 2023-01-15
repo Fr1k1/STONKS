@@ -121,7 +121,9 @@ namespace STONKS.Forms
             dgvStavke.Columns["popust"].DisplayIndex = 2;
 
             dgvStavke.Columns["Artikli"].HeaderText = "Naziv artikla";
-            dgvStavke.Columns["kolcina"].HeaderText = "Kolicina";
+            dgvStavke.Columns["kolcina"].HeaderText = "Kolicina [kom]";
+            dgvStavke.Columns["ukupno"].HeaderText = "Ukupna cijena [EUR]";
+            dgvStavke.Columns["jed_cijena"].HeaderText = "Cijena/kom [EUR]";
             dgvStavke.Columns["popust"].HeaderText = "Popust po artiklu [%]";
         }
 
@@ -145,7 +147,6 @@ namespace STONKS.Forms
             {
                 MessageBox.Show("Došlo je do greške prilikom stroniranja","Greška",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-
         }
 
         private void loadanjeCharta1()
@@ -181,7 +182,7 @@ namespace STONKS.Forms
                     vrsta = (artiklServices.GetArtikl(s.artikl_id)).VrsteArtikla.naziv;
                     if (vrsta == vrstaIzListe)
                     {
-                        broj+=s.kolcina;
+                        broj += s.kolcina;
                     }
                 }
                 if (broj > 0)
@@ -189,9 +190,16 @@ namespace STONKS.Forms
                     chartStavke.Series["Broj artikala"].Points.AddXY(vrstaIzListe, broj);
                 }
             }
-
         }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dgvRacuni.DataSource = racunServices.GetRacuniByDate(dateTimePicker1.Value);
+        }
 
+        private void btnPrikaziSve_Click(object sender, EventArgs e)
+        {
+            PrikaziRacune();
+        }
     }
 }

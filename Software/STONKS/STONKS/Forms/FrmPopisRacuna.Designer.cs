@@ -36,7 +36,6 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPretraziRacun = new System.Windows.Forms.TextBox();
             this.cboVrsta = new System.Windows.Forms.ComboBox();
             this.dgvRacuni = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +44,9 @@
             this.btnStorniraj = new System.Windows.Forms.Button();
             this.chartRacuni = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartStavke = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnPrikaziSve = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRacuni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRacuni)).BeginInit();
@@ -72,17 +74,6 @@
             this.label1.Size = new System.Drawing.Size(102, 19);
             this.label1.TabIndex = 17;
             this.label1.Text = "STONKS ";
-            // 
-            // txtPretraziRacun
-            // 
-            this.txtPretraziRacun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
-            this.txtPretraziRacun.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPretraziRacun.Location = new System.Drawing.Point(27, 74);
-            this.txtPretraziRacun.Multiline = true;
-            this.txtPretraziRacun.Name = "txtPretraziRacun";
-            this.txtPretraziRacun.Size = new System.Drawing.Size(321, 31);
-            this.txtPretraziRacun.TabIndex = 24;
-            this.txtPretraziRacun.Text = " pretrazi...";
             // 
             // cboVrsta
             // 
@@ -193,12 +184,48 @@
             this.chartStavke.TabIndex = 39;
             this.chartStavke.Text = "chart1";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(327, 76);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
+            this.dateTimePicker1.TabIndex = 40;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.label4.Location = new System.Drawing.Point(23, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(298, 19);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "odaberi datum izdavanja:";
+            // 
+            // btnPrikaziSve
+            // 
+            this.btnPrikaziSve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.btnPrikaziSve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrikaziSve.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrikaziSve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnPrikaziSve.Location = new System.Drawing.Point(484, 72);
+            this.btnPrikaziSve.Name = "btnPrikaziSve";
+            this.btnPrikaziSve.Size = new System.Drawing.Size(154, 29);
+            this.btnPrikaziSve.TabIndex = 42;
+            this.btnPrikaziSve.Text = "prikazi sve";
+            this.btnPrikaziSve.UseVisualStyleBackColor = false;
+            this.btnPrikaziSve.Click += new System.EventHandler(this.btnPrikaziSve_Click);
+            // 
             // FrmPopisRacuna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(983, 948);
+            this.Controls.Add(this.btnPrikaziSve);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.chartStavke);
             this.Controls.Add(this.chartRacuni);
             this.Controls.Add(this.btnStorniraj);
@@ -207,7 +234,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvRacuni);
             this.Controls.Add(this.cboVrsta);
-            this.Controls.Add(this.txtPretraziRacun);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmPopisRacuna";
@@ -227,7 +253,6 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPretraziRacun;
         private System.Windows.Forms.ComboBox cboVrsta;
         private System.Windows.Forms.DataGridView dgvRacuni;
         private System.Windows.Forms.Label label3;
@@ -236,5 +261,8 @@
         private System.Windows.Forms.Button btnStorniraj;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRacuni;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartStavke;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnPrikaziSve;
     }
 }
