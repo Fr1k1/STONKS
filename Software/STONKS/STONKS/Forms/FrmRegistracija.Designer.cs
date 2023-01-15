@@ -30,7 +30,6 @@
         {
             this.btnBack = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.cbRole = new System.Windows.Forms.ComboBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtOIB = new System.Windows.Forms.TextBox();
@@ -42,8 +41,9 @@
             this.btnSave_new = new System.Windows.Forms.Button();
             this.btnUkljuciKameru_new = new System.Windows.Forms.Button();
             this.pbSlikaZaSpremiti_new = new System.Windows.Forms.PictureBox();
-            this.cbCameraName_new = new System.Windows.Forms.ComboBox();
             this.pbCamera_new = new System.Windows.Forms.PictureBox();
+            this.cbRole = new System.Windows.Forms.ComboBox();
+            this.cbCameraName_new = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbSlikaZaSpremiti_new)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCamera_new)).BeginInit();
             this.SuspendLayout();
@@ -64,9 +64,10 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.btnRegister.Location = new System.Drawing.Point(191, 490);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(166, 38);
@@ -74,17 +75,6 @@
             this.btnRegister.Text = "REGISTRIRAJ SE";
             this.btnRegister.UseVisualStyleBackColor = false;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
-            // 
-            // cbRole
-            // 
-            this.cbRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.cbRole.Font = new System.Drawing.Font("Azonix", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cbRole.FormattingEnabled = true;
-            this.cbRole.Location = new System.Drawing.Point(12, 429);
-            this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(345, 24);
-            this.cbRole.TabIndex = 28;
-            this.cbRole.Text = "ULOGA";
             // 
             // txtPassword
             // 
@@ -171,9 +161,10 @@
             // 
             // btnTakePicture_new
             // 
-            this.btnTakePicture_new.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.btnTakePicture_new.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
             this.btnTakePicture_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTakePicture_new.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTakePicture_new.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.btnTakePicture_new.Location = new System.Drawing.Point(868, 297);
             this.btnTakePicture_new.Name = "btnTakePicture_new";
             this.btnTakePicture_new.Size = new System.Drawing.Size(167, 68);
@@ -184,9 +175,10 @@
             // 
             // btnSave_new
             // 
-            this.btnSave_new.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.btnSave_new.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
             this.btnSave_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave_new.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave_new.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.btnSave_new.Location = new System.Drawing.Point(681, 297);
             this.btnSave_new.Name = "btnSave_new";
             this.btnSave_new.Size = new System.Drawing.Size(167, 68);
@@ -197,9 +189,10 @@
             // 
             // btnUkljuciKameru_new
             // 
-            this.btnUkljuciKameru_new.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.btnUkljuciKameru_new.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
             this.btnUkljuciKameru_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUkljuciKameru_new.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUkljuciKameru_new.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.btnUkljuciKameru_new.Location = new System.Drawing.Point(501, 297);
             this.btnUkljuciKameru_new.Name = "btnUkljuciKameru_new";
             this.btnUkljuciKameru_new.Size = new System.Drawing.Size(167, 68);
@@ -216,14 +209,6 @@
             this.pbSlikaZaSpremiti_new.TabIndex = 65;
             this.pbSlikaZaSpremiti_new.TabStop = false;
             // 
-            // cbCameraName_new
-            // 
-            this.cbCameraName_new.FormattingEnabled = true;
-            this.cbCameraName_new.Location = new System.Drawing.Point(524, 398);
-            this.cbCameraName_new.Name = "cbCameraName_new";
-            this.cbCameraName_new.Size = new System.Drawing.Size(121, 21);
-            this.cbCameraName_new.TabIndex = 64;
-            // 
             // pbCamera_new
             // 
             this.pbCamera_new.Location = new System.Drawing.Point(501, 35);
@@ -232,21 +217,48 @@
             this.pbCamera_new.TabIndex = 63;
             this.pbCamera_new.TabStop = false;
             // 
+            // cbRole
+            // 
+            this.cbRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.cbRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbRole.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRole.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.ItemHeight = 21;
+            this.cbRole.Location = new System.Drawing.Point(12, 416);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(198, 29);
+            this.cbRole.TabIndex = 70;
+            this.cbRole.Text = "ULOGA";
+            // 
+            // cbCameraName_new
+            // 
+            this.cbCameraName_new.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.cbCameraName_new.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbCameraName_new.Font = new System.Drawing.Font("Azonix", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCameraName_new.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.cbCameraName_new.FormattingEnabled = true;
+            this.cbCameraName_new.ItemHeight = 13;
+            this.cbCameraName_new.Location = new System.Drawing.Point(501, 416);
+            this.cbCameraName_new.Name = "cbCameraName_new";
+            this.cbCameraName_new.Size = new System.Drawing.Size(112, 21);
+            this.cbCameraName_new.TabIndex = 71;
+            // 
             // FrmRegistracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(1145, 569);
+            this.Controls.Add(this.cbCameraName_new);
+            this.Controls.Add(this.cbRole);
             this.Controls.Add(this.btnTakePicture_new);
             this.Controls.Add(this.btnSave_new);
             this.Controls.Add(this.btnUkljuciKameru_new);
             this.Controls.Add(this.pbSlikaZaSpremiti_new);
-            this.Controls.Add(this.cbCameraName_new);
             this.Controls.Add(this.pbCamera_new);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.cbRole);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtOIB);
@@ -269,7 +281,6 @@
 
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.ComboBox cbRole;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtOIB;
@@ -281,7 +292,8 @@
         private System.Windows.Forms.Button btnSave_new;
         private System.Windows.Forms.Button btnUkljuciKameru_new;
         private System.Windows.Forms.PictureBox pbSlikaZaSpremiti_new;
-        private System.Windows.Forms.ComboBox cbCameraName_new;
         private System.Windows.Forms.PictureBox pbCamera_new;
+        private System.Windows.Forms.ComboBox cbRole;
+        private System.Windows.Forms.ComboBox cbCameraName_new;
     }
 }
