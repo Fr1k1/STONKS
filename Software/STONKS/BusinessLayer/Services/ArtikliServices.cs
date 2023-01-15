@@ -47,6 +47,20 @@ namespace BusinessLayer.Services
             }
         }
 
+        public Artikl GetArtikl(int id)
+        {
+            using (var repo = new ArtikliRepository())
+            {
+                var artikli = repo.GetArtiklById(id).ToList();
+                if (artikli.Count > 0)
+                    return artikli[0];
+                else
+                    return null;
+            }
+        }
+
+
+
         public List<VrstaArtikla> GetVrsteArtikla()
         {
             using (var repo = new VrsteArtiklaRepository())
@@ -107,6 +121,12 @@ namespace BusinessLayer.Services
                 int affectedRows = repo.Update(artikl);
                 Console.WriteLine("affected" + affectedRows);
             }
+        }
+
+        public double GetPDV(int id)
+        {
+            double pdv = GetArtikl(id).pdv;
+            return pdv;
         }
     }
 }

@@ -50,6 +50,7 @@ namespace STONKS.Forms
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
 
+      //  public static Korisnik logiraniKorisnik = null;
 
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice = null;

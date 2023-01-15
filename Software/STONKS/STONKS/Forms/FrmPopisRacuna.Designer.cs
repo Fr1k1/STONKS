@@ -31,20 +31,26 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPretraziRacun = new System.Windows.Forms.TextBox();
             this.cboVrsta = new System.Windows.Forms.ComboBox();
             this.dgvRacuni = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvStavke = new System.Windows.Forms.DataGridView();
             this.btnPovratak = new System.Windows.Forms.Button();
-            this.btnGenerirajPdf = new System.Windows.Forms.Button();
             this.btnStorniraj = new System.Windows.Forms.Button();
             this.chartRacuni = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartStavke = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnPrikaziSve = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRacuni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRacuni)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartStavke)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -68,17 +74,6 @@
             this.label1.Size = new System.Drawing.Size(102, 19);
             this.label1.TabIndex = 17;
             this.label1.Text = "STONKS ";
-            // 
-            // txtPretraziRacun
-            // 
-            this.txtPretraziRacun.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
-            this.txtPretraziRacun.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPretraziRacun.Location = new System.Drawing.Point(27, 74);
-            this.txtPretraziRacun.Multiline = true;
-            this.txtPretraziRacun.Name = "txtPretraziRacun";
-            this.txtPretraziRacun.Size = new System.Drawing.Size(321, 31);
-            this.txtPretraziRacun.TabIndex = 24;
-            this.txtPretraziRacun.Text = " pretrazi...";
             // 
             // cboVrsta
             // 
@@ -141,19 +136,6 @@
             this.btnPovratak.UseVisualStyleBackColor = false;
             this.btnPovratak.Click += new System.EventHandler(this.btnPovratak_Click);
             // 
-            // btnGenerirajPdf
-            // 
-            this.btnGenerirajPdf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
-            this.btnGenerirajPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerirajPdf.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerirajPdf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnGenerirajPdf.Location = new System.Drawing.Point(546, 880);
-            this.btnGenerirajPdf.Name = "btnGenerirajPdf";
-            this.btnGenerirajPdf.Size = new System.Drawing.Size(209, 38);
-            this.btnGenerirajPdf.TabIndex = 30;
-            this.btnGenerirajPdf.Text = "generiraj pdf";
-            this.btnGenerirajPdf.UseVisualStyleBackColor = false;
-            // 
             // btnStorniraj
             // 
             this.btnStorniraj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
@@ -174,15 +156,66 @@
             this.chartRacuni.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartRacuni.Legends.Add(legend1);
-            this.chartRacuni.Location = new System.Drawing.Point(286, 619);
+            this.chartRacuni.Location = new System.Drawing.Point(51, 617);
             this.chartRacuni.Name = "chartRacuni";
             series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Broj placanja";
             this.chartRacuni.Series.Add(series1);
             this.chartRacuni.Size = new System.Drawing.Size(438, 244);
             this.chartRacuni.TabIndex = 38;
-            this.chartRacuni.Text = "chart1";
+            this.chartRacuni.Text = "chartRacuni";
+            // 
+            // chartStavke
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chartStavke.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartStavke.Legends.Add(legend2);
+            this.chartStavke.Location = new System.Drawing.Point(509, 617);
+            this.chartStavke.Name = "chartStavke";
+            this.chartStavke.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Broj artikala";
+            this.chartStavke.Series.Add(series2);
+            this.chartStavke.Size = new System.Drawing.Size(424, 244);
+            this.chartStavke.TabIndex = 39;
+            this.chartStavke.Text = "chart1";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(327, 76);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
+            this.dateTimePicker1.TabIndex = 40;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.label4.Location = new System.Drawing.Point(23, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(298, 19);
+            this.label4.TabIndex = 41;
+            this.label4.Text = "odaberi datum izdavanja:";
+            // 
+            // btnPrikaziSve
+            // 
+            this.btnPrikaziSve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.btnPrikaziSve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrikaziSve.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrikaziSve.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnPrikaziSve.Location = new System.Drawing.Point(484, 72);
+            this.btnPrikaziSve.Name = "btnPrikaziSve";
+            this.btnPrikaziSve.Size = new System.Drawing.Size(154, 29);
+            this.btnPrikaziSve.TabIndex = 42;
+            this.btnPrikaziSve.Text = "prikazi sve";
+            this.btnPrikaziSve.UseVisualStyleBackColor = false;
+            this.btnPrikaziSve.Click += new System.EventHandler(this.btnPrikaziSve_Click);
             // 
             // FrmPopisRacuna
             // 
@@ -190,15 +223,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(983, 948);
+            this.Controls.Add(this.btnPrikaziSve);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.chartStavke);
             this.Controls.Add(this.chartRacuni);
             this.Controls.Add(this.btnStorniraj);
-            this.Controls.Add(this.btnGenerirajPdf);
             this.Controls.Add(this.btnPovratak);
             this.Controls.Add(this.dgvStavke);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvRacuni);
             this.Controls.Add(this.cboVrsta);
-            this.Controls.Add(this.txtPretraziRacun);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmPopisRacuna";
@@ -208,6 +243,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvRacuni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRacuni)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartStavke)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,14 +253,16 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPretraziRacun;
         private System.Windows.Forms.ComboBox cboVrsta;
         private System.Windows.Forms.DataGridView dgvRacuni;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvStavke;
         private System.Windows.Forms.Button btnPovratak;
-        private System.Windows.Forms.Button btnGenerirajPdf;
         private System.Windows.Forms.Button btnStorniraj;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRacuni;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartStavke;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnPrikaziSve;
     }
 }

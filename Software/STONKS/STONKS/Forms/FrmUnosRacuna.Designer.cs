@@ -68,6 +68,7 @@
             // 
             // dgvArtikli
             // 
+            this.dgvArtikli.AllowUserToAddRows = false;
             this.dgvArtikli.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArtikli.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvArtikli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -103,6 +104,7 @@
             this.btnIzbrisiArtikl.TabIndex = 17;
             this.btnIzbrisiArtikl.Text = "Izbrisi stavku";
             this.btnIzbrisiArtikl.UseVisualStyleBackColor = false;
+            this.btnIzbrisiArtikl.Click += new System.EventHandler(this.btnIzbrisiArtikl_Click);
             // 
             // label3
             // 

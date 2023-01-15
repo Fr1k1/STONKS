@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Services;
 using EntitiesLayer.Entities;
+using iTextSharp.text;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace STONKS.Forms
     public partial class FrmOdaberiArtiklZaDodatiRucno : Form
     {
         private ArtikliServices artikliServices = new ArtikliServices();
-        public FrmUnosPrimke UnosPrimke { get; set; }
+        public FrmUnosRacuna UnosRacuna { get; set; }
         public FrmOdaberiArtiklZaDodatiRucno()
         {
             InitializeComponent();
@@ -40,7 +41,7 @@ namespace STONKS.Forms
             Zatvori();
         }
 
-        private void txtPretrazi_TextChanged(object sender, EventArgs e)
+        private void txtPretrazi_TextChanged(object sender, EventArgs e) // IZBRISI OVO
         {
             string searchText = txtPretrazi.Text;
             // TODO ili dole na keyup prema grafovima
@@ -48,26 +49,28 @@ namespace STONKS.Forms
 
         private void btnDodajArtikl_Click(object sender, EventArgs e)
         {
+            DodajArtiklUListu();
             // TODO da smanji kolicinu na skladistu ili baca error ak nema dovoljno tih artikala 
 
             var selectedRow = dgvPopisArtikala.CurrentRow;
-            
+
             if (selectedRow != null)
             {
                 var selectedArtikl = selectedRow.DataBoundItem as Artikl;
                 StavkaRacuna novaStavka = new StavkaRacuna
                 {
-                    Artikli= selectedArtikl,
+                    Artikli = selectedArtikl,
                     kolcina = 1,
                     popust = 0,
                     artikl_id = selectedArtikl.id,
                 };
                 FrmUnosRacuna.listaStavkiURacunu.Add(novaStavka);
+                // UnosRacuna.AddStavka(novaStavka);
                 Zatvori();
             }
             else
-            { 
-                MessageBox.Show("Nije odabran artikl!","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {
+                MessageBox.Show("Nije odabran artikl!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -79,10 +82,48 @@ namespace STONKS.Forms
             Close();
         }
 
+        private void DodajArtiklUListu()
+        {
+            // TODO da smanji kolicinu na skladistu ili baca error ak nema dovoljno tih artikala 
+
+            var selectedRow = dgvPopisArtikala.CurrentRow;
+
+            if (selectedRow != null)
+            {
+                var selectedArtikl = selectedRow.DataBoundItem as Artikl;
+                StavkaRacuna novaStavka = new StavkaRacuna
+                {
+                    Artikli = selectedArtikl,
+                    kolcina = 1,
+                    popust = 0,
+                    artikl_id = selectedArtikl.id,
+                    jed_cijena = selectedArtikl.jed_cijena,
+                    ukupno = selectedArtikl.jed_cijena * 1
+                };
+                if (FrmUnosRacuna.listaStavkiURacunu.Any(item => item.artikl_id == novaStavka.artikl_id))
+                {
+                    // vec je dodan ko stavka
+                    //var stavka = FrmUnosRacuna.listaStavkiURacunu.Find(item => item.artikl_id == novaStavka.artikl_id); // find ne postoji s binding listom...
+                    var stavka = FrmUnosRacuna.listaStavkiURacunu.SingleOrDefault(item => item.artikl_id == novaStavka.artikl_id);
+                    stavka.kolcina++;
+                }
+                else
+                {
+                    FrmUnosRacuna.listaStavkiURacunu.Add(novaStavka);
+                }
+                
+                Zatvori();
+            }
+            else
+            {
+                MessageBox.Show("Nije odabran artikl!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void txtPretrazi_KeyUp(object sender, KeyEventArgs e)
         {
             string searchText = txtPretrazi.Text;
-            // TODO
+            dgvPopisArtikala.DataSource = artikliServices.SearchArtikli(searchText);
         }
 
         private void UrediTablicuStavke()
@@ -99,6 +140,16 @@ namespace STONKS.Forms
             dgvPopisArtikala.Columns[5].HeaderText = "PDV";
             dgvPopisArtikala.Columns[7].HeaderText = "Barkod";
             dgvPopisArtikala.Columns[9].HeaderText = "Vrsta artikla";
+        }
+
+        private void dgvPopisArtikala_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DodajArtiklUListu();
+        }
+
+        private void txtPretrazi_Click(object sender, EventArgs e)
+        {
+            txtPretrazi.Text = "";
         }
     }
 }

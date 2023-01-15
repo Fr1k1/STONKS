@@ -1,14 +1,19 @@
 ﻿using BusinessLayer.Services;
 using EntitiesLayer.Entities;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Font = iTextSharp.text.Font;
 
 namespace STONKS.Forms
 {
@@ -20,6 +25,7 @@ namespace STONKS.Forms
         }
 
         private RacuniServices racunServices = new RacuniServices();
+        private ArtikliServices artiklServices = new ArtikliServices();
         private StavkeServices stavkaServices = new StavkeServices();
         private NaciniPlacanjaServices naciniServices = new NaciniPlacanjaServices();
 
@@ -37,6 +43,7 @@ namespace STONKS.Forms
         {
             var naciniPlacanja = naciniServices.GetNaciniPlacanja();
             cboVrsta.DataSource = naciniPlacanja;
+            loadanjeCharta1();
         }
 
         private void dgvRacuni_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -54,8 +61,10 @@ namespace STONKS.Forms
         private void PrikaziStavke()
         {
             var odabraniRed = dgvRacuni.CurrentRow.DataBoundItem as Racun;
-            dgvStavke.DataSource = stavkaServices.GetStavke(odabraniRed);
+            var stavke = stavkaServices.GetStavke(odabraniRed);
+            dgvStavke.DataSource = stavke;
             UrediTablicuStavke();
+            loadanjeCharta2(stavke);
         }
         private void cboVrsta_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -68,7 +77,6 @@ namespace STONKS.Forms
                 var odabraniNacin = cboVrsta.SelectedItem as NacinPlacanja;
                 var racuni = racunServices.GetRacuniFilter(odabraniNacin.id);
                 dgvRacuni.DataSource = racuni;
-                dgvRacuni.Columns[11].Visible = false; // todo
             }
         }
 
@@ -115,7 +123,9 @@ namespace STONKS.Forms
             dgvStavke.Columns["popust"].DisplayIndex = 2;
 
             dgvStavke.Columns["Artikli"].HeaderText = "Naziv artikla";
-            dgvStavke.Columns["kolcina"].HeaderText = "Kolicina";
+            dgvStavke.Columns["kolcina"].HeaderText = "Kolicina [kom]";
+            dgvStavke.Columns["ukupno"].HeaderText = "Ukupna cijena [EUR]";
+            dgvStavke.Columns["jed_cijena"].HeaderText = "Cijena/kom [EUR]";
             dgvStavke.Columns["popust"].HeaderText = "Popust po artiklu [%]";
         }
 
@@ -139,7 +149,59 @@ namespace STONKS.Forms
             {
                 MessageBox.Show("Došlo je do greške prilikom stroniranja","Greška",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+        }
 
+        private void loadanjeCharta1()
+        {
+            chartRacuni.Series["Broj placanja"].Points.AddXY("Karticno", racunServices.GetRacuniByNacinPlacanja(3));
+            chartRacuni.Series["Broj placanja"].Points.AddXY("Gotovina", racunServices.GetRacuniByNacinPlacanja(2));
+        }
+
+        private void loadanjeCharta2(List<StavkaRacuna> stavke)
+        {
+            chartStavke.Series["Broj artikala"].Points.Clear();
+
+            List<string> listaVrstaArtikala = new List<string>();
+
+            // sve vrste artikla u racunu
+            foreach(var s in stavke)
+            {
+                string vrsta = (artiklServices.GetArtikl(s.artikl_id)).VrsteArtikla.naziv;
+                if (!listaVrstaArtikala.Contains(vrsta))
+                {
+                    listaVrstaArtikala.Add(vrsta);
+                }
+            }
+
+            // po svakoj vrsti artikla od postojecih u tom racunu
+            foreach (var vrstaIzListe in listaVrstaArtikala)
+            {
+                var broj = 0;
+                string vrsta = null;
+
+                foreach (var s in stavke)
+                {
+                    vrsta = (artiklServices.GetArtikl(s.artikl_id)).VrsteArtikla.naziv;
+                    if (vrsta == vrstaIzListe)
+                    {
+                        broj += s.kolcina;
+                    }
+                }
+                if (broj > 0)
+                {
+                    chartStavke.Series["Broj artikala"].Points.AddXY(vrstaIzListe, broj);
+                }
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dgvRacuni.DataSource = racunServices.GetRacuniByDate(dateTimePicker1.Value);
+        }
+
+        private void btnPrikaziSve_Click(object sender, EventArgs e)
+        {
+            PrikaziRacune();
         }
     }
 }

@@ -19,7 +19,13 @@ namespace BusinessLayer.Services
             }
         }
 
-        internal List<Racun> GetRacuniByDate(DateTime date)
+        /*
+        public int GetIdForNewRacun()
+        {
+            return GetRacuni().Count + 1;
+        }*/
+
+        public List<Racun> GetRacuniByDate(DateTime date)
         {
             using (var repo = new RacuniRepository())
             {
@@ -32,6 +38,14 @@ namespace BusinessLayer.Services
             using (var repo = new RacuniRepository())
             {
                 return repo.GetByNacinPlacanja(id).ToList();
+            }
+        }
+
+        public int GetRacuniByNacinPlacanja(int id)
+        {
+            using (var repo = new RacuniRepository())
+            {
+                return repo.GetByNacinPlacanja(id).ToList().Count();
             }
         }
         /*
