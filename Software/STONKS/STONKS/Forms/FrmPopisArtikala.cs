@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Services;
+using EntitiesLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace STONKS.Forms
     public partial class FrmPopisArtikala : Form
     {
 
-       
+
 
         public FrmPopisArtikala()
         {
@@ -50,16 +51,25 @@ namespace STONKS.Forms
         {
             DohvatiVrste();
             PrikaziArtikle();
-            chartArticles.Series["Artikli po vrsti"].Points.AddXY("higijena", services.GetArtikliPoVrsti("Higijena"));
-            chartArticles.Series["Artikli po vrsti"].Points.AddXY("Kozmetika", services.GetArtikliPoVrsti("Kozmetika"));
-            chartArticles.Series["Artikli po vrsti"].Points.AddXY("Alkohol", services.GetArtikliPoVrsti("Alkohol"));
-            chartArticles.Series["Artikli po vrsti"].Points.AddXY("Elektronika", services.GetArtikliPoVrsti("Elektronika"));
-            chartArticles.Series["Artikli po vrsti"].Points.AddXY("Igracke", services.GetArtikliPoVrsti("Igracke"));
-            chartArticles.Series["Artikli po vrsti"].Points.AddXY("pice", services.GetArtikliPoVrsti("Pice"));
-            chartArticles.Series["Artikli po vrsti"].Points.AddXY("uredski pribor", services.GetArtikliPoVrsti("Uredski pribor"));
-            chartArticles.Series["Artikli po vrsti"].Points.AddXY("hrana", services.GetArtikliPoVrsti("Hrana"));
+            LoadanjeCharta();
 
         }
+
+        private void LoadanjeCharta()
+        {
+
+            var vrste = services.GetVrsteArtikla(); //sve vrste
+
+            foreach (var vrsta in vrste)
+            {
+
+                if (services.GetArtikliPoVrsti(vrsta.naziv) > 0)
+                    chartArticles.Series["Artikli po vrsti"].Points.AddXY(vrsta.naziv, services.GetArtikliPoVrsti(vrsta.naziv));
+            }
+
+        }
+
+
 
         private void DohvatiVrste()
         {
@@ -112,9 +122,9 @@ namespace STONKS.Forms
 
         private void btnFilterByType_Click(object sender, EventArgs e)
         {
-           /* string izraz = cbVrsta.Text;
-            var artikli = services.FilterByType(izraz);
-            dgvArtikli.DataSource = artikli;*/
+            /* string izraz = cbVrsta.Text;
+             var artikli = services.FilterByType(izraz);
+             dgvArtikli.DataSource = artikli;*/
         }
 
         private void btnResetFilter_Click(object sender, EventArgs e)
@@ -134,12 +144,11 @@ namespace STONKS.Forms
 
         private void cbSort_TextChanged(object sender, EventArgs e)
         {
-            // MessageBox.Show("Promjenil se tekst"); ovo dela
 
-            if(cbSort.Text=="ABECEDNO")
-            SortirajAbecedno();
+            if (cbSort.Text == "ABECEDNO")
+                SortirajAbecedno();
 
-            if (cbSort.Text =="CIJENA")
+            if (cbSort.Text == "CIJENA")
                 SortirajPoCijeni();
 
         }
@@ -149,6 +158,11 @@ namespace STONKS.Forms
             string izraz = cbVrsta.Text;
             var artikli = services.FilterByType(izraz);
             dgvArtikli.DataSource = artikli;
+        }
+
+        private void chartArticles_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
