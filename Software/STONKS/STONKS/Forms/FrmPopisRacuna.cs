@@ -26,8 +26,10 @@ namespace STONKS.Forms
         private void btnPovratak_Click(object sender, EventArgs e)
         {
             Hide();
-            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
-            frmPocetniIzbornik.ShowDialog();
+            /*FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
+            frmPocetniIzbornik.ShowDialog();*/
+            FrmFaceRecNewApproach.CheckLogirani(FrmFaceRecNewApproach.logiraniKorisnik.uloga_id);
+
             Close();
         }
 

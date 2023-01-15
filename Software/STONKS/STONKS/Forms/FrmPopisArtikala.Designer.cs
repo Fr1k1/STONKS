@@ -32,13 +32,15 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dgvArtikli = new System.Windows.Forms.DataGridView();
-            this.cboNaziv = new System.Windows.Forms.ComboBox();
             this.txtPretraziArtikle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnAddArticle = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.chartArticles = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.cbVrsta = new System.Windows.Forms.ComboBox();
+            this.btnResetFilter = new System.Windows.Forms.Button();
+            this.cbSort = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArtikli)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartArticles)).BeginInit();
             this.SuspendLayout();
@@ -47,26 +49,11 @@
             // 
             this.dgvArtikli.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvArtikli.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArtikli.Location = new System.Drawing.Point(12, 106);
+            this.dgvArtikli.Location = new System.Drawing.Point(157, 116);
             this.dgvArtikli.Name = "dgvArtikli";
-            this.dgvArtikli.Size = new System.Drawing.Size(772, 223);
+            this.dgvArtikli.Size = new System.Drawing.Size(857, 223);
             this.dgvArtikli.TabIndex = 33;
             this.dgvArtikli.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRacuni_CellContentClick);
-            // 
-            // cboNaziv
-            // 
-            this.cboNaziv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
-            this.cboNaziv.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cboNaziv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboNaziv.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboNaziv.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.cboNaziv.FormattingEnabled = true;
-            this.cboNaziv.ItemHeight = 25;
-            this.cboNaziv.Location = new System.Drawing.Point(656, 69);
-            this.cboNaziv.Name = "cboNaziv";
-            this.cboNaziv.Size = new System.Drawing.Size(128, 31);
-            this.cboNaziv.TabIndex = 32;
-            this.cboNaziv.Text = " filter";
             // 
             // txtPretraziArtikle
             // 
@@ -75,9 +62,11 @@
             this.txtPretraziArtikle.Location = new System.Drawing.Point(12, 69);
             this.txtPretraziArtikle.Multiline = true;
             this.txtPretraziArtikle.Name = "txtPretraziArtikle";
-            this.txtPretraziArtikle.Size = new System.Drawing.Size(321, 31);
+            this.txtPretraziArtikle.Size = new System.Drawing.Size(212, 31);
             this.txtPretraziArtikle.TabIndex = 31;
             this.txtPretraziArtikle.Text = " pretrazi...";
+            this.txtPretraziArtikle.Click += new System.EventHandler(this.txtPretraziArtikle_Click);
+            this.txtPretraziArtikle.TextChanged += new System.EventHandler(this.txtPretraziArtikle_TextChanged);
             // 
             // label2
             // 
@@ -107,7 +96,7 @@
             this.btnAddArticle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddArticle.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddArticle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.btnAddArticle.Location = new System.Drawing.Point(597, 719);
+            this.btnAddArticle.Location = new System.Drawing.Point(898, 719);
             this.btnAddArticle.Name = "btnAddArticle";
             this.btnAddArticle.Size = new System.Drawing.Size(187, 38);
             this.btnAddArticle.TabIndex = 36;
@@ -135,27 +124,81 @@
             this.chartArticles.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartArticles.Legends.Add(legend1);
-            this.chartArticles.Location = new System.Drawing.Point(159, 371);
+            this.chartArticles.Location = new System.Drawing.Point(305, 354);
             this.chartArticles.Name = "chartArticles";
             series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.CustomProperties = "PieLabelStyle=Disabled";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Artikli po vrsti";
             this.chartArticles.Series.Add(series1);
             this.chartArticles.Size = new System.Drawing.Size(474, 300);
             this.chartArticles.TabIndex = 37;
             this.chartArticles.Text = "chart1";
+            this.chartArticles.Click += new System.EventHandler(this.chartArticles_Click);
+            // 
+            // cbVrsta
+            // 
+            this.cbVrsta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.cbVrsta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbVrsta.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbVrsta.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.cbVrsta.FormattingEnabled = true;
+            this.cbVrsta.ItemHeight = 21;
+            this.cbVrsta.Location = new System.Drawing.Point(492, 71);
+            this.cbVrsta.Name = "cbVrsta";
+            this.cbVrsta.Size = new System.Drawing.Size(198, 29);
+            this.cbVrsta.TabIndex = 32;
+            this.cbVrsta.Text = "filter vrste";
+            this.cbVrsta.SelectedIndexChanged += new System.EventHandler(this.cbVrsta_SelectedIndexChanged);
+            this.cbVrsta.TextChanged += new System.EventHandler(this.cbVrsta_TextChanged);
+            // 
+            // btnResetFilter
+            // 
+            this.btnResetFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(57)))), ((int)(((byte)(67)))));
+            this.btnResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetFilter.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.btnResetFilter.Location = new System.Drawing.Point(731, 69);
+            this.btnResetFilter.Name = "btnResetFilter";
+            this.btnResetFilter.Size = new System.Drawing.Size(178, 31);
+            this.btnResetFilter.TabIndex = 39;
+            this.btnResetFilter.Text = "Ponisti filter";
+            this.btnResetFilter.UseVisualStyleBackColor = false;
+            this.btnResetFilter.Click += new System.EventHandler(this.btnResetFilter_Click);
+            // 
+            // cbSort
+            // 
+            this.cbSort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(188)))), ((int)(((byte)(196)))));
+            this.cbSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbSort.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSort.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.cbSort.FormattingEnabled = true;
+            this.cbSort.ItemHeight = 21;
+            this.cbSort.Items.AddRange(new object[] {
+            "CIJENA",
+            "ABECEDNO"});
+            this.cbSort.Location = new System.Drawing.Point(255, 69);
+            this.cbSort.Name = "cbSort";
+            this.cbSort.Size = new System.Drawing.Size(198, 29);
+            this.cbSort.TabIndex = 40;
+            this.cbSort.Text = "Sortiranje";
+            this.cbSort.SelectedIndexChanged += new System.EventHandler(this.cbSort_SelectedIndexChanged);
+            this.cbSort.TextChanged += new System.EventHandler(this.cbSort_TextChanged);
             // 
             // FrmPopisArtikala
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(800, 769);
+            this.ClientSize = new System.Drawing.Size(1097, 769);
+            this.Controls.Add(this.cbSort);
+            this.Controls.Add(this.btnResetFilter);
             this.Controls.Add(this.chartArticles);
             this.Controls.Add(this.btnAddArticle);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dgvArtikli);
-            this.Controls.Add(this.cboNaziv);
+            this.Controls.Add(this.cbVrsta);
             this.Controls.Add(this.txtPretraziArtikle);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -173,12 +216,14 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvArtikli;
-        private System.Windows.Forms.ComboBox cboNaziv;
         private System.Windows.Forms.TextBox txtPretraziArtikle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAddArticle;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartArticles;
+        private System.Windows.Forms.ComboBox cbVrsta;
+        private System.Windows.Forms.Button btnResetFilter;
+        private System.Windows.Forms.ComboBox cbSort;
     }
 }

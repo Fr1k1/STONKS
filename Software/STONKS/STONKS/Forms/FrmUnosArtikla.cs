@@ -81,8 +81,9 @@ namespace STONKS.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+         
 
-            Hide();
+           Hide();
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             frmPocetniIzbornik.ShowDialog();
             Close();
@@ -90,8 +91,7 @@ namespace STONKS.Forms
 
         private void txtCode_TextChanged(object sender, EventArgs e)
         {
-            //ako neko upise broj npr 85 dodaj ispred njega nule da duzina bude kolko treba za barkod
-            //barkod ima 12 znamenki, ak neko upise 3 broja za sifru ispred se dodaje devet nula
+            
         }
 
         private void txtCode_Click(object sender, EventArgs e)

@@ -56,9 +56,13 @@ namespace STONKS.Forms
 
         private void povratakNaMeni() 
         {
-            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
+
+
+            //FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             Hide();
-            frmPocetniIzbornik.ShowDialog();
+            FrmFaceRecNewApproach.CheckLogirani(FrmFaceRecNewApproach.logiraniKorisnik.uloga_id);
+
+            //frmPocetniIzbornik.ShowDialog();
             Close();
         }
 
