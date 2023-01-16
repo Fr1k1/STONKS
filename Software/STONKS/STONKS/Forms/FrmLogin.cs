@@ -34,11 +34,20 @@ namespace STONKS
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            var korisnik = services.GetLoggedKorisnik(txtUsername.Text, txtPassword.Text);
-            FrmFaceRecNewApproach.logiraniKorisnik = korisnik;
-            MessageBox.Show(korisnik.uloga_id.ToString());
+            try
+            {
+                var korisnik = services.GetLoggedKorisnik(txtUsername.Text, txtPassword.Text);
+                FrmFaceRecNewApproach.logiraniKorisnik = korisnik;
+                MessageBox.Show(korisnik.uloga_id.ToString());
 
-            LoginUser(txtUsername.Text, txtPassword.Text);
+                LoginUser(txtUsername.Text, txtPassword.Text);
+
+            }
+
+            catch (Exception exc)
+            {
+                MessageBox.Show("Krivi korisnički podaci!");
+            }
 
 
 

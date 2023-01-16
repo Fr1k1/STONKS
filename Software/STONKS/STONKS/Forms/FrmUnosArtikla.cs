@@ -54,6 +54,23 @@ namespace STONKS.Forms
         private void btnAddArtikl_Click(object sender, EventArgs e)
         {
 
+            if (txtCode.Text == "" || txtName.Text == "" || txtUnitPrice.Text == "" || txtPDV.Text == ""
+                || txtCode.Text == "SIFRA/BARKOD" || txtName.Text == "NAZIV" || txtUnitPrice.Text == "JEDINICNA CIJENA" || txtPDV.Text == "PDV"
+                )
+            {
+                MessageBox.Show("Popunite sva polja!");
+                return;
+            }
+
+
+            if (double.Parse(txtUnitPrice.Text) < 0 || double.Parse(txtPDV.Text) < 0)
+            {
+
+                MessageBox.Show("Cijena i PDV moraju biti pozitivni");
+                return;
+            }
+
+
             var vrstaArtikla = cbArticleType.SelectedItem as VrstaArtikla;
             var artikl = new Artikl
             {
@@ -61,7 +78,6 @@ namespace STONKS.Forms
                 sifra = txtCode.Text,
                 naziv = txtName.Text,
                 jed_cijena = Convert.ToDouble(txtUnitPrice.Text),
-
                 pdv = Convert.ToInt32(txtPDV.Text),
                 vrsta_artikla_id = vrstaArtikla.id,
                 VrsteArtikla = vrstaArtikla,
@@ -69,8 +85,16 @@ namespace STONKS.Forms
 
 
             };
+            foreach (var a in services.GetArtikli())
+            {
+                if (long.Parse(txtCode.Text) == long.Parse(a.sifra))
+                {
+                    MessageBox.Show("Artikl s ovim barkodom vec postoji!");
+                    return;
+                }
+            }
 
-           bool success =  services.DodajArtikl(artikl);
+            bool success = services.DodajArtikl(artikl);
             if (success)
                 MessageBox.Show("Uspjesno dodan artikl");
             else
@@ -81,9 +105,9 @@ namespace STONKS.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-         
 
-           Hide();
+
+            Hide();
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             frmPocetniIzbornik.ShowDialog();
             Close();
@@ -91,7 +115,7 @@ namespace STONKS.Forms
 
         private void txtCode_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtCode_Click(object sender, EventArgs e)
@@ -128,7 +152,7 @@ namespace STONKS.Forms
             BarcodeWriter writer = new BarcodeWriter()
             {
                 Format = BarcodeFormat.CODE_128,
-                Options = new ZXing.Common.EncodingOptions { Height = 100 ,Width = 300 }
+                Options = new ZXing.Common.EncodingOptions { Height = 100, Width = 300 }
             };
             pbBarcode.Image = writer.Write(txtCode.Text);
         }
