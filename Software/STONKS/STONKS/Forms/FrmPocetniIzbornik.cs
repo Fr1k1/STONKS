@@ -87,5 +87,14 @@ namespace STONKS.Forms
             frmDnevniPromet.ShowDialog();
             Close();
         }
+
+        private void btnOdjava_Click(object sender, EventArgs e)
+        {
+            FrmPrepoznavanjeLica.logiraniKorisnik = null;
+            Hide();
+            FrmLogin frm = new FrmLogin();
+            frm.ShowDialog();
+            Close();
+        }
     }
 }

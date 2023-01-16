@@ -54,7 +54,7 @@ namespace STONKS.Forms
             //    frmPocetniIzbornik.ShowDialog();
             //}
 
-            FrmFaceRecNewApproach.CheckLogirani(FrmFaceRecNewApproach.logiraniKorisnik.uloga_id);
+            FrmPrepoznavanjeLica.CheckLogirani();
 
 
             Close();
@@ -183,7 +183,7 @@ namespace STONKS.Forms
             }
 
             // Dodajemo ime osobe koja je izdala dokument na dnu stranice
-            document.Add(new Paragraph("Izdao:" + FrmFaceRecNewApproach.logiraniKorisnik.ime + " " + FrmFaceRecNewApproach.logiraniKorisnik.prezime));
+            document.Add(new Paragraph("Izdao:" + FrmPrepoznavanjeLica.logiraniKorisnik.ime + " " + FrmPrepoznavanjeLica.logiraniKorisnik.prezime));
 
             // Zatvaramo dokument
             document.Close();
@@ -193,7 +193,7 @@ namespace STONKS.Forms
 
         private void btnIzradaIspisZ_Click(object sender, EventArgs e)
         {
-            if (prometServices.CreateZ(FrmFaceRecNewApproach.logiraniKorisnik))
+            if (prometServices.CreateZ(FrmPrepoznavanjeLica.logiraniKorisnik))
             {
                 MessageBox.Show("Promez Z izrađen", "Uspijeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CheckIfTraficReportHasBeenSubmited();

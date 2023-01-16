@@ -1,6 +1,6 @@
 ﻿namespace STONKS.Forms
 {
-    partial class FrmFaceRecNewApproach
+    partial class FrmPrepoznavanjeLica
     {
         /// <summary>
         /// Required designer variable.

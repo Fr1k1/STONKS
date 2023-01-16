@@ -43,7 +43,7 @@ namespace STONKS
             try
             {
                 var korisnik = services.GetLoggedKorisnik(txtUsername.Text, txtPassword.Text);
-                FrmFaceRecNewApproach.logiraniKorisnik = korisnik;
+                FrmPrepoznavanjeLica.logiraniKorisnik = korisnik;
                 
                 LoginUser(txtUsername.Text, txtPassword.Text);
 

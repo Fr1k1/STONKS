@@ -53,7 +53,6 @@
             this.dgvArtikli.Name = "dgvArtikli";
             this.dgvArtikli.Size = new System.Drawing.Size(857, 223);
             this.dgvArtikli.TabIndex = 33;
-            this.dgvArtikli.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRacuni_CellContentClick);
             // 
             // txtPretraziArtikle
             // 
@@ -135,7 +134,6 @@
             this.chartArticles.Size = new System.Drawing.Size(474, 300);
             this.chartArticles.TabIndex = 37;
             this.chartArticles.Text = "chart1";
-            this.chartArticles.Click += new System.EventHandler(this.chartArticles_Click);
             // 
             // cbVrsta
             // 
@@ -150,7 +148,6 @@
             this.cbVrsta.Size = new System.Drawing.Size(198, 29);
             this.cbVrsta.TabIndex = 32;
             this.cbVrsta.Text = "filter vrste";
-            this.cbVrsta.SelectedIndexChanged += new System.EventHandler(this.cbVrsta_SelectedIndexChanged);
             this.cbVrsta.TextChanged += new System.EventHandler(this.cbVrsta_TextChanged);
             // 
             // btnResetFilter
@@ -183,7 +180,6 @@
             this.cbSort.Size = new System.Drawing.Size(198, 29);
             this.cbSort.TabIndex = 40;
             this.cbSort.Text = "Sortiranje";
-            this.cbSort.SelectedIndexChanged += new System.EventHandler(this.cbSort_SelectedIndexChanged);
             this.cbSort.TextChanged += new System.EventHandler(this.cbSort_TextChanged);
             // 
             // FrmPopisArtikala

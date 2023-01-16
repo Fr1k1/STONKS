@@ -75,6 +75,7 @@
             this.btnOdjava.TabIndex = 19;
             this.btnOdjava.Text = "ODJAVA";
             this.btnOdjava.UseVisualStyleBackColor = false;
+            this.btnOdjava.Click += new System.EventHandler(this.btnOdjava_Click);
             // 
             // btnDnevniPromet
             // 

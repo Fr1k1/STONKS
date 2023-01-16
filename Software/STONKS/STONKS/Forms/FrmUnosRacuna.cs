@@ -22,9 +22,10 @@ namespace STONKS.Forms
         static public double ukupanPopust { get; set; }
         public ArtikliServices servicesArtikli = new ArtikliServices();
         public RacuniServices racuniServices = new RacuniServices();
+        public PrometServices prometServices = new PrometServices();
+        
         public static double ukupniPDV { get; set; }
       
-
         // za kameru i barkod
         private FilterInfoCollection filterInfoCollection;
         private VideoCaptureDevice videoCaptureDevice = null;
@@ -33,17 +34,10 @@ namespace STONKS.Forms
         {
             InitializeComponent();
         }
-
         
     private void btnOdustani_Click(object sender, EventArgs e)
         {
-            UnloadCamera();
-            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
-            Hide();
-            FrmFaceRecNewApproach.CheckLogirani(FrmFaceRecNewApproach.logiraniKorisnik.uloga_id);
-
-            //frmPocetniIzbornik.ShowDialog();
-            Close(); 
+            Zatvori();
         }
 
         private void btnDodajRucno_Click(object sender, EventArgs e)
@@ -57,6 +51,7 @@ namespace STONKS.Forms
 
         private void btnNastavi_Click(object sender, EventArgs e)
         {
+            ProvjeriPodatke();
             UnloadCamera();
             IzracunajPDV();
             FrmIzradaRacuna frmIzradaRacuna = new FrmIzradaRacuna();
@@ -67,21 +62,32 @@ namespace STONKS.Forms
 
         private void FrmUnosRacuna_Load(object sender, EventArgs e)
         {
-            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[0].MonikerString);
-            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
-            videoCaptureDevice.DesiredFrameRate = 1;
-
-            videoCaptureDevice.Start();
-
-            UrediTablicuStavke(); 
-            
-            if (listaStavkiURacunu != null)
+            if(prometServices.isZDone(DateTime.Now) == false)
             {
-                IzracunajPopust();
-                IzracunajUkupno();     
+                filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[0].MonikerString);
+                videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+                videoCaptureDevice.DesiredFrameRate = 1;
+
+                videoCaptureDevice.Start();
+
+                UrediTablicuStavke();
+
+                if (listaStavkiURacunu != null)
+                {
+                    IzracunajPopust();
+                    IzracunajUkupno();
+                }
             }
+            else
+            {
+                MessageBox.Show("Blagajna je zatvorena. \nNije vise moguce unijeti novi racun za danasnji dan.","Zatvoreno", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Zatvori();
+            }
+            
         }
+
+
 
         private void dgvArtikli_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -231,6 +237,20 @@ namespace STONKS.Forms
                 videoCaptureDevice.SignalToStop();
                 videoCaptureDevice = null;
             }
+        }
+
+        private void Zatvori()
+        {
+            UnloadCamera();
+            FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
+            Hide();
+            FrmPrepoznavanjeLica.CheckLogirani();
+            Close();
+        }
+
+        private void ProvjeriPodatke()
+        {
+
         }
     }
 }

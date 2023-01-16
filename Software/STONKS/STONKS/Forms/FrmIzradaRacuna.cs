@@ -67,12 +67,10 @@ namespace STONKS.Forms
 
         private void povratakNaMeni() 
         {
-            FrmUnosRacuna.listaStavkiURacunu.Clear(); // OVO JE BILO
+            FrmUnosRacuna.listaStavkiURacunu.Clear(); // OVO JE BILO, MOZDA MAKNI TODO
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             Hide();
-            FrmFaceRecNewApproach.CheckLogirani(FrmFaceRecNewApproach.logiraniKorisnik.uloga_id);
-
-            //frmPocetniIzbornik.ShowDialog();
+            FrmPrepoznavanjeLica.CheckLogirani();
             Close();
         }
 
@@ -82,7 +80,6 @@ namespace STONKS.Forms
             var racunNovi = new Racun
             {
                 nacin_placanja_id = selectedNacinPlacanja.id,
-                // korisnik_id = FrmFaceRecNewApproach.logiraniKorisnik.id,  // OVO JE DOBRO
                 korisnik_id = 1,
                 vrijeme_izdavanja = DateTime.Now,
                 ukupno = FrmUnosRacuna.ukupnoUnos,
@@ -142,13 +139,12 @@ namespace STONKS.Forms
             document.Add(last);
             last.SpacingAfter = 20;
 
-            // tablica stavki u racunu
             PdfPTable stavkeTablica = new PdfPTable(6) { SpacingBefore = 10, WidthPercentage = 100f };
             last.SpacingBefore = 20;
 
             PdfPCell cell = new PdfPCell(new Phrase("Artikli racuna"));
             cell.Colspan = 6;
-            cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
+            cell.HorizontalAlignment = 1;
             stavkeTablica.AddCell(cell);
 
             stavkeTablica.AddCell("Redni broj artikla");
@@ -161,23 +157,13 @@ namespace STONKS.Forms
             var i = 1; 
             foreach (var stavka in FrmUnosRacuna.listaStavkiURacunu.ToList())
             {
-                // redni broj stavke
                 stavkeTablica.AddCell(i.ToString()+".");
                 i++;
 
-                // naziv artikla
                 stavkeTablica.AddCell(stavka.Artikli.ToString());
-
-                // cijena po kom
                 stavkeTablica.AddCell(stavka.jed_cijena.ToString());
-
-                // kom
                 stavkeTablica.AddCell(stavka.kolcina.ToString());
-
-                // popust
                 stavkeTablica.AddCell(stavka.popust.ToString());
-
-                // iznos
                 var uk_cijena = stavka.kolcina * stavka.jed_cijena;
                 if (stavka.popust > 0)
                 {
@@ -188,7 +174,7 @@ namespace STONKS.Forms
             
             PdfPCell cellUkupno = new PdfPCell(new Phrase("UKUPNA CIJENA RACUNA: "));
             cellUkupno.Colspan = 5;
-            cellUkupno.HorizontalAlignment = 2; // 0=Left, 1=Centre, 2=Right
+            cellUkupno.HorizontalAlignment = 2;
             stavkeTablica.AddCell(cellUkupno);
 
             stavkeTablica.AddCell(FrmUnosRacuna.ukupnoUnos.ToString());
@@ -199,7 +185,6 @@ namespace STONKS.Forms
             document.Add(new Paragraph("ZKI: " + "842291704b770fad012333b24c54785b"));
             document.Add(new Paragraph("JIR: " + "fadd8b45-5789-458d-8b4c-afd0c54ad89e"));
 
-            // slika qr koda do porezne, u x64/debug se nalazi
             iTextSharp.text.Image slikaQR = iTextSharp.text.Image.GetInstance("qr.png");
             slikaQR.ScaleAbsolute(120,120);
             slikaQR.Alignment = Element.ALIGN_CENTER;
@@ -207,9 +192,7 @@ namespace STONKS.Forms
             slikaQR.SpacingAfter = 40;
 
             document.Add(new Paragraph("Racun je pravovaljan bez ziga jer je izdan na racunalu.", highlightFont));
-
-            // document.Add(new Paragraph("Zaposlenik: " + FrmFaceRecNewApproach.logiraniKorisnik.korime)); // OVO JE DOBRO
-            document.Add(new Paragraph("Zaposlenik: " + "PROMIJENI U KOMENTAR IZNAD"));
+            document.Add(new Paragraph("Zaposlenik: " + FrmPrepoznavanjeLica.logiraniKorisnik.korime));
             var selectedNacinPlacanja = cboOdabirNacinaPlacanja.SelectedItem as NacinPlacanja;
             document.Add(new Paragraph("Nacin placanja: " + selectedNacinPlacanja.naziv));
             document.Add(new Paragraph("Datum i mjesto izdavanja: " + datumIzdavanja.ToString("dd.MM.yyyy HH:mm:ss") + ", Karlovac"));
