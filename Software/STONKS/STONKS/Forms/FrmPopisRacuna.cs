@@ -135,9 +135,8 @@ namespace STONKS.Forms
 
         private void CreateStorno(Racun racun)
         {   
-            //dohvatiti stavke
             var stavke = stavkaServices.GetStavke(racun);
-            racun.korisnik_id = FrmPrepoznavanjeLica.logiraniKorisnik.id; // set user that created bill to logged user
+            racun.korisnik_id = FrmPrepoznavanjeLica.logiraniKorisnik.id;
             if (racunServices.AddInverse(racun, stavke))
             {
                 MessageBox.Show("Racun je uspiješno storniran","Uspijeh", MessageBoxButtons.OK, MessageBoxIcon.Information);

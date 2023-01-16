@@ -34,8 +34,7 @@ namespace STONKS.Forms
 
         public FrmDnevniPromet()
         {
-            InitializeComponent();
-            
+            InitializeComponent();    
         }
 
         private void btnPovratak_Click(object sender, EventArgs e)
@@ -73,7 +72,6 @@ namespace STONKS.Forms
 
         private void CheckIfTraficReportHasBeenSubmited()
         {   
-            
             var promet = prometServices.isZDone(dtpDate.Value);
             Console.WriteLine(promet);
             if(DateTime.Now.Date != dtpDate.Value.Date)

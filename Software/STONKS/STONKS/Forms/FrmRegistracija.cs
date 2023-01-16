@@ -62,7 +62,6 @@ namespace STONKS.Forms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-
             if (txtOIB.Text == "" || txtName.Text == "" || txtPassword.Text == "" || txtSurname.Text == "" || txtUsername.Text == "")
             {
                 MessageBox.Show("Popunite sva polja!");
@@ -103,11 +102,7 @@ namespace STONKS.Forms
                 lozinka = txtPassword.Text,
                 uloga_id = uloga.id,
                 slika = @"\preloaded_faces\" + txtUsername.Text + ".jpg",
-
             };
-
-
-
             korisniciServices.AddKorisnik(korisnik);
             MessageBox.Show("Uspjesno dodan korisnik");
         }
@@ -118,40 +113,29 @@ namespace STONKS.Forms
                 textBox.Text = "";
         }
 
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtName_Click(object sender, EventArgs e)
         {
             SetText(txtName);
-
         }
 
         private void txtSurname_Click(object sender, EventArgs e)
         {
             SetText(txtSurname);
-
-
         }
 
         private void txtOIB_Click(object sender, EventArgs e)
         {
             SetText(txtOIB);
-
         }
 
         private void txtUsername_Click(object sender, EventArgs e)
         {
             SetText(txtUsername);
-
         }
 
         private void txtPassword_Click(object sender, EventArgs e)
         {
             SetText(txtPassword);
-
         }
 
         private void btnUkljuciKameru_new_Click(object sender, EventArgs e)
@@ -175,36 +159,17 @@ namespace STONKS.Forms
                 if (captureDevice.IsRunning)
                 {
                     captureDevice.SignalToStop();
-
-
                     captureDevice = null;
-
-
-
                 }
-
-
             }
-
             btnSave_new.Enabled = true;
         }
 
         private void btnSave_new_Click(object sender, EventArgs e)
         {
             pbSlikaZaSpremiti_new.SizeMode = PictureBoxSizeMode.StretchImage;
-
             pbSlikaZaSpremiti_new.Image = pbCamera_new.Image;
-            //pbSlikaZaSpremiti_new.Image.Save(txtUsername.Text + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
-            // pbSlikaZaSpremiti_new.Image.Save(path + @"\preloaded_faces\" + txtUsername.Text + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-
-            //MessageBox.Show(path + "\\" + "captured_pic" + ".jpg");
-            //pbSlikaZaSpremiti_new.Image.Save(path + "\\" + "captured_pic" + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-            //pbSlikaZaSpremiti_new.Image.Save(path + "\\" + "captured_pic" + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-            //kada se pri prvom pokretanju aplikacije saving location postavi na desktop, onda su dovoljne ove dvije linije,
-            //ali za prvo pokretanje potreban je dialog
-
-            //MessageBox.Show("Spremljena slika");
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.InitialDirectory = path + "\\" + "preloaded_faces";
             saveFileDialog.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
@@ -214,15 +179,9 @@ namespace STONKS.Forms
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-
-
                 pbSlikaZaSpremiti_new.Image.Save(saveFileDialog.FileName);
                 btnRegister.Enabled = true;
-
-                //pbSlikaZaSpremiti.Image.Dispose();
             }
-
-
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
@@ -230,7 +189,6 @@ namespace STONKS.Forms
             if (txtUsername.Text != "" || txtUsername.Text != "KORISNICKO IME")
             {
                 btnUkljuciKameru_new.Enabled = true;
-
             }
         }
     }

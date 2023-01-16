@@ -41,19 +41,10 @@ namespace STONKS.Forms
             Zatvori();
         }
 
-        private void txtPretrazi_TextChanged(object sender, EventArgs e) // IZBRISI OVO
-        {
-            string searchText = txtPretrazi.Text;
-            // TODO ili dole na keyup prema grafovima
-        }
-
         private void btnDodajArtikl_Click(object sender, EventArgs e)
         {
             DodajArtiklUListu();
-            // TODO da smanji kolicinu na skladistu ili baca error ak nema dovoljno tih artikala 
-
             var selectedRow = dgvPopisArtikala.CurrentRow;
-
             if (selectedRow != null)
             {
                 var selectedArtikl = selectedRow.DataBoundItem as Artikl;
@@ -65,7 +56,6 @@ namespace STONKS.Forms
                     artikl_id = selectedArtikl.id,
                 };
                 FrmUnosRacuna.listaStavkiURacunu.Add(novaStavka);
-                // UnosRacuna.AddStavka(novaStavka);
                 Zatvori();
             }
             else
@@ -84,10 +74,7 @@ namespace STONKS.Forms
 
         private void DodajArtiklUListu()
         {
-            // TODO da smanji kolicinu na skladistu ili baca error ak nema dovoljno tih artikala 
-
             var selectedRow = dgvPopisArtikala.CurrentRow;
-
             if (selectedRow != null)
             {
                 var selectedArtikl = selectedRow.DataBoundItem as Artikl;
@@ -102,8 +89,6 @@ namespace STONKS.Forms
                 };
                 if (FrmUnosRacuna.listaStavkiURacunu.Any(item => item.artikl_id == novaStavka.artikl_id))
                 {
-                    // vec je dodan ko stavka
-                    //var stavka = FrmUnosRacuna.listaStavkiURacunu.Find(item => item.artikl_id == novaStavka.artikl_id); // find ne postoji s binding listom...
                     var stavka = FrmUnosRacuna.listaStavkiURacunu.SingleOrDefault(item => item.artikl_id == novaStavka.artikl_id);
                     stavka.kolcina++;
                 }

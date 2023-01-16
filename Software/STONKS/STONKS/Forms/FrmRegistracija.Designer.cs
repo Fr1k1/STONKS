@@ -136,7 +136,6 @@
             this.txtName.TabIndex = 23;
             this.txtName.Text = "IME";
             this.txtName.Click += new System.EventHandler(this.txtName_Click);
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label2
             // 
