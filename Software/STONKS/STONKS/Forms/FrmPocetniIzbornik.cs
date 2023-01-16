@@ -17,15 +17,11 @@ namespace STONKS.Forms
             InitializeComponent();
         }
 
-
-
         private void btnUnosArtikla_Click(object sender, EventArgs e)
         {
-
             Hide();
             FrmUnosArtikla frmUnosArtikla = new FrmUnosArtikla();
             frmUnosArtikla.ShowDialog();
-
             Close();
         }
 

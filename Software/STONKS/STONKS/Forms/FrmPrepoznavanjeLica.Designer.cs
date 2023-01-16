@@ -215,7 +215,7 @@
             this.cbCameraName_new.Size = new System.Drawing.Size(112, 21);
             this.cbCameraName_new.TabIndex = 64;
             // 
-            // FrmFaceRecNewApproach
+            // FrmPrepoznavanjeLica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -235,7 +235,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbPic1_new);
-            this.Name = "FrmFaceRecNewApproach";
+            this.Name = "FrmPrepoznavanjeLica";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prijava pomocu lica";
             this.Load += new System.EventHandler(this.FrmFaceRecNewApproach_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbSlikaZaSpremiti_new)).EndInit();

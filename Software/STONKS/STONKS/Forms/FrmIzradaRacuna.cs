@@ -89,7 +89,7 @@ namespace STONKS.Forms
             };
             if (servicesRacuni.AddRacun(racunNovi, FrmUnosRacuna.listaStavkiURacunu.ToList()))
             {
-                MessageBox.Show("Unesen racun!");
+                MessageBox.Show("Unesen racun!","Uspjesan unos!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             else

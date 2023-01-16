@@ -23,10 +23,8 @@ namespace STONKS.Forms
         public ArtikliServices servicesArtikli = new ArtikliServices();
         public RacuniServices racuniServices = new RacuniServices();
         public PrometServices prometServices = new PrometServices();
-        
-        public static double ukupniPDV { get; set; }
+        static public double ukupniPDV { get; set; }
       
-        // za kameru i barkod
         private FilterInfoCollection filterInfoCollection;
         private VideoCaptureDevice videoCaptureDevice = null;
 
@@ -51,13 +49,19 @@ namespace STONKS.Forms
 
         private void btnNastavi_Click(object sender, EventArgs e)
         {
-            ProvjeriPodatke();
-            UnloadCamera();
-            IzracunajPDV();
-            FrmIzradaRacuna frmIzradaRacuna = new FrmIzradaRacuna();
-            Hide();
-            frmIzradaRacuna.ShowDialog();
-            Close();
+            if (ProvjeriPodatke() == true)
+            {
+                UnloadCamera();
+                IzracunajPDV();
+                FrmIzradaRacuna frmIzradaRacuna = new FrmIzradaRacuna();
+                Hide();
+                frmIzradaRacuna.ShowDialog();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Provjeri ispravnost podataka", "Nedopusten unos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }    
         }
 
         private void FrmUnosRacuna_Load(object sender, EventArgs e)
@@ -84,22 +88,17 @@ namespace STONKS.Forms
                 MessageBox.Show("Blagajna je zatvorena. \nNije vise moguce unijeti novi racun za danasnji dan.","Zatvoreno", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Zatvori();
             }
-            
         }
-
-
 
         private void dgvArtikli_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             IzracunajUkupnoPoStavci(e.RowIndex);
             IzracunajPopust();
-            IzracunajUkupno();
-            
+            IzracunajUkupno();  
         }
 
         private void IzracunajUkupnoPoStavci(int rowIndex)
         {
-            // racuna se novi stupac ukupno kad god se promijeni kolicina
             int kol = (int)dgvArtikli.Rows[rowIndex].Cells["kolcina"].Value;
             double jed_cijena = (double)dgvArtikli.Rows[rowIndex].Cells["jed_cijena"].Value;
             double popust = (double)dgvArtikli.Rows[rowIndex].Cells["popust"].Value;
@@ -133,7 +132,7 @@ namespace STONKS.Forms
             double pdvzataj = 0;
             foreach (var item in listaStavkiURacunu)
             {
-                double artiklPDV = servicesArtikli.GetPDV(item.artikl_id); // u postotku
+                double artiklPDV = servicesArtikli.GetPDV(item.artikl_id);
                 if (item.popust > 0)
                 {
                     double popustDecimalni = 1 - ((double)(item.popust) / 100);
@@ -148,7 +147,7 @@ namespace STONKS.Forms
             }
         }
 
-        private void IzracunajPopust() // unosi se u postotku
+        private void IzracunajPopust()
         {
             ukupanPopust = 0;
             foreach (var item in listaStavkiURacunu)
@@ -187,7 +186,6 @@ namespace STONKS.Forms
             listaStavkiURacunu.Remove(selectedStavka);
         }
 
-        // ZA KAMERU I BARKOD
         private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             var image = (Bitmap)eventArgs.Frame.Clone();
@@ -228,7 +226,6 @@ namespace STONKS.Forms
             }
         }
 
-        // ugasi kameru
         private void UnloadCamera()
         {
             Console.WriteLine("close");
@@ -248,9 +245,17 @@ namespace STONKS.Forms
             Close();
         }
 
-        private void ProvjeriPodatke()
+        private bool ProvjeriPodatke()
         {
-
+            foreach (DataGridViewRow row in dgvArtikli.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    if ((int)row.Cells["kolcina"].Value < 0 || (double)row.Cells["popust"].Value < 0 || row.Cells["Artikli"].Value == null)
+                        return false;
+                }
+            }
+            return true;
         }
     }
 }
