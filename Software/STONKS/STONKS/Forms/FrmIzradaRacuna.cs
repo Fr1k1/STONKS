@@ -172,11 +172,22 @@ namespace STONKS.Forms
                 stavkeTablica.AddCell(uk_cijena.ToString());
             }
             
+            PdfPCell cellUkupanBezPDV = new PdfPCell(new Phrase("Ukupna cijena bez PDV-a: "));
+            cellUkupanBezPDV.Colspan = 5;
+            cellUkupanBezPDV.HorizontalAlignment = 2;
+            stavkeTablica.AddCell(cellUkupanBezPDV);
+            stavkeTablica.AddCell((FrmUnosRacuna.ukupnoUnos - FrmUnosRacuna.ukupniPDV).ToString());
+
+            PdfPCell cellUkupanPDV = new PdfPCell(new Phrase("Ukupan PDV: "));
+            cellUkupanPDV.Colspan = 5;
+            cellUkupanPDV.HorizontalAlignment = 2;
+            stavkeTablica.AddCell(cellUkupanPDV);
+            stavkeTablica.AddCell(FrmUnosRacuna.ukupniPDV.ToString());
+
             PdfPCell cellUkupno = new PdfPCell(new Phrase("UKUPNA CIJENA RACUNA: "));
             cellUkupno.Colspan = 5;
             cellUkupno.HorizontalAlignment = 2;
             stavkeTablica.AddCell(cellUkupno);
-
             stavkeTablica.AddCell(FrmUnosRacuna.ukupnoUnos.ToString());
 
             stavkeTablica.HorizontalAlignment = Element.ALIGN_CENTER;
