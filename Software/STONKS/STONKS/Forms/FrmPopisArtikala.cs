@@ -14,9 +14,6 @@ namespace STONKS.Forms
 {
     public partial class FrmPopisArtikala : Form
     {
-
-
-
         public FrmPopisArtikala()
         {
             InitializeComponent();
@@ -24,21 +21,11 @@ namespace STONKS.Forms
 
         private ArtikliServices services = new ArtikliServices();
 
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             Hide();
-
-            /*FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
-            frmPocetniIzbornik.ShowDialog();*/
-            FrmFaceRecNewApproach.CheckLogirani(FrmFaceRecNewApproach.logiraniKorisnik.uloga_id);
-
+            FrmPrepoznavanjeLica.CheckLogirani();
             Close();
-        }
-
-        private void dgvRacuni_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void SetText(TextBox textBox)
@@ -57,19 +44,13 @@ namespace STONKS.Forms
 
         private void LoadanjeCharta()
         {
-
-            var vrste = services.GetVrsteArtikla(); //sve vrste
-
+            var vrste = services.GetVrsteArtikla();
             foreach (var vrsta in vrste)
             {
-
                 if (services.GetArtikliPoVrsti(vrsta.naziv) > 0)
                     chartArticles.Series["Artikli po vrsti"].Points.AddXY(vrsta.naziv, services.GetArtikliPoVrsti(vrsta.naziv));
             }
-
         }
-
-
 
         private void DohvatiVrste()
         {
@@ -96,7 +77,6 @@ namespace STONKS.Forms
             dgvArtikli.Columns[8].Visible = false;
             dgvArtikli.Columns[7].Visible = false;
             dgvArtikli.Columns[10].Visible = false;
-
         }
 
         private void btnAddArticle_Click(object sender, EventArgs e)
@@ -114,19 +94,6 @@ namespace STONKS.Forms
             dgvArtikli.DataSource = artikli;
         }
 
-
-        private void cbVrsta_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnFilterByType_Click(object sender, EventArgs e)
-        {
-            /* string izraz = cbVrsta.Text;
-             var artikli = services.FilterByType(izraz);
-             dgvArtikli.DataSource = artikli;*/
-        }
-
         private void btnResetFilter_Click(object sender, EventArgs e)
         {
             PrikaziArtikle();
@@ -137,20 +104,13 @@ namespace STONKS.Forms
             SetText(txtPretraziArtikle);
         }
 
-        private void cbSort_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbSort_TextChanged(object sender, EventArgs e)
         {
-
             if (cbSort.Text == "ABECEDNO")
                 SortirajAbecedno();
 
             if (cbSort.Text == "CIJENA")
                 SortirajPoCijeni();
-
         }
 
         private void cbVrsta_TextChanged(object sender, EventArgs e)
@@ -158,11 +118,6 @@ namespace STONKS.Forms
             string izraz = cbVrsta.Text;
             var artikli = services.FilterByType(izraz);
             dgvArtikli.DataSource = artikli;
-        }
-
-        private void chartArticles_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

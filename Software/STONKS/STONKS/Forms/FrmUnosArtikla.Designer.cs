@@ -53,7 +53,6 @@
             this.label2.Size = new System.Drawing.Size(176, 19);
             this.label2.TabIndex = 12;
             this.label2.Text = "| UNOS ARTIKLA";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -77,7 +76,6 @@
             this.txtCode.TabIndex = 13;
             this.txtCode.Text = "SIFRA/BARKOD";
             this.txtCode.Click += new System.EventHandler(this.txtCode_Click);
-            this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged);
             // 
             // txtName
             // 

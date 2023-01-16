@@ -18,31 +18,23 @@ using System.Windows.Forms;
 
 namespace STONKS.Forms
 {
-
-    public partial class FrmFaceRecNewApproach : Form
+    public partial class FrmPrepoznavanjeLica : Form
     {
         public static Korisnik logiraniKorisnik = null;
 
-        public static void CheckLogirani(int id)
+        public static void CheckLogirani()
         {
             if (logiraniKorisnik.uloga_id == 1)
             {
-
                 FrmPocetniIzbornikVoditelj frmPocetniIzbornikVoditelj = new FrmPocetniIzbornikVoditelj();
                 frmPocetniIzbornikVoditelj.ShowDialog();
-
             }
-
             else
             {
-
                 FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
                 frmPocetniIzbornik.ShowDialog();
-
             }
         }
-
-
 
         private KorisniciServices services = new KorisniciServices();
 
@@ -50,11 +42,9 @@ namespace STONKS.Forms
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
 
-      //  public static Korisnik logiraniKorisnik = null;
-
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice = null;
-        public FrmFaceRecNewApproach()
+        public FrmPrepoznavanjeLica()
         {
             InitializeComponent();
         }
@@ -69,7 +59,6 @@ namespace STONKS.Forms
             if (pbPic1_new.Image != null && pbPic2_new.Image != null)
             {
                 btnCompare_new.Enabled = true;
-
             }
         }
 
@@ -77,34 +66,21 @@ namespace STONKS.Forms
         {
             try
             {
-                //MessageBox.Show("Ovdje sam");
                 string currentDirectory = Environment.CurrentDirectory + "\\models";
-                //MessageBox.Show(currentDirectory);
-
                 FaceRecognition fr;
-                fr = FaceRecognition.Create(currentDirectory); //ova linija mi crasha
-                //kreiranje mape s modelima koji trebaju da bi opce radil facial recognition
+                fr = FaceRecognition.Create(currentDirectory);
 
                 var pic1 = FaceRecognition.LoadImageFile(file1);
-
                 var compare1 = fr.FaceEncodings(pic1).First();
-
                 var pic2 = FaceRecognition.LoadImageFile(file2);
                 var compare2 = fr.FaceEncodings(pic2).First();
 
-
-
-                //MessageBox.Show(FaceRecognition.CompareFace(compare1, compare2).ToString());
-
                 if (FaceRecognition.CompareFace(compare1, compare2))
                 {
-                    //ak je uloga 1 od usera koji se prosljedi v metodu onda pokazi jedan izbornik inace drugi
-                    //ko parametar se salje korime koje je odabrano
                     Korisnik korisnik = cbAllUsers.SelectedItem as Korisnik;
                     logiraniKorisnik = korisnik;
                     if (korisnik.uloga_id == 1)
                     {
-                        //MessageBox.Show("Voditelj se prijavio");
                         Hide();
                         FrmPocetniIzbornikVoditelj frmPocetniIzbornikVoditelj = new FrmPocetniIzbornikVoditelj();
                         frmPocetniIzbornikVoditelj.ShowDialog();
@@ -113,15 +89,12 @@ namespace STONKS.Forms
 
                     else
                     {
-                        //logiraniKorisnik.uloga_id = 2;
                         Hide();
                         FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
                         frmPocetniIzbornik.ShowDialog();
                         Close();
                     }
-
                 }
-
                 else
                 {
                     MessageBox.Show("Neuspješna prijava licem");
@@ -129,14 +102,11 @@ namespace STONKS.Forms
                     FrmLogin frmLogin = new FrmLogin();
                     frmLogin.ShowDialog();
                     Close();
-                    //dialog ako se oce otprti forma za pomocu lozinke, ako je onda ju otpri inace nist
                 }
             }
-
             catch (Exception exc)
             {
                 MessageBox.Show(exc.ToString());
-
             }
         }
 
@@ -160,12 +130,7 @@ namespace STONKS.Forms
                 if (videoCaptureDevice.IsRunning)
                 {
                     videoCaptureDevice.SignalToStop();
-
-
                     videoCaptureDevice = null;
-
-
-
                 }
             }
         }
@@ -177,20 +142,15 @@ namespace STONKS.Forms
                 path2 = path2.TrimStart(Path.DirectorySeparatorChar);
                 path2 = path2.TrimStart(Path.AltDirectorySeparatorChar);
             }
-
             return Path.Combine(path1 + @"\", path2);
         }
 
 
         private void btnPic1_new_Click(object sender, EventArgs e)
         {
-
             Korisnik kor = cbAllUsers.SelectedItem as Korisnik;
-
             string path = "\\" + GetPath(cbAllUsers.Text);
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
-
-            //MessageBox.Show("Putanja koja ne dela je" + PathCombine(desktop, path));
             try
             {
                 Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(PathCombine(desktop + "\\", path)));
@@ -201,17 +161,11 @@ namespace STONKS.Forms
 
                 file1 = PathCombine(desktop + "\\", path);
             }
-
             catch
             {
                 MessageBox.Show("Slika ovog korisnika ne nalazi se na ovom računalu!");
                 return;
             };
-
-
-
-
-
         }
 
         private string GetPath(string value)
@@ -221,7 +175,6 @@ namespace STONKS.Forms
                 var query = from e in context.Korisnici
                             where e.slika.Contains(value)
                             select e.slika;
-
                 return query.FirstOrDefault();
             }
         }
@@ -237,15 +190,8 @@ namespace STONKS.Forms
         private void btnSave_new_Click_1(object sender, EventArgs e)
         {
             pbSlikaZaSpremiti_new.SizeMode = PictureBoxSizeMode.StretchImage;
-
             pbSlikaZaSpremiti_new.Image = pbCamera_new.Image;
-            //MessageBox.Show(path + "\\" + "captured_pic" + ".jpg");
-            //pbSlikaZaSpremiti_new.Image.Save(path + "\\" + "captured_pic" + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-            //pbSlikaZaSpremiti_new.Image.Save(path + "\\" + "captured_pic" + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
-            //kada se pri prvom pokretanju aplikacije saving location postavi na desktop, onda su dovoljne ove dvije linije,
-            //ali za prvo pokretanje potreban je dialog
 
-            //MessageBox.Show("Spremljena slika");
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.InitialDirectory = path;
 
@@ -256,11 +202,8 @@ namespace STONKS.Forms
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-
-
                 pbSlikaZaSpremiti_new.Image.Save(saveFileDialog.FileName);
                 btnPic2_new.Enabled = true;
-                //pbSlikaZaSpremiti.Image.Dispose();
             }
         }
 
@@ -271,21 +214,14 @@ namespace STONKS.Forms
                 if (videoCaptureDevice.IsRunning)
                 {
                     videoCaptureDevice.SignalToStop();
-
-
                     videoCaptureDevice = null;
-
-
-
                 }
-
                 btnSave_new.Enabled = true;
             }
         }
 
         private void FrmFaceRecNewApproach_Load(object sender, EventArgs e)
         {
-
             btnPic2_new.Enabled = false;
             btnSave_new.Enabled = false;
             btnCompare_new.Enabled = false;
@@ -297,10 +233,6 @@ namespace STONKS.Forms
             videoCaptureDevice = new VideoCaptureDevice();
 
             cbAllUsers.DataSource = services.GetKorisnici();
-
-
         }
     }
 }
-
-

@@ -68,7 +68,6 @@
             this.txtUsername.TabIndex = 2;
             this.txtUsername.Text = "Korisnicko ime";
             this.txtUsername.Click += new System.EventHandler(this.txtUsername_Click);
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtPassword
             // 
@@ -81,7 +80,6 @@
             this.txtPassword.TabIndex = 3;
             this.txtPassword.Text = "Lozinka";
             this.txtPassword.Click += new System.EventHandler(this.txtPassword_Click);
-            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // btnSignIn
             // 
@@ -111,7 +109,6 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prijava";
-            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

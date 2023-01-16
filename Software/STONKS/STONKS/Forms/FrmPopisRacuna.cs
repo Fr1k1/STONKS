@@ -32,10 +32,7 @@ namespace STONKS.Forms
         private void btnPovratak_Click(object sender, EventArgs e)
         {
             Hide();
-            /*FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
-            frmPocetniIzbornik.ShowDialog();*/
-            FrmFaceRecNewApproach.CheckLogirani(FrmFaceRecNewApproach.logiraniKorisnik.uloga_id);
-
+            FrmPrepoznavanjeLica.CheckLogirani();
             Close();
         }
 
@@ -105,7 +102,7 @@ namespace STONKS.Forms
             dgvRacuni.Columns["korisnik_id"].HeaderText = "ID zaposlenika";
             dgvRacuni.Columns["NaciniPlacanja"].HeaderText = "Nacin placanja";
             
-            dgvRacuni.Columns["popust"].DefaultCellStyle.Format = "N2"; // N2 is for 2 decimals
+            dgvRacuni.Columns["popust"].DefaultCellStyle.Format = "N2";
             dgvRacuni.Columns["ukupno"].DefaultCellStyle.Format = "N2";
             dgvRacuni.Columns["cjena_bez_pdv"].DefaultCellStyle.Format = "N2";  
             dgvRacuni.Columns["pdv"].DefaultCellStyle.Format = "N2";
@@ -138,9 +135,8 @@ namespace STONKS.Forms
 
         private void CreateStorno(Racun racun)
         {   
-            //dohvatiti stavke
             var stavke = stavkaServices.GetStavke(racun);
-            racun.korisnik_id = FrmFaceRecNewApproach.logiraniKorisnik.id; // set user that created bill to logged user
+            racun.korisnik_id = FrmPrepoznavanjeLica.logiraniKorisnik.id;
             if (racunServices.AddInverse(racun, stavke))
             {
                 MessageBox.Show("Racun je uspiješno storniran","Uspijeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -161,10 +157,8 @@ namespace STONKS.Forms
         private void loadanjeCharta2(List<StavkaRacuna> stavke)
         {
             chartStavke.Series["Broj artikala"].Points.Clear();
-
             List<string> listaVrstaArtikala = new List<string>();
 
-            // sve vrste artikla u racunu
             foreach(var s in stavke)
             {
                 string vrsta = (artiklServices.GetArtikl(s.artikl_id)).VrsteArtikla.naziv;
@@ -174,7 +168,6 @@ namespace STONKS.Forms
                 }
             }
 
-            // po svakoj vrsti artikla od postojecih u tom racunu
             foreach (var vrstaIzListe in listaVrstaArtikala)
             {
                 var broj = 0;

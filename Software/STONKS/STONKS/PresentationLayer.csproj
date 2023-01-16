@@ -116,11 +116,11 @@
     <Compile Include="Forms\FrmDnevniPromet.Designer.cs">
       <DependentUpon>FrmDnevniPromet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmFaceRecNewApproach.cs">
+    <Compile Include="Forms\FrmPrepoznavanjeLica.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmFaceRecNewApproach.Designer.cs">
-      <DependentUpon>FrmFaceRecNewApproach.cs</DependentUpon>
+    <Compile Include="Forms\FrmPrepoznavanjeLica.Designer.cs">
+      <DependentUpon>FrmPrepoznavanjeLica.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmIzradaRacuna.cs">
       <SubType>Form</SubType>
@@ -211,8 +211,8 @@
     <EmbeddedResource Include="Forms\FrmDnevniPromet.resx">
       <DependentUpon>FrmDnevniPromet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmFaceRecNewApproach.resx">
-      <DependentUpon>FrmFaceRecNewApproach.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmPrepoznavanjeLica.resx">
+      <DependentUpon>FrmPrepoznavanjeLica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmIzradaRacuna.resx">
       <DependentUpon>FrmIzradaRacuna.cs</DependentUpon>

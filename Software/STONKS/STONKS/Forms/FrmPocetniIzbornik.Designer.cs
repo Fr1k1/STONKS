@@ -104,6 +104,7 @@
             this.btnOdjava.TabIndex = 8;
             this.btnOdjava.Text = "ODJAVA";
             this.btnOdjava.UseVisualStyleBackColor = false;
+            this.btnOdjava.Click += new System.EventHandler(this.btnOdjava_Click);
             // 
             // label1
             // 

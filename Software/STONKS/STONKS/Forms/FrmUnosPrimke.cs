@@ -26,7 +26,7 @@ namespace STONKS.Forms
 
         private ArtikliServices artikliServices = new ArtikliServices();
 
-        private BindingList<StavkaPrimke> stavkePrimke = new BindingList<StavkaPrimke>();   // local list of stavkePrimka, will be pushed into db latter
+        private BindingList<StavkaPrimke> stavkePrimke = new BindingList<StavkaPrimke>();
         
         public int IdPrimke { get; set; }
         private double FinalPrice  { get; set; }
@@ -34,9 +34,6 @@ namespace STONKS.Forms
 
         private FilterInfoCollection filterInfoCollection;
         private VideoCaptureDevice videoCaptureDevice = null;
-
-
-
 
         public FrmUnosPrimke()
         {
@@ -55,35 +52,25 @@ namespace STONKS.Forms
 
         private void FrmUnosPrimke_Load(object sender, EventArgs e)
         {   
-            //get all cameras
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            //if devices has cameras than proceed else work without barcode scanner
             if(filterInfoCollection.Count > 0)  
             {
-                //select camera
                 videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[0].MonikerString);
                 videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
                 videoCaptureDevice.DesiredFrameRate = 1;
-                //start camera 
 
-
-                // Start the video capture
                 videoCaptureDevice.Start();
             }
-            
             
             txtBrojPrimke.Text = SetPrimkaId();
             LoadDobavljaciCBO();
             LoadStavkeDGV();
-
-
         }   
 
         private string SetPrimkaId()
         {
             IdPrimke  = primkaServices.GetIdForNewPrimka();
 
-            //convert id into a number with 3 digits (add leading zeros)
             if (IdPrimke < 10)
                 return "Broj primke: 00" + IdPrimke;
             else if(IdPrimke < 100)
@@ -92,54 +79,52 @@ namespace STONKS.Forms
                 return "Broj primke: " + IdPrimke;
         }
 
-        public void LoadStavkeDGV()     //adds data source and changes look of dgv 
+        public void LoadStavkeDGV() 
         {
             dgvStavkePrimke.DataSource = stavkePrimke;  
-            //---make invisible---
             dgvStavkePrimke.Columns[0].Visible = false;
             dgvStavkePrimke.Columns[1].Visible = false;
             dgvStavkePrimke.Columns[7].Visible = false;
-            //---make read-Only---
+
             dgvStavkePrimke.Columns["ukupna_cijena"].ReadOnly = true;
             dgvStavkePrimke.Columns["Artikli"].ReadOnly = true;
-            //---Reorder columns---
+
             dgvStavkePrimke.Columns["Artikli"].DisplayIndex = 0;
             dgvStavkePrimke.Columns["kolicina"].DisplayIndex = 1;
             dgvStavkePrimke.Columns["rabat"].DisplayIndex = 2;
             dgvStavkePrimke.Columns["nabavna_cijena"].DisplayIndex = 3;
             dgvStavkePrimke.Columns["ukupna_cijena"].DisplayIndex = 4;
-            //---Rename columns---
+
             dgvStavkePrimke.Columns["Artikli"].HeaderText = "Naziv artikla";
             dgvStavkePrimke.Columns["kolicina"].HeaderText = "Količina";
             dgvStavkePrimke.Columns["rabat"].HeaderText = "Rabat(%)";
             dgvStavkePrimke.Columns["nabavna_cijena"].HeaderText = "Nabavna cijena";
             dgvStavkePrimke.Columns["ukupna_cijena"].HeaderText = "Ukupna cijena";
-            //---Format columns---
+           
             dgvStavkePrimke.Columns["rabat"].DefaultCellStyle.Format = "0.0\\%";
             dgvStavkePrimke.Columns["nabavna_cijena"].DefaultCellStyle.Format = "0.00## EUR";
             dgvStavkePrimke.Columns["ukupna_cijena"].DefaultCellStyle.Format = "0.00## EUR";
         }
         private void LoadDobavljaciCBO()
         {
-            cboDobavljac.DataSource = dobavljaciServices.GetDobavljaci();   //load cbo for suppliers
+            cboDobavljac.DataSource = dobavljaciServices.GetDobavljaci(); 
         }
 
-        public void AddStavka(StavkaPrimke stavka,bool manual = true)  // function that can be called from another form
+        public void AddStavka(StavkaPrimke stavka,bool manual = true)  
         {
-            if (!stavkePrimke.Contains(stavka))     // check if artikl is alredy in dgv
+            if (!stavkePrimke.Contains(stavka))
             {   
-                stavkePrimke.Add(stavka);   //if it isnt add it
-                changeTabPosition();    //change selected cell to a cell in new row
+                stavkePrimke.Add(stavka); 
+                changeTabPosition();  
             }
             else if(manual)
                 MessageBox.Show("Ovaj artikl ste već dodali!!!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-    
         }
 
         private void changeTabPosition()
         {
-            int numOfRows = dgvStavkePrimke.RowCount - 1; // get nuber of row in dgv
-            dgvStavkePrimke.Rows[numOfRows].Cells["kolicina"].Selected = true; // select cell in row-1 and collumn kolicina
+            int numOfRows = dgvStavkePrimke.RowCount - 1;
+            dgvStavkePrimke.Rows[numOfRows].Cells["kolicina"].Selected = true;
         }
 
         private void InsertPrimka()
@@ -148,11 +133,9 @@ namespace STONKS.Forms
             {   
                 var primka = new Primka()
                 {
-                    //id = IdPrimke,
                     ukupno = FinalPrice,
                     datum = DateTime.Now,
                     Dobavljac_id = (cboDobavljac.SelectedItem as Dobavljac).id,
-                    //Dobavljaci = cboDobavljac.SelectedItem as Dobavljac
                 };
                 if (primkaServices.AddPrimka(primka, stavkePrimke.ToList()))
                 {
@@ -177,7 +160,7 @@ namespace STONKS.Forms
             {
                 if (!row.IsNewRow)
                 {
-                    if ((int)row.Cells["kolicina"].Value == 0 || (double)row.Cells["nabavna_cijena"].Value == 0 || row.Cells["Artikli"].Value == null || (double)row.Cells["rabat"].Value < 0 || (double)row.Cells["rabat"].Value > 100) //cehck if all inputs are filled and valid
+                    if ((int)row.Cells["kolicina"].Value == 0 || (double)row.Cells["nabavna_cijena"].Value == 0 || row.Cells["Artikli"].Value == null || (double)row.Cells["rabat"].Value < 0 || (double)row.Cells["rabat"].Value > 100) 
                         return false;
                 }
             }               
@@ -205,16 +188,14 @@ namespace STONKS.Forms
 
         private void CalculateRowData(int rowIndex)
         {
-            int kolicina = (int)dgvStavkePrimke.Rows[rowIndex].Cells["kolicina"].Value;     //read kolicina from selected row
-            double rabat = (double)dgvStavkePrimke.Rows[rowIndex].Cells["rabat"].Value;        //read rabat from selected row
-            double nabavna_cijena = (double)dgvStavkePrimke.Rows[rowIndex].Cells["nabavna_cijena"].Value;       //read nabavna_cijena from selected row
+            int kolicina = (int)dgvStavkePrimke.Rows[rowIndex].Cells["kolicina"].Value; 
+            double rabat = (double)dgvStavkePrimke.Rows[rowIndex].Cells["rabat"].Value;    
+            double nabavna_cijena = (double)dgvStavkePrimke.Rows[rowIndex].Cells["nabavna_cijena"].Value;  
             double uk_cijena = 0;
-            uk_cijena = kolicina * (nabavna_cijena * (1 - (rabat / 100.00)));       //calculate row final price
-            dgvStavkePrimke.Rows[rowIndex].Cells["ukupna_cijena"].Value = uk_cijena;         //set  row final price    
+            uk_cijena = kolicina * (nabavna_cijena * (1 - (rabat / 100.00)));  
+            dgvStavkePrimke.Rows[rowIndex].Cells["ukupna_cijena"].Value = uk_cijena;      
         }
 
-
-        //---EVENTS---
         private void btnAddStavkaPrimke_Click(object sender, EventArgs e)
         {
             FrmOdaberiArtiklZaDodatiRucnoPrimka frmDodajRucno = new FrmOdaberiArtiklZaDodatiRucnoPrimka();
@@ -239,13 +220,9 @@ namespace STONKS.Forms
             CalculateDiscount();
         }
 
-
-        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)    //event that gets new frame from camera
+        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs) 
         {   
-            //get image from camera
             var image = (Bitmap)eventArgs.Frame.Clone();
-
-            //scan barcode on new thread without blocking main
             Task.Run(() =>
             {
                 Scanner scanner = new Scanner();
@@ -254,14 +231,11 @@ namespace STONKS.Forms
             });
         }
 
-
         private void CreateStavkaFromBarcode(object sender, string sifra)
         {
-  
-
-                    var artikl = artikliServices.GetArtikl(sifra);
-                    if (artikl != null)
-                    {
+             var artikl = artikliServices.GetArtikl(sifra);
+             if (artikl != null)
+                   {
                         var stavka = new StavkaPrimke()
                         {
                             artikl_id = artikl.id,
@@ -272,14 +246,9 @@ namespace STONKS.Forms
                             ukupna_cijena = 0.0,
                             primka_id = IdPrimke
                         };
-                    
-
                         Invoke((MethodInvoker)delegate { AddStavka(stavka,false); });
                     }
-
         }
-
-
 
        private void UnloadCamera()
        {

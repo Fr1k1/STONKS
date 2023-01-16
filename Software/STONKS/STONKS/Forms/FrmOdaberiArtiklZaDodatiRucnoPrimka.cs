@@ -36,8 +36,6 @@ namespace STONKS.Forms
             dgvPopisArtikala.Columns[10].Visible = false;
         }
 
-        
-
         private void InsertStavka()
         {
             var stavka = new StavkaPrimke()

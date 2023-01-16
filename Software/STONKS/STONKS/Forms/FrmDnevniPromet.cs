@@ -34,54 +34,33 @@ namespace STONKS.Forms
 
         public FrmDnevniPromet()
         {
-            InitializeComponent();
-            
+            InitializeComponent();    
         }
 
         private void btnPovratak_Click(object sender, EventArgs e)
         {   
             Hide();
-
-            //if (FrmFaceRecNewApproach.logiraniKorisnik.uloga_id == 1)
-            //{
-            //    FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
-            //    frmPocetniIzbornik.ShowDialog();
-            //}
-
-            //else
-            //{
-            //    FrmPocetniIzbornik frmPocetniIzbornik = new FrmPocetniIzbornik();
-            //    frmPocetniIzbornik.ShowDialog();
-            //}
-
-            FrmFaceRecNewApproach.CheckLogirani(FrmFaceRecNewApproach.logiraniKorisnik.uloga_id);
-
-
+            FrmPrepoznavanjeLica.CheckLogirani();
             Close();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             GetPromet();
-
         }
 
         private void GetPromet()
         {
             CheckIfTraficReportHasBeenSubmited();
-
-            //get trafic data from prometServices
             UkupnoGotovina = prometServices.CalculateCash(dtpDate.Value);
             UkupnoKartice = prometServices.CalculateCard(dtpDate.Value);
             PopustKartice = prometServices.CalculateCardDiscount(dtpDate.Value);
             PopustGotovina = prometServices.CalculateCashDiscount(dtpDate.Value);
             trafficPerEmploye = prometServices.GetTraficByEmployees(dtpDate.Value);
             Porez = prometServices.CalculateTax(dtpDate.Value);
-            // calculate missing data from avelible ones
             Kartice = UkupnoKartice + PopustKartice;
             Gotovina = UkupnoGotovina + PopustGotovina;
             UkupanPromet = UkupnoKartice + UkupnoGotovina;
-            // set value of ui elements
             lblUkupnoKartice.Text = UkupnoKartice + " EUR";
             lblUkupnoGotovina.Text = UkupnoGotovina + " EUR";
             lblgotovinaPopust.Text = PopustGotovina + " EUR";
@@ -93,7 +72,6 @@ namespace STONKS.Forms
 
         private void CheckIfTraficReportHasBeenSubmited()
         {   
-            
             var promet = prometServices.isZDone(dtpDate.Value);
             Console.WriteLine(promet);
             if(DateTime.Now.Date != dtpDate.Value.Date)
@@ -125,12 +103,8 @@ namespace STONKS.Forms
             DateTime datumIzdavanja = DateTime.Now;
             string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Izvestaj_" + datumIzdavanja.ToString("dd.MM.yyyy_HH_mm_ss") + ".pdf";
             Document document = new Document(PageSize.A6);
-
-            // Podešavamo fajl za pisanje
             PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
             document.Open();
-
-            // Dodajemo datum izdavanja na vrhu dokumenta
             Font titleFont = FontFactory.GetFont("Arial", 20);
             Font totalFont = FontFactory.GetFont("Arial", 16);
             Font highlightFont = FontFactory.GetFont("Arial", 12);
@@ -145,7 +119,6 @@ namespace STONKS.Forms
             document.Add(title);
             document.Add(new Paragraph("Datum izdavanja: " + datumIzdavanja.ToString("dd.MM.yyyy HH:mm:ss")));
 
-            // Kreiramo tabelu za gotovinu
             PdfPTable cashTable = new PdfPTable(2) { SpacingBefore = 10, WidthPercentage = 100f };
             cashTable.AddCell("Gotovina");
             cashTable.AddCell(Gotovina + " EUR");
@@ -154,11 +127,8 @@ namespace STONKS.Forms
             cashTable.AddCell(new Paragraph("Ukupno gotovina", highlightFont));
             cashTable.AddCell(new Paragraph(UkupnoGotovina + " EUR", highlightFont));
 
-
-            // Dodajemo tabelu u dokument
             document.Add(cashTable);
 
-            // Kreiramo tabelu za kartice
             PdfPTable cardTable = new PdfPTable(2) { SpacingBefore = 10, WidthPercentage = 100f };
             cardTable.AddCell("Kartice");
             cardTable.AddCell(Kartice + " EUR");
@@ -167,10 +137,8 @@ namespace STONKS.Forms
             cardTable.AddCell(new Paragraph("Ukupno kartice", highlightFont));
             cardTable.AddCell(new Paragraph(UkupnoKartice + " EUR", highlightFont));
 
-            // Dodajemo tabelu u dokument
             document.Add(cardTable);
             document.Add(new Paragraph("PROMET: " + UkupanPromet + " EUR", totalFont));
-            //ispis prometa po zaposelnicima
             document.Add(new Paragraph("PDV: " + Porez + " EUR", highlightFont));
             
             if (isFinalReport && trafficPerEmploye != null)
@@ -182,18 +150,14 @@ namespace STONKS.Forms
                 }
             }
 
-            // Dodajemo ime osobe koja je izdala dokument na dnu stranice
-            document.Add(new Paragraph("Izdao:" + FrmFaceRecNewApproach.logiraniKorisnik.ime + " " + FrmFaceRecNewApproach.logiraniKorisnik.prezime));
-
-            // Zatvaramo dokument
+            document.Add(new Paragraph("Izdao:" + FrmPrepoznavanjeLica.logiraniKorisnik.ime + " " + FrmPrepoznavanjeLica.logiraniKorisnik.prezime));
             document.Close();
-            //otvaranje pdf 
             Process.Start(filePath);
         }
 
         private void btnIzradaIspisZ_Click(object sender, EventArgs e)
         {
-            if (prometServices.CreateZ(FrmFaceRecNewApproach.logiraniKorisnik))
+            if (prometServices.CreateZ(FrmPrepoznavanjeLica.logiraniKorisnik))
             {
                 MessageBox.Show("Promez Z izrađen", "Uspijeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CheckIfTraficReportHasBeenSubmited();

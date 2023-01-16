@@ -17,15 +17,11 @@ namespace STONKS.Forms
             InitializeComponent();
         }
 
-
-
         private void btnUnosArtikla_Click(object sender, EventArgs e)
         {
-
             Hide();
             FrmUnosArtikla frmUnosArtikla = new FrmUnosArtikla();
             frmUnosArtikla.ShowDialog();
-
             Close();
         }
 
@@ -85,6 +81,15 @@ namespace STONKS.Forms
             Hide();
             FrmDnevniPromet frmDnevniPromet = new FrmDnevniPromet();
             frmDnevniPromet.ShowDialog();
+            Close();
+        }
+
+        private void btnOdjava_Click(object sender, EventArgs e)
+        {
+            FrmPrepoznavanjeLica.logiraniKorisnik = null;
+            Hide();
+            FrmLogin frm = new FrmLogin();
+            frm.ShowDialog();
             Close();
         }
     }
