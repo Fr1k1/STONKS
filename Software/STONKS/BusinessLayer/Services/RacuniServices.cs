@@ -115,7 +115,7 @@ namespace BusinessLayer.Services
             var stornoRacun = new Racun()
             {
                 vrijeme_izdavanja = DateTime.Now,
-                korisnik_id = racun.korisnik_id,   //TODO change to logged user
+                korisnik_id = racun.korisnik_id,
                 cjena_bez_pdv = racun.cjena_bez_pdv * -1,
                 pdv = racun.pdv * -1,
                 popust = racun.popust * 1,

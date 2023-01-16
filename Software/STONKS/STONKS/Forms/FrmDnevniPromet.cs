@@ -96,7 +96,7 @@ namespace STONKS.Forms
             
             var promet = prometServices.isZDone(dtpDate.Value);
             Console.WriteLine(promet);
-            if(DateTime.Now != dtpDate.Value.Date)
+            if(DateTime.Now.Date != dtpDate.Value.Date)
             {
                 btnIzradaZ.Enabled = false;
                 if(promet)
@@ -183,7 +183,7 @@ namespace STONKS.Forms
             }
 
             // Dodajemo ime osobe koja je izdala dokument na dnu stranice
-            document.Add(new Paragraph("Izdao: John Smith"));
+            document.Add(new Paragraph("Izdao:" + FrmFaceRecNewApproach.logiraniKorisnik.ime + " " + FrmFaceRecNewApproach.logiraniKorisnik.prezime));
 
             // Zatvaramo dokument
             document.Close();
@@ -193,7 +193,7 @@ namespace STONKS.Forms
 
         private void btnIzradaIspisZ_Click(object sender, EventArgs e)
         {
-            if (prometServices.CreateZ())
+            if (prometServices.CreateZ(FrmFaceRecNewApproach.logiraniKorisnik))
             {
                 MessageBox.Show("Promez Z izrađen", "Uspijeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CheckIfTraficReportHasBeenSubmited();
@@ -205,7 +205,6 @@ namespace STONKS.Forms
         private void FrmDnevniPromet_Load(object sender, EventArgs e)
         {
             dtpDate.Value = DateTime.Now;
-            
         }
 
         private void btnIspisZ_Click(object sender, EventArgs e)

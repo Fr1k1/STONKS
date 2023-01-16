@@ -121,11 +121,11 @@ namespace BusinessLayer.Services
             }
         }
 
-        public bool CreateZ(Korisnik korisnik = null)//remove null later
+        public bool CreateZ(Korisnik korisnik)//remove null later
         {
             using (var repo = new PrometRepository())
             {
-                Promet p = new Promet() { datum_vrijeme = DateTime.Now, korisnik_id = 1 }; //TODO change to actual user;
+                Promet p = new Promet() { datum_vrijeme = DateTime.Now, korisnik_id = korisnik.id }; //TODO change to actual user;
                 return repo.Add(p) > 0;
             }
         }

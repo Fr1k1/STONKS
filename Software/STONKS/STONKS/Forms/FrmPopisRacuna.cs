@@ -140,6 +140,7 @@ namespace STONKS.Forms
         {   
             //dohvatiti stavke
             var stavke = stavkaServices.GetStavke(racun);
+            racun.korisnik_id = FrmFaceRecNewApproach.logiraniKorisnik.id; // set user that created bill to logged user
             if (racunServices.AddInverse(racun, stavke))
             {
                 MessageBox.Show("Racun je uspiješno storniran","Uspijeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
