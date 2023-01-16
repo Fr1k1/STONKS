@@ -104,9 +104,10 @@ namespace STONKS.Forms
                     Close();
                 }
             }
-            catch (Exception exc)
+            catch
             {
-                MessageBox.Show(exc.ToString());
+                MessageBox.Show("Ups, nesto s dretvama je poslo u krivu");
+                return;
             }
         }
 

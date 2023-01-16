@@ -67,7 +67,7 @@ namespace STONKS.Forms
 
         private void povratakNaMeni() 
         {
-            FrmUnosRacuna.listaStavkiURacunu.Clear(); // OVO JE BILO, MOZDA MAKNI TODO
+            FrmUnosRacuna.listaStavkiURacunu.Clear();
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             Hide();
             FrmPrepoznavanjeLica.CheckLogirani();
@@ -80,7 +80,7 @@ namespace STONKS.Forms
             var racunNovi = new Racun
             {
                 nacin_placanja_id = selectedNacinPlacanja.id,
-                korisnik_id = 1,
+                korisnik_id = FrmPrepoznavanjeLica.logiraniKorisnik.id,
                 vrijeme_izdavanja = DateTime.Now,
                 ukupno = FrmUnosRacuna.ukupnoUnos,
                 popust = FrmUnosRacuna.ukupanPopust, 
