@@ -44,8 +44,7 @@ namespace STONKS
             {
                 var korisnik = services.GetLoggedKorisnik(txtUsername.Text, txtPassword.Text);
                 FrmFaceRecNewApproach.logiraniKorisnik = korisnik;
-                MessageBox.Show(korisnik.uloga_id.ToString());
-
+                
                 LoginUser(txtUsername.Text, txtPassword.Text);
 
             }
@@ -54,14 +53,6 @@ namespace STONKS
             {
                 MessageBox.Show("Krivi korisnički podaci!");
             }
-
-
-
-            //FrmFaceRecNewApproach.CheckLogirani(korisnik.uloga_id);
-            //logirani=services.GetLoggedKorisnik(txtUsername.Text, txtPassword.Text);
-            // MessageBox.Show(logirani.to);
-
-
         }
 
         private string GetUloga(string korime, string lozinka)
