@@ -34,6 +34,12 @@ namespace STONKS
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
+
+            if (txtUsername.Text == "" || txtUsername.Text == "Korisnicko ime" || txtPassword.Text == "" || txtPassword.Text == "Lozinka")
+            {
+                MessageBox.Show("Popunite sva polja!");
+                return;
+            }
             try
             {
                 var korisnik = services.GetLoggedKorisnik(txtUsername.Text, txtPassword.Text);
@@ -73,7 +79,7 @@ namespace STONKS
             if (korisnik)
             {
                 //logirani = korisnik;
-                
+
 
                 if (GetUloga(txtUsername.Text, txtPassword.Text) == "voditelj")
                 {
@@ -95,7 +101,7 @@ namespace STONKS
                     Close();
 
                 }
-                
+
 
             }
 

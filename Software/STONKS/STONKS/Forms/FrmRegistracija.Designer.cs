@@ -99,6 +99,7 @@
             this.txtUsername.TabIndex = 26;
             this.txtUsername.Text = "KORISNICKO IME";
             this.txtUsername.Click += new System.EventHandler(this.txtUsername_Click);
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // txtOIB
             // 

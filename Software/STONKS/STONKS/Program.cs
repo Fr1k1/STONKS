@@ -17,7 +17,7 @@ namespace STONKS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmUnosArtikla());
+            Application.Run(new FrmRegistracija());
         }
     }
 }

@@ -41,9 +41,11 @@ namespace STONKS.Forms
 
         private void FrmRegistracija_Load(object sender, EventArgs e)
         {
+            btnUkljuciKameru_new.Enabled = false;
 
             btnTakePicture_new.Enabled = false;
             btnSave_new.Enabled = false;
+            btnRegister.Enabled = false;
             GetUloge();
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo filterinfo in filterInfoCollection)
@@ -60,10 +62,31 @@ namespace STONKS.Forms
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+
+            if (txtOIB.Text == "" || txtName.Text == "" || txtPassword.Text == "" || txtSurname.Text == "" || txtUsername.Text == "")
+            {
+                MessageBox.Show("Popunite sva polja!");
+                return;
+            }
             if (txtOIB.Text.Length != 11)
             {
                 MessageBox.Show("OIB ima 11 znakova!!");
                 return;
+            }
+
+            foreach (var kor in korisniciServices.GetKorisnici())
+            {
+                if (txtUsername.Text == kor.korime)
+                {
+                    MessageBox.Show("Korisnik s tim korisnickim imenom vec postoji!");
+                    return;
+                }
+
+                if (txtOIB.Text == kor.OIB)
+                {
+                    MessageBox.Show("Korisnik s tim OIBOM vec postoji!");
+                    return;
+                }
             }
             RegisterUser();
         }
@@ -173,7 +196,7 @@ namespace STONKS.Forms
             pbSlikaZaSpremiti_new.Image = pbCamera_new.Image;
             //pbSlikaZaSpremiti_new.Image.Save(txtUsername.Text + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
-           // pbSlikaZaSpremiti_new.Image.Save(path + @"\preloaded_faces\" + txtUsername.Text + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            // pbSlikaZaSpremiti_new.Image.Save(path + @"\preloaded_faces\" + txtUsername.Text + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
 
             //MessageBox.Show(path + "\\" + "captured_pic" + ".jpg");
             //pbSlikaZaSpremiti_new.Image.Save(path + "\\" + "captured_pic" + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
@@ -183,7 +206,7 @@ namespace STONKS.Forms
 
             //MessageBox.Show("Spremljena slika");
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = path+"\\"+"preloaded_faces";
+            saveFileDialog.InitialDirectory = path + "\\" + "preloaded_faces";
             saveFileDialog.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif";
             saveFileDialog.FileName = txtUsername.Text;
             saveFileDialog.DefaultExt = ".jpg";
@@ -194,11 +217,21 @@ namespace STONKS.Forms
 
 
                 pbSlikaZaSpremiti_new.Image.Save(saveFileDialog.FileName);
-                
+                btnRegister.Enabled = true;
+
                 //pbSlikaZaSpremiti.Image.Dispose();
             }
-            
 
+
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUsername.Text != "" || txtUsername.Text != "KORISNICKO IME")
+            {
+                btnUkljuciKameru_new.Enabled = true;
+
+            }
         }
     }
 }
