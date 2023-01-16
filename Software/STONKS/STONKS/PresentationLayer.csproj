@@ -110,7 +110,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BarcodeScanner.cs" />
     <Compile Include="Forms\FrmDnevniPromet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +280,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BarcodeScanner\BarcodeScanner.csproj">
+      <Project>{740c8a39-844f-420c-b0c4-513c909f1dc2}</Project>
+      <Name>BarcodeScanner</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
       <Project>{269acc5a-dcf9-4d43-ae26-8ff8d75890c6}</Project>
       <Name>BusinessLayer</Name>

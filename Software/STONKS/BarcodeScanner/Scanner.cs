@@ -1,20 +1,13 @@
-﻿using STONKS.Forms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using ZXing;
 
-namespace STONKS
+namespace BarcodeScanner
 {
-    public class BarcodeScanner
+    public class Scanner
     {
         public event EventHandler<String> Scanned;
-
-
 
         public void Scan(Image image)
         {

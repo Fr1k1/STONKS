@@ -14,6 +14,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
+using BarcodeScanner;
 
 namespace STONKS.Forms
 {
@@ -247,7 +248,7 @@ namespace STONKS.Forms
             //scan barcode on new thread without blocking main
             Task.Run(() =>
             {
-                BarcodeScanner scanner = new BarcodeScanner();
+                Scanner scanner = new Scanner();
                 scanner.Scanned += new EventHandler<string>(CreateStavkaFromBarcode);
                 Task.Run(() => scanner.Scan((Bitmap)image.Clone()));
             });

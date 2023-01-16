@@ -1,5 +1,6 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
+using BarcodeScanner;
 using BusinessLayer.Services;
 using EntitiesLayer.Entities;
 using System;
@@ -188,7 +189,7 @@ namespace STONKS.Forms
 
             Task.Run(() =>
             {
-                BarcodeScanner scanner = new BarcodeScanner();
+                Scanner scanner = new Scanner();
                 scanner.Scanned += new EventHandler<string>(CreateStavkaFromBarcode);
                 Task.Run(() => scanner.Scan((Bitmap)image.Clone()));
             });
