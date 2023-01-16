@@ -44,7 +44,8 @@ namespace STONKS.Forms
 
         private void btnPovratak_Click(object sender, EventArgs e)
         {
-            UnloadCamera();
+            if (filterInfoCollection.Count > 0)
+                UnloadCamera();
             Hide();
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             frmPocetniIzbornik.ShowDialog();
@@ -55,15 +56,21 @@ namespace STONKS.Forms
         {   
             //get all cameras
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            //select camera
-            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[0].MonikerString);
-            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
-            videoCaptureDevice.DesiredFrameRate = 1;
-            //start camera 
-            
+            //if devices has cameras than proceed else work without barcode scanner
+            if(filterInfoCollection.Count > 0)  
+            {
+                //select camera
+                videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[0].MonikerString);
+                videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+                videoCaptureDevice.DesiredFrameRate = 1;
+                //start camera 
 
-            // Start the video capture
-            videoCaptureDevice.Start();
+
+                // Start the video capture
+                videoCaptureDevice.Start();
+            }
+            
+            
             txtBrojPrimke.Text = SetPrimkaId();
             LoadDobavljaciCBO();
             LoadStavkeDGV();
@@ -149,7 +156,8 @@ namespace STONKS.Forms
                 if (primkaServices.AddPrimka(primka, stavkePrimke.ToList()))
                 {
                     MessageBox.Show("Primka je unesena!!!", "Uspiješan unos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    UnloadCamera();
+                    if (filterInfoCollection.Count > 0)
+                        UnloadCamera();
                     Hide();
                     FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
                     frmPocetniIzbornik.ShowDialog();
