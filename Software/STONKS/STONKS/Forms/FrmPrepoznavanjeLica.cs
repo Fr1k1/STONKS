@@ -175,7 +175,11 @@ namespace STONKS.Forms
             catch
             {
                 MessageBox.Show("Slika ovog korisnika ne nalazi se na ovom računalu!");
-                return;
+                FrmLogin frmLogin = new FrmLogin();
+                Hide();
+                frmLogin.ShowDialog();
+                Close();
+                //return;
             };
         }
 
