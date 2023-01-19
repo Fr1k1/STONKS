@@ -22,6 +22,8 @@ namespace STONKS.Forms
     {
         public static Korisnik logiraniKorisnik = null;
 
+      
+
         public static void CheckLogirani()
         {
             if (logiraniKorisnik.uloga_id == 1)
@@ -41,11 +43,19 @@ namespace STONKS.Forms
         string file1, file2 = "";
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
+         
 
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice = null;
         public FrmPrepoznavanjeLica()
         {
+            string folderName = "preloaded_faces";
+            string newFolder = Path.Combine(path, folderName);
+
+            if(!Directory.Exists(newFolder))
+            {
+                Directory.CreateDirectory(newFolder);
+            }
             InitializeComponent();
         }
 
