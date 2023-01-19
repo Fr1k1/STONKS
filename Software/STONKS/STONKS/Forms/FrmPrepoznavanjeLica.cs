@@ -1,7 +1,6 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
 using BusinessLayer.Services;
-using DataAccessLayer;
 using EntitiesLayer.Entities;
 using FaceRecognitionDotNet;
 using System;

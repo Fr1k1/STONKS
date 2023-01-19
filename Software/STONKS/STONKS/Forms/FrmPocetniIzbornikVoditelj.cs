@@ -98,5 +98,10 @@ namespace STONKS.Forms
             frm.ShowDialog();
             Close();
         }
+
+        private void FrmPocetniIzbornikVoditelj_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

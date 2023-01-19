@@ -288,10 +288,6 @@
       <Project>{269acc5a-dcf9-4d43-ae26-8ff8d75890c6}</Project>
       <Name>BusinessLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{2805933a-c708-4560-b07d-92d4d18323ac}</Project>
-      <Name>DataAccessLayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EntitiesLayer\EntitiesLayer.csproj">
       <Project>{A6D8EA35-F99D-4152-BD80-78D3A6AB836E}</Project>
       <Name>EntitiesLayer</Name>
