@@ -160,7 +160,7 @@ namespace STONKS.Forms
         private void btnPic1_new_Click(object sender, EventArgs e)
         {
             Korisnik kor = cbAllUsers.SelectedItem as Korisnik;
-            string path = "\\" + GetPath(cbAllUsers.Text);
+            string path = "\\" + services.GetPicturePath(cbAllUsers.Text);
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
             try
             {
@@ -183,7 +183,7 @@ namespace STONKS.Forms
             };
         }
 
-        private string GetPath(string value)
+       /* private string GetPath(string value)
         {
             using (var context = new STONKS_DB())
             {
@@ -192,7 +192,7 @@ namespace STONKS.Forms
                             select e.slika;
                 return query.FirstOrDefault();
             }
-        }
+        }*/
 
         private void btnUkljuciKameru_new_Click_1(object sender, EventArgs e)
         {

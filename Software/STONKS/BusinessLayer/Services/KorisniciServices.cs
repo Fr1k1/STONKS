@@ -67,6 +67,14 @@ namespace BusinessLayer.Services
             return added;
         }
 
+        public string GetPicturePath(string path)
+        {
+            using (var repo = new KorisniciRepository())
+            {
+                return repo.GetPath(path);
+            }
+        }
+
         /* public List<Korisnik> GetKorisnik(Korisnik korisnik)
          {
              using (var repo=new KorisniciRepository())

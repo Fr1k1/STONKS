@@ -25,6 +25,19 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public string GetPath(string value)
+        {
+            using (var context = new STONKS_DB())
+            {
+                var query = from e in Entities.Include("Uloge")
+                            where e.slika.Contains(value)
+                            select e.slika;
+                return query.FirstOrDefault();
+            }
+        }
+
+
+
         public IQueryable<Korisnik> Get(string username, string password)
         {
             var query = from e in Entities.Include("Uloge")
@@ -69,7 +82,7 @@ namespace DataAccessLayer.Repositories
                 lozinka = entity.lozinka,
                 uloga_id = entity.uloga_id,
                 Uloge = uloga,
-                slika=entity.slika,
+                slika = entity.slika,
             };
 
             Entities.Add(korisnik);
