@@ -116,6 +116,10 @@ namespace STONKS.Forms
             catch
             {
                 MessageBox.Show("Ups, nesto s dretvama je poslo u krivu");
+                Hide();
+                FrmLogin frmLogin = new FrmLogin();
+                frmLogin.ShowDialog();
+                Close();
                 return;
             }
         }

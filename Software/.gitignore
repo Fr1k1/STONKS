@@ -22,6 +22,7 @@
 mono_crash.*
 
 # Build results
+STONKS/UnitTests/bin/Debug
 STONKS/BusinessLayer/bin/Debug
 STONKS/DataAccessLayer/bin/Debug
 STONKS/EntitiesLayer/bin/Debug
