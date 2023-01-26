@@ -218,8 +218,7 @@
             // 
             // helpProvider1
             // 
-            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
-    "S\\User manual.chm";
+            this.helpProvider1.HelpNamespace = "..\\..\\User manual.chm";
             // 
             // FrmPrepoznavanjeLica
             // 

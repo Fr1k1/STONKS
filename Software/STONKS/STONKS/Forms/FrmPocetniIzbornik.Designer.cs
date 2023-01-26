@@ -151,6 +151,7 @@
             this.Name = "FrmPocetniIzbornik";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pocetni izbornik";
+            this.Load += new System.EventHandler(this.FrmPocetniIzbornik_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPocetniIzbornik_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

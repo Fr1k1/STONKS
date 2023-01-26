@@ -68,7 +68,8 @@ namespace STONKS.Forms
 
         private void FrmUnosRacuna_Load(object sender, EventArgs e)
         {
-            if(prometServices.isZDone(DateTime.Now) == false)
+            helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
+            if (prometServices.isZDone(DateTime.Now) == false)
             {
                 filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
                 videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[0].MonikerString);

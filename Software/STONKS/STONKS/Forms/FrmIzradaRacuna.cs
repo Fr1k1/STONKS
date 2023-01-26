@@ -37,6 +37,7 @@ namespace STONKS.Forms
 
         private void FrmIzradaRacuna_Load(object sender, EventArgs e)
         {
+            helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
             var allNaciniPlacanja = new NaciniPlacanjaServices().GetNaciniPlacanja();
 
             List<NacinPlacanja> novaListaNacinaPlacanja = allNaciniPlacanja;

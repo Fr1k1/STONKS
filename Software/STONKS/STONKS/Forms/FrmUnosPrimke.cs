@@ -50,7 +50,8 @@ namespace STONKS.Forms
         }
 
         private void FrmUnosPrimke_Load(object sender, EventArgs e)
-        {   
+        {
+            helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             if(filterInfoCollection.Count > 0)  
             {

@@ -251,6 +251,7 @@ namespace STONKS.Forms
 
         private void FrmFaceRecNewApproach_Load(object sender, EventArgs e)
         {
+            helpProvider1.HelpNamespace = Application.StartupPath + "\\UserManual.chm";
             btnPic2_new.Enabled = false;
             btnSave_new.Enabled = false;
             btnCompare_new.Enabled = false;

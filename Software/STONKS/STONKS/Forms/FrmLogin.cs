@@ -111,5 +111,10 @@ namespace STONKS
                 Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "prijava.html");
             }
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
+        }
     }
 }

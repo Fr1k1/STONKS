@@ -38,6 +38,7 @@ namespace STONKS.Forms
 
         private void FrmPopisRacuna_Load(object sender, EventArgs e)
         {
+            helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
             var naciniPlacanja = naciniServices.GetNaciniPlacanja();
             cboVrsta.DataSource = naciniPlacanja;
             loadanjeCharta1();

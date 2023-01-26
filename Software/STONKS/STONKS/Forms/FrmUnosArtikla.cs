@@ -31,6 +31,7 @@ namespace STONKS.Forms
 
         private void FrmUnosArtikla_Load(object sender, EventArgs e)
         {
+            helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
             cbArticleType.Size = new Size(316, 120);
             GetVrsteArtikla();
         }

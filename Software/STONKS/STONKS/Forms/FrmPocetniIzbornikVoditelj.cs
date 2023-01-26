@@ -101,7 +101,7 @@ namespace STONKS.Forms
 
         private void FrmPocetniIzbornikVoditelj_Load(object sender, EventArgs e)
         {
-
+            helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
         }
 
         //show context based help when pressing F1 key

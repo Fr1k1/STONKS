@@ -29,6 +29,7 @@ STONKS/EntitiesLayer/bin/Debug
 STONKS/STONKS/bin/Debug
 STONKS/STONKS/bin/x64/Debug/*
 !STONKS/STONKS/bin/x64/Debug/models
+!STONKS/STONKS/bin/x64/Debug/UserManual.chm
 !STONKS/STONKS/bin/x64/Debug/DlibDotNet.dll
 !STONKS/STONKS/bin/x64/Debug/DlibDotNetNative.dll
 !STONKS/STONKS/bin/x64/Debug/DlibDotNetNativeDnn.dll

@@ -41,8 +41,8 @@ namespace STONKS.Forms
 
         private void FrmRegistracija_Load(object sender, EventArgs e)
         {
+            helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
             btnUkljuciKameru_new.Enabled = false;
-
             btnTakePicture_new.Enabled = false;
             btnSave_new.Enabled = false;
             btnRegister.Enabled = false;

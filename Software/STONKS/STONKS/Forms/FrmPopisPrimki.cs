@@ -30,6 +30,7 @@ namespace STONKS.Forms
 
         private void FrmPopisPrimki_Load(object sender, EventArgs e)
         {
+            helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
             LoadDGVs();
         }
 

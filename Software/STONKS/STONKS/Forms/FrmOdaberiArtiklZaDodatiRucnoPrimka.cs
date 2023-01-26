@@ -23,6 +23,7 @@ namespace STONKS.Forms
 
         private void FrmOdaberiArtiklZaDodatiRucnoPrimka_Load(object sender, EventArgs e)
         {
+            helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
             LoadArtikliDGV();
         }
 

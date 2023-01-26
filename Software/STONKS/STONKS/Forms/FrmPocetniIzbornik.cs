@@ -101,5 +101,10 @@ namespace STONKS.Forms
                 Help.ShowHelp(this, helpProvider1.HelpNamespace);
             }
         }
+
+        private void FrmPocetniIzbornik_Load(object sender, EventArgs e)
+        {
+            helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
+        }
     }
 }

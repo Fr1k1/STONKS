@@ -168,6 +168,7 @@ namespace STONKS.Forms
 
         private void FrmDnevniPromet_Load(object sender, EventArgs e)
         {
+            helpProvider1.HelpNamespace = Application.StartupPath + "\\UserManual.chm";
             dtpDate.Value = DateTime.Now;
         }
 

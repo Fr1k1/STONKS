@@ -71,5 +71,10 @@ namespace STONKS.Forms
                 Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "unosDobavljaca.htm");
             }
         }
+
+        private void FrmUnosDobavljaca_Load(object sender, EventArgs e)
+        {
+            helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
+        }
     }
 }

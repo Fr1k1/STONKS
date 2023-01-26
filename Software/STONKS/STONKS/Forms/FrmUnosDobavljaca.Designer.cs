@@ -142,6 +142,7 @@
             this.Name = "FrmUnosDobavljaca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos Dobavljaca";
+            this.Load += new System.EventHandler(this.FrmUnosDobavljaca_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmUnosDobavljaca_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
