@@ -76,5 +76,16 @@ namespace STONKS.Forms
             dgvStavkePrimke.Columns["nabavna_cijena"].DefaultCellStyle.Format = "0.00## EUR";
             dgvStavkePrimke.Columns["ukupna_cijena"].DefaultCellStyle.Format = "0.00## EUR";
         }
+
+        private void FrmPopisPrimki_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "prikazPrimki.htm");
+            }
+        }
+
+
     }
 }

@@ -34,6 +34,7 @@
             this.btnIzradiIGenerirajPdf = new System.Windows.Forms.Button();
             this.btnPovratak = new System.Windows.Forms.Button();
             this.cboOdabirNacinaPlacanja = new System.Windows.Forms.ComboBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // label2
@@ -113,6 +114,11 @@
             this.cboOdabirNacinaPlacanja.TabIndex = 24;
             this.cboOdabirNacinaPlacanja.Text = "odabir nacina placanja:";
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmIzradaRacuna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -125,10 +131,12 @@
             this.Controls.Add(this.btnIzradiRacun);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "FrmIzradaRacuna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Izrada racuna";
             this.Load += new System.EventHandler(this.FrmIzradaRacuna_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmIzradaRacuna_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,5 +150,6 @@
         private System.Windows.Forms.Button btnIzradiIGenerirajPdf;
         private System.Windows.Forms.Button btnPovratak;
         private System.Windows.Forms.ComboBox cboOdabirNacinaPlacanja;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

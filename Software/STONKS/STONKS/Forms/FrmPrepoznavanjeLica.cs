@@ -238,6 +238,17 @@ namespace STONKS.Forms
             }
         }
 
+
+
+        //show context based help when pressing F1 key
+        private void FrmPrepoznavanjeLica_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "prijava_pomocu_lica.html");
+            }
+        }
+
         private void FrmFaceRecNewApproach_Load(object sender, EventArgs e)
         {
             btnPic2_new.Enabled = false;

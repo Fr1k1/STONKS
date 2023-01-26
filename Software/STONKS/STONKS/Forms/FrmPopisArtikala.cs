@@ -119,5 +119,16 @@ namespace STONKS.Forms
             var artikli = services.FilterByType(izraz);
             dgvArtikli.DataSource = artikli;
         }
+
+
+
+        //show context based help when pressing F1 key
+        private void FrmPopisArtikala_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "prikaz_artikala.html");
+            }
+        }
     }
 }

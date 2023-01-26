@@ -35,6 +35,7 @@
             this.btnOdjava = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // btnUnosRacuna
@@ -128,6 +129,11 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "| POCETNI IZBORNIK";
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmPocetniIzbornik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,9 +147,11 @@
             this.Controls.Add(this.btnPopisArtikala);
             this.Controls.Add(this.btnPopisRacuna);
             this.Controls.Add(this.btnUnosRacuna);
+            this.KeyPreview = true;
             this.Name = "FrmPocetniIzbornik";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pocetni izbornik";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPocetniIzbornik_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +165,6 @@
         private System.Windows.Forms.Button btnOdjava;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

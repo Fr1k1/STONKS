@@ -44,6 +44,7 @@
             this.pbCamera_new = new System.Windows.Forms.PictureBox();
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.cbCameraName_new = new System.Windows.Forms.ComboBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pbSlikaZaSpremiti_new)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCamera_new)).BeginInit();
             this.SuspendLayout();
@@ -244,6 +245,11 @@
             this.cbCameraName_new.Size = new System.Drawing.Size(112, 21);
             this.cbCameraName_new.TabIndex = 71;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmRegistracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,10 +272,12 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "FrmRegistracija";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registracija";
             this.Load += new System.EventHandler(this.FrmRegistracija_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmRegistracija_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pbSlikaZaSpremiti_new)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCamera_new)).EndInit();
             this.ResumeLayout(false);
@@ -295,5 +303,6 @@
         private System.Windows.Forms.PictureBox pbCamera_new;
         private System.Windows.Forms.ComboBox cbRole;
         private System.Windows.Forms.ComboBox cbCameraName_new;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

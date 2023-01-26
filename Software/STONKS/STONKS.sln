@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9177256B-FCD8-4360-B1F0-E7B169D366AA}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\..\..\azonix\Azonix.otf = ..\..\..\..\azonix\Azonix.otf
+		User manual.chm = User manual.chm
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeScanner", "BarcodeScanner\BarcodeScanner.csproj", "{740C8A39-844F-420C-B0C4-513C909F1DC2}"

@@ -35,6 +35,7 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtOIB = new System.Windows.Forms.TextBox();
             this.txtAdress = new System.Windows.Forms.TextBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // label2
@@ -119,6 +120,11 @@
             this.txtAdress.TabIndex = 25;
             this.txtAdress.Text = "Adresa";
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmUnosDobavljaca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -132,9 +138,11 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "FrmUnosDobavljaca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos Dobavljaca";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmUnosDobavljaca_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +157,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtOIB;
         private System.Windows.Forms.TextBox txtAdress;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

@@ -42,6 +42,7 @@
             this.btnTakePicture_new = new System.Windows.Forms.Button();
             this.cbAllUsers = new System.Windows.Forms.ComboBox();
             this.cbCameraName_new = new System.Windows.Forms.ComboBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pbSlikaZaSpremiti_new)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCamera_new)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic2_new)).BeginInit();
@@ -215,6 +216,11 @@
             this.cbCameraName_new.Size = new System.Drawing.Size(112, 21);
             this.cbCameraName_new.TabIndex = 64;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmPrepoznavanjeLica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,10 +241,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pbPic1_new);
+            this.KeyPreview = true;
             this.Name = "FrmPrepoznavanjeLica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prijava pomocu lica";
             this.Load += new System.EventHandler(this.FrmFaceRecNewApproach_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPrepoznavanjeLica_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pbSlikaZaSpremiti_new)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCamera_new)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPic2_new)).EndInit();
@@ -263,5 +271,6 @@
         private System.Windows.Forms.Button btnTakePicture_new;
         private System.Windows.Forms.ComboBox cbAllUsers;
         private System.Windows.Forms.ComboBox cbCameraName_new;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

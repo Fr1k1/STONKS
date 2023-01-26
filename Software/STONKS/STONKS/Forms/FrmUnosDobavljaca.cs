@@ -61,5 +61,15 @@ namespace STONKS.Forms
             else
                 return false;
         }
+
+
+        //show context based help when pressing F1 key
+        private void FrmUnosDobavljaca_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "unosDobavljaca.htm");
+            }
+        }
     }
 }

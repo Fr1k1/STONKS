@@ -50,6 +50,7 @@
             this.btnPovratak = new System.Windows.Forms.Button();
             this.btnIzradaZ = new System.Windows.Forms.Button();
             this.btnIspisZ = new System.Windows.Forms.Button();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -317,6 +318,11 @@
             this.btnIspisZ.UseVisualStyleBackColor = false;
             this.btnIspisZ.Click += new System.EventHandler(this.btnIspisZ_Click);
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmDnevniPromet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,10 +337,12 @@
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "FrmDnevniPromet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dnevni promet";
             this.Load += new System.EventHandler(this.FrmDnevniPromet_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmDnevniPromet_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -366,5 +374,6 @@
         private System.Windows.Forms.Label lblUkupnoGotovina;
         private System.Windows.Forms.Label lblUkupnoKartice;
         private System.Windows.Forms.Button btnIspisZ;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

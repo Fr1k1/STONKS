@@ -92,5 +92,14 @@ namespace STONKS.Forms
             frm.ShowDialog();
             Close();
         }
+
+        //show context based help when pressing F1 key
+        private void FrmPocetniIzbornik_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, helpProvider1.HelpNamespace);
+            }
+        }
     }
 }

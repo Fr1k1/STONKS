@@ -42,6 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavkePrimke)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -222,6 +223,11 @@
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmUnosPrimke
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,10 +244,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvStavkePrimke);
             this.Controls.Add(this.cboDobavljac);
+            this.KeyPreview = true;
             this.Name = "FrmUnosPrimke";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos primke";
             this.Load += new System.EventHandler(this.FrmUnosPrimke_Load);
+            this.VisibleChanged += new System.EventHandler(this.FrmUnosPrimke_VisibleChanged);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmUnosPrimke_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavkePrimke)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -267,5 +276,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

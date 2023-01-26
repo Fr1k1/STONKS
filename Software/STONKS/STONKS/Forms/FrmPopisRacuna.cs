@@ -197,5 +197,15 @@ namespace STONKS.Forms
         {
             PrikaziRacune();
         }
+
+
+        //show context based help when pressing F1 key
+        private void FrmPopisRacuna_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "popisracuna.html");
+            }
+        }
     }
 }

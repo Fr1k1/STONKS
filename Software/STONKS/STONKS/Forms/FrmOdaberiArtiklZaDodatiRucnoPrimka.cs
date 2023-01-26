@@ -70,5 +70,15 @@ namespace STONKS.Forms
             InsertStavka();
             Close();
         }
+
+        //show context based help when pressing F1 key
+        private void FrmOdaberiArtiklZaDodatiRucnoPrimka_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "UnosStavkePrimke.htm");
+            }
+        }
+
     }
 }

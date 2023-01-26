@@ -41,6 +41,7 @@
             this.cbVrsta = new System.Windows.Forms.ComboBox();
             this.btnResetFilter = new System.Windows.Forms.Button();
             this.cbSort = new System.Windows.Forms.ComboBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArtikli)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartArticles)).BeginInit();
             this.SuspendLayout();
@@ -182,6 +183,11 @@
             this.cbSort.Text = "Sortiranje";
             this.cbSort.TextChanged += new System.EventHandler(this.cbSort_TextChanged);
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmPopisArtikala
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,10 +204,12 @@
             this.Controls.Add(this.txtPretraziArtikle);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "FrmPopisArtikala";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Popis artikala";
             this.Load += new System.EventHandler(this.FrmPopisArtikala_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPopisArtikala_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArtikli)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartArticles)).EndInit();
             this.ResumeLayout(false);
@@ -221,5 +229,6 @@
         private System.Windows.Forms.ComboBox cbVrsta;
         private System.Windows.Forms.Button btnResetFilter;
         private System.Windows.Forms.ComboBox cbSort;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

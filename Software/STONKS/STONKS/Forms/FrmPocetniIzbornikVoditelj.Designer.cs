@@ -40,6 +40,7 @@
             this.btnUnosRacuna = new System.Windows.Forms.Button();
             this.btnUnosArtikla = new System.Windows.Forms.Button();
             this.btnRegistriraj = new System.Windows.Forms.Button();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // label2
@@ -203,6 +204,11 @@
             this.btnRegistriraj.UseVisualStyleBackColor = false;
             this.btnRegistriraj.Click += new System.EventHandler(this.btnRegistriraj_Click);
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmPocetniIzbornikVoditelj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,10 +227,12 @@
             this.Controls.Add(this.btnUnosPrimke);
             this.Controls.Add(this.btnUnosRacuna);
             this.Controls.Add(this.btnUnosArtikla);
+            this.KeyPreview = true;
             this.Name = "FrmPocetniIzbornikVoditelj";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pocetni izbornik voditelja";
             this.Load += new System.EventHandler(this.FrmPocetniIzbornikVoditelj_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPocetniIzbornikVoditelj_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +252,6 @@
         private System.Windows.Forms.Button btnUnosRacuna;
         private System.Windows.Forms.Button btnUnosArtikla;
         private System.Windows.Forms.Button btnRegistriraj;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

@@ -47,6 +47,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.btnPrikaziSve = new System.Windows.Forms.Button();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRacuni)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRacuni)).BeginInit();
@@ -217,6 +218,11 @@
             this.btnPrikaziSve.UseVisualStyleBackColor = false;
             this.btnPrikaziSve.Click += new System.EventHandler(this.btnPrikaziSve_Click);
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmPopisRacuna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,10 +242,12 @@
             this.Controls.Add(this.cboVrsta);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "FrmPopisRacuna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Popis racuna";
             this.Load += new System.EventHandler(this.FrmPopisRacuna_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPopisRacuna_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRacuni)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavke)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartRacuni)).EndInit();
@@ -264,5 +272,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnPrikaziSve;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

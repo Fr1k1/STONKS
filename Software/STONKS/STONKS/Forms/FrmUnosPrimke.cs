@@ -42,8 +42,7 @@ namespace STONKS.Forms
 
         private void btnPovratak_Click(object sender, EventArgs e)
         {
-            if (filterInfoCollection.Count > 0)
-                UnloadCamera();
+
             Hide();
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             frmPocetniIzbornik.ShowDialog();
@@ -140,8 +139,7 @@ namespace STONKS.Forms
                 if (primkaServices.AddPrimka(primka, stavkePrimke.ToList()))
                 {
                     MessageBox.Show("Primka je unesena!!!", "Uspiješan unos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (filterInfoCollection.Count > 0)
-                        UnloadCamera();
+
                     Hide();
                     FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
                     frmPocetniIzbornik.ShowDialog();
@@ -259,5 +257,26 @@ namespace STONKS.Forms
                 videoCaptureDevice = null;
             }
        }
+
+        //show context based help when pressing F1 key
+        private void FrmUnosPrimke_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "UnosPrimke.htm");
+            }
+        }
+
+
+        //turn off camera when closing form
+        private void FrmUnosPrimke_VisibleChanged(object sender, EventArgs e)
+        {   
+
+            if(!this.Visible)
+            {
+                if (filterInfoCollection.Count > 0)
+                    UnloadCamera();
+            }
+        }
     }
 }

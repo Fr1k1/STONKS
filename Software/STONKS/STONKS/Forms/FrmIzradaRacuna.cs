@@ -211,5 +211,14 @@ namespace STONKS.Forms
             document.Close();
             Process.Start(filePath);
         }
+
+        //show context based help when pressing F1 key
+        private void FrmIzradaRacuna_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "unosracuna.html");
+            }
+        }
     }
 }

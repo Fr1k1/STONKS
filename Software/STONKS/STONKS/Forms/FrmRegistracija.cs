@@ -191,5 +191,15 @@ namespace STONKS.Forms
                 btnUkljuciKameru_new.Enabled = true;
             }
         }
+
+
+        //show context based help when pressing F1 key
+        private void FrmRegistracija_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "registracija.html");
+            }
+        }
     }
 }

@@ -34,6 +34,7 @@
             this.dgvPrimke = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavkePrimke)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimke)).BeginInit();
             this.SuspendLayout();
@@ -116,6 +117,11 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "STONKS ";
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmPopisPrimki
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,10 +134,13 @@
             this.Controls.Add(this.dgvStavkePrimke);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvPrimke);
+            this.HelpButton = true;
+            this.KeyPreview = true;
             this.Name = "FrmPopisPrimki";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Popis primki";
             this.Load += new System.EventHandler(this.FrmPopisPrimki_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPopisPrimki_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStavkePrimke)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimke)).EndInit();
             this.ResumeLayout(false);
@@ -147,5 +156,6 @@
         private System.Windows.Forms.DataGridView dgvPrimke;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

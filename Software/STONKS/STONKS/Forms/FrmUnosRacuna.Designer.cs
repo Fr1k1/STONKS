@@ -41,6 +41,7 @@
             this.txtPopust = new System.Windows.Forms.TextBox();
             this.txtUkupno = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArtikli)).BeginInit();
             this.SuspendLayout();
             // 
@@ -206,6 +207,11 @@
             this.label6.TabIndex = 25;
             this.label6.Text = "eur";
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmUnosRacuna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,10 +231,12 @@
             this.Controls.Add(this.dgvArtikli);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "FrmUnosRacuna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos racuna";
             this.Load += new System.EventHandler(this.FrmUnosRacuna_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmUnosRacuna_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArtikli)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -249,5 +257,6 @@
         private System.Windows.Forms.TextBox txtPopust;
         private System.Windows.Forms.TextBox txtUkupno;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

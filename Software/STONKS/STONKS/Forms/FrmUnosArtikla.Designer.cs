@@ -40,6 +40,7 @@
             this.btnGenerateBarcode = new System.Windows.Forms.Button();
             this.btnPrintBarcode = new System.Windows.Forms.Button();
             this.cbArticleType = new System.Windows.Forms.ComboBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pbBarcode)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,6 +192,11 @@
             this.cbArticleType.TabIndex = 33;
             this.cbArticleType.Text = "VRSTA ARTIKLA";
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
             // FrmUnosArtikla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -209,10 +215,12 @@
             this.Controls.Add(this.txtCode);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "FrmUnosArtikla";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos artikla";
             this.Load += new System.EventHandler(this.FrmUnosArtikla_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmUnosArtikla_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pbBarcode)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -233,5 +241,6 @@
         private System.Windows.Forms.Button btnGenerateBarcode;
         private System.Windows.Forms.Button btnPrintBarcode;
         private System.Windows.Forms.ComboBox cbArticleType;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

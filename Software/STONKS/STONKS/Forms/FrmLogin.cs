@@ -100,5 +100,16 @@ namespace STONKS
             frmRegistracija.ShowDialog();
             Close();
         }
+
+
+
+        //show context based help when pressing F1 key
+        private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "prijava.html");
+            }
+        }
     }
 }

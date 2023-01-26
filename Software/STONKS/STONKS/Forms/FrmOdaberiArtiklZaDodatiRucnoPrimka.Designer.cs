@@ -34,6 +34,7 @@
             this.btnDodajArtikl = new System.Windows.Forms.Button();
             this.btnOdustani = new System.Windows.Forms.Button();
             this.txtPretrazi = new System.Windows.Forms.TextBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPopisArtikala)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,7 +113,12 @@
             this.txtPretrazi.Text = " pretrazi...";
             this.txtPretrazi.TextChanged += new System.EventHandler(this.txtPretrazi_TextChanged);
             // 
-            // FrmOdaberiArtiklZaDodatiRucno
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "C:\\Users\\7417\\source\\repos\\rpp22-askarica20-fmilohano20-mfriscic20\\Software\\STONK" +
+    "S\\User manual.chm";
+            // 
+            // FrmOdaberiArtiklZaDodatiRucnoPrimka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -124,10 +130,12 @@
             this.Controls.Add(this.dgvPopisArtikala);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "FrmOdaberiArtiklZaDodatiRucnoPrimka";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Odaberi artikl za dodati rucno";
             this.Load += new System.EventHandler(this.FrmOdaberiArtiklZaDodatiRucnoPrimka_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmOdaberiArtiklZaDodatiRucnoPrimka_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPopisArtikala)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -142,5 +150,6 @@
         private System.Windows.Forms.Button btnDodajArtikl;
         private System.Windows.Forms.Button btnOdustani;
         private System.Windows.Forms.TextBox txtPretrazi;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
