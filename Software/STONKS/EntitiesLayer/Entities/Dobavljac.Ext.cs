@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace EntitiesLayer.Entities
 {
     public partial class Dobavljac
-    {
+    {   
+        //Author : Filip Milohanović
         public Dobavljac(string naziv, string oIB, string adresa)
         {
             this.naziv = naziv;

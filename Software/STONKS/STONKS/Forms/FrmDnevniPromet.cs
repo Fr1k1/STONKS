@@ -20,6 +20,12 @@ namespace STONKS.Forms
 {
     public partial class FrmDnevniPromet : Form
     {   
+        /// <summary>
+        /// This form is tasked with showin user statistics of daily trafic,
+        /// closing shop for the day and making reports in pdf.
+        /// Author : Filip Milohanović
+        /// 
+        /// </summary>
         PrometServices prometServices = new PrometServices();
 
         private double UkupanPromet;
@@ -44,13 +50,14 @@ namespace STONKS.Forms
             Close();
         }
 
+        //gets trafic data for selected day
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             GetPromet();
         }
-
+        // gets trafic data from service and assignes it to labels, some data is calculated based on other data
         private void GetPromet()
-        {
+        {   
             CheckIfTraficReportHasBeenSubmited();
             UkupnoGotovina = prometServices.CalculateCash(dtpDate.Value);
             UkupnoKartice = prometServices.CalculateCard(dtpDate.Value);
@@ -70,6 +77,7 @@ namespace STONKS.Forms
             lblKartice.Text = Kartice + " EUR";
         }
 
+        // checks if cash register is closed for the day and enables or disables buttons
         private void CheckIfTraficReportHasBeenSubmited()
         {   
             var promet = prometServices.isZDone(dtpDate.Value);
@@ -92,12 +100,13 @@ namespace STONKS.Forms
                 btnIspisZ.Enabled = false;
             }
         }
-
+        //generate promet X
         private void btnIspisPrometX_Click(object sender, EventArgs ev)
         {
             genreateTraficReport();
         }
 
+        //method that generates pdf for reports and writes it on desktop, nothing smart
        private void genreateTraficReport(bool isFinalReport = false)
        {
             DateTime datumIzdavanja = DateTime.Now;
@@ -155,6 +164,7 @@ namespace STONKS.Forms
             Process.Start(filePath);
         }
 
+        // method that closes cash register for the day, after this is done, no other bills can be issued
         private void btnIzradaIspisZ_Click(object sender, EventArgs e)
         {
             if (prometServices.CreateZ(FrmPrepoznavanjeLica.logiraniKorisnik))
@@ -165,19 +175,19 @@ namespace STONKS.Forms
             else
                 MessageBox.Show("Došlo je do greške", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
+        //sets help file path and date time picker to today
         private void FrmDnevniPromet_Load(object sender, EventArgs e)
         {
             helpProvider1.HelpNamespace = Application.StartupPath + "\\UserManual.chm";
             dtpDate.Value = DateTime.Now;
         }
-
+        // generate promet z/ final day report
         private void btnIspisZ_Click(object sender, EventArgs e)
         {
             genreateTraficReport(true);
         }
 
-        //show context based help when pressing F1 key
+        //shows context based help when pressing F1 key
         private void FrmDnevniPromet_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F1)

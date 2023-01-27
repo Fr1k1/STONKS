@@ -7,9 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
-{
+{   
     public class PrometRepository : Repository<Promet>
     {
+        //Author : Filip Milohanović
         public PrometRepository() : base(new STONKS_DB())
         {
         }

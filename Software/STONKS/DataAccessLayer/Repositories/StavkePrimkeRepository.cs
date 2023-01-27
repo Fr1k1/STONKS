@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
+    //Author : Filip Milohanović
     public class StavkePrimkeRepository : Repository<StavkaPrimke>
     {
         public StavkePrimkeRepository() : base(new STONKS_DB())

@@ -19,7 +19,14 @@ using BarcodeScanner;
 namespace STONKS.Forms
 {
     public partial class FrmUnosPrimke : Form
-    {
+    {   
+        /// <summary>
+        /// Form that is tasked with validating and inserting new primka into db,
+        /// it also opens new form wehere user manualy ads items,
+        /// and it has barcode scanner functionality if users pc has camera
+        /// Author:Filip Milohanović
+        /// </summary>
+
         private DobavljaciServices dobavljaciServices = new DobavljaciServices();
 
         private PrimkaServices primkaServices = new PrimkaServices();
@@ -42,15 +49,14 @@ namespace STONKS.Forms
 
         private void btnPovratak_Click(object sender, EventArgs e)
         {
-
             Hide();
             FrmPocetniIzbornikVoditelj frmPocetniIzbornik = new FrmPocetniIzbornikVoditelj();
             frmPocetniIzbornik.ShowDialog();
             Close();
         }
-
+        // method that sets help file peth, turn on camera if avalible and loads form elements with data
         private void FrmUnosPrimke_Load(object sender, EventArgs e)
-        {
+        {   
             helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             if(filterInfoCollection.Count > 0)  
@@ -66,7 +72,7 @@ namespace STONKS.Forms
             LoadDobavljaciCBO();
             LoadStavkeDGV();
         }   
-
+        //method that gets id of new primka and style label text
         private string SetPrimkaId()
         {
             IdPrimke  = primkaServices.GetIdForNewPrimka();
@@ -78,7 +84,7 @@ namespace STONKS.Forms
             else
                 return "Broj primke: " + IdPrimke;
         }
-
+        //method that sets dgv data source to list of StavkaPrimke. Dgv is style so its more user frendly 
         public void LoadStavkeDGV() 
         {
             dgvStavkePrimke.DataSource = stavkePrimke;  
@@ -105,28 +111,31 @@ namespace STONKS.Forms
             dgvStavkePrimke.Columns["nabavna_cijena"].DefaultCellStyle.Format = "0.00## EUR";
             dgvStavkePrimke.Columns["ukupna_cijena"].DefaultCellStyle.Format = "0.00## EUR";
         }
+        //method that loads suppliers combobox with supplier from db
         private void LoadDobavljaciCBO()
         {
             cboDobavljac.DataSource = dobavljaciServices.GetDobavljaci(); 
         }
-
+        //this is method that is used for adding stavka into list, it checks if that element exists before adding it
         public void AddStavka(StavkaPrimke stavka,bool manual = true)  
         {
             if (!stavkePrimke.Contains(stavka))
             {   
-                stavkePrimke.Add(stavka); 
+                stavkePrimke.Add(stavka);
+                //changes tab position to one cell to the right, for better ux
                 changeTabPosition();  
             }
-            else if(manual)
+            //this is here so that warning message shows only when user is adding manualy, because othervise it shows when camera scans multiple frames
+            else if (manual)
                 MessageBox.Show("Ovaj artikl ste već dodali!!!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-
+        //changes tab position to one cell to the right, for better ux
         private void changeTabPosition()
         {
             int numOfRows = dgvStavkePrimke.RowCount - 1;
             dgvStavkePrimke.Rows[numOfRows].Cells["kolicina"].Selected = true;
         }
-
+        //method that inserts primka into db, before inserting primka is validated
         private void InsertPrimka()
         {
             if (ValidatePrimka())
@@ -152,7 +161,7 @@ namespace STONKS.Forms
             else
                 MessageBox.Show("Nisu uneseni svi potrebni podaci, primka nije unesena!!!", "Nesipravan unos", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
+        //function that check validity of data in each row
         private bool ValidatePrimka()
         {
             foreach (DataGridViewRow row in dgvStavkePrimke.Rows)
@@ -165,6 +174,7 @@ namespace STONKS.Forms
             }               
             return true;
         }
+        //method that calculates and displays finalDiscount based on sum of row disocunts
         private void CalculateDiscount()
         {
             Discount = 0;
@@ -174,7 +184,7 @@ namespace STONKS.Forms
             }
             txtPopust.Text = Discount.ToString() + " EUR";
         }
-
+        //method that calculates and displays finalPricebased on sum of row totals
         private void CalculateFinalPrice()
         {
             FinalPrice = 0;
@@ -184,7 +194,7 @@ namespace STONKS.Forms
             }
             txtUkupno.Text = FinalPrice.ToString() + " EUR";
         }
-
+        //method that calcualtes row total based on other row data, this method is called on every cell edit for that row
         private void CalculateRowData(int rowIndex)
         {
             int kolicina = (int)dgvStavkePrimke.Rows[rowIndex].Cells["kolicina"].Value; 
@@ -194,7 +204,7 @@ namespace STONKS.Forms
             uk_cijena = kolicina * (nabavna_cijena * (1 - (rabat / 100.00)));  
             dgvStavkePrimke.Rows[rowIndex].Cells["ukupna_cijena"].Value = uk_cijena;      
         }
-
+        //opens form for manual adding of items
         private void btnAddStavkaPrimke_Click(object sender, EventArgs e)
         {
             FrmOdaberiArtiklZaDodatiRucnoPrimka frmDodajRucno = new FrmOdaberiArtiklZaDodatiRucnoPrimka();
@@ -206,6 +216,7 @@ namespace STONKS.Forms
         {
             InsertPrimka();
         }
+        //calculates row data, final disocunt and price when any cell is being edited
         private void dgvStavkePrimke_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             CalculateRowData(e.RowIndex);
@@ -213,12 +224,13 @@ namespace STONKS.Forms
             CalculateDiscount();
 
         }
+        //calculates final disocunt and price when any row is being removed
         private void dgvStavkePrimke_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             CalculateFinalPrice();
             CalculateDiscount();
         }
-
+        //method that runs every frame of the camera, every frame is scanned for barcode,that happens on another thread
         private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs) 
         {   
             var image = (Bitmap)eventArgs.Frame.Clone();
@@ -229,7 +241,7 @@ namespace STONKS.Forms
                 Task.Run(() => scanner.Scan((Bitmap)image.Clone()));
             });
         }
-
+        //this method creates new stavka based on code that has been provided by scanner
         private void CreateStavkaFromBarcode(object sender, string sifra)
         {
              var artikl = artikliServices.GetArtikl(sifra);
@@ -245,10 +257,11 @@ namespace STONKS.Forms
                             ukupna_cijena = 0.0,
                             primka_id = IdPrimke
                         };
+                        //this method need to be caled by delegate because it affects varibales that are run by main thread
                         Invoke((MethodInvoker)delegate { AddStavka(stavka,false); });
                     }
         }
-
+        // method that frees camera resources
        private void UnloadCamera()
        {
             Console.WriteLine("close");

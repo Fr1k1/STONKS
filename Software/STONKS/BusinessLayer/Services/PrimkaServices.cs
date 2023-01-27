@@ -10,9 +10,10 @@ using System.Transactions;
 
 namespace BusinessLayer.Services
 {
+    //Author : Filip Milohanović
     public class PrimkaServices
     {   
-
+        //gets all primkas
         public List<Primka> GetPrimke()
         { 
             using (var repo = new PrimkaRepository())
@@ -20,12 +21,12 @@ namespace BusinessLayer.Services
                 return repo.GetAll().ToList();
             }
         }
-
+        //gets new id based on cout(not perfect)
         public int GetIdForNewPrimka()
         {
             return GetPrimke().Count + 1;
         }
-
+        //adds primka and its stavke into db using transactions
         public bool AddPrimka(Primka primka,List<StavkaPrimke> stavke)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.RepeatableRead }))
@@ -91,7 +92,7 @@ namespace BusinessLayer.Services
             }
 
         }
-
+        //gets list of stavke from primka based on id
         public List<StavkaPrimke> GetStavkeFromPrimka(Primka primka)
         {
             using (var repo = new StavkePrimkeRepository())

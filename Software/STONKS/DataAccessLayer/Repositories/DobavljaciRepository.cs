@@ -9,6 +9,7 @@ namespace DataAccessLayer.Repositories
 {
     public class DobavljaciRepository : Repository<Dobavljac>
     {
+        //Author : Filip Milohanović
         public DobavljaciRepository() : base(new STONKS_DB())
         {
         }

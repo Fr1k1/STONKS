@@ -11,6 +11,7 @@ namespace DataAccessLayer.Repositories
 {
     public class PrimkaRepository : Repository<Primka>
     {
+        //Author : Filip Milohanović
         public PrimkaRepository() : base(new STONKS_DB())
         {
         }

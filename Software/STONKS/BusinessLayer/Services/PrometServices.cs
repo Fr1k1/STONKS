@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Services
 {
+    //Author : Filip Milohanović
     public class PrometServices
     {
-
+        //Calculates tax for specific day, sums tax for all bill with that date
         public double CalculateTax(DateTime date)
         {
             RacuniServices racuniServices = new RacuniServices();
@@ -23,8 +24,8 @@ namespace BusinessLayer.Services
             }
             return tax;
         }
-
-            public double CalculateCash(DateTime date)
+        //Calculates cash for specific day, sums cash total for all bills with that date
+        public double CalculateCash(DateTime date)
         {
             RacuniServices racuniServices = new RacuniServices();
             var racuni = racuniServices.GetRacuniByDate(date);
@@ -40,7 +41,7 @@ namespace BusinessLayer.Services
             }
             return total;
         }
-
+        //Calculates card total for specific day, sums card total for all bills with that date
         public double CalculateCard(DateTime date)
         {
             RacuniServices racuniServices = new RacuniServices();
@@ -56,7 +57,7 @@ namespace BusinessLayer.Services
             }
             return total;
         }
-
+        //Calculates card discount for  all bill with that date
         public double CalculateCardDiscount(DateTime date)
         {
             RacuniServices racuniServices = new RacuniServices();
@@ -73,7 +74,7 @@ namespace BusinessLayer.Services
             }
             return total;
         }
-
+        //Calculates cash discount for  all bill with that date
         public double CalculateCashDiscount(DateTime date)
         {
             RacuniServices racuniServices = new RacuniServices();
@@ -90,7 +91,7 @@ namespace BusinessLayer.Services
             }
             return total;
         }
-
+        //function that calcualtes trafic per employee
         public Dictionary<Korisnik, double> GetTraficByEmployees(DateTime date)
         {
             Dictionary<Korisnik, double> totalPerEmployee = new Dictionary<Korisnik, double>();
@@ -112,7 +113,7 @@ namespace BusinessLayer.Services
             }
             return totalPerEmployee;
         }
-
+        //checks if promet z is already inserted into db for that date
         public bool isZDone(DateTime date)
         {
             using (var repo = new PrometRepository())
@@ -120,7 +121,7 @@ namespace BusinessLayer.Services
                 return repo.GetByDate(date).ToList().Count > 0;
             }
         }
-
+        //inserts promet into db
         public bool CreateZ(Korisnik korisnik)//remove null later
         {
             using (var repo = new PrometRepository())

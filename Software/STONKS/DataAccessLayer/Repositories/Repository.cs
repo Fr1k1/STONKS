@@ -5,7 +5,8 @@ using System.Linq;
 
 
 namespace DataAccessLayer.Repositories
-{
+{   
+    //Author : Filip Milohanović
     public abstract class Repository<T> : IDisposable where T : class
     {
         protected STONKS_DB Context;

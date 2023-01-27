@@ -5,9 +5,10 @@ using ZXing;
 
 namespace BarcodeScanner
 {
+    //Author : Filip Milohanović
     public class Scanner
     {
-        public event EventHandler<String> Scanned;
+        public event EventHandler<String> Scanned;// event that is trrigered when scann is succesfull
 
         public void Scan(Image image)
         {

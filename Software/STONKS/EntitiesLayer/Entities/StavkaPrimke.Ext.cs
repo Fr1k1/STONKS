@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EntitiesLayer.Entities
-{
+{   
+    //Author:Filip Milohanović
     partial class StavkaPrimke
     {
         public override bool Equals(object obj)

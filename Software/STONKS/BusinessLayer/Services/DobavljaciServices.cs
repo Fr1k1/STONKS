@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Services
 {
+    //Author : Filip Milohanović
     public class DobavljaciServices
-    {
+    {   
+        //gets list of all suppliers from db
         public List<Dobavljac> GetDobavljaci()
         {
             using (var repo = new DobavljaciRepository())
@@ -17,6 +19,7 @@ namespace BusinessLayer.Services
                 return repo.GetAll().ToList();
             }
         }
+        //adds supplier to db
         public bool AddDobavljac(Dobavljac dobavljac)
         {
             using (var repo = new DobavljaciRepository())
@@ -27,7 +30,7 @@ namespace BusinessLayer.Services
                     return false;
             }
         }
-
+        //checks if entry already exsists
         public bool AlreadyExists(string oib,string name)
         {
             using (var repo = new DobavljaciRepository())
