@@ -276,6 +276,7 @@
             this.Name = "FrmRegistracija";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registracija";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmRegistracija_FormClosing);
             this.Load += new System.EventHandler(this.FrmRegistracija_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmRegistracija_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pbSlikaZaSpremiti_new)).EndInit();

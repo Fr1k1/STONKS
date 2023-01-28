@@ -35,7 +35,15 @@ namespace STONKS.Forms
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            if (captureDevice != null)
+            {
 
+                if (captureDevice.IsRunning)
+                {
+                    captureDevice.SignalToStop();
+                    captureDevice = null;
+                }
+            }
             FrmLogin frmLogin = new FrmLogin();
             Hide();
 
@@ -223,6 +231,19 @@ namespace STONKS.Forms
             if (e.KeyCode == Keys.F1)
             {
                 Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "registracija.html");
+            }
+        }
+
+        private void FrmRegistracija_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            if (captureDevice != null)
+            {
+                if (captureDevice.IsRunning)
+                {
+                    captureDevice.SignalToStop();
+                    captureDevice = null;
+                }
             }
         }
     }

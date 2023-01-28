@@ -26,7 +26,7 @@ namespace STONKS.Forms
         //stores the logged user in static variable so it can be accessed in other files
         public static Korisnik logiraniKorisnik = null;
 
-      
+
         //checks the role of the user
         public static void CheckLogirani()
         {
@@ -49,7 +49,7 @@ namespace STONKS.Forms
         //path to desktop for any user because desktop is used to store captured image
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
-         
+
         //for camera
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice = null;
@@ -60,7 +60,7 @@ namespace STONKS.Forms
             string folderName = "preloaded_faces";
             string newFolder = Path.Combine(path, folderName);
 
-            if(!Directory.Exists(newFolder))
+            if (!Directory.Exists(newFolder))
             {
                 Directory.CreateDirectory(newFolder);
             }
@@ -212,16 +212,16 @@ namespace STONKS.Forms
             };
         }
 
-       /* private string GetPath(string value)
-        {
-            using (var context = new STONKS_DB())
-            {
-                var query = from e in context.Korisnici
-                            where e.slika.Contains(value)
-                            select e.slika;
-                return query.FirstOrDefault();
-            }
-        }*/
+        /* private string GetPath(string value)
+         {
+             using (var context = new STONKS_DB())
+             {
+                 var query = from e in context.Korisnici
+                             where e.slika.Contains(value)
+                             select e.slika;
+                 return query.FirstOrDefault();
+             }
+         }*/
 
 
 
@@ -279,6 +279,22 @@ namespace STONKS.Forms
             {
                 Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "prijava_pomocu_lica.html");
             }
+        }
+
+        private void FrmPrepoznavanjeLica_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            if (videoCaptureDevice != null)
+            {
+
+                if (videoCaptureDevice.IsRunning)
+                {
+                    videoCaptureDevice.SignalToStop();
+                    videoCaptureDevice = null;
+                }
+            }
+
+
         }
 
         //on load some buttons are disabled for better User interface so users should know what to do
