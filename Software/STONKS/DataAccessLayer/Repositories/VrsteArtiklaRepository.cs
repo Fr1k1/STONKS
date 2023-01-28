@@ -10,6 +10,8 @@ namespace DataAccessLayer.Repositories
     public class VrsteArtiklaRepository:Repository<VrstaArtikla>
     {
 
+        //Author : Martin Friščić (all code)
+
         public VrsteArtiklaRepository():base (new STONKS_DB()) 
         {
 

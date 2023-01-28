@@ -16,6 +16,9 @@ namespace STONKS.Forms
 {
     public partial class FrmUnosArtikla : Form
     {
+
+        //Author : Martin Friščić (all code except help)
+
         public FrmUnosArtikla()
         {
             InitializeComponent();
@@ -29,6 +32,8 @@ namespace STONKS.Forms
                 textBox.Text = "";
         }
 
+
+        //on form load all article types are loaded for the dropdown
         private void FrmUnosArtikla_Load(object sender, EventArgs e)
         {
             helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
@@ -36,6 +41,7 @@ namespace STONKS.Forms
             GetVrsteArtikla();
         }
 
+        //gets all article types for the dropdown
         private void GetVrsteArtikla()
         {
             var vrsteArtikla = services.GetVrsteArtikla();
@@ -44,6 +50,7 @@ namespace STONKS.Forms
 
         private void btnAddArtikl_Click(object sender, EventArgs e)
         {
+            //firstly it checks it TextBoxes are not empty and not equal to placeholder values
 
             if (txtCode.Text == "" || txtName.Text == "" || txtUnitPrice.Text == "" || txtPDV.Text == ""
                 || txtCode.Text == "SIFRA/BARKOD" || txtName.Text == "NAZIV" || txtUnitPrice.Text == "JEDINICNA CIJENA" || txtPDV.Text == "PDV"
@@ -53,12 +60,14 @@ namespace STONKS.Forms
                 return;
             }
 
-
+            //checks if the value is good (bigger than 0)
             if (double.Parse(txtUnitPrice.Text) < 0 || double.Parse(txtPDV.Text) < 0)
             {
                 MessageBox.Show("Cijena i PDV moraju biti pozitivni");
                 return;
             }
+
+            //tries to add an article
 
             var vrstaArtikla = cbArticleType.SelectedItem as VrstaArtikla;
             var artikl = new Artikl
@@ -72,6 +81,7 @@ namespace STONKS.Forms
             };
             foreach (var a in services.GetArtikli())
             {
+                //checks if barcode already exists in database because it has to be unique
                 if (long.Parse(txtCode.Text) == long.Parse(a.sifra))
                 {
                     MessageBox.Show("Artikl s ovim barkodom vec postoji!");
@@ -118,6 +128,7 @@ namespace STONKS.Forms
             SetText(txtPDV);
         }
 
+        //generates the barcode
         private void btnGenerateBarcode_Click(object sender, EventArgs e)
         {
             BarcodeWriter writer = new BarcodeWriter()
@@ -128,6 +139,7 @@ namespace STONKS.Forms
             pbBarcode.Image = writer.Write(txtCode.Text);
         }
 
+        //enables printing barcode on click
         private void btnPrintBarcode_Click(object sender, EventArgs e)
         {
             PrintDocument printDocument1 = new PrintDocument();

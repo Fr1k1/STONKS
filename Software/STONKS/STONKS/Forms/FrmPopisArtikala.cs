@@ -19,7 +19,13 @@ namespace STONKS.Forms
             InitializeComponent();
         }
 
+        //Author : Martin Friščić (all code except help)
+
+
         private ArtikliServices services = new ArtikliServices();
+
+        //because both admin user and normal user have access to this form
+        //when the Back button is pressed it checks the role of the logged user
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -43,6 +49,8 @@ namespace STONKS.Forms
 
         }
 
+        //loads the chart for article types and for each type if count is bigger than 0
+        //than it shows the article type on chart
         private void LoadanjeCharta()
         {
             var vrste = services.GetVrsteArtikla();
@@ -52,6 +60,7 @@ namespace STONKS.Forms
                     chartArticles.Series["Artikli po vrsti"].Points.AddXY(vrsta.naziv, services.GetArtikliPoVrsti(vrsta.naziv));
             }
         }
+
 
         private void DohvatiVrste()
         {
@@ -105,6 +114,8 @@ namespace STONKS.Forms
             SetText(txtPretraziArtikle);
         }
 
+
+        //on TextChanged event checks for the selected text and calls the function based on selection
         private void cbSort_TextChanged(object sender, EventArgs e)
         {
             if (cbSort.Text == "ABECEDNO")

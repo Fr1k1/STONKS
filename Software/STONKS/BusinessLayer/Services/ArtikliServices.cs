@@ -11,6 +11,9 @@ namespace BusinessLayer.Services
     public class ArtikliServices
     {
 
+        //Author : Martin Friščić
+
+
         public List<Artikl> GetArtikli()
         {
             using (var repo = new ArtikliRepository())
@@ -19,21 +22,30 @@ namespace BusinessLayer.Services
             }
         }
 
+        //Author : Martin Friščić
+
+
         public List<Artikl> GetArtikliAbecedno()
         {
             using (var repo = new ArtikliRepository())
             {
-                return repo.GetAbecedno().ToList();
+                return repo.GetAbecedno().ToList();     //calls the method and gets the articles ordered by name
             }
         }
+
+        //Author : Martin Friščić
+
 
         public List<Artikl> GetArtikliPoCijeni()
         {
             using (var repo = new ArtikliRepository())
             {
-                return repo.GetPoCijeni().ToList();
+                return repo.GetPoCijeni().ToList();  //calls the method and gets the articles ordered by price
             }
         }
+
+        //Author : Filip Milohanović
+
 
         public Artikl GetArtikl(string sifra)
         {
@@ -46,6 +58,9 @@ namespace BusinessLayer.Services
                     return null;
             }
         }
+
+        
+
 
         public Artikl GetArtikl(int id)
         {
@@ -61,6 +76,9 @@ namespace BusinessLayer.Services
 
 
 
+        //Author : Martin Friščić
+
+
         public List<VrstaArtikla> GetVrsteArtikla()
         {
             using (var repo = new VrsteArtiklaRepository())
@@ -69,6 +87,9 @@ namespace BusinessLayer.Services
                 return vrsteArtikla;
             }
         }
+
+        //Author : Martin Friščić
+
 
         public int GetArtikliPoVrsti(string name)
         {
@@ -81,6 +102,9 @@ namespace BusinessLayer.Services
                     return 0;
             }
         }
+
+        //Author : Martin Friščić
+
 
         public bool DodajArtikl(Artikl artikl)
         {
@@ -95,6 +119,9 @@ namespace BusinessLayer.Services
             return isSuccessful;
         }
 
+        //Author : Martin Friščić
+
+
         public List<Artikl> SearchArtikli(string name)
         {
             using (var repo = new ArtikliRepository())
@@ -102,6 +129,9 @@ namespace BusinessLayer.Services
                 return repo.GetByName(name).ToList();
             }
         }
+
+        //Author : Martin Friščić
+
 
         public List<Artikl> FilterByType(string name)
         {

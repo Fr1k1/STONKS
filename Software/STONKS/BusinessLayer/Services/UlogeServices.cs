@@ -5,6 +5,8 @@ using System.Linq;
 
 namespace BusinessLayer.Services
 {
+
+    //Author : Martin Friščić
     public class UlogeServices
     {
         public List<Uloga> GetUloge()

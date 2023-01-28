@@ -16,6 +16,8 @@ namespace DataAccessLayer.Repositories
 
         }
 
+        //Author : Martin Friščić (all code)
+
 
         public override IQueryable<Korisnik> GetAll()
         {
@@ -30,33 +32,35 @@ namespace DataAccessLayer.Repositories
             using (var context = new STONKS_DB())
             {
                 var query = from e in Entities.Include("Uloge")
-                            where e.slika.Contains(value)
+                            where e.slika.Contains(value)           //gets the picture that contains parameter value
                             select e.slika;
-                return query.FirstOrDefault();
+                return query.FirstOrDefault();          //returns the first value in the sequence
             }
         }
 
 
-
+        //gets the user for provided username and password
         public IQueryable<Korisnik> Get(string username, string password)
         {
             var query = from e in Entities.Include("Uloge")
-                        where e.korime == username && e.lozinka == password
+                        where e.korime == username && e.lozinka == password 
                         select e;
 
             return query;
         }
 
 
-
+        //gets the role for user with provided username and password
         public IQueryable<string> GetUloga(string username, string password)
         {
             var query = from e in Entities.Include("Uloge")
-                        where e.korime == username && e.lozinka == password
+                        where e.korime == username && e.lozinka == password  
                         select e.Uloge.naziv;
 
             return query;
         }
+
+        //gets the picture for user with provided username and password
 
         public IQueryable<string> GetSlika(string username, string password)
         {
@@ -95,43 +99,7 @@ namespace DataAccessLayer.Repositories
             else return 0;
         }
 
-        /* public IQueryable<Korisnik> GetKorisnik(Korisnik korisnik)
-         {
-             var query=from e in Entities.Include("Uloga")
-                       where korisnik.
-                       select e
-         }*/
-
-
-
-
-
-        /*public override int Add(Artikl entity, bool save = true)
-        {
-            var vrstaArtikla = Context.VrsteArtikla.SingleOrDefault(v => v.id == entity.vrsta_artikla_id);
-
-            var artikl = new Artikl
-            {
-                VrsteArtikla = vrstaArtikla,
-                naziv = entity.naziv,
-                sifra = entity.sifra,
-                jed_cijena = entity.jed_cijena,
-                pdv = entity.pdv,
-                vrsta_artikla_id = entity.vrsta_artikla_id,
-                barkod = entity.barkod,
-
-            };
-
-            Entities.Add(artikl);
-
-            if (save)
-            {
-                return SaveChanges();
-            }
-
-            else return 0;
-
-        }*/
+        
 
         public override int Update(Korisnik entity, bool save = true)
         {

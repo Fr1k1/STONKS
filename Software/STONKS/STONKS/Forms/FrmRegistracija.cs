@@ -16,6 +16,10 @@ namespace STONKS.Forms
     public partial class FrmRegistracija : Form
     {
 
+        //Author : Martin Friščić (all code except help)
+
+        //variables for camera and gets the path to desktop
+
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice captureDevice = null;
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -39,6 +43,9 @@ namespace STONKS.Forms
             Close();
         }
 
+
+        //on load some buttons are disabled for better user experience
+        //roles are also loaded so user can choose what role will the new user be
         private void FrmRegistracija_Load(object sender, EventArgs e)
         {
             helpProvider1.HelpNamespace = System.Windows.Forms.Application.StartupPath + "\\UserManual.chm";
@@ -60,18 +67,26 @@ namespace STONKS.Forms
             cbRole.DataSource = uloge;
         }
 
+
+        //first it validates inputs and then tries to register the user
         private void btnRegister_Click(object sender, EventArgs e)
         {
+
+            //checks if TextBoxes are not empty or equal to placeholder values
             if (txtOIB.Text == "" || txtName.Text == "" || txtPassword.Text == "" || txtSurname.Text == "" || txtUsername.Text == "")
             {
                 MessageBox.Show("Popunite sva polja!");
                 return;
             }
+
+            //OIB length has to be 11!
             if (txtOIB.Text.Length != 11)
             {
                 MessageBox.Show("OIB ima 11 znakova!!");
                 return;
             }
+
+            //checks if the username is unique
 
             foreach (var kor in korisniciServices.GetKorisnici())
             {
@@ -80,6 +95,8 @@ namespace STONKS.Forms
                     MessageBox.Show("Korisnik s tim korisnickim imenom vec postoji!");
                     return;
                 }
+
+                //checks if the OIB is unique
 
                 if (txtOIB.Text == kor.OIB)
                 {
@@ -90,6 +107,8 @@ namespace STONKS.Forms
             RegisterUser();
         }
 
+
+        //adds the user to database, adds path to his picture
         private void RegisterUser()
         {
             Uloga uloga = cbRole.SelectedItem as Uloga;
@@ -138,6 +157,8 @@ namespace STONKS.Forms
             SetText(txtPassword);
         }
 
+        //code for camera is the same as on FrmPrepoznavanjeLica and it is explained there
+
         private void btnUkljuciKameru_new_Click(object sender, EventArgs e)
         {
             captureDevice = new VideoCaptureDevice(filterInfoCollection[cbCameraName_new.SelectedIndex].MonikerString);
@@ -165,6 +186,9 @@ namespace STONKS.Forms
             btnSave_new.Enabled = true;
         }
 
+
+        //before registratrion button is enabled, admin has to save the picture for the new user
+        //picture saves in folder preloaded_faces on desktop with the name of new user 
         private void btnSave_new_Click(object sender, EventArgs e)
         {
             pbSlikaZaSpremiti_new.SizeMode = PictureBoxSizeMode.StretchImage;

@@ -11,7 +11,8 @@ namespace BusinessLayer.Services
     public class KorisniciServices
     {
 
-        
+
+        //Author : Martin Friščić (all code)
 
         public List<Korisnik> GetKorisnici()
         {
@@ -25,7 +26,7 @@ namespace BusinessLayer.Services
         {
             using (var repo = new KorisniciRepository())
             {
-                return repo.GetUloga(username, password).ToList();
+                return repo.GetUloga(username, password).ToList(); //gets the role for the user with provided username and password
             }
         }
 
@@ -50,7 +51,7 @@ namespace BusinessLayer.Services
         {
             using (var repo = new KorisniciRepository())
             {
-                return repo.Get(username, password).FirstOrDefault();
+                return repo.Get(username, password).FirstOrDefault();       //gets the user that is logged in
             }
         }
 
@@ -71,7 +72,7 @@ namespace BusinessLayer.Services
         {
             using (var repo = new KorisniciRepository())
             {
-                return repo.GetPath(path);
+                return repo.GetPath(path);      //returns the path of a picture from database
             }
         }
 

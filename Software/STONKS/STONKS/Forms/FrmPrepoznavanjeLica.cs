@@ -19,10 +19,15 @@ namespace STONKS.Forms
 {
     public partial class FrmPrepoznavanjeLica : Form
     {
+
+        //Author : Martin Friščić (all code)
+
+
+        //stores the logged user in static variable so it can be accessed in other files
         public static Korisnik logiraniKorisnik = null;
 
       
-
+        //checks the role of the user
         public static void CheckLogirani()
         {
             if (logiraniKorisnik.uloga_id == 1)
@@ -40,12 +45,16 @@ namespace STONKS.Forms
         private KorisniciServices services = new KorisniciServices();
 
         string file1, file2 = "";
+
+        //path to desktop for any user because desktop is used to store captured image
         string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop).Replace(@"\", @"\\");
          
-
+        //for camera
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice videoCaptureDevice = null;
+
+        //if the directory preloaded_faces doesn't exist on user desktop than it creates it so pictures can be stored
         public FrmPrepoznavanjeLica()
         {
             string folderName = "preloaded_faces";
@@ -58,6 +67,8 @@ namespace STONKS.Forms
             InitializeComponent();
         }
 
+
+        //makes the bitmap needed for facial recognition from file captured_pic on desktop
         private void btnPic2_new_Click(object sender, EventArgs e)
         {
             Bitmap bPic2 = new Bitmap(System.Drawing.Image.FromFile(path + "\\captured_pic.jpg"));
@@ -65,6 +76,7 @@ namespace STONKS.Forms
             pbPic2_new.Image = bPic2;
 
             file2 = path + "\\captured_pic.jpg";
+            //if both pictures are loaded
             if (pbPic1_new.Image != null && pbPic2_new.Image != null)
             {
                 btnCompare_new.Enabled = true;
@@ -75,6 +87,7 @@ namespace STONKS.Forms
         {
             try
             {
+                //first it has to load the models that are crucial for comparison and recognition
                 string currentDirectory = Environment.CurrentDirectory + "\\models";
                 FaceRecognition fr;
                 fr = FaceRecognition.Create(currentDirectory);
@@ -83,6 +96,9 @@ namespace STONKS.Forms
                 var compare1 = fr.FaceEncodings(pic1).First();
                 var pic2 = FaceRecognition.LoadImageFile(file2);
                 var compare2 = fr.FaceEncodings(pic2).First();
+
+                //compares pictures and if it is a success than it stores the user in variable
+                //and chooses which form to load based on role
 
                 if (FaceRecognition.CompareFace(compare1, compare2))
                 {
@@ -106,6 +122,7 @@ namespace STONKS.Forms
                 }
                 else
                 {
+                    //in case that face recognition fails it opens a login form with username and pass authentification
                     MessageBox.Show("Neuspješna prijava licem");
                     Hide();
                     FrmLogin frmLogin = new FrmLogin();
@@ -115,6 +132,7 @@ namespace STONKS.Forms
             }
             catch
             {
+                //for any other exception throws an error and opens a login form with username and pass authentification
                 MessageBox.Show("Ups, nesto s dretvama je poslo u krivu");
                 Hide();
                 FrmLogin frmLogin = new FrmLogin();
@@ -124,10 +142,13 @@ namespace STONKS.Forms
             }
         }
 
+
+        //turns the camera on
+        //capture device is equal to selected camera in dropdown
         private void btnUkljuciKameru_new_Click(object sender, EventArgs e)
         {
             videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cbCameraName_new.SelectedIndex].MonikerString);
-            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame; //subsription
             videoCaptureDevice.Start();
         }
 
@@ -137,6 +158,8 @@ namespace STONKS.Forms
             pbCamera_new.Image = (Bitmap)eventArgs.Frame.Clone();
         }
 
+
+        //checks if the camera is on and if it is it stops the camera so I can get picture
         private void btnTakePicture_new_Click(object sender, EventArgs e)
         {
             if (!(videoCaptureDevice == null))
@@ -159,7 +182,9 @@ namespace STONKS.Forms
             return Path.Combine(path1 + @"\", path2);
         }
 
-
+        //loads the picture from folder preloaded_faces on desktop by using the info from database
+        //I tried many attempts to do this with database primarily but it has many problems
+        //with type conversion, waiting for picture to download etc.
         private void btnPic1_new_Click(object sender, EventArgs e)
         {
             Korisnik kor = cbAllUsers.SelectedItem as Korisnik;
@@ -169,7 +194,7 @@ namespace STONKS.Forms
             {
                 Bitmap bPic1 = new Bitmap(System.Drawing.Image.FromFile(PathCombine(desktop + "\\", path)));
 
-
+                //stretches the image and it makes picture dataSource bPic1 (bitmap from picture)
                 pbPic1_new.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbPic1_new.Image = bPic1;
 
@@ -177,6 +202,7 @@ namespace STONKS.Forms
             }
             catch
             {
+                //if the picture isn't present on the PC, than write a message
                 MessageBox.Show("Slika ovog korisnika ne nalazi se na ovom računalu!");
                 FrmLogin frmLogin = new FrmLogin();
                 Hide();
@@ -197,6 +223,8 @@ namespace STONKS.Forms
             }
         }*/
 
+
+
         private void btnUkljuciKameru_new_Click_1(object sender, EventArgs e)
         {
             videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cbCameraName_new.SelectedIndex].MonikerString);
@@ -205,6 +233,8 @@ namespace STONKS.Forms
             btnTakePicture_new.Enabled = true;
         }
 
+
+        //saves the image captured_pic with saveDialog
         private void btnSave_new_Click_1(object sender, EventArgs e)
         {
             pbSlikaZaSpremiti_new.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -225,6 +255,8 @@ namespace STONKS.Forms
             }
         }
 
+
+        //takes the picture
         private void btnTakePicture_new_Click_1(object sender, EventArgs e)
         {
             if (!(videoCaptureDevice == null))
@@ -249,6 +281,8 @@ namespace STONKS.Forms
             }
         }
 
+        //on load some buttons are disabled for better User interface so users should know what to do
+
         private void FrmFaceRecNewApproach_Load(object sender, EventArgs e)
         {
             helpProvider1.HelpNamespace = Application.StartupPath + "\\UserManual.chm";
@@ -261,7 +295,7 @@ namespace STONKS.Forms
                 cbCameraName_new.Items.Add(filterinfo.Name);
             cbCameraName_new.SelectedIndex = 0;
             videoCaptureDevice = new VideoCaptureDevice();
-
+            //fills the combo box with usernames of users
             cbAllUsers.DataSource = services.GetKorisnici();
         }
     }

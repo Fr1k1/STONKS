@@ -14,6 +14,9 @@ using System.Windows.Forms;
 namespace STONKS
 {
 
+    //Author : Martin Friščić (all code except help)
+
+
     public partial class FrmLogin : Form
     {
 
@@ -28,6 +31,8 @@ namespace STONKS
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
+
+            //checks if any TextBox is empty or equal to placeholder value
             if (txtUsername.Text == "" || txtUsername.Text == "Korisnicko ime" || txtPassword.Text == "" || txtPassword.Text == "Lozinka")
             {
                 MessageBox.Show("Popunite sva polja!");
@@ -35,13 +40,14 @@ namespace STONKS
             }
             try
             {
-                var korisnik = services.GetLoggedKorisnik(txtUsername.Text, txtPassword.Text);
+                var korisnik = services.GetLoggedKorisnik(txtUsername.Text, txtPassword.Text); //gets logged user
                 FrmPrepoznavanjeLica.logiraniKorisnik = korisnik;
-                LoginUser(txtUsername.Text, txtPassword.Text);
+                LoginUser(txtUsername.Text, txtPassword.Text); //logs the user
             }
 
             catch (Exception exc)
             {
+                //if the provided data is wrong shows the message
                 MessageBox.Show("Krivi korisnički podaci!");
             }
         }
@@ -49,6 +55,7 @@ namespace STONKS
         private string GetUloga(string korime, string lozinka)
         {
             var uloga = services.GetUloga(korime, lozinka);
+            //returns the role for the user with provided username and password
             return uloga[0];
         }
 
@@ -56,9 +63,12 @@ namespace STONKS
 
         private void LoginUser(string korime, string lozinka)
         {
+            
             var korisnik = services.GetKorisnik(korime, lozinka);
+            //if login is sucessfull
             if (korisnik)
             {
+                //if the loged user role is equal to voditelj
                 if (GetUloga(txtUsername.Text, txtPassword.Text) == "voditelj")
                 {
                     Hide();
@@ -77,6 +87,8 @@ namespace STONKS
             else MessageBox.Show("Krivi korisnicki podaci");
         }
 
+
+        //it sets the value of textBox to empty to remove the placeholder
         private void SetText(TextBox textBox)
         {
             if (textBox.Text != "")
