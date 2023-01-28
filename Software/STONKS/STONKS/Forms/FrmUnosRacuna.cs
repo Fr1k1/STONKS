@@ -250,11 +250,15 @@ namespace STONKS.Forms
 
         private bool ProvjeriPodatke()
         {
+            if(listaStavkiURacunu.Count == 0)
+            {
+                return false;
+            }
             foreach (DataGridViewRow row in dgvArtikli.Rows)
             {
                 if (!row.IsNewRow)
                 {
-                    if ((int)row.Cells["kolcina"].Value < 0 || (double)row.Cells["popust"].Value < 0 || row.Cells["Artikli"].Value == null)
+                    if ((int)row.Cells["kolcina"].Value <= 0 || (double)row.Cells["popust"].Value < 0 || row.Cells["Artikli"].Value == null)
                         return false;
                 }
             }
@@ -270,5 +274,7 @@ namespace STONKS.Forms
                 Help.ShowHelp(this, helpProvider1.HelpNamespace, HelpNavigator.Topic, "unosracuna.html");
             }
         }
+
+  
     }
 }

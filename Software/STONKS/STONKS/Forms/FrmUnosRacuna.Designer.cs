@@ -150,7 +150,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.label4.Location = new System.Drawing.Point(345, 388);
+            this.label4.Location = new System.Drawing.Point(309, 388);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 19);
             this.label4.TabIndex = 21;
@@ -161,7 +161,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Azonix", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.label5.Location = new System.Drawing.Point(499, 388);
+            this.label5.Location = new System.Drawing.Point(489, 388);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(163, 19);
             this.label5.TabIndex = 22;
@@ -173,10 +173,10 @@
             this.txtPopust.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPopust.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPopust.ForeColor = System.Drawing.Color.White;
-            this.txtPopust.Location = new System.Drawing.Point(438, 388);
+            this.txtPopust.Location = new System.Drawing.Point(401, 388);
             this.txtPopust.Multiline = true;
             this.txtPopust.Name = "txtPopust";
-            this.txtPopust.Size = new System.Drawing.Size(66, 31);
+            this.txtPopust.Size = new System.Drawing.Size(92, 31);
             this.txtPopust.TabIndex = 23;
             this.txtPopust.Text = "0";
             this.txtPopust.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -187,11 +187,11 @@
             this.txtUkupno.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUkupno.Font = new System.Drawing.Font("Azonix", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUkupno.ForeColor = System.Drawing.Color.White;
-            this.txtUkupno.Location = new System.Drawing.Point(658, 388);
+            this.txtUkupno.Location = new System.Drawing.Point(646, 388);
             this.txtUkupno.Multiline = true;
             this.txtUkupno.Name = "txtUkupno";
             this.txtUkupno.ReadOnly = true;
-            this.txtUkupno.Size = new System.Drawing.Size(103, 31);
+            this.txtUkupno.Size = new System.Drawing.Size(115, 31);
             this.txtUkupno.TabIndex = 24;
             this.txtUkupno.Text = "0";
             this.txtUkupno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
