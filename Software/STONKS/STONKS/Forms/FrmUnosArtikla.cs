@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
@@ -64,6 +65,11 @@ namespace STONKS.Forms
             if (double.Parse(txtUnitPrice.Text) < 0 || double.Parse(txtPDV.Text) < 0)
             {
                 MessageBox.Show("Cijena i PDV moraju biti pozitivni");
+                return;
+            }
+
+            if(!Regex.IsMatch(txtCode.Text, @"^[0-9]*$")) {
+                MessageBox.Show("Barkod se sastoji samo od brojeva!");
                 return;
             }
 
