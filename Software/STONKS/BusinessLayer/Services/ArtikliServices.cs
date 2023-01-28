@@ -59,8 +59,8 @@ namespace BusinessLayer.Services
             }
         }
 
-        
 
+        //Author : Ana Škarica
 
         public Artikl GetArtikl(int id)
         {
@@ -153,6 +153,7 @@ namespace BusinessLayer.Services
             }
         }
 
+        //Author : Ana Škarica
         public double GetPDV(int id)
         {
             double pdv = GetArtikl(id).pdv;

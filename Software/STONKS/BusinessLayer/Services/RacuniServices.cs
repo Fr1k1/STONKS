@@ -11,6 +11,7 @@ namespace BusinessLayer.Services
 {
     public class RacuniServices
     {
+        //Author : Ana Škarica 
         public List<Racun> GetRacuni()
         {
             using (var repo = new RacuniRepository())
@@ -19,12 +20,7 @@ namespace BusinessLayer.Services
             }
         }
 
-        /*
-        public int GetIdForNewRacun()
-        {
-            return GetRacuni().Count + 1;
-        }*/
-
+        //Author : Ana Škarica 
         public List<Racun> GetRacuniByDate(DateTime date)
         {
             using (var repo = new RacuniRepository())
@@ -33,6 +29,7 @@ namespace BusinessLayer.Services
             }
         }
 
+        //Author : Ana Škarica 
         public List<Racun> GetRacuniFilter(int id)
         {
             using (var repo = new RacuniRepository())
@@ -41,6 +38,7 @@ namespace BusinessLayer.Services
             }
         }
 
+        //Author : Ana Škarica 
         public int GetRacuniByNacinPlacanja(int id)
         {
             using (var repo = new RacuniRepository())
@@ -48,17 +46,8 @@ namespace BusinessLayer.Services
                 return repo.GetByNacinPlacanja(id).ToList().Count();
             }
         }
-        /*
-        public int AddRacun(Racun racun)
-        {
-            int id;
-            using (var repo = new RacuniRepository())
-            {
-                id = repo.AddNew(racun);
-            } 
-            return id;
-        }*/
 
+        //Author : Ana Škarica 
         public bool AddRacun(Racun racun, List<StavkaRacuna> stavke)
         {
             using (var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.RepeatableRead }))
@@ -67,15 +56,13 @@ namespace BusinessLayer.Services
                 stavke.ForEach(s => artikli.Add(s.Artikli));
                 try
                 {
-                    int racunId = 0; // pocetni id racuna
+                    int racunId = 0;
                     using (var repo = new RacuniRepository())
                     {
                         racunId = repo.Add(racun);
-                        Console.WriteLine("ID NOVOG RACUNA = " + racunId); // ovo ionak ne radi kak treba
                     }
                     if(racunId > 0)
                     {
-                        // dodaj racun u bazu - prvo u stavke
                         using (var repo = new StavkeRepository())
                         {
                             foreach (var stavka in stavke)
@@ -86,8 +73,6 @@ namespace BusinessLayer.Services
                             }
                             repo.SaveChanges();
                         }
-
-                        // TODO updateaj stanje skladista
 
                         transaction.Complete();
                         return true;
@@ -103,6 +88,7 @@ namespace BusinessLayer.Services
             }
         }
 
+        //Author : Filip Milohanović
         public bool AddInverse(Racun racun, List<StavkaRacuna> stavke)
         {
 

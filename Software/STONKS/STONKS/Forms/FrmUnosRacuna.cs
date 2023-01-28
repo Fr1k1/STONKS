@@ -16,6 +16,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace STONKS.Forms
 {
+    //Author : Ana Škarica 
     public partial class FrmUnosRacuna : Form
     {
         static public BindingList<StavkaRacuna> listaStavkiURacunu = new BindingList<StavkaRacuna>();

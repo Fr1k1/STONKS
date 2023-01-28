@@ -10,11 +10,13 @@ namespace DataAccessLayer.Repositories
 {
     public class RacuniRepository : Repository<Racun>
     {
+        //Author : Ana Škarica 
         public RacuniRepository() : base(new STONKS_DB())
         {
 
         }
 
+        //Author : Ana Škarica 
         public override IQueryable<Racun> GetAll()
         {
             var query = from e in Entities.Include("Korisnici").Include("NaciniPlacanja").Include("StavkeRacuna")
@@ -23,6 +25,7 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        //Author : Ana Škarica 
         public override IQueryable<Racun> GetByNacinPlacanja(int id)
         {
             var query = from e in Entities.Include("Korisnici").Include("NaciniPlacanja").Include("StavkeRacuna")
@@ -32,6 +35,7 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        //Author : Filip Milohanović
         public IQueryable<Racun> GetByDate(DateTime date)
         {
             Console.WriteLine(date.Date.ToString());
@@ -42,6 +46,7 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        //Author : Ana Škarica 
         public override int AddNew(Racun entity, bool save = true)
         {
             var racun = new Racun
@@ -59,11 +64,11 @@ namespace DataAccessLayer.Repositories
             return racun.id;
         }
 
+        //Author : Ana Škarica 
         public override int Add(Racun entity, bool save = true)
         {
             Entities.Attach(entity);
             var record = Entities.Add(entity);
-            //Console.WriteLine(entity.id + " RECORD ID = " + record.id);
             if (save)
             {
                 if (SaveChanges() > 0)
@@ -78,6 +83,7 @@ namespace DataAccessLayer.Repositories
             else return 0;
         }
 
+        //Author : Ana Škarica 
         public override int Update(Racun entity, bool save = true)
         {
             throw new NotImplementedException();

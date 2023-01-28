@@ -13,6 +13,7 @@ using System.Windows.Forms;
 
 namespace STONKS.Forms
 {
+    //Author : Ana Škarica 
     public partial class FrmOdaberiArtiklZaDodatiRucno : Form
     {
         private ArtikliServices artikliServices = new ArtikliServices();

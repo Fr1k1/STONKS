@@ -9,6 +9,7 @@ namespace DataAccessLayer.Repositories
 {
     public class NacinPlacanjaRepository : Repository<NacinPlacanja>
     {
+        //Author : Ana Škarica (all code)
         public NacinPlacanjaRepository() : base(new STONKS_DB())
         {
 

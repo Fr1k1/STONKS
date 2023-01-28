@@ -10,6 +10,7 @@ namespace BusinessLayer.Services
 {
     public class NaciniPlacanjaServices
     {
+        //Author : Ana Škarica
         public List<NacinPlacanja> GetNaciniPlacanja()
         {
             using (var repo = new NacinPlacanjaRepository())

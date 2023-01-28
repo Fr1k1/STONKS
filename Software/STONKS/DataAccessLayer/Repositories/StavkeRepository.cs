@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
+    //Author : Ana Škarica 
     public class StavkeRepository : Repository<StavkaRacuna>
     {
 

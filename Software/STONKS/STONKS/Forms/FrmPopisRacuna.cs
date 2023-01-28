@@ -17,6 +17,7 @@ using Font = iTextSharp.text.Font;
 
 namespace STONKS.Forms
 {
+    //Author : Ana Škarica 
     public partial class FrmPopisRacuna : Form
     {
         public FrmPopisRacuna()

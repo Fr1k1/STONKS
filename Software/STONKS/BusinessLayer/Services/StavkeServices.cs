@@ -18,6 +18,7 @@ namespace BusinessLayer.Services
             }
         }
 
+        /*
         public bool AddStavke(int artiklId, int racunId, int kolicina)
         {
             bool isSuccessful = false;
@@ -36,7 +37,7 @@ namespace BusinessLayer.Services
 
             return isSuccessful;
         }
-
+        */
         
     }
 }
