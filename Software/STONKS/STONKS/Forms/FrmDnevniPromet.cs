@@ -171,6 +171,7 @@ namespace STONKS.Forms
             {
                 MessageBox.Show("Promez Z izrađen", "Uspijeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CheckIfTraficReportHasBeenSubmited();
+                btnIzradaZ.Enabled = false;
             }
             else
                 MessageBox.Show("Došlo je do greške", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);

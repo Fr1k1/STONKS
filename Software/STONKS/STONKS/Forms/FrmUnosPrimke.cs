@@ -170,7 +170,7 @@ namespace STONKS.Forms
             {
                 if (!row.IsNewRow)
                 {
-                    if ((int)row.Cells["kolicina"].Value == 0 || (double)row.Cells["nabavna_cijena"].Value == 0 || row.Cells["Artikli"].Value == null || (double)row.Cells["rabat"].Value < 0 || (double)row.Cells["rabat"].Value > 100) 
+                    if ((int)row.Cells["kolicina"].Value <= 0 || (double)row.Cells["nabavna_cijena"].Value <= 0 || row.Cells["Artikli"].Value == null || (double)row.Cells["rabat"].Value < 0 || (double)row.Cells["rabat"].Value > 100) 
                         return false;
                 }
             }               
