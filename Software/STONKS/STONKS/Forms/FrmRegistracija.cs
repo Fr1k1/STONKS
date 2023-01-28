@@ -8,8 +8,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 namespace STONKS.Forms
 {
@@ -91,6 +93,12 @@ namespace STONKS.Forms
             if (txtOIB.Text.Length != 11)
             {
                 MessageBox.Show("OIB ima 11 znakova!!");
+                return;
+            }
+
+            if (!Regex.IsMatch(txtOIB.Text, @"^[0-9]*$"))
+            {
+                MessageBox.Show("OIB ima samo brojeve!");
                 return;
             }
 
