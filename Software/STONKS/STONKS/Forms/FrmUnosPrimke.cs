@@ -164,6 +164,8 @@ namespace STONKS.Forms
         //function that check validity of data in each row
         private bool ValidatePrimka()
         {
+            if (stavkePrimke.Count == 0)
+                return false;
             foreach (DataGridViewRow row in dgvStavkePrimke.Rows)
             {
                 if (!row.IsNewRow)
