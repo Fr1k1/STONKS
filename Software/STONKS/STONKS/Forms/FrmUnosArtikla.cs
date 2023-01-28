@@ -61,6 +61,12 @@ namespace STONKS.Forms
                 return;
             }
 
+            if(!double.TryParse(txtPDV.Text,out double converted) || !double.TryParse(txtUnitPrice.Text, out double converted2))
+            {
+                MessageBox.Show("PDV ili jedinična cijena nisu u ispravnom formatu!");
+                return;
+            }
+
             //checks if the value is good (bigger than 0)
             if (double.Parse(txtUnitPrice.Text) < 0 || double.Parse(txtPDV.Text) < 0)
             {
