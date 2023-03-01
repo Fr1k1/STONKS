@@ -10,6 +10,8 @@ Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra
 
 https://drive.google.com/file/d/13aoFGcPRaKiJIIHuqjvnR9d5AhfHIhH9/view
 
+# Dokumentacija dostupna u wikiju repozitorija!!
+
 
 
 <p align="center">
