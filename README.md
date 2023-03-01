@@ -6,6 +6,12 @@ Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra
 # Naziv projekta
 <h2>STONKS - Super tehnologija optimalno naprednih kasa Stonks</h2>
 
+## Link za instalaciju softvera
+
+https://drive.google.com/file/d/13aoFGcPRaKiJIIHuqjvnR9d5AhfHIhH9/view
+
+
+
 <p align="center">
 <img src="https://i.ytimg.com/vi/if-2M3K1tqk/maxresdefault.jpg" height="400px" width="600px"  > </img>
 </p>
@@ -48,4 +54,24 @@ ALATI:
 <li> Microsoft SSMS</li>
 <li>.NET Framework</li>
 </ul>
+
+## Neke slike zaslona
+
+<p align="center"> 
+
+<img src="https://github.com/Fr1k1/STONKS/blob/master/MainMenu.png">
+
+<img src="https://github.com/Fr1k1/STONKS/blob/master/Login.png">
+
+<img src="https://github.com/Fr1k1/STONKS/blob/master/FaceRec.png">
+
+<img src="https://github.com/Fr1k1/STONKS/blob/master/PopisRacuna.png">
+
+<img src="https://github.com/Fr1k1/STONKS/blob/master/RacunExample.png">
+
+<img src="https://github.com/Fr1k1/STONKS/blob/master/UnosArtikla.png">
+
+</p>
+
+
 
