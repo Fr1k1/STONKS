@@ -10,6 +10,10 @@ Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra
 
 https://drive.google.com/file/d/13aoFGcPRaKiJIIHuqjvnR9d5AhfHIhH9/view
 
+## Video prikaz rada aplikacije
+
+[![Watch the video](https://img.youtube.com/vi/zolUT7hhwVY/maxresdefault.jpg)](https://www.youtube.com/watch?v=zolUT7hhwVY)
+
 # Dokumentacija dostupna u wikiju repozitorija!!
 
 
